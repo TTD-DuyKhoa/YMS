@@ -50,10 +50,8 @@
       <HintPath>C:\Program Files\Autodesk\Revit 2023\RevitAPIUI.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="RevitUtil, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\RevitUtil\bin\Release\RevitUtil.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="RevitUtil">
+      <HintPath>..\..\UtilDLL\RevitUtil.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -62,12 +60,12 @@
     <Reference Include="System.Xml" />
     <Reference Include="YMS, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\YMS\bin\Release\YMS.dll</HintPath>
+      <HintPath>..\YMS\bin\Debug\YMS.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="YMS_gantry, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\YMS_gantry\bin\Release\YMS_gantry.dll</HintPath>
+      <HintPath>..\YMS_gantry\bin\Debug\YMS_gantry.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

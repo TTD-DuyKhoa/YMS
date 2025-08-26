@@ -1,4 +1,4 @@
-#region Namespaces
+ï»¿#region Namespaces
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Events;
@@ -107,8 +107,8 @@ namespace YMS
                 {
                     transaction.Start();
 
-                    // •Ç‚Ì’†“_‚ğ’†SAZ²‚ğ–@ü‚Æ‚·‚é‰~‚ğƒ‚ƒfƒ‹ü•ª‚Åì¬‚µA
-                    // Id ‚ğ•Ç‚ÌŠg’£ƒXƒgƒŒ[ƒW‚É•Û‘¶‚·‚é
+                    // å£ã®ä¸­ç‚¹ã‚’ä¸­å¿ƒã€Zè»¸ã‚’æ³•ç·šã¨ã™ã‚‹å††ã‚’ãƒ¢ãƒ‡ãƒ«ç·šåˆ†ã§ä½œæˆã—ã€
+                    // Id ã‚’å£ã®æ‹¡å¼µã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ã«ä¿å­˜ã™ã‚‹
                     //var (plane, line) = CreateLine(pickedWall);
                     //var sketchPlane = SketchPlane.Create(doc, plane);
                     ////var modelLine = doc.Create.NewModelCurve(line, sketchPlane);
@@ -116,7 +116,7 @@ namespace YMS
                     //Curve cvShin = (picLine.Location as LocationCurve).Curve;
                     //var modelLine = doc.Create.NewModelCurve(cvShin, sketchPlane);
 
-                    // Šg’£ƒXƒgƒŒ[ƒW‚É•R‚Ã‚¯î•ñ‚ğ•Û‘¶
+                    // æ‹¡å¼µã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ã«ç´ã¥ã‘æƒ…å ±ã‚’ä¿å­˜
                     // https://help.autodesk.com/view/RVT/2022/ENU/?guid=Revit_API_Revit_API_Developers_Guide_Advanced_Topics_Storing_Data_in_the_Revit_model_Extensible_Storage_html
                     // https://qiita.com/fallaf/items/0422cee4d38fd9993816
                     using (var schema = CreateSchema())
@@ -126,7 +126,7 @@ namespace YMS
                             // set the value for this entity
                             entity.Set<ElementId>(FieldName, picLine.Id);
                             pickedWall.SetEntity(entity); // store the entity in the element
-                            //‰¼c‚É‚àî•ñ‚ğ•Û‚³‚¹‚é
+                            //ä»®èŠ¯ã«ã‚‚æƒ…å ±ã‚’ä¿æŒã•ã›ã‚‹
                             entity.Set<ElementId>(FieldName, pickedWall.Id);
                             picLine.SetEntity(entity);
                         }
@@ -179,7 +179,7 @@ namespace YMS
 
             using (var schemaBuilder = new SchemaBuilder(SchemaId))
             {
-                //Public‚É‚µ‚È‚¢‚ÆAutodesk.Revit.Exceptions InvalidOperationException”­¶
+                //Publicã«ã—ãªã„ã¨Autodesk.Revit.Exceptions InvalidOperationExceptionç™ºç”Ÿ
                 schemaBuilder.SetReadAccessLevel(AccessLevel.Public); // allow anyone to read the object
                 schemaBuilder.SetWriteAccessLevel(AccessLevel.Public); // restrict writing to this vendor only
                 schemaBuilder.SetVendorId(VendorId); // required because of restricted write-access
@@ -274,7 +274,7 @@ namespace YMS
                 UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                ElementId id = uidoc.Selection.PickObject(ObjectType.Element, "ƒx[ƒX‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢").ElementId;
+                ElementId id = uidoc.Selection.PickObject(ObjectType.Element, "ãƒ™ãƒ¼ã‚¹ã‚’é¸æŠã—ã¦ãã ã•ã„").ElementId;
                 ClsYMSUtil.CreateBaseElevationView(doc, id);
                 ClsYMSUtil.ChangeView(uidoc, "TEST");
             }
@@ -306,25 +306,25 @@ namespace YMS
                 //ClsJosn.CreateKabe(doc);
                 ClsJosn.CreateTanakui(doc);
 
-                //TaskDialog.Show("ŒÂ•Ê”z’uƒ}ƒXƒ^ì¬ŠJn", "");
+                //TaskDialog.Show("å€‹åˆ¥é…ç½®ãƒã‚¹ã‚¿ä½œæˆé–‹å§‹", "");
 
                 //ClsTest stt = new ClsTest();
 
                 //stt.CommandTest_Kurane2(uiapp);
 
                 //TEST1
-                //ElementId id = uidoc.Selection.PickObject(ObjectType.Element, "ƒx[ƒX‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢").ElementId;
+                //ElementId id = uidoc.Selection.PickObject(ObjectType.Element, "ãƒ™ãƒ¼ã‚¹ã‚’é¸æŠã—ã¦ãã ã•ã„").ElementId;
                 //List<ElementId> ids = new List<ElementId>();
                 //ids.Add(id);
                 //uidoc.Selection.SetElementIds(ids);
-                //// Revit‚Ìƒ[ƒNƒZƒbƒgƒ_ƒCƒAƒƒO‚ğ•\¦‚·‚é‚½‚ß‚ÌƒRƒ}ƒ“ƒhID‚ğæ“¾
-                //RevitCommandId cmdId = RevitCommandId.LookupPostableCommandId(PostableCommand.SetWorkPlane);//PostableCommand.SetWorkPlane‚±‚ê‚Í}–Êã‚Ìì‹ÆƒŒƒxƒ‹‚ğİ’è‚·‚é‚Ì‚Å‚ ‚Á‚Äƒtƒ@ƒ~ƒŠ‚Ìì‹Æ–Ê•ÒW‚É‚Í‘Î‰‚µ‚Ä‚¢‚È‚¢
-                ////RevitCommandId cmdId = RevitCommandId.LookupCommandId("ì‹Æ–Ê‚ğ•ÒW");
+                //// Revitã®ãƒ¯ãƒ¼ã‚¯ã‚»ãƒƒãƒˆãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã®ã‚³ãƒãƒ³ãƒ‰IDã‚’å–å¾—
+                //RevitCommandId cmdId = RevitCommandId.LookupPostableCommandId(PostableCommand.SetWorkPlane);//PostableCommand.SetWorkPlaneã“ã‚Œã¯å›³é¢ä¸Šã®ä½œæ¥­ãƒ¬ãƒ™ãƒ«ã‚’è¨­å®šã™ã‚‹ã®ã§ã‚ã£ã¦ãƒ•ã‚¡ãƒŸãƒªã®ä½œæ¥­é¢ç·¨é›†ã«ã¯å¯¾å¿œã—ã¦ã„ãªã„
+                ////RevitCommandId cmdId = RevitCommandId.LookupCommandId("ä½œæ¥­é¢ã‚’ç·¨é›†");
                 //if (cmdId == null)
                 //{
                 //    return Result.Failed;
                 //}
-                //// ƒRƒ}ƒ“ƒh‚ğÀs‚µ‚Äƒ_ƒCƒAƒƒO‚ğ•\¦
+                //// ã‚³ãƒãƒ³ãƒ‰ã‚’å®Ÿè¡Œã—ã¦ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤º
                 //if (uiapp.CanPostCommand(cmdId))
                 //{
                 //    uiapp.PostCommand(cmdId);
@@ -350,30 +350,30 @@ namespace YMS
             try
             {
 
-                var keyCenter1 = "‰ñ“]²1";
-                var keyCenter2 = "‰ñ“]²2";
-                var keyEdge1 = "‰¼|Ş’[“_";
-                var keyEdge2 = "‰¼|Ş’[“_2";
-                var keyTheta0 = "ƒÆ0";
-                var keyTheta1 = "ƒÆ1";
-                var keyTheta2 = "ƒÆ2";
-                var keyTheta3 = "İ’uŠp“x";
+                var keyCenter1 = "å›è»¢è»¸1";
+                var keyCenter2 = "å›è»¢è»¸2";
+                var keyEdge1 = "ä»®é‹¼æç«¯ç‚¹";
+                var keyEdge2 = "ä»®é‹¼æç«¯ç‚¹2";
+                var keyTheta0 = "Î¸0";
+                var keyTheta1 = "Î¸1";
+                var keyTheta2 = "Î¸2";
+                var keyTheta3 = "è¨­ç½®è§’åº¦";
 
                 var num = 2;
                 var pieceInstances = new FamilyInstance[num];
-                var origin = new XYZ[num];//ƒtƒ@ƒ~ƒŠŠî“_
-                var basisX = new XYZ[num];//ƒtƒ@ƒ~ƒŠ XŠî’ê
-                var basisY = new XYZ[num];//ƒtƒ@ƒ~ƒŠ YŠî’ê
-                var basisZ = new XYZ[num];//ƒtƒ@ƒ~ƒŠ ZŠî’ê
-                var center1Set = new XYZ[num];// ‰ñ“]²1 ‚ÌÀ•W
-                var center2Set = new XYZ[num];// ‰ñ“]²2 ‚ÌÀ•W
-                var edge1Set = new XYZ[num];// ‰¼|Ş’[“_ ‚ÌÀ•W
-                var edge2Set = new XYZ[num];// ‰¼|Ş’[“_2 ‚ÌÀ•W
-                var l3 = new double[num];// ƒtƒ@ƒ~ƒŠŠî“_‚©‚ç V3 ‚Ö‚Ì‹——£
-                var l2 = new double[num];// V3 ‚©‚ç‰ñ“]²2‚Ö‚Ì‹——£
-                var l1Set = new double[num];// ‰ñ“]²2‚©‚ç‰ñ“]²1‚Ö‚Ì‹——£
-                var l0Set = new double[num];// ‰ñ“]²1‚©‚ç‰¼|Ş’[“_‚Ö‚Ì‹——£
-                var v3 = new XYZ[num];//V3 : V2‚ğZX•½–Ê‚ÖË‰e‚µ‚½“_
+                var origin = new XYZ[num];//ãƒ•ã‚¡ãƒŸãƒªåŸºç‚¹
+                var basisX = new XYZ[num];//ãƒ•ã‚¡ãƒŸãƒª XåŸºåº•
+                var basisY = new XYZ[num];//ãƒ•ã‚¡ãƒŸãƒª YåŸºåº•
+                var basisZ = new XYZ[num];//ãƒ•ã‚¡ãƒŸãƒª ZåŸºåº•
+                var center1Set = new XYZ[num];// å›è»¢è»¸1 ã®åº§æ¨™
+                var center2Set = new XYZ[num];// å›è»¢è»¸2 ã®åº§æ¨™
+                var edge1Set = new XYZ[num];// ä»®é‹¼æç«¯ç‚¹ ã®åº§æ¨™
+                var edge2Set = new XYZ[num];// ä»®é‹¼æç«¯ç‚¹2 ã®åº§æ¨™
+                var l3 = new double[num];// ãƒ•ã‚¡ãƒŸãƒªåŸºç‚¹ã‹ã‚‰ V3 ã¸ã®è·é›¢
+                var l2 = new double[num];// V3 ã‹ã‚‰å›è»¢è»¸2ã¸ã®è·é›¢
+                var l1Set = new double[num];// å›è»¢è»¸2ã‹ã‚‰å›è»¢è»¸1ã¸ã®è·é›¢
+                var l0Set = new double[num];// å›è»¢è»¸1ã‹ã‚‰ä»®é‹¼æç«¯ç‚¹ã¸ã®è·é›¢
+                var v3 = new XYZ[num];//V3 : V2ã‚’ZXå¹³é¢ã¸å°„å½±ã—ãŸç‚¹
                 var v2 = new XYZ[num];
                 var v1 = new XYZ[num];
                 var v0 = new XYZ[num];
@@ -382,7 +382,7 @@ namespace YMS
 
                 for (int i = 0; i < num; i++)
                 {
-                    var pickedElem = doc.GetElement(uidoc.Selection.PickObject(ObjectType.Element, "Î—Àóƒs[ƒX‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢"));
+                    var pickedElem = doc.GetElement(uidoc.Selection.PickObject(ObjectType.Element, "æ–œæ¢å—ãƒ”ãƒ¼ã‚¹ã‚’é¸æŠã—ã¦ãã ã•ã„"));
                     var pickedInstance = pickedElem as FamilyInstance;
                     pieceInstances[i] = pickedInstance;
 
@@ -431,7 +431,7 @@ namespace YMS
                     e0[i] = v0[i] + /*l3Set[i] * */(origin[i] - v3[i]);// - edgeDist * basisX[i];
                 }
 
-                // theta2 ‚ÌZo
+                // theta2 ã®ç®—å‡º
                 var theta2Set = new double[num];
                 var rotateTheta2 = new SMatrix3d[num];
                 var v1prime = new XYZ[num];
@@ -493,7 +493,7 @@ namespace YMS
                     basisZprime[i] = rotateBasis * basisZ[i];
                 }
 
-                // theta1 ‚ÌZo
+                // theta1 ã®ç®—å‡º
                 var theta1Set = new double[num];
                 var rotateTheta1 = new SMatrix3d[num];
                 var v0prime = new XYZ[num];
@@ -522,7 +522,7 @@ namespace YMS
                     basisXprime[i] = rotateBasis * basisX[i];
                 }
 
-                // theta0 ‚ÌZo
+                // theta0 ã®ç®—å‡º
                 var theta0Set = new double[num];
                 var rotateTheta0 = new SMatrix3d[num];
                 var basisXprime2 = new XYZ[num];
@@ -532,7 +532,7 @@ namespace YMS
                     var b = basisZ[i];
                     var radian = SLibRevitReo.PrincipalRadian(a.AngleOnPlaneTo(b, -basisYprime2[i]));
 
-                    // theta0 ƒpƒ‰ƒ[ƒ^‚ª‘¶İ‚µ‚È‚¢‚Æ‚«‚Í 0 ‚Æ‚µ‚ÄŒvZ‚ği‚ß‚é
+                    // theta0 ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒå­˜åœ¨ã—ãªã„ã¨ãã¯ 0 ã¨ã—ã¦è¨ˆç®—ã‚’é€²ã‚ã‚‹
                     var existsTheta0 = ClsRevitUtil.FindParameter(doc, pieceInstances[i].Id, keyTheta0);
                     theta0Set[i] = existsTheta0 ? radian : 0.0;
 
@@ -540,10 +540,10 @@ namespace YMS
                     basisXprime2[i] = SMatrix3d.Rotation(-basisYprime2[i], XYZ.Zero, theta0Set[i]) * basisXprime[i];
                 }
 
-                // Î—Àƒx[ƒXƒtƒ@ƒ~ƒŠ‚Ì“Ç
+                // æ–œæ¢ãƒ™ãƒ¼ã‚¹ãƒ•ã‚¡ãƒŸãƒªã®èª­è¾¼
                 var symbolFolpath = ClsZumenInfo.GetYMSFolder();
-                var shinfamily = System.IO.Path.Combine(symbolFolpath, "ƒx[ƒXŠÖŒW", "Î—Àƒx[ƒX" + ".rfa");
-                if (!ClsRevitUtil.LoadFamilySymbolData(doc, shinfamily, "Î—Àƒx[ƒX", out FamilySymbol sym))
+                var shinfamily = System.IO.Path.Combine(symbolFolpath, "ãƒ™ãƒ¼ã‚¹é–¢ä¿‚", "æ–œæ¢ãƒ™ãƒ¼ã‚¹" + ".rfa");
+                if (!ClsRevitUtil.LoadFamilySymbolData(doc, shinfamily, "æ–œæ¢ãƒ™ãƒ¼ã‚¹", out FamilySymbol sym))
                 {
                     return Result.Failed;
                 }
@@ -573,25 +573,25 @@ namespace YMS
                     try
                     {
                         var family = sym.Family;
-                        //‚±‚Ìƒ^ƒCƒv‚Å‚È‚¢‚ÆQÆ–Ê‚É”z’u‚Å‚«‚È‚¢
+                        //ã“ã®ã‚¿ã‚¤ãƒ—ã§ãªã„ã¨å‚ç…§é¢ã«é…ç½®ã§ããªã„
                         if (family.FamilyPlacementType == FamilyPlacementType.WorkPlaneBased)
                         {
                             var reference = slopePlane.GetReference();
                             var dir = (tmpEdPoint - tmpStPoint).Normalize();
                             var instance = doc.Create.NewFamilyInstance(reference, tmpStPoint, dir, sym);//tmpEdPoint - tmpStPoint
 
-                            ClsRevitUtil.SetParameter(doc, instance.Id, "’·‚³", tmpStPoint.DistanceTo(tmpEdPoint));
-                            ClsRevitUtil.SetParameter(doc, instance.Id, "|ŞƒTƒCƒY", "35HA");// ClsCommonUtils.GetOnlyNumberInStringReturnString(name1) + "HA");//ƒTƒCƒY‚ÍÎ—Àóƒs[ƒX–¼‚©‚çæ“¾‚·‚é‚ª‚‹­“x‚È‚Ç‚ğg—p‚·‚é‚©‚Í•s–¾
+                            ClsRevitUtil.SetParameter(doc, instance.Id, "é•·ã•", tmpStPoint.DistanceTo(tmpEdPoint));
+                            ClsRevitUtil.SetParameter(doc, instance.Id, "é‹¼æã‚µã‚¤ã‚º", "35HA");// ClsCommonUtils.GetOnlyNumberInStringReturnString(name1) + "HA");//ã‚µã‚¤ã‚ºã¯æ–œæ¢å—ãƒ”ãƒ¼ã‚¹åã‹ã‚‰å–å¾—ã™ã‚‹ãŒé«˜å¼·åº¦ãªã©ã‚’ä½¿ç”¨ã™ã‚‹ã‹ã¯ä¸æ˜
 
                             var id = instance.Id;
                             var element = doc.GetElement(reference);
-                            // ‚±‚±‚Åˆê‰ñˆÚ“®‚È‚Ç‚ğ‚µ‚È‚¢‚Æ Location ‚ªŒ´“_‚Ì‚Ü‚Ü•Ô‚Á‚Ä‚­‚éB
+                            // ã“ã“ã§ä¸€å›ç§»å‹•ãªã©ã‚’ã—ãªã„ã¨ Location ãŒåŸç‚¹ã®ã¾ã¾è¿”ã£ã¦ãã‚‹ã€‚
                             ElementTransformUtils.MoveElement(doc, id, XYZ.Zero);
-                            slopePlane.Name = "Î—À" + id.IntegerValue.ToString();
+                            slopePlane.Name = "æ–œæ¢" + id.IntegerValue.ToString();
                         }
                         else
                         {
-                            //ì¬o—ˆ‚È‚¢
+                            //ä½œæˆå‡ºæ¥ãªã„
                         }
                     }
                     catch (Exception ex)
@@ -644,18 +644,18 @@ namespace YMS
                 UIApplication uiapp = commandData.Application;
                 UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document;
-                //var tmpStPoint = uidoc.Selection.PickPoint("n“_‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢");
-                //var tmpEdPoint = uidoc.Selection.PickPoint("I“_‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢");
+                //var tmpStPoint = uidoc.Selection.PickPoint("å§‹ç‚¹ã‚’é¸æŠã—ã¦ãã ã•ã„");
+                //var tmpEdPoint = uidoc.Selection.PickPoint("çµ‚ç‚¹ã‚’é¸æŠã—ã¦ãã ã•ã„");
 
                 ElementId id1 = null;
-                if (!ClsHaraokoshiBase.PickBaseObject(uidoc, ref id1, "n“_‘¤‚Ì• ‹Nƒx[ƒX‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢"))
+                if (!ClsHaraokoshiBase.PickBaseObject(uidoc, ref id1, "å§‹ç‚¹å´ã®è…¹èµ·ãƒ™ãƒ¼ã‚¹ã‚’é¸æŠã—ã¦ãã ã•ã„"))
                     return Result.Failed;
                 var inst1 = doc.GetElement(id1) as FamilyInstance;
                 var cv1 = (inst1.Location as LocationCurve).Curve;
                 var levelId1 = inst1.Host.Id;
 
                 ElementId id2 = null;
-                if (!ClsHaraokoshiBase.PickBaseObject(uidoc, ref id2, "I“_‘¤‚Ì• ‹Nƒx[ƒX‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢"))
+                if (!ClsHaraokoshiBase.PickBaseObject(uidoc, ref id2, "çµ‚ç‚¹å´ã®è…¹èµ·ãƒ™ãƒ¼ã‚¹ã‚’é¸æŠã—ã¦ãã ã•ã„"))
                     return Result.Failed;
                 var inst2 = doc.GetElement(id2) as FamilyInstance;
                 var cv2 = (inst2.Location as LocationCurve).Curve;
@@ -667,21 +667,21 @@ namespace YMS
                 if (false)
                 {
                     ElementId lineId = null;
-                    if (!ClsRevitUtil.PickObject(uidoc, "ƒ‚ƒfƒ‹ü•ª", "ƒ‚ƒfƒ‹ü•ª", ref lineId))
+                    if (!ClsRevitUtil.PickObject(uidoc, "ãƒ¢ãƒ‡ãƒ«ç·šåˆ†", "ãƒ¢ãƒ‡ãƒ«ç·šåˆ†", ref lineId))
                         return Result.Failed;
                     var line = (doc.GetElement(lineId).Location as LocationCurve).Curve;
                 }
                 else
                 {
                     Reference rfHara1 = null;
-                    if (!ClsHaraokoshiBase.PickBaseObject(uidoc, ref rfHara1, "• ‹Nƒx[ƒXã‚Ån“_‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢"))
+                    if (!ClsHaraokoshiBase.PickBaseObject(uidoc, ref rfHara1, "è…¹èµ·ãƒ™ãƒ¼ã‚¹ä¸Šã§å§‹ç‚¹ã‚’é¸æŠã—ã¦ãã ã•ã„"))
                     {
                         //return;
                     }
                     tmpStPoint = ClsRevitUtil.CorrectedPitchPoint(rfHara1.GlobalPoint, cv1.GetEndPoint(0), 100.0);
 
                     Reference rfHara2 = null;
-                    if (!ClsHaraokoshiBase.PickBaseObject(uidoc, ref rfHara2, "• ‹Nƒx[ƒXã‚ÅI“_‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢"))
+                    if (!ClsHaraokoshiBase.PickBaseObject(uidoc, ref rfHara2, "è…¹èµ·ãƒ™ãƒ¼ã‚¹ä¸Šã§çµ‚ç‚¹ã‚’é¸æŠã—ã¦ãã ã•ã„"))
                     {
                         //return;
                     }
@@ -690,13 +690,13 @@ namespace YMS
 
                 DLG.DlgTEST dlg = new DLG.DlgTEST();
                 dlg.ShowDialog();
-                //ƒ_ƒCƒAƒƒO‚Å‰º‚°—Ê‚ÌŒˆ’è
+                //ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã§ä¸‹ã’é‡ã®æ±ºå®š
                 double fall = ClsRevitUtil.CovertToAPI(dlg.fall);
 
                 Line cv = Line.CreateBound(tmpStPoint, tmpEdPoint);
                 var dir = tmpEdPoint - tmpStPoint;// cv.Direction;
 
-                //QÆ–Ê‚Ìì¬
+                //å‚ç…§é¢ã®ä½œæˆ
                 ReferencePlane slopePlane = null;
                 using (Transaction t = new Transaction(doc, Guid.NewGuid().GetHashCode().ToString()))
                 {
@@ -708,15 +708,15 @@ namespace YMS
                     slopePlane = ClsRevitUtil.CreateReferencePlaneW(doc, tmpStPoint, tmpEdPoint, fall);
                     t.Commit();
                 }
-                //Î’£‚Ì“Ç
+                //æ–œå¼µã®èª­è¾¼
                 string symbolFolpath = ClsZumenInfo.GetYMSFolder();
-                string shinfamily = System.IO.Path.Combine(symbolFolpath, "ƒx[ƒXŠÖŒW\\" + "Î—Àƒx[ƒX" + ".rfa");
-                if (!ClsRevitUtil.LoadFamilySymbolData(doc, shinfamily, "Î—Àƒx[ƒX", out FamilySymbol sym))
+                string shinfamily = System.IO.Path.Combine(symbolFolpath, "ãƒ™ãƒ¼ã‚¹é–¢ä¿‚\\" + "æ–œæ¢ãƒ™ãƒ¼ã‚¹" + ".rfa");
+                if (!ClsRevitUtil.LoadFamilySymbolData(doc, shinfamily, "æ–œæ¢ãƒ™ãƒ¼ã‚¹", out FamilySymbol sym))
                 {
                     return Result.Failed;
                 }
 
-                //ì¬‚µ‚½QÆ–Ê‚Éƒx[ƒX‚ğ”z’u
+                //ä½œæˆã—ãŸå‚ç…§é¢ã«ãƒ™ãƒ¼ã‚¹ã‚’é…ç½®
                 using (Transaction t = new Transaction(doc, Guid.NewGuid().GetHashCode().ToString()))
                 {
                     t.Start();
@@ -738,31 +738,31 @@ namespace YMS
                         //tmpEdPoint = new XYZ(tmpEdPoint.X, tmpEdPoint.Y, tmpEdPoint.Z - fall);
 
                         var family = sym.Family;
-                        //‚±‚Ìƒ^ƒCƒv‚Å‚È‚¢‚ÆQÆ–Ê‚É”z’u‚Å‚«‚È‚¢
+                        //ã“ã®ã‚¿ã‚¤ãƒ—ã§ãªã„ã¨å‚ç…§é¢ã«é…ç½®ã§ããªã„
                         if (family.FamilyPlacementType == FamilyPlacementType.WorkPlaneBased)
                         {
                             var reference = slopePlane.GetReference();
                             var instance = doc.Create.NewFamilyInstance(reference, tmpStPoint, tmpEdPoint - tmpStPoint, sym);
 
-                            ClsRevitUtil.SetParameter(doc, instance.Id, "’·‚³", tmpStPoint.DistanceTo(tmpEdPoint));
-                            ClsRevitUtil.SetParameter(doc, instance.Id, "|ŞƒTƒCƒY", dlg.size);
+                            ClsRevitUtil.SetParameter(doc, instance.Id, "é•·ã•", tmpStPoint.DistanceTo(tmpEdPoint));
+                            ClsRevitUtil.SetParameter(doc, instance.Id, "é‹¼æã‚µã‚¤ã‚º", dlg.size);
 
                             var id = instance.Id;
                             var element = doc.GetElement(reference);
-                            // ‚±‚±‚Åˆê‰ñˆÚ“®‚È‚Ç‚ğ‚µ‚È‚¢‚Æ Location ‚ªŒ´“_‚Ì‚Ü‚Ü•Ô‚Á‚Ä‚­‚éB
+                            // ã“ã“ã§ä¸€å›ç§»å‹•ãªã©ã‚’ã—ãªã„ã¨ Location ãŒåŸç‚¹ã®ã¾ã¾è¿”ã£ã¦ãã‚‹ã€‚
                             ElementTransformUtils.MoveElement(doc, id, XYZ.Zero);
-                            slopePlane.Name = "Î—À" + id.IntegerValue.ToString();
+                            slopePlane.Name = "æ–œæ¢" + id.IntegerValue.ToString();
                         }
                         else
                         {
-                            //ì¬o—ˆ‚È‚¢
+                            //ä½œæˆå‡ºæ¥ãªã„
                         }
                     }
                     catch (Exception ex)
                     {
                         TaskDialog.Show("TEST4", ex.Message);
                     }
-                    ClsRevitUtil.SetParameter(doc, id2, "ƒzƒXƒg‚©‚ç‚ÌƒIƒtƒZƒbƒg", -fall);
+                    ClsRevitUtil.SetParameter(doc, id2, "ãƒ›ã‚¹ãƒˆã‹ã‚‰ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆ", -fall);
                     t.Commit();
                 }
             }
@@ -790,19 +790,19 @@ namespace YMS
                 UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                var id = uidoc.Selection.PickObject(ObjectType.Element, "Î—Àƒx[ƒX‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢").ElementId;
-                var name = "Î’£" + id.IntegerValue.ToString();
+                var id = uidoc.Selection.PickObject(ObjectType.Element, "æ–œæ¢ãƒ™ãƒ¼ã‚¹ã‚’é¸æŠã—ã¦ãã ã•ã„").ElementId;
+                var name = "æ–œå¼µ" + id.IntegerValue.ToString();
                 ClsYMSUtil.CreateBaseElevationView(doc, id, name);
                 ClsYMSUtil.ChangeView(uidoc, name);
 
                 var inst = doc.GetElement(id) as FamilyInstance;
                 var lPoint = inst.Location as LocationPoint;
                 var tmpStPoint = lPoint.Point;
-                var dist = ClsRevitUtil.GetParameterDouble(doc, id, "’·‚³");
+                var dist = ClsRevitUtil.GetParameterDouble(doc, id, "é•·ã•");
                 var tmpEdPoint = tmpStPoint + dist * inst.HandOrientation;
 
                 var scaleIds = ClsWarituke.CreateScale(uidoc, tmpStPoint, tmpEdPoint, WaritukeDist.warituke100mm, cross: true);
-                //íœƒtƒ‰ƒO–³‚µ
+                //å‰Šé™¤ãƒ•ãƒ©ã‚°ç„¡ã—
 
             }
             catch (Exception ex)
@@ -856,19 +856,19 @@ namespace YMS
                 UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
-                var id = uidoc.Selection.PickObject(ObjectType.Element, "Î—Àƒx[ƒX‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢").ElementId;
-                var name = "Î’£" + id.IntegerValue.ToString();
+                var id = uidoc.Selection.PickObject(ObjectType.Element, "æ–œæ¢ãƒ™ãƒ¼ã‚¹ã‚’é¸æŠã—ã¦ãã ã•ã„").ElementId;
+                var name = "æ–œå¼µ" + id.IntegerValue.ToString();
                 ClsYMSUtil.CreateBaseElevationView(doc, id, name);
                 ClsYMSUtil.ChangeView(uidoc, name);
 
                 var inst = doc.GetElement(id) as FamilyInstance;
                 var lPoint = inst.Location as LocationPoint;
                 var tmpStPoint = lPoint.Point;
-                var dist = ClsRevitUtil.GetParameterDouble(doc, id, "’·‚³");
+                var dist = ClsRevitUtil.GetParameterDouble(doc, id, "é•·ã•");
                 var tmpEdPoint = tmpStPoint + dist * inst.HandOrientation;
 
                 var scaleIds = ClsWarituke.CreateScale(uidoc, tmpStPoint, tmpEdPoint, WaritukeDist.warituke100mm, cross: true);
-                //íœƒtƒ‰ƒO–³‚µ
+                //å‰Šé™¤ãƒ•ãƒ©ã‚°ç„¡ã—
 
             }
             catch (Exception ex)
@@ -895,50 +895,50 @@ namespace YMS
 
             try
             {
-                //ƒ_ƒCƒAƒƒO‚ğ•\¦
+                //ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤º
                 Test_Form frm = new Test_Form(doc);
                 DialogResult res = frm.ShowDialog();
                 if (res != DialogResult.OK)
                     return Result.Cancelled;
                 string strLevel = frm.m_level;
 
-                //ƒ†[ƒU[‚É–Ê‚ğ‘I‘ğ‚µ‚Ä‚à‚ç‚¤
-                Reference pickedRef = uidoc.Selection.PickObject(ObjectType.Face, "–Ê‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢");
+                //ãƒ¦ãƒ¼ã‚¶ãƒ¼ã«é¢ã‚’é¸æŠã—ã¦ã‚‚ã‚‰ã†
+                Reference pickedRef = uidoc.Selection.PickObject(ObjectType.Face, "é¢ã‚’é¸æŠã—ã¦ãã ã•ã„");
                 Element element = doc.GetElement(pickedRef);
                 GeometryObject geoObj = element.GetGeometryObjectFromReference(pickedRef);
                 Face face = geoObj as Face;
 
                 if (face == null)
                 {
-                    TaskDialog.Show("ƒGƒ‰[", "‘I‘ğ‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚Í—LŒø‚È–Ê‚Å‚Í‚ ‚è‚Ü‚¹‚ñB");
+                    TaskDialog.Show("ã‚¨ãƒ©ãƒ¼", "é¸æŠã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯æœ‰åŠ¹ãªé¢ã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚");
                     return Result.Failed;
                 }
 
-                //Transform ‚ğæ“¾i•K—v‚È‚çj
+                //Transform ã‚’å–å¾—ï¼ˆå¿…è¦ãªã‚‰ï¼‰
                 Transform transform = GetGeometryTransform(doc, element);
 
-                //ƒŒƒxƒ‹Zæ“¾
+                //ãƒ¬ãƒ™ãƒ«Zå–å¾—
                 ElementId targetLevelId = ClsRevitUtil.GetLevelID(doc, strLevel);
                 Level level = doc.GetElement(targetLevelId) as Level;
                 double levelZ = level.ProjectElevation;
 
-                //Œğ“_æ“¾iTransform “K—pÏ‚İj
+                //äº¤ç‚¹å–å¾—ï¼ˆTransform é©ç”¨æ¸ˆã¿ï¼‰
                 List<XYZ> intersectionPoints = GetTransformedFaceIntersectionPoints(face, transform, levelZ);
                 if (intersectionPoints.Count < 2)
                 {
-                    TaskDialog.Show("î•ñ", "Œğ·“_‚ª2“_–¢–‚Ì‚½‚ßü‚ğ•`‰æ‚µ‚Ü‚¹‚ñB");
+                    TaskDialog.Show("æƒ…å ±", "äº¤å·®ç‚¹ãŒ2ç‚¹æœªæº€ã®ãŸã‚ç·šã‚’æç”»ã—ã¾ã›ã‚“ã€‚");
                     return Result.Succeeded;
                 }
 
-                //Å‰““_ƒyƒAæ“¾
+                //æœ€é ç‚¹ãƒšã‚¢å–å¾—
                 (XYZ pt1, XYZ pt2) = GetFarthestPoints(intersectionPoints);
 
-                //ƒ‚ƒfƒ‹ü•ª‚ğì¬
-                RevitUtil.ClsRevitUtil.CreateNewModelCurve(doc,pt1, pt2);
+                //ãƒ¢ãƒ‡ãƒ«ç·šåˆ†ã‚’ä½œæˆ
+                RevitUtil.ClsRevitUtil.CreateNewModelCurve(doc, pt1, pt2);
 
-                ////ƒ†[ƒU[‚ªˆø‚­‘¤‚Ìü‚ÆÀ•W‚ğw’è
+                ////ãƒ¦ãƒ¼ã‚¶ãƒ¼ãŒå¼•ãå´ã®ç·šã¨åº§æ¨™ã‚’æŒ‡å®š
                 //ElementId id = null;
-                //if (!ClsRevitUtil.PickObject(uidoc, "n’[‘¤‚Ìƒ‚ƒfƒ‹ü•ª", "ƒ‚ƒfƒ‹ü•ª", ref id))
+                //if (!ClsRevitUtil.PickObject(uidoc, "å§‹ç«¯å´ã®ãƒ¢ãƒ‡ãƒ«ç·šåˆ†", "ãƒ¢ãƒ‡ãƒ«ç·šåˆ†", ref id))
                 //{
                 //    return Result.Cancelled;
                 //}
@@ -949,19 +949,19 @@ namespace YMS
                 //    return Result.Cancelled;
                 //}
 
-                ////ƒ†[ƒU[‚ª–Ê‚Ìü•ªÀ•W‚ğw’è
+                ////ãƒ¦ãƒ¼ã‚¶ãƒ¼ãŒé¢ã®ç·šåˆ†åº§æ¨™ã‚’æŒ‡å®š
                 //Selection selection = uidoc.Selection;
-                //XYZ startPoint = selection.PickPoint("n“_iƒ‚ƒfƒ‹ü•ª‘¤j‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢");
+                //XYZ startPoint = selection.PickPoint("å§‹ç‚¹ï¼ˆãƒ¢ãƒ‡ãƒ«ç·šåˆ†å´ï¼‰ã‚’æŒ‡å®šã—ã¦ãã ã•ã„");
                 //XYZ checkPoint = new XYZ(startPoint.X, startPoint.Y, 0);
                 //Curve checkCv = Line.CreateBound(new XYZ(lCurve.Curve.GetEndPoint(0).X, lCurve.Curve.GetEndPoint(0).Y, 0), new XYZ(lCurve.Curve.GetEndPoint(1).X, lCurve.Curve.GetEndPoint(1).Y, 0));
                 //if (!ClsRevitUtil.IsPointOnCurve(checkCv, checkPoint))
                 //{
-                //    MessageBox.Show("‘I‘ğ‚µ‚½ƒ‚ƒfƒ‹ü•ªã‚Ì“_‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢");
+                //    MessageBox.Show("é¸æŠã—ãŸãƒ¢ãƒ‡ãƒ«ç·šåˆ†ä¸Šã®ç‚¹ã‚’æŒ‡å®šã—ã¦ãã ã•ã„");
                 //    return Result.Cancelled;
                 //}
 
-                ////I“_‘¤‚Ìü•ªÀ•W‚ğw’è
-                //XYZ@endPoint = selection.PickPoint("I“_i–Ê‘¤j‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢");
+                ////çµ‚ç‚¹å´ã®ç·šåˆ†åº§æ¨™ã‚’æŒ‡å®š
+                //XYZã€€endPoint = selection.PickPoint("çµ‚ç‚¹ï¼ˆé¢å´ï¼‰ã‚’æŒ‡å®šã—ã¦ãã ã•ã„");
                 //Line line2 = Line.CreateBound(pt1, pt2);
                 //IntersectionResult result = line2.Project(endPoint);
                 //endPoint = result.XYZPoint;
@@ -982,16 +982,16 @@ namespace YMS
 
         public void DrawDebugPoint(XYZ point, Document doc)
         {
-            using (Transaction tx = new Transaction(doc, "ƒfƒoƒbƒO“_•`‰æ"))
+            using (Transaction tx = new Transaction(doc, "ãƒ‡ãƒãƒƒã‚°ç‚¹æç”»"))
             {
                 tx.Start();
 
-                // SketchPlaneiXY•½–Êj
+                // SketchPlaneï¼ˆXYå¹³é¢ï¼‰
                 Plane plane = Plane.CreateByNormalAndOrigin(XYZ.BasisZ, point);
                 SketchPlane sketchPlane = SketchPlane.Create(doc, plane);
 
-                // ’Z‚¢ü‚ğ\š‚É•`‚­
-                double len = 2; // 10cm’ö“x‚Ì’Z‚¢ü
+                // çŸ­ã„ç·šã‚’åå­—ã«æã
+                double len = 2; // 10cmç¨‹åº¦ã®çŸ­ã„ç·š
                 XYZ p1 = point + new XYZ(-len / 2, 0, 0);
                 XYZ p2 = point + new XYZ(len / 2, 0, 0);
                 XYZ p3 = point + new XYZ(0, -len / 2, 0);
@@ -1008,7 +1008,7 @@ namespace YMS
         }
 
         /// <summary>
-        /// —v‘f‚ª‘®‚·‚é Transformiƒtƒ@ƒ~ƒŠƒCƒ“ƒXƒ^ƒ“ƒX‚Ìê‡‚Í•K{j
+        /// è¦ç´ ãŒå±ã™ã‚‹ Transformï¼ˆãƒ•ã‚¡ãƒŸãƒªã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®å ´åˆã¯å¿…é ˆï¼‰
         /// </summary>
         private Transform GetGeometryTransform(Document doc, Element element)
         {
@@ -1028,11 +1028,11 @@ namespace YMS
                 }
             }
 
-            return Transform.Identity; // Transform •s—v‚Èê‡‚Í’PˆÊs—ñ
+            return Transform.Identity; // Transform ä¸è¦ãªå ´åˆã¯å˜ä½è¡Œåˆ—
         }
 
         /// <summary>
-        /// –Ê‚Æ…•½–ÊZ‚Æ‚ÌŒğ·“_‚ğæ“¾iTransforml—¶j
+        /// é¢ã¨æ°´å¹³é¢Zã¨ã®äº¤å·®ç‚¹ã‚’å–å¾—ï¼ˆTransformè€ƒæ…®ï¼‰
         /// </summary>
         private List<XYZ> GetTransformedFaceIntersectionPoints(Face face, Transform transform, double levelZ)
         {
@@ -1063,7 +1063,7 @@ namespace YMS
         }
 
         /// <summary>
-        /// Œğ“_‚Ì‚¤‚¿Å‚à‹——£‚ª‰“‚¢2“_‚ğ•Ô‚·
+        /// äº¤ç‚¹ã®ã†ã¡æœ€ã‚‚è·é›¢ãŒé ã„2ç‚¹ã‚’è¿”ã™
         /// </summary>
         private (XYZ, XYZ) GetFarthestPoints(List<XYZ> points)
         {
@@ -1088,7 +1088,7 @@ namespace YMS
         }
 
         /// <summary>
-        /// —v‘f‚É•R‚Ã‚¢‚Ä‚¢‚é Level ‚ğæ“¾
+        /// è¦ç´ ã«ç´ã¥ã„ã¦ã„ã‚‹ Level ã‚’å–å¾—
         /// </summary>
         private Level GetElementLevel(Document doc, Element element)
         {
@@ -1127,25 +1127,25 @@ namespace YMS
                 var uidoc = uiapp.ActiveUIDocument;
                 var doc = uidoc.Document;
 
-                var pick1 = uidoc.Selection.PickObject(ObjectType.Element, "1 –{–Ú‚ÌÎ—Àƒx[ƒX‚ğ‘I‘ğ");
-                var pick2 = uidoc.Selection.PickObject(ObjectType.Element, "2 –{–Ú‚ÌÎ—Àƒx[ƒX‚ğ‘I‘ğ");
-                var pick3 = uidoc.Selection.PickObject(ObjectType.Element, "Î—À‚Â‚È‚¬ƒx[ƒX (ƒ‚ƒfƒ‹ü•ª) ‚ğ‘I‘ğ");
+                var pick1 = uidoc.Selection.PickObject(ObjectType.Element, "1 æœ¬ç›®ã®æ–œæ¢ãƒ™ãƒ¼ã‚¹ã‚’é¸æŠ");
+                var pick2 = uidoc.Selection.PickObject(ObjectType.Element, "2 æœ¬ç›®ã®æ–œæ¢ãƒ™ãƒ¼ã‚¹ã‚’é¸æŠ");
+                var pick3 = uidoc.Selection.PickObject(ObjectType.Element, "æ–œæ¢ã¤ãªããƒ™ãƒ¼ã‚¹ (ãƒ¢ãƒ‡ãƒ«ç·šåˆ†) ã‚’é¸æŠ");
 
                 var testDialog = new Autodesk.Revit.UI.TaskDialog(GetType().Name)
                 {
                     TitleAutoPrefix = true,
                     MainIcon = Autodesk.Revit.UI.TaskDialogIcon.TaskDialogIconInformation,
-                    MainInstruction = "ã’[‚Æ‰º’[‚Ì‚Ç‚¿‚ç‚ğZo‚µ‚Ü‚·‚©",
+                    MainInstruction = "ä¸Šç«¯ã¨ä¸‹ç«¯ã®ã©ã¡ã‚‰ã‚’ç®—å‡ºã—ã¾ã™ã‹",
                     MainContent = "",
                     CommonButtons = Autodesk.Revit.UI.TaskDialogCommonButtons.Close,
 
                 };
-                testDialog.AddCommandLink(TaskDialogCommandLinkId.CommandLink1, "ã‘¤‚ğZo", "Î—À‚Â‚È‚¬‚ğ‘z’è");
-                testDialog.AddCommandLink(TaskDialogCommandLinkId.CommandLink2, "‰º‘¤‚ğZo", "Î—Àó‚¯‚ğ‘z’è");
+                testDialog.AddCommandLink(TaskDialogCommandLinkId.CommandLink1, "ä¸Šå´ã‚’ç®—å‡º", "æ–œæ¢ã¤ãªãã‚’æƒ³å®š");
+                testDialog.AddCommandLink(TaskDialogCommandLinkId.CommandLink2, "ä¸‹å´ã‚’ç®—å‡º", "æ–œæ¢å—ã‘ã‚’æƒ³å®š");
                 var testDialogResult = testDialog.Show();
 
                 Plane sectionPlane;
-                // pick‚³‚ê‚½Î—À‚Â‚È‚¬ƒx[ƒX‚Ìƒ‚ƒfƒ‹ü•ª‚©‚ç‰”’¼•ûŒü‚Ì’f–Ê•½–Ê‚ğì¬
+                // pickã•ã‚ŒãŸæ–œæ¢ã¤ãªããƒ™ãƒ¼ã‚¹ã®ãƒ¢ãƒ‡ãƒ«ç·šåˆ†ã‹ã‚‰é‰›ç›´æ–¹å‘ã®æ–­é¢å¹³é¢ã‚’ä½œæˆ
                 {
                     var tsunagiModelLine = doc.GetElement(pick3) as ModelLine;
                     var tsunagiLine = tsunagiModelLine.GeometryCurve as Line;
@@ -1164,21 +1164,21 @@ namespace YMS
                     {
                         var shabariBase = doc.GetElement(pickResult) as FamilyInstance;
 
-                        // Î—Àƒx[ƒX‚Ì’¼ü‚ğÎ—Àƒx[ƒXƒtƒ@ƒ~ƒŠ‚Ì X ²‚Æ‚µ‚ÄŒvZ
+                        // æ–œæ¢ãƒ™ãƒ¼ã‚¹ã®ç›´ç·šã‚’æ–œæ¢ãƒ™ãƒ¼ã‚¹ãƒ•ã‚¡ãƒŸãƒªã® X è»¸ã¨ã—ã¦è¨ˆç®—
                         var shabariBaseTrans = shabariBase.GetTotalTransform();
                         var shabariBaseLine = Line.CreateUnbound(shabariBaseTrans.Origin, shabariBaseTrans.BasisX);
 
-                        // Î—Àƒx[ƒX‚Ì•½–Ê‚Í Host ‚©‚çæ“¾
+                        // æ–œæ¢ãƒ™ãƒ¼ã‚¹ã®å¹³é¢ã¯ Host ã‹ã‚‰å–å¾—
                         var shabariBasePlane = (shabariBase.Host as ReferencePlane)?.GetPlane();
 
-                        var shabariW = 350.0; // Î—À|ŞƒTƒCƒY‚ğ‰¼‚ÉŒÅ’è’l‚Åw’è
-                        var shabariH = 350.0; // Î—À|ŞƒTƒCƒY‚ğ‰¼‚ÉŒÅ’è’l‚Åw’è
+                        var shabariW = 350.0; // æ–œæ¢é‹¼æã‚µã‚¤ã‚ºã‚’ä»®ã«å›ºå®šå€¤ã§æŒ‡å®š
+                        var shabariH = 350.0; // æ–œæ¢é‹¼æã‚µã‚¤ã‚ºã‚’ä»®ã«å›ºå®šå€¤ã§æŒ‡å®š
 
-                        // Î—À|Ş‚Ì’f–Ê‚Ì’[“_‚ğZo
+                        // æ–œæ¢é‹¼æã®æ–­é¢ã®ç«¯ç‚¹ã‚’ç®—å‡º
                         var points = ClsYMSUtil.CalcShabariSection(shabariBaseLine, shabariBasePlane, shabariW, shabariH, sectionPlane);
                         sectionBBoxes.Add(points);
 
-                        // Î—À’f–Ê‚Ì’[“_‚Ì’†‚Å Z ¬•ª‚ªÅ‘å‚Ì“_‚ğæ“¾
+                        // æ–œæ¢æ–­é¢ã®ç«¯ç‚¹ã®ä¸­ã§ Z æˆåˆ†ãŒæœ€å¤§ã®ç‚¹ã‚’å–å¾—
                         var sectionTop = ClsYMSUtil.CalcShabariSectionTop(shabariBaseLine, shabariBasePlane, shabariW, shabariH, sectionPlane);
                         if (sectionTop != null)
                         {
@@ -1188,8 +1188,8 @@ namespace YMS
                         {
                             var dialog = new TaskDialog(nameof(YMS.TEST9))
                             {
-                                MainInstruction = "Î—À’f–Ê‚Ì’[“_‚ªZo‚Å‚«‚Ü‚¹‚ñ",
-                                MainContent = "Î—Àƒx[ƒX‚ÆÎ—Àƒx[ƒX‚Â‚È‚¬‚ª•½s‚©‚à‚µ‚ê‚Ü‚¹‚ñ",
+                                MainInstruction = "æ–œæ¢æ–­é¢ã®ç«¯ç‚¹ãŒç®—å‡ºã§ãã¾ã›ã‚“",
+                                MainContent = "æ–œæ¢ãƒ™ãƒ¼ã‚¹ã¨æ–œæ¢ãƒ™ãƒ¼ã‚¹ã¤ãªããŒå¹³è¡Œã‹ã‚‚ã—ã‚Œã¾ã›ã‚“",
                                 MainIcon = TaskDialogIcon.TaskDialogIconError,
                             };
                             dialog.Show();
@@ -1200,7 +1200,7 @@ namespace YMS
                     {
                         transaction.Start();
 
-                        // Î—À’f–Ê‚ğƒ‚ƒfƒ‹ü•ª‚Åì¬
+                        // æ–œæ¢æ–­é¢ã‚’ãƒ¢ãƒ‡ãƒ«ç·šåˆ†ã§ä½œæˆ
                         foreach (var points in sectionBBoxes)
                         {
                             var p = SketchPlane.Create(doc, sectionPlane);
@@ -1216,7 +1216,7 @@ namespace YMS
                             }
                         }
 
-                        // Î—À’f–Ê‚ÌÅ‚“_‚ğŒ‹‚Ôƒ‚ƒfƒ‹ü•ª‚ğì¬
+                        // æ–œæ¢æ–­é¢ã®æœ€é«˜ç‚¹ã‚’çµã¶ãƒ¢ãƒ‡ãƒ«ç·šåˆ†ã‚’ä½œæˆ
                         if (topPoints.Count == 2)
                         {
                             var l = Line.CreateBound(topPoints.FirstOrDefault(), topPoints.LastOrDefault());
@@ -1235,18 +1235,18 @@ namespace YMS
                     {
                         var shabariBase = doc.GetElement(pickResult) as FamilyInstance;
 
-                        // Î—Àƒx[ƒX‚Ì’¼ü‚ğÎ—Àƒx[ƒXƒtƒ@ƒ~ƒŠ‚Ì X ²‚Æ‚µ‚ÄŒvZ
+                        // æ–œæ¢ãƒ™ãƒ¼ã‚¹ã®ç›´ç·šã‚’æ–œæ¢ãƒ™ãƒ¼ã‚¹ãƒ•ã‚¡ãƒŸãƒªã® X è»¸ã¨ã—ã¦è¨ˆç®—
                         var shabariBaseTrans = shabariBase.GetTotalTransform();
                         var shabariBaseLine = Line.CreateUnbound(shabariBaseTrans.Origin, shabariBaseTrans.BasisX);
 
-                        // Î—Àƒx[ƒX‚Ì•½–Ê‚Í Host ‚©‚çæ“¾
+                        // æ–œæ¢ãƒ™ãƒ¼ã‚¹ã®å¹³é¢ã¯ Host ã‹ã‚‰å–å¾—
                         var shabariBasePlane = (shabariBase.Host as ReferencePlane)?.GetPlane();
 
-                        var shabariW = 350.0; // Î—À|ŞƒTƒCƒY‚ğ‰¼‚ÉŒÅ’è’l‚Åw’è
-                        var shabariH = 350.0; // Î—À|ŞƒTƒCƒY‚ğ‰¼‚ÉŒÅ’è’l‚Åw’è
-                        var ukezaiW = 200.0; // Î—Àó‚¯Ş|ŞƒTƒCƒY‚ğ‰¼‚ÉŒÅ’è’l
+                        var shabariW = 350.0; // æ–œæ¢é‹¼æã‚µã‚¤ã‚ºã‚’ä»®ã«å›ºå®šå€¤ã§æŒ‡å®š
+                        var shabariH = 350.0; // æ–œæ¢é‹¼æã‚µã‚¤ã‚ºã‚’ä»®ã«å›ºå®šå€¤ã§æŒ‡å®š
+                        var ukezaiW = 200.0; // æ–œæ¢å—ã‘æé‹¼æã‚µã‚¤ã‚ºã‚’ä»®ã«å›ºå®šå€¤
 
-                        // Î—À|Ş‚Ì’f–Ê‚Ì’[“_‚ğZo
+                        // æ–œæ¢é‹¼æã®æ–­é¢ã®ç«¯ç‚¹ã‚’ç®—å‡º
                         var ukeWhalf = 0.5 * ClsRevitUtil.CovertToAPI(ukezaiW);
                         var points = Enumerable.Empty<double>()
                             .Append(ukeWhalf)
@@ -1256,7 +1256,7 @@ namespace YMS
                         //var points = ClsYMSUtil.CalcShabariSection(shabariBaseLine, shabariBasePlane, shabariW, shabariH, sectionPlane);
                         sectionBBoxes.AddRange(points);
 
-                        // Î—À’f–Ê‚Ì’[“_‚Ì’†‚Å Z ¬•ª‚ªÅ¬‚Ì“_‚ğæ“¾
+                        // æ–œæ¢æ–­é¢ã®ç«¯ç‚¹ã®ä¸­ã§ Z æˆåˆ†ãŒæœ€å°ã®ç‚¹ã‚’å–å¾—
                         var sectionTop = ClsYMSUtil.CalcShabariSectionBottom(shabariBaseLine, shabariBasePlane, shabariW, shabariH, sectionPlane, ukezaiW);
                         if (sectionTop != null)
                         {
@@ -1266,8 +1266,8 @@ namespace YMS
                         {
                             var dialog = new TaskDialog(nameof(YMS.TEST9))
                             {
-                                MainInstruction = "Î—À’f–Ê‚Ì’[“_‚ªZo‚Å‚«‚Ü‚¹‚ñ",
-                                MainContent = "Î—Àƒx[ƒX‚ÆÎ—Àƒx[ƒXó‚¯‚ª•½s‚©‚à‚µ‚ê‚Ü‚¹‚ñ",
+                                MainInstruction = "æ–œæ¢æ–­é¢ã®ç«¯ç‚¹ãŒç®—å‡ºã§ãã¾ã›ã‚“",
+                                MainContent = "æ–œæ¢ãƒ™ãƒ¼ã‚¹ã¨æ–œæ¢ãƒ™ãƒ¼ã‚¹å—ã‘ãŒå¹³è¡Œã‹ã‚‚ã—ã‚Œã¾ã›ã‚“",
                                 MainIcon = TaskDialogIcon.TaskDialogIconError,
                             };
                             dialog.Show();
@@ -1278,7 +1278,7 @@ namespace YMS
                     {
                         transaction.Start();
 
-                        // Î—À’f–Ê‚ğƒ‚ƒfƒ‹ü•ª‚Åì¬
+                        // æ–œæ¢æ–­é¢ã‚’ãƒ¢ãƒ‡ãƒ«ç·šåˆ†ã§ä½œæˆ
                         foreach (var points in sectionBBoxes)
                         {
                             var p = SketchPlane.Create(doc, sectionPlane);
@@ -1296,7 +1296,7 @@ namespace YMS
                             }
                         }
 
-                        // Î—À’f–Ê‚ÌÅ‚“_‚ğŒ‹‚Ôƒ‚ƒfƒ‹ü•ª‚ğì¬
+                        // æ–œæ¢æ–­é¢ã®æœ€é«˜ç‚¹ã‚’çµã¶ãƒ¢ãƒ‡ãƒ«ç·šåˆ†ã‚’ä½œæˆ
                         if (topPoints.Count == 2)
                         {
                             var p1 = topPoints.FirstOrDefault();
@@ -1359,7 +1359,7 @@ namespace YMS
                 UIApplication uiapp = commandData.Application;
                 UIDocument uidoc = uiapp.ActiveUIDocument;
 
-                //ƒhƒLƒ…ƒƒ“ƒg‚ğæ“¾
+                //ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’å–å¾—
                 Document doc = uidoc.Document;
 
                 ElementId id = null;
@@ -1367,7 +1367,7 @@ namespace YMS
                     return Result.Failed;
 
                 ElementId lineId = null;
-                if (!ClsRevitUtil.PickObject(uidoc, "ƒ‚ƒfƒ‹ü•ª", "ƒ‚ƒfƒ‹ü•ª", ref lineId))
+                if (!ClsRevitUtil.PickObject(uidoc, "ãƒ¢ãƒ‡ãƒ«ç·šåˆ†", "ãƒ¢ãƒ‡ãƒ«ç·šåˆ†", ref lineId))
                     return Result.Failed;
 
                 var inst = doc.GetElement(id) as FamilyInstance;
@@ -1379,17 +1379,17 @@ namespace YMS
                 var insec = ClsRevitUtil.GetIntersectionZ0(cv, line);
                 if (insec != null)
                 {
-                    //‰¼‚Ì’l
+                    //ä»®ã®å€¤
                     var name = "35VP";
-                    var typeName = "‹÷‰Î‘Å";
+                    var typeName = "éš…ç«æ‰“";
                     var path = Master.ClsHiuchiCsv.GetFamilyPath(name);
 
-                    //ƒVƒ“ƒ{ƒ‹“Ç
+                    //ã‚·ãƒ³ãƒœãƒ«èª­è¾¼
                     var familyName = RevitUtil.ClsRevitUtil.GetFamilyName(path);
                     //if (!ClsRevitUtil.LoadFamilyData(doc, path, out Family tanbuFam))
                     //    return Result.Failed;
                     //var sym = (ClsRevitUtil.GetFamilySymbol(doc, familyName, typeName));
-                    //ƒVƒ“ƒ{ƒ‹“Ç
+                    //ã‚·ãƒ³ãƒœãƒ«èª­è¾¼
                     if (!ClsRevitUtil.LoadFamilySymbolData(doc, path, familyName, out var sym))
                         return Result.Failed;
                     if (sym != null)
@@ -1458,7 +1458,7 @@ namespace YMS
                 return Result.Failed;
             }
 
-            TaskDialog.Show("TEST12","END");
+            TaskDialog.Show("TEST12", "END");
             return Result.Succeeded;
         }
     }
@@ -1473,19 +1473,19 @@ namespace YMS
             try
             {
                 UIApplication uiapp = commandData.Application;
-				UIDocument uidoc = uiapp.ActiveUIDocument;
+                UIDocument uidoc = uiapp.ActiveUIDocument;
                 Document doc = uidoc.Document;
 
                 List<ElementId> elementIds = new List<ElementId>();
-                
-                //•¡”‘I‘ğ
-                if (ClsRevitUtil.PickObjectsPartSymbol(uidoc, "ƒ{ƒ‹ƒgî•ñ‚ğİ’è‚·‚é•”Ş‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B", ref elementIds))
-				{
-                    //ƒ{ƒ‹ƒg–¼‚Æƒ{ƒ‹ƒg”‚Í‰¼‚Ì’l
-                    string boltName = "‰¼ƒ{ƒ‹ƒg";
+
+                //è¤‡æ•°é¸æŠ
+                if (ClsRevitUtil.PickObjectsPartSymbol(uidoc, "ãƒœãƒ«ãƒˆæƒ…å ±ã‚’è¨­å®šã™ã‚‹éƒ¨æã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚", ref elementIds))
+                {
+                    //ãƒœãƒ«ãƒˆåã¨ãƒœãƒ«ãƒˆæ•°ã¯ä»®ã®å€¤
+                    string boltName = "ä»®ãƒœãƒ«ãƒˆ";
                     int boltNum = 10;
                     using (Transaction t = new Transaction(doc, "Set Bolt Data"))
-					{
+                    {
                         t.Start();
                         foreach (ElementId id in elementIds)
                         {
@@ -1522,16 +1522,16 @@ namespace YMS
 
                 ElementId id = null;
 
-                //•”Ş‘I‘ğ
-                if (ClsRevitUtil.PickObjectPartSymbol(uidoc, "ƒ{ƒ‹ƒgî•ñ‚ğ•\¦‚·‚é•”Ş‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B", ref id))
+                //éƒ¨æé¸æŠ
+                if (ClsRevitUtil.PickObjectPartSymbol(uidoc, "ãƒœãƒ«ãƒˆæƒ…å ±ã‚’è¡¨ç¤ºã™ã‚‹éƒ¨æã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚", ref id))
                 {
                     if (id != null)
                     {
                         var boltNameAndNum = ClsYMSUtil.GetBolt(doc, id);
-                        string boltName = boltNameAndNum.Item1 == null ? "ƒ{ƒ‹ƒgî•ñ‚È‚µ" : boltNameAndNum.Item1;
+                        string boltName = boltNameAndNum.Item1 == null ? "ãƒœãƒ«ãƒˆæƒ…å ±ãªã—" : boltNameAndNum.Item1;
                         int boltNum = boltNameAndNum.Item2;
 
-                        string boltInfoMessage = $"ƒ{ƒ‹ƒgí—ŞF{boltName}\r\nƒ{ƒ‹ƒg”F{boltNum}";
+                        string boltInfoMessage = $"ãƒœãƒ«ãƒˆç¨®é¡ï¼š{boltName}\r\nãƒœãƒ«ãƒˆæ•°ï¼š{boltNum}";
                         TaskDialog.Show("TEST14", boltInfoMessage);
                     }
                 }
@@ -1573,24 +1573,24 @@ namespace YMS
                 string familyType = dlg.GetFamilyType();
                 if (string.IsNullOrEmpty(familyType))
                 {
-                    //ƒtƒ@ƒ~ƒŠƒ^ƒCƒv‚ª‘¶İ‚µ‚È‚¢ê‡Aƒ^ƒCƒv–¼‚ğƒVƒ“ƒ{ƒ‹–¼‚É•ÏX
+                    //ãƒ•ã‚¡ãƒŸãƒªã‚¿ã‚¤ãƒ—ãŒå­˜åœ¨ã—ãªã„å ´åˆã€ã‚¿ã‚¤ãƒ—åã‚’ã‚·ãƒ³ãƒœãƒ«åã«å¤‰æ›´
                     familyType = ClsRevitUtil.GetFamilyName(familyPath);
                 }
 
                 if (!ClsRevitUtil.LoadFamilySymbolData(doc, familyPath, familyType, out FamilySymbol sym))
                 {
-                    MessageBox.Show("ƒtƒ@ƒ~ƒŠ‚Ìæ“¾‚É¸”s‚µ‚Ü‚µ‚½");
+                    MessageBox.Show("ãƒ•ã‚¡ãƒŸãƒªã®å–å¾—ã«å¤±æ•—ã—ã¾ã—ãŸ");
                     return Result.Cancelled;
                 }
                 if (sym == null)
                 {
-                    MessageBox.Show("ƒtƒ@ƒ~ƒŠ‚Ìæ“¾‚É¸”s‚µ‚Ü‚µ‚½");
+                    MessageBox.Show("ãƒ•ã‚¡ãƒŸãƒªã®å–å¾—ã«å¤±æ•—ã—ã¾ã—ãŸ");
 
                     return Result.Cancelled;
                 }
 
-                ////”z’u‚³‚ê‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg‚ğ•Û
-                FilteredElementCollector collector = new FilteredElementCollector(doc);@//#34229
+                ////é…ç½®ã•ã‚Œã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä¿æŒ
+                FilteredElementCollector collector = new FilteredElementCollector(doc);ã€€//#34229
                 ICollection<ElementId> preElementIds = collector.WhereElementIsNotElementType().ToElementIds();//#34229
                 preElementIds2 = preElementIds;//#34229
 
@@ -1611,7 +1611,7 @@ namespace YMS
 
         private static ICollection<ElementId> preElementIds2;
         /// <summary>
-        /// ŒÂ•Ê”z’u‚Ì’Ç‰ÁID‚É‘Î‚·‚éˆ—
+        /// å€‹åˆ¥é…ç½®æ™‚ã®è¿½åŠ IDã«å¯¾ã™ã‚‹å‡¦ç†
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1621,43 +1621,43 @@ namespace YMS
             UIDocument uidoc = uiApp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
-            // ƒCƒxƒ“ƒg‰ğœ
+            // ã‚¤ãƒ™ãƒ³ãƒˆè§£é™¤
             uiApp.Idling -= OnIdling;
 
             FilteredElementCollector collector = new FilteredElementCollector(doc);
             ICollection<ElementId> currentIds = collector.WhereElementIsNotElementType().ToElementIds();
 
-            // V‹K—v‘f‚ÌŒŸo
+            // æ–°è¦è¦ç´ ã®æ¤œå‡º
             var newIds = currentIds.Except(preElementIds2).ToList();
             if (newIds.Count > 0)
             {
-                // ”z’u‚³‚ê‚½—v‘f‚É‘Î‚µ‚Äˆ—‚ğs‚¤
+                // é…ç½®ã•ã‚ŒãŸè¦ç´ ã«å¯¾ã—ã¦å‡¦ç†ã‚’è¡Œã†
                 foreach (ElementId id in newIds)
                 {
                     Element newElement = doc.GetElement(id);
                     using (Transaction tx = new Transaction(doc, "Update Element"))
                     {
                         tx.Start();
-                        ClsRevitUtil.SetParameter(doc, id, "ƒRƒƒ“ƒg", "ŒÂ•Ê”z’u‚Åİ’è‚µ‚½ƒRƒƒ“ƒg‚Å‚·");
+                        ClsRevitUtil.SetParameter(doc, id, "ã‚³ãƒ¡ãƒ³ãƒˆ", "å€‹åˆ¥é…ç½®ã§è¨­å®šã—ãŸã‚³ãƒ¡ãƒ³ãƒˆã§ã™");
                         tx.Commit();
                     }
                 }
 
-                ////ƒCƒxƒ“ƒgI—¹ˆ—
+                ////ã‚¤ãƒ™ãƒ³ãƒˆçµ‚äº†æ™‚å‡¦ç†
                 //ElementId idPick = null;
-                //if (!ClsRevitUtil.PickObject(uidoc, "1‚Â‚ß‚Ì• ‹Nƒx[ƒX", "• ‹Nƒx[ƒX", ref idPick))
+                //if (!ClsRevitUtil.PickObject(uidoc, "1ã¤ã‚ã®è…¹èµ·ãƒ™ãƒ¼ã‚¹", "è…¹èµ·ãƒ™ãƒ¼ã‚¹", ref idPick))
                 //{
                 //    return;
                 //}
 
-                //‘I‘ğó‘Ô‚É‚·‚é
+                //é¸æŠçŠ¶æ…‹ã«ã™ã‚‹
                 ClsRevitUtil.SelectElement(uidoc, newIds);
             }
         }
     }
     //TESTCommand
     /// <summary>
-    /// }–Êî•ñİ’è
+    /// å›³é¢æƒ…å ±è¨­å®š
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CommandZumenInfo : IExternalCommand
@@ -1716,7 +1716,7 @@ namespace YMS
             }
             catch (Exception ex)
             {
-                TaskDialog.Show("JSON“Ç", ex.Message);
+                TaskDialog.Show("JSONèª­è¾¼", ex.Message);
                 message = ex.Message;
                 return Result.Failed;
             }
@@ -1976,7 +1976,7 @@ namespace YMS
     }
 
     /// <summary>
-    /// ¯•Ê‹L†•ÏX
+    /// è­˜åˆ¥è¨˜å·å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeShikibetuSym : IExternalCommand
@@ -1989,12 +1989,12 @@ namespace YMS
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
 
-            MessageBox.Show("¯•Ê‹L†•ÏX");
+            MessageBox.Show("è­˜åˆ¥è¨˜å·å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// •Çcì¬
+    /// å£èŠ¯ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateKabeshin : IExternalCommand
@@ -2012,12 +2012,12 @@ namespace YMS
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
             ClsKabeShin.CreateKabeShin(uidoc);
-            //MessageBox.Show("•Çcì¬");
+            //MessageBox.Show("å£èŠ¯ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// |–î”Âì¬
+    /// é‹¼çŸ¢æ¿ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateKouyaita : IExternalCommand
@@ -2048,7 +2048,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// |–î”Â•ÏX
+    /// é‹¼çŸ¢æ¿å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeKouyaita : IExternalCommand
@@ -2058,12 +2058,12 @@ namespace YMS
           ref string message,
           ElementSet elements)
         {
-            MessageBox.Show("|–î”Â•ÏX");
+            MessageBox.Show("é‹¼çŸ¢æ¿å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// |–î”Â”½“]
+    /// é‹¼çŸ¢æ¿åè»¢
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ReverseKouyaita : IExternalCommand
@@ -2094,7 +2094,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// “ÁêTƒR[ƒi[•ÏŠ·
+    /// ç‰¹æ®ŠTã‚³ãƒ¼ãƒŠãƒ¼å¤‰æ›
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class MergeKoyaita : IExternalCommand
@@ -2104,12 +2104,12 @@ namespace YMS
           ref string message,
           ElementSet elements)
         {
-            MessageBox.Show("“ÁêTƒR[ƒi[•ÏŠ·");
+            MessageBox.Show("ç‰¹æ®ŠTã‚³ãƒ¼ãƒŠãƒ¼å¤‰æ›");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// eYì¬
+    /// è¦ªæ­ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateOyakui : IExternalCommand
@@ -2136,12 +2136,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("eYì¬");
+            //MessageBox.Show("è¦ªæ­ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// eY•ÏX
+    /// è¦ªæ­å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeOyakui : IExternalCommand
@@ -2151,12 +2151,12 @@ namespace YMS
           ref string message,
           ElementSet elements)
         {
-            MessageBox.Show("eY•ÏX");
+            MessageBox.Show("è¦ªæ­å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ‰¡–î”Âì¬ieY‚ğ‘I‘ğ‚µ‚Äì¬j
+    /// æ¨ªçŸ¢æ¿ä½œæˆï¼ˆè¦ªæ­ã‚’é¸æŠã—ã¦ä½œæˆï¼‰
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateYokoyaita : IExternalCommand
@@ -2184,12 +2184,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("‰¡–î”Âì¬ieY‚ğ‘I‘ğ‚µ‚Äì¬j");
+            //MessageBox.Show("æ¨ªçŸ¢æ¿ä½œæˆï¼ˆè¦ªæ­ã‚’é¸æŠã—ã¦ä½œæˆï¼‰");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ‰¡–î”Â•ÏX
+    /// æ¨ªçŸ¢æ¿å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeYokoyaita : IExternalCommand
@@ -2217,12 +2217,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("‰¡–î”Â•ÏX");
+            //MessageBox.Show("æ¨ªçŸ¢æ¿å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ˜A‘±•Çì¬
+    /// é€£ç¶šå£ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateRenzokuKabe : IExternalCommand
@@ -2249,12 +2249,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("˜A‘±•Çì¬");
+            //MessageBox.Show("é€£ç¶šå£ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ˜A‘±•Ç•ÏX
+    /// é€£ç¶šå£å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeRenzokuKabe : IExternalCommand
@@ -2264,12 +2264,12 @@ namespace YMS
           ref string message,
           ElementSet elements)
         {
-            MessageBox.Show("˜A‘±•Ç•ÏX");
+            MessageBox.Show("é€£ç¶šå£å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// SMWì¬
+    /// SMWä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateSMW : IExternalCommand
@@ -2306,12 +2306,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("SMWì¬");
+            //MessageBox.Show("SMWä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// SMW•ÏX
+    /// SMWå¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeSMW : IExternalCommand
@@ -2321,12 +2321,12 @@ namespace YMS
           ref string message,
           ElementSet elements)
         {
-            MessageBox.Show("SMW•ÏX");
+            MessageBox.Show("SMWå¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// •Ç‚­‚è‚Ê‚«
+    /// å£ãã‚Šã¬ã
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateVoidFamily : IExternalCommand
@@ -2344,12 +2344,12 @@ namespace YMS
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
             ClsCommandVoid.CommandVoid(uidoc);
-            //MessageBox.Show("•Ç‚­‚è‚Ê‚«");
+            //MessageBox.Show("å£ãã‚Šã¬ã");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// CASEŠÇ—
+    /// CASEç®¡ç†
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ManegeCASE : IExternalCommand
@@ -2369,7 +2369,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// TCYE\‘äYEŒ“—pYE’f–Ê•Ï‰»Yì¬
+    /// TCæ­ãƒ»æ§‹å°æ­ãƒ»å…¼ç”¨æ­ãƒ»æ–­é¢å¤‰åŒ–æ­ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateSanbashiKui : IExternalCommand
@@ -2390,7 +2390,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// TCYE\‘äYEŒ“—pYE’f–Ê•Ï‰»Y•ÏX
+    /// TCæ­ãƒ»æ§‹å°æ­ãƒ»å…¼ç”¨æ­ãƒ»æ–­é¢å¤‰åŒ–æ­å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeKui : IExternalCommand
@@ -2411,7 +2411,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// • ‹Nƒx[ƒXì¬
+    /// è…¹èµ·ãƒ™ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateHaraokoshiBase : IExternalCommand
@@ -2437,12 +2437,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("• ‹Nƒx[ƒXì¬");
+            //MessageBox.Show("è…¹èµ·ãƒ™ãƒ¼ã‚¹ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// • ‹Nƒx[ƒX•ÏX
+    /// è…¹èµ·ãƒ™ãƒ¼ã‚¹å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeHaraokoshiBase : IExternalCommand
@@ -2469,12 +2469,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("• ‹Nƒx[ƒX•ÏX");
+            //MessageBox.Show("è…¹èµ·ãƒ™ãƒ¼ã‚¹å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Ø—Àƒx[ƒXì¬
+    /// åˆ‡æ¢ãƒ™ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateKiribariBase : IExternalCommand
@@ -2509,12 +2509,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("Ø—Àƒx[ƒXì¬");
+            //MessageBox.Show("åˆ‡æ¢ãƒ™ãƒ¼ã‚¹ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Ø—Àƒx[ƒX•ÏX
+    /// åˆ‡æ¢ãƒ™ãƒ¼ã‚¹å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeKiribariBase : IExternalCommand
@@ -2541,12 +2541,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("Ø—Àƒx[ƒX•ÏX");
+            //MessageBox.Show("åˆ‡æ¢ãƒ™ãƒ¼ã‚¹å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// O²ƒs[ƒX”z’u
+    /// ä¸‰è»¸ãƒ”ãƒ¼ã‚¹é…ç½®
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class PutSanjikuPiece : IExternalCommand
@@ -2569,7 +2569,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// O²ƒs[ƒXˆÊ’u’²®
+    /// ä¸‰è»¸ãƒ”ãƒ¼ã‚¹ä½ç½®èª¿æ•´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class PositionSanjikuPiece : IExternalCommand
@@ -2596,12 +2596,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("O²ƒs[ƒXˆÊ’u’²®");
+            //MessageBox.Show("ä¸‰è»¸ãƒ”ãƒ¼ã‚¹ä½ç½®èª¿æ•´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ‹÷‰Î‘Åƒx[ƒXì¬
+    /// éš…ç«æ‰“ãƒ™ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateCornerHiuchiBase : IExternalCommand
@@ -2619,12 +2619,12 @@ namespace YMS
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
             ClsCommandCornerHiuchiBase.CommandCreateCornerHiuchiBase(uidoc);
-            // MessageBox.Show("‹÷‰Î‘Åƒx[ƒXì¬");
+            // MessageBox.Show("éš…ç«æ‰“ãƒ™ãƒ¼ã‚¹ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ‹÷‰Î‘Åƒx[ƒX•ÏX
+    /// éš…ç«æ‰“ãƒ™ãƒ¼ã‚¹å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeCornerHiuchiBase : IExternalCommand
@@ -2643,12 +2643,12 @@ namespace YMS
             UIDocument uidoc = uiapp.ActiveUIDocument;
             ClsCommandCornerHiuchiBase.CommandChangeCornerHiuchiBase(uidoc);
 
-            //MessageBox.Show("‹÷‰Î‘Åƒx[ƒX•ÏX");
+            //MessageBox.Show("éš…ç«æ‰“ãƒ™ãƒ¼ã‚¹å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Ø—À‰Î‘Åƒx[ƒXì¬
+    /// åˆ‡æ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateKiribariHiuchiBase : IExternalCommand
@@ -2665,12 +2665,12 @@ namespace YMS
 
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             ClsCommandKiribariHiuchiBase.CommandKiribariHiuchiBase(uidoc);
-            //MessageBox.Show("Ø—À‰Î‘Åƒx[ƒXì¬");
+            //MessageBox.Show("åˆ‡æ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Ø—À‰Î‘Åƒx[ƒX•ÏX
+    /// åˆ‡æ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeKiribariHiuchiBase : IExternalCommand
@@ -2687,13 +2687,13 @@ namespace YMS
 
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             ClsCommandKiribariHiuchiBase.CommandChangeKiribariHiuchiBase(uidoc);
-            //MessageBox.Show("Ø—À‰Î‘Åƒx[ƒX•ÏX");
+            //MessageBox.Show("åˆ‡æ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹å¤‰æ›´");
             return Result.Succeeded;
         }
     }
 
     /// <summary>
-    /// ƒx[ƒXƒRƒs[
+    /// ãƒ™ãƒ¼ã‚¹ã‚³ãƒ”ãƒ¼
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CopyBase : IExternalCommand
@@ -2715,7 +2715,7 @@ namespace YMS
     }
 
     /// <summary>
-    /// ’IYE’†ŠÔYì¬
+    /// æ£šæ­ãƒ»ä¸­é–“æ­ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateTanakui : IExternalCommand
@@ -2736,7 +2736,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// ’IYE’†ŠÔY•ÏX
+    /// æ£šæ­ãƒ»ä¸­é–“æ­å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeTanakui : IExternalCommand
@@ -2752,7 +2752,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// ƒWƒƒƒbƒLì¬
+    /// ã‚¸ãƒ£ãƒƒã‚­ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateJack : IExternalCommand
@@ -2769,12 +2769,12 @@ namespace YMS
 
             UIApplication uiapp = commandData.Application;
             ClsCommandJack.CreateJack(uiapp);
-            //MessageBox.Show("ƒWƒƒƒbƒLì¬");
+            //MessageBox.Show("ã‚¸ãƒ£ãƒƒã‚­ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ƒWƒƒƒbƒL•ÏX
+    /// ã‚¸ãƒ£ãƒƒã‚­å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class Changejack : IExternalCommand
@@ -2791,12 +2791,12 @@ namespace YMS
 
             UIApplication uiapp = commandData.Application;
             ClsCommandJack.ChangeJack(uiapp);
-            //MessageBox.Show("ƒWƒƒƒbƒL•ÏX");
+            //MessageBox.Show("ã‚¸ãƒ£ãƒƒã‚­å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Ø—Àó‚¯ƒx[ƒXì¬
+    /// åˆ‡æ¢å—ã‘ãƒ™ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateKiribariUkeBase : IExternalCommand
@@ -2813,12 +2813,12 @@ namespace YMS
 
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             ClsCommandKiribariUkeBase.CommandKiribariUkeBase(uidoc);
-            //MessageBox.Show("Ø—Àó‚¯ƒx[ƒXì¬");
+            //MessageBox.Show("åˆ‡æ¢å—ã‘ãƒ™ãƒ¼ã‚¹ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Ø—Àó‚¯ƒx[ƒX•ÏX
+    /// åˆ‡æ¢å—ã‘ãƒ™ãƒ¼ã‚¹å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeKiribariUkeBase : IExternalCommand
@@ -2835,12 +2835,12 @@ namespace YMS
 
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             ClsCommandKiribariUkeBase.CommandChangeKiribariUkeBase(uidoc);
-            //MessageBox.Show("Ø—Àó‚¯ƒx[ƒX•ÏX");
+            //MessageBox.Show("åˆ‡æ¢å—ã‘ãƒ™ãƒ¼ã‚¹å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Ø—ÀƒcƒiƒMŞƒx[ƒXì¬
+    /// åˆ‡æ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateKiribariTsunagizaiBase : IExternalCommand
@@ -2857,12 +2857,12 @@ namespace YMS
 
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             ClsCommandKiribariTsunagizaiBase.CommandKiribariTsunagizaiBase(uidoc);
-            //MessageBox.Show("Ø—ÀƒcƒiƒMŞƒx[ƒXì¬");
+            //MessageBox.Show("åˆ‡æ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Ø—ÀƒcƒiƒMŞƒx[ƒX•ÏX
+    /// åˆ‡æ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeKiribariTsunagizaiBase : IExternalCommand
@@ -2879,12 +2879,12 @@ namespace YMS
 
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             ClsCommandKiribariTsunagizaiBase.CommandChangeKiribariTsunagizaiBase(uidoc);
-            //MessageBox.Show("Ø—ÀƒcƒiƒMŞƒx[ƒX•ÏX");
+            //MessageBox.Show("åˆ‡æ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ‰Î‘ÅƒcƒiƒMŞƒx[ƒXì¬
+    /// ç«æ‰“ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateHiuchiTsunagizaiBase : IExternalCommand
@@ -2899,14 +2899,14 @@ namespace YMS
                 return Result.Failed;
             }
 
-            //MessageBox.Show("‰Î‘ÅƒcƒiƒMŞƒx[ƒXì¬");
+            //MessageBox.Show("ç«æ‰“ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹ä½œæˆ");
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             ClsCommandHiuchiTsunagizaiBase.CommandHiuchiTsunagizaiBase(uidoc);
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ‰Î‘ÅƒcƒiƒMŞƒx[ƒX•ÏX
+    /// ç«æ‰“ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeHIuchiTsunagizaiBase : IExternalCommand
@@ -2923,12 +2923,12 @@ namespace YMS
 
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             ClsCommandHiuchiTsunagizaiBase.CommandChangeHiuchiTsunagizaiBase(uidoc);
-            //MessageBox.Show("‰Î‘ÅƒcƒiƒMŞƒx[ƒX•ÏX");
+            //MessageBox.Show("ç«æ‰“ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Ø—ÀŒp‚¬ƒx[ƒX•ÏX
+    /// åˆ‡æ¢ç¶™ããƒ™ãƒ¼ã‚¹å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeKiribariTsunagiBase : IExternalCommand
@@ -2945,12 +2945,12 @@ namespace YMS
 
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             ClsCommandKiribariTsugiBase.CommandChangeKiribariTsugiBase(uidoc);
-            //MessageBox.Show("Ø—ÀŒp‚¬ƒx[ƒX•ÏX");
+            //MessageBox.Show("åˆ‡æ¢ç¶™ããƒ™ãƒ¼ã‚¹å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Ø—ÀŒp‚¬ƒx[ƒXì¬
+    /// åˆ‡æ¢ç¶™ããƒ™ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateKiribariTsunagiBase : IExternalCommand
@@ -2967,12 +2967,12 @@ namespace YMS
 
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             ClsCommandKiribariTsugiBase.CommandKiribariTsugiBase(uidoc);
-            //MessageBox.Show("Ø—ÀŒp‚¬ƒx[ƒXì¬");
+            //MessageBox.Show("åˆ‡æ¢ç¶™ããƒ™ãƒ¼ã‚¹ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Î—À‚Ì‹ë‘Ì—pü•ª”z’u
+    /// æ–œæ¢ã®èº¯ä½“ç”¨ç·šåˆ†é…ç½®
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class PutSyabariStructureLine : IExternalCommand
@@ -3001,12 +3001,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            MessageBox.Show("Î—À‚Ì‹ë‘Ì—pü•ª”z’u");
+            MessageBox.Show("æ–œæ¢ã®èº¯ä½“ç”¨ç·šåˆ†é…ç½®");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Î—À‚Ì’[•”•”•i”z’uiŒÂ•Êj
+    /// æ–œæ¢ã®ç«¯éƒ¨éƒ¨å“é…ç½®ï¼ˆå€‹åˆ¥ï¼‰
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class PutSyabariPieceIndividual : IExternalCommand
@@ -3035,12 +3035,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("Î—À‚Ì’[•”•”•i”z’uiŒÂ•Êj");
+            //MessageBox.Show("æ–œæ¢ã®ç«¯éƒ¨éƒ¨å“é…ç½®ï¼ˆå€‹åˆ¥ï¼‰");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Î—À‚Ì’[•”•”•i”z’uiŒğ“_j
+    /// æ–œæ¢ã®ç«¯éƒ¨éƒ¨å“é…ç½®ï¼ˆäº¤ç‚¹ï¼‰
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class PutSyabariPieceIntersectionPoint : IExternalCommand
@@ -3070,12 +3070,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("Î—À‚Ì’[•”•”•i”z’uiŒğ“_j");
+            //MessageBox.Show("æ–œæ¢ã®ç«¯éƒ¨éƒ¨å“é…ç½®ï¼ˆäº¤ç‚¹ï¼‰");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Î—Àƒx[ƒXì¬
+    /// æ–œæ¢ãƒ™ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateSyabariBase : IExternalCommand
@@ -3102,12 +3102,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("Î—Àƒx[ƒXì¬");
+            //MessageBox.Show("æ–œæ¢ãƒ™ãƒ¼ã‚¹ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Î—Àƒx[ƒX•ÏX
+    /// æ–œæ¢ãƒ™ãƒ¼ã‚¹å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeSyabariBase : IExternalCommand
@@ -3134,12 +3134,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("Î—Àƒx[ƒX•ÏX");
+            //MessageBox.Show("æ–œæ¢ãƒ™ãƒ¼ã‚¹å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Î—ÀƒcƒiƒMŞƒx[ƒXì¬
+    /// æ–œæ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateSyabariTsunagizaiBase : IExternalCommand
@@ -3166,12 +3166,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("Î—ÀƒcƒiƒMŞƒx[ƒXì¬");
+            //MessageBox.Show("æ–œæ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Î—ÀƒcƒiƒMŞƒx[ƒX•ÏX
+    /// æ–œæ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeSyabariTsunagizaiBase : IExternalCommand
@@ -3198,12 +3198,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("Î—ÀƒcƒiƒMŞƒx[ƒX•ÏX");
+            //MessageBox.Show("æ–œæ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Î—Àó‚¯ƒx[ƒXì¬
+    /// æ–œæ¢å—ã‘ãƒ™ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateSyabariUkeBase : IExternalCommand
@@ -3230,12 +3230,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("Î—Àó‚¯ƒx[ƒXì¬");
+            //MessageBox.Show("æ–œæ¢å—ã‘ãƒ™ãƒ¼ã‚¹ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Î—Àó‚¯ƒx[ƒX•ÏX
+    /// æ–œæ¢å—ã‘ãƒ™ãƒ¼ã‚¹å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeSyabariUkeBase : IExternalCommand
@@ -3262,12 +3262,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("Î—Àó‚¯ƒx[ƒX•ÏX");
+            //MessageBox.Show("æ–œæ¢å—ã‘ãƒ™ãƒ¼ã‚¹å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Î—À‰Î‘Å‚Ì’[•”•”•i”z’u
+    /// æ–œæ¢ç«æ‰“ã®ç«¯éƒ¨éƒ¨å“é…ç½®
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class PutSyabariHiuchiPiece : IExternalCommand
@@ -3294,12 +3294,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            MessageBox.Show("Î—À‰Î‘Å‚Ì’[•”•”•i”z’u");
+            MessageBox.Show("æ–œæ¢ç«æ‰“ã®ç«¯éƒ¨éƒ¨å“é…ç½®");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Î—À‰Î‘Åƒx[ƒXì¬
+    /// æ–œæ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateSyabariHiuchiBase : IExternalCommand
@@ -3326,12 +3326,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("Î—À‰Î‘Åƒx[ƒXì¬");
+            //MessageBox.Show("æ–œæ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Î—À‰Î‘Åƒx[ƒX•ÏX
+    /// æ–œæ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeSyabariHiuchiBase : IExternalCommand
@@ -3358,12 +3358,12 @@ namespace YMS
                 message = ex.Message;
                 return Result.Failed;
             }
-            //MessageBox.Show("Î—À‰Î‘Åƒx[ƒX•ÏX");
+            //MessageBox.Show("æ–œæ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// “ªƒcƒiƒMŞì¬
+    /// é ­ãƒ„ãƒŠã‚®æä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateAtamaTsunagiZai : IExternalCommand
@@ -3384,7 +3384,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// “ªƒcƒiƒM•â•Şì¬
+    /// é ­ãƒ„ãƒŠã‚®è£œåŠ©æä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateAtamaTsunagiHojoZai : IExternalCommand
@@ -3405,7 +3405,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// “ªƒcƒiƒMíœ
+    /// é ­ãƒ„ãƒŠã‚®å‰Šé™¤
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class DeleteAtamaTsunagi : IExternalCommand
@@ -3422,13 +3422,13 @@ namespace YMS
 
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             ClsCommandAtamaTsunagi.CommandDeleteAtamaTsunagi(uidoc);
-            //MessageBox.Show("“ªƒcƒiƒMíœ");
+            //MessageBox.Show("é ­ãƒ„ãƒŠã‚®å‰Šé™¤");
             return Result.Succeeded;
         }
     }
 
     /// <summary>
-    /// o‹÷•”•â‹­Şì¬
+    /// å‡ºéš…éƒ¨è£œå¼·æä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateDesumibuHokyouzai : IExternalCommand
@@ -3459,7 +3459,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// o‹÷•”•â‹­Ş•ÏX
+    /// å‡ºéš…éƒ¨è£œå¼·æå¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeDesumibuHokyouzai : IExternalCommand
@@ -3469,12 +3469,12 @@ namespace YMS
           ref string message,
           ElementSet elements)
         {
-            MessageBox.Show("o‹÷•”•â‹­Ş•ÏX");
+            MessageBox.Show("å‡ºéš…éƒ¨è£œå¼·æå¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ‰¼ƒx[ƒXì¬
+    /// ä»®ãƒ™ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateKariBase : IExternalCommand
@@ -3484,12 +3484,12 @@ namespace YMS
           ref string message,
           ElementSet elements)
         {
-            MessageBox.Show("‰¼ƒx[ƒXì¬");
+            MessageBox.Show("ä»®ãƒ™ãƒ¼ã‚¹ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ƒx[ƒXˆê——E•ÒW
+    /// ãƒ™ãƒ¼ã‚¹ä¸€è¦§ãƒ»ç·¨é›†
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class EditBaseList : IExternalCommand
@@ -3511,7 +3511,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// ‰¼|Ş”z’u
+    /// ä»®é‹¼æé…ç½®
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class PutKariKouzai : IExternalCommand
@@ -3529,14 +3529,14 @@ namespace YMS
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
             //ClsTest.CreataKariKouzai(uidoc);
-            //MessageBox.Show("‰¼|Ş”z’u");
+            //MessageBox.Show("ä»®é‹¼æé…ç½®");
             ClsCommandKariKozai.CommandCreateKariKouzai(uidoc);
 
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ‹÷•”ƒs[ƒXì¬
+    /// éš…éƒ¨ãƒ”ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateSumibuPiace : IExternalCommand
@@ -3559,7 +3559,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// ‹÷•”ƒs[ƒX•ÏX
+    /// éš…éƒ¨ãƒ”ãƒ¼ã‚¹å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeSumibuPiace : IExternalCommand
@@ -3582,7 +3582,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// ƒuƒ‰ƒPƒbƒgi’P“Æjì¬
+    /// ãƒ–ãƒ©ã‚±ãƒƒãƒˆï¼ˆå˜ç‹¬ï¼‰ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateBracket : IExternalCommand
@@ -3603,7 +3603,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// ‚¹‚ñ’fƒ{ƒ‹ƒg•â‹­Şì¬
+    /// ã›ã‚“æ–­ãƒœãƒ«ãƒˆè£œå¼·æä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateSendanBoltHokyouzai : IExternalCommand
@@ -3624,7 +3624,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// ‚¹‚ñ’fƒ{ƒ‹ƒg•â‹­Ş•ÏX
+    /// ã›ã‚“æ–­ãƒœãƒ«ãƒˆè£œå¼·æå¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeSendanBoltHokyouzai : IExternalCommand
@@ -3634,12 +3634,12 @@ namespace YMS
           ref string message,
           ElementSet elements)
         {
-            MessageBox.Show("‚¹‚ñ’fƒ{ƒ‹ƒg•â‹­Ş•ÏX");
+            MessageBox.Show("ã›ã‚“æ–­ãƒœãƒ«ãƒˆè£œå¼·æå¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ã‰º• ‹NƒcƒiƒMŞì¬
+    /// ä¸Šä¸‹è…¹èµ·ãƒ„ãƒŠã‚®æä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateJyougeHaraokoshiTsunagi : IExternalCommand
@@ -3649,12 +3649,12 @@ namespace YMS
           ref string message,
           ElementSet elements)
         {
-            MessageBox.Show("ã‰º• ‹NƒcƒiƒMŞì¬");
+            MessageBox.Show("ä¸Šä¸‹è…¹èµ·ãƒ„ãƒŠã‚®æä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ã‰º• ‹NƒcƒiƒMŞ•ÏX
+    /// ä¸Šä¸‹è…¹èµ·ãƒ„ãƒŠã‚®æå¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeJyougeHaraokoshiTsunagi : IExternalCommand
@@ -3664,12 +3664,12 @@ namespace YMS
           ref string message,
           ElementSet elements)
         {
-            MessageBox.Show("ã‰º• ‹NƒcƒiƒMŞ•ÏX");
+            MessageBox.Show("ä¸Šä¸‹è…¹èµ·ãƒ„ãƒŠã‚®æå¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// • ‹NƒXƒxƒŠ~‚ßì¬
+    /// è…¹èµ·ã‚¹ãƒ™ãƒªæ­¢ã‚ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateHaraokoshiSuberidome : IExternalCommand
@@ -3686,12 +3686,12 @@ namespace YMS
 
             UIApplication uiapp = commandData.Application;
             ClsCommandHaraokoshiSuberidome.CreateHaraokoshiSuberidome(uiapp);
-            //MessageBox.Show("• ‹NƒXƒxƒŠ~‚ßì¬");
+            //MessageBox.Show("è…¹èµ·ã‚¹ãƒ™ãƒªæ­¢ã‚ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// • ‹NƒXƒxƒŠ~‚ß•ÏX
+    /// è…¹èµ·ã‚¹ãƒ™ãƒªæ­¢ã‚å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeHaraokoshiSuberidome : IExternalCommand
@@ -3708,12 +3708,12 @@ namespace YMS
 
             UIApplication uiapp = commandData.Application;
             ClsCommandHaraokoshiSuberidome.ChangeHaraokoshiSuberidome(uiapp);
-            //MessageBox.Show("• ‹NƒXƒxƒŠ~‚ß•ÏX");
+            //MessageBox.Show("è…¹èµ·ã‚¹ãƒ™ãƒªæ­¢ã‚å¤‰æ›´");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// Œğ³•”ü‚è©“®ì¬
+    /// äº¤å‰éƒ¨å‘¨ã‚Šè‡ªå‹•ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateKousyabuMawari : IExternalCommand
@@ -3731,12 +3731,12 @@ namespace YMS
             UIApplication uiapp = commandData.Application;
             ClsCommandKousyabuMawari.CreateKousyabuMawari(uiapp);
             //ClsCommandKousyabuMawari.CreateKousyabuMawariSelectBase(uiapp);
-            //MessageBox.Show("Œğ³•”ü‚è©“®ì¬");
+            //MessageBox.Show("äº¤å‰éƒ¨å‘¨ã‚Šè‡ªå‹•ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ’÷•t—pƒs[ƒXì¬
+    /// ç· ä»˜ç”¨ãƒ”ãƒ¼ã‚¹ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateShimetukePiece : IExternalCommand
@@ -3753,12 +3753,12 @@ namespace YMS
 
             UIApplication uiapp = commandData.Application;
             ClsCommandShimetukePiece.CommandCreateShimetukePiece(uiapp);
-            //MessageBox.Show("’÷•t—pƒs[ƒXì¬");
+            //MessageBox.Show("ç· ä»˜ç”¨ãƒ”ãƒ¼ã‚¹ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// ƒXƒ`ƒtƒi[ì¬
+    /// ã‚¹ãƒãƒ•ãƒŠãƒ¼ä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateStiffener : IExternalCommand
@@ -3775,12 +3775,12 @@ namespace YMS
 
             UIApplication uiapp = commandData.Application;
             ClsCommandStiffener.CreateStiffener(uiapp);
-            //MessageBox.Show("ƒXƒ`ƒtƒi[ì¬");
+            //MessageBox.Show("ã‚¹ãƒãƒ•ãƒŠãƒ¼ä½œæˆ");
             return Result.Succeeded;
         }
     }
     /// <summary>
-    /// è“®Š„•t
+    /// æ‰‹å‹•å‰²ä»˜
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class WaritukeSyudou : IExternalCommand
@@ -3869,7 +3869,7 @@ namespace YMS
     }
 
     /// <summary>
-    /// |Ş’·‚³•ÏX
+    /// é‹¼æé•·ã•å¤‰æ›´
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class ChangeLengthKouzai : IExternalCommand
@@ -3887,7 +3887,7 @@ namespace YMS
         }
     }
     /// <summary>
-    /// • ‹Nƒuƒ‰ƒPƒbƒgì¬
+    /// è…¹èµ·ãƒ–ãƒ©ã‚±ãƒƒãƒˆä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateHaraokoshiBracket : IExternalCommand
@@ -3897,13 +3897,13 @@ namespace YMS
           ref string message,
           ElementSet elements)
         {
-            MessageBox.Show("• ‹Nƒuƒ‰ƒPƒbƒgì¬");
+            MessageBox.Show("è…¹èµ·ãƒ–ãƒ©ã‚±ãƒƒãƒˆä½œæˆ");
             return Result.Succeeded;
         }
     }
 
     /// <summary>
-    ///@ƒ[ƒNƒZƒbƒgì¬
+    ///ã€€ãƒ¯ãƒ¼ã‚¯ã‚»ãƒƒãƒˆä½œæˆ
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class CreateWorkset : IExternalCommand
@@ -3925,7 +3925,7 @@ namespace YMS
     }
 
     /// <summary>
-    /// ŒÂ•Ê”z’u
+    /// å€‹åˆ¥é…ç½®
     /// </summary>
     [Transaction(TransactionMode.Manual)]
     public class KobetsuHaichi : IExternalCommand
@@ -3975,9 +3975,9 @@ namespace YMS
     }
 
     /// <summary>
-    /// Œx•\¦‚Ì§Œä(–³‹‚Å‚«‚éŒx‚ª•\¦‚³‚ê‚È‚­‚È‚é)
+    /// è­¦å‘Šè¡¨ç¤ºã®åˆ¶å¾¡(ç„¡è¦–ã§ãã‚‹è­¦å‘ŠãŒè¡¨ç¤ºã•ã‚Œãªããªã‚‹)
     /// </summary>
-    /// <remarks>‰º‹L‚Ì‚æ‚¤‚Ég‚¤
+    /// <remarks>ä¸‹è¨˜ã®ã‚ˆã†ã«ä½¿ã†
     /// t.Start();
     ///FailureHandlingOptions failOpt = t.GetFailureHandlingOptions();
     ///failOpt.SetFailuresPreprocessor(new WarningSwallower());

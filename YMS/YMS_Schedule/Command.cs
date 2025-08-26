@@ -1,4 +1,4 @@
-//#define CHECK_LATER //‰¼|Şƒ`ƒFƒbƒN‚ğŒã‰ñ‚µ‚É‚·‚é
+ï»¿//#define CHECK_LATER //ä»®é‹¼æãƒã‚§ãƒƒã‚¯ã‚’å¾Œå›ã—ã«ã™ã‚‹
 
 #region Namespaces
 using Autodesk.Revit.ApplicationServices;
@@ -24,7 +24,7 @@ using RevitUtil;
 namespace YMS_Schedule
 {
     [Transaction(TransactionMode.Manual)]
-    public class CommandExport: IExternalCommand
+    public class CommandExport : IExternalCommand
     {
         public Result Execute(
           ExternalCommandData commandData,
@@ -37,10 +37,10 @@ namespace YMS_Schedule
             Document doc = uidoc.Document;
             UIControlledApplication uicapp = App.uicapp;
 
-            //ˆê“x‚à•Û‘¶‚³‚ê‚Ä‚¢‚È‚©‚Á‚½‚çÀs‚µ‚È‚¢
-            if(doc.PathName=="")
+            //ä¸€åº¦ã‚‚ä¿å­˜ã•ã‚Œã¦ã„ãªã‹ã£ãŸã‚‰å®Ÿè¡Œã—ãªã„
+            if (doc.PathName == "")
             {
-                MessageBox.Show("ƒvƒƒWƒFƒNƒgƒtƒ@ƒCƒ‹‚Æ‚µ‚Ä•Û‘¶‚µ‚Ä‚©‚çÀs‚µ‚Ä‚­‚¾‚³‚¢");
+                MessageBox.Show("ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã¨ã—ã¦ä¿å­˜ã—ã¦ã‹ã‚‰å®Ÿè¡Œã—ã¦ãã ã•ã„");
                 return Result.Cancelled;
             }
 
@@ -50,18 +50,18 @@ namespace YMS_Schedule
 
             //if (BoltEstimation.IsMixedWaritukeShuzaiAndKarikouzai(doc,selIds.ToList()))
             //{
-            //    MessageBox.Show("‰¼|Ş‚ÆŠ„•tåŞ‚ª¬İ‚µ‚Ä‚¢‚Ü‚·B");
+            //    MessageBox.Show("ä»®é‹¼æã¨å‰²ä»˜ä¸»æãŒæ··åœ¨ã—ã¦ã„ã¾ã™ã€‚");
             //    return Result.Failed ;
             //}
 
 
-            //ƒ_ƒ~[ƒtƒ@ƒCƒ‹íœ
+            //ãƒ€ãƒŸãƒ¼ãƒ•ã‚¡ã‚¤ãƒ«å‰Šé™¤
             bool removeDummy = false;
             if (removeDummy)
             {
                 List<ElementId> AllElements = RevitUtil.ClsRevitUtil.GetAllCreatedFamilyInstanceList(doc);
                 List<ElementId> delElements = new List<ElementId>();
-                string iniDummyy =  MiscWin.GetIniValue(Env.iniPath(), Env.DummyFamilyPath, Env.keyFilepath);
+                string iniDummyy = MiscWin.GetIniValue(Env.iniPath(), Env.DummyFamilyPath, Env.keyFilepath);
                 string name = System.IO.Path.GetFileNameWithoutExtension(iniDummyy);
                 foreach (ElementId tmpId in AllElements)
                 {
@@ -72,7 +72,7 @@ namespace YMS_Schedule
                     }
                 }
 
-                if(delElements.Count > 0)
+                if (delElements.Count > 0)
                 {
                     using (Transaction t = new Transaction(doc, Guid.NewGuid().GetHashCode().ToString()))
                     {
@@ -89,7 +89,7 @@ namespace YMS_Schedule
 
             if (sharedFile == null)
             {
-                MessageBox.Show("‹¤—Lƒpƒ‰ƒ[ƒ^ƒtƒ@ƒCƒ‹‚Ìæ“¾‚É¸”s‚µ‚Ü‚µ‚½");
+                MessageBox.Show("å…±æœ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã®å–å¾—ã«å¤±æ•—ã—ã¾ã—ãŸ");
                 return Result.Failed;
             }
 
@@ -110,13 +110,13 @@ namespace YMS_Schedule
                 {
                     foreach (ExternalDefinition def in group.Definitions)
                     {
-                        if(paramDef.Name == def.Name)
+                        if (paramDef.Name == def.Name)
                         {
                             eId = param.Id;
                             break;
                         }
                     }
-                    if(eId != null)
+                    if (eId != null)
                     {
                         break;
                     }
@@ -132,7 +132,7 @@ namespace YMS_Schedule
 
             //Add parameter
             List<string> paramLst = Env.sharedParameters();
-            foreach(var x in paramLst)
+            foreach (var x in paramLst)
             {
                 if (x == Env.paramLevel)
                 {
@@ -175,11 +175,11 @@ namespace YMS_Schedule
 
                 //remove previous
                 vs = Schedule.view(doc);
-                if(vs != null)
+                if (vs != null)
                 {
-                    if(doc.ActiveView.Id == vs.Id)
+                    if (doc.ActiveView.Id == vs.Id)
                     {
-                        MessageBox.Show("‘¼‚Ìƒrƒ…[‚ÉØ‚è‘Ö‚¦‚Ä‚©‚çÀs‚µ‚Ä‰º‚³‚¢");
+                        MessageBox.Show("ä»–ã®ãƒ“ãƒ¥ãƒ¼ã«åˆ‡ã‚Šæ›¿ãˆã¦ã‹ã‚‰å®Ÿè¡Œã—ã¦ä¸‹ã•ã„");
                         return Result.Cancelled;
                     }
 
@@ -194,7 +194,7 @@ namespace YMS_Schedule
 
                 ScheduleDefinition definition = vs.Definition;
 
-                foreach(var eId in eIds)
+                foreach (var eId in eIds)
                 {
                     definition.AddField(ScheduleFieldType.Instance, eId);
                 }
@@ -213,32 +213,32 @@ namespace YMS_Schedule
 #if !CHECK_LATER
             if (RuleEstimation.IsMixedWaritukeShuzaiAndKarikouzai(doc, selIds.ToList()))
             {
-                MessageBox.Show("‰¼|Ş‚ÆŠ„•tåŞ‚ª¬İ‚µ‚Ä‚¢‚Ü‚·B");
+                MessageBox.Show("ä»®é‹¼æã¨å‰²ä»˜ä¸»æãŒæ··åœ¨ã—ã¦ã„ã¾ã™ã€‚");
                 return Result.Failed;
             }
 #endif
 
-            //ÏZƒ_ƒCƒAƒƒOƒI[ƒvƒ“
+            //ç©ç®—ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚ªãƒ¼ãƒ—ãƒ³
             FormSekisanSetting sekisandlg = new FormSekisanSetting();
             DialogResult result = sekisandlg.ShowDialog();
 
             if (result != DialogResult.OK)
             {
-                return Result.Cancelled ;
+                return Result.Cancelled;
             }
 
-            ////ƒ{ƒ‹ƒgWŒv‚ğ‚±‚±‚Å‘–‚ç‚¹‚é
+            ////ãƒœãƒ«ãƒˆé›†è¨ˆã‚’ã“ã“ã§èµ°ã‚‰ã›ã‚‹
             RuleEstimation ruleEstimation = new RuleEstimation();
             ruleEstimation.BoltEstimationMain(uidoc, selIds.ToList(), sekisandlg.m_ClsSekisaiSetting);
 
-            //‚±‚Ì’†‚Å•”ŞûW‚ğ‚µ‚Ä‚é‚Á‚Û‚¢@¨@‚±‚±ˆÈ‘O‚É‚Íƒ_ƒ~[ƒtƒ@ƒCƒ‹‚ª•K—v
+            //ã“ã®ä¸­ã§éƒ¨æåé›†ã‚’ã—ã¦ã‚‹ã£ã½ã„ã€€â†’ã€€ã“ã“ä»¥å‰ã«ã¯ãƒ€ãƒŸãƒ¼ãƒ•ã‚¡ã‚¤ãƒ«ãŒå¿…è¦
             Schedule sch = new Schedule(vs);
 
             //Filter Element
             if (selIds.Count >= 1)
             {
                 Dictionary<ElementId, Item> dict = new Dictionary<ElementId, Item>();
-                foreach(var x in sch.itms)
+                foreach (var x in sch.itms)
                 {
                     dict.Add(x.elmId, x);
                 }
@@ -260,21 +260,22 @@ namespace YMS_Schedule
                 foreach (var x in ids)
                 {
                     FamilyInstance fi = doc.GetElement(x) as FamilyInstance;
-                    if(fi == null){
+                    if (fi == null)
+                    {
                         continue;
                     }
                     nestCollect(fi, ref dict, ref itms);
                 }
 
-                //‚±‚±‚Å‘S•”Ş‚ğ‘I‘ğ•”Ş‚Ì‚İ‚É’u‚«Š·‚¦‚Ä‚éi‚Û‚¢j
+                //ã“ã“ã§å…¨éƒ¨æã‚’é¸æŠéƒ¨æã®ã¿ã«ç½®ãæ›ãˆã¦ã‚‹ï¼ˆã½ã„ï¼‰
                 sch.itms = itms;
             }
 
-            //ƒlƒXƒg‚µ‚½ƒtƒ@ƒ~ƒŠ‚ÌƒŒƒxƒ‹‚ªRevitWŒv•\‚Åİ’è‚³‚ê‚Ä‚¢‚È‚¢i‚æ‚¤‚¾j
-            //Revitd—l‚È‚Ì‚©ƒtƒ@ƒ~ƒŠ’è‹`‚Ì–â‘è‚©‚ÍH
+            //ãƒã‚¹ãƒˆã—ãŸãƒ•ã‚¡ãƒŸãƒªã®ãƒ¬ãƒ™ãƒ«ãŒRevité›†è¨ˆè¡¨ã§è¨­å®šã•ã‚Œã¦ã„ãªã„ï¼ˆã‚ˆã†ã ï¼‰
+            //Revitä»•æ§˜ãªã®ã‹ãƒ•ã‚¡ãƒŸãƒªå®šç¾©ã®å•é¡Œã‹ã¯ï¼Ÿ
             nestFillLevel(doc, sch);
 
-            //ƒlƒXƒg‚µ‚½ƒtƒ@ƒ~ƒŠ‚ÌƒŒƒxƒ‹’²®—p‚É•Û‚µ‚Ä‚¢‚½YMS‘ÎÛŠO‚Ì•ª‚ğœ‹
+            //ãƒã‚¹ãƒˆã—ãŸãƒ•ã‚¡ãƒŸãƒªã®ãƒ¬ãƒ™ãƒ«èª¿æ•´ç”¨ã«ä¿æŒã—ã¦ã„ãŸYMSå¯¾è±¡å¤–ã®åˆ†ã‚’é™¤å»
             Env.ScheduleYMSFilter filter = Env.sheduleFilter(false);
             int indexItem1 = sch.h.FindIndex(x => x == filter[Env.keyFilter1]);
             int indexItem2 = sch.h.FindIndex(x => x == filter[Env.keyFilter2]);
@@ -300,12 +301,12 @@ namespace YMS_Schedule
             int idIndex = sch.h.FindIndex(v => v == idName);
 
             sch.itms.Clear();
-            foreach(var x in dlg.selectedTbl)
+            foreach (var x in dlg.selectedTbl)
             {
                 int id;
-                if(int.TryParse(x[idIndex], out id))
+                if (int.TryParse(x[idIndex], out id))
                 {
-                    sch.itms.Add(new Item(new ElementId(id),x));
+                    sch.itms.Add(new Item(new ElementId(id), x));
                 }
             }
 
@@ -315,9 +316,9 @@ namespace YMS_Schedule
             Env.levelCheck(ref bLog, ref bDialog);
             if (bLog)
             {
-                int indexLevel = sch.h.FindIndex(v => v == "ƒŒƒxƒ‹");
+                int indexLevel = sch.h.FindIndex(v => v == "ãƒ¬ãƒ™ãƒ«");
                 List<Item> lstLevelEmpty = sch.itms.FindAll(v => string.IsNullOrEmpty(v.items[indexLevel]));
-                if(lstLevelEmpty.Count >= 1)
+                if (lstLevelEmpty.Count >= 1)
                 {
                     List<string> pList = Env.levelCheckParam();
 
@@ -360,7 +361,7 @@ namespace YMS_Schedule
 
                         string fName = Path.GetFileNameWithoutExtension(doc.PathName);
                         string dir = Path.GetDirectoryName(doc.PathName);
-                        string logPath = Path.Combine(dir, fName + "_ƒŒƒxƒ‹w’è–³.csv");
+                        string logPath = Path.Combine(dir, fName + "_ãƒ¬ãƒ™ãƒ«æŒ‡å®šç„¡.csv");
                         File.WriteAllText(logPath, sHeader + sMsg, Env.encoding);
 
                         if (bDialog)
@@ -373,7 +374,7 @@ namespace YMS_Schedule
             if (bLog)
             {
                 string sMsg = "";
-                foreach(var x in sch.rm.Keys)
+                foreach (var x in sch.rm.Keys)
                 {
                     sMsg += (x + "," + sch.rm[x] + Environment.NewLine);
                 }
@@ -383,7 +384,7 @@ namespace YMS_Schedule
 
                     string fName = Path.GetFileNameWithoutExtension(doc.PathName);
                     string dir = Path.GetDirectoryName(doc.PathName);
-                    string logPath = Path.Combine(dir, fName + "_‘å’†¬•ª—Ş–³.csv");
+                    string logPath = Path.Combine(dir, fName + "_å¤§ä¸­å°åˆ†é¡ç„¡.csv");
                     File.WriteAllText(logPath, sHeader + sMsg, Env.encoding);
 
                     if (bDialog)
@@ -397,7 +398,7 @@ namespace YMS_Schedule
             List<ElementId> lst = (from itm in sch.itms select itm.elmId).ToList();
             if (RuleEstimation.IsMixedWaritukeShuzaiAndKarikouzai(doc, lst))
             {
-                MessageBox.Show("‰¼|Ş‚ÆŠ„•tåŞ‚ª¬İ‚µ‚Ä‚¢‚Ü‚·B");
+                MessageBox.Show("ä»®é‹¼æã¨å‰²ä»˜ä¸»æãŒæ··åœ¨ã—ã¦ã„ã¾ã™ã€‚");
                 return Result.Failed;
             }
 #endif
@@ -407,8 +408,8 @@ namespace YMS_Schedule
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.FileName = Path.GetFileNameWithoutExtension(rvtPath);
             sfd.InitialDirectory = Path.GetDirectoryName(rvtPath);
-            sfd.Filter = "CSVƒtƒ@ƒCƒ‹(*.csv)|*.csv|‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹(*.*)|*.*";
-            sfd.Title = "•Û‘¶æ‚Ìƒtƒ@ƒCƒ‹‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢";
+            sfd.Filter = "CSVãƒ•ã‚¡ã‚¤ãƒ«(*.csv)|*.csv|ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«(*.*)|*.*";
+            sfd.Title = "ä¿å­˜å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠã—ã¦ãã ã•ã„";
             sfd.RestoreDirectory = true;
             if (DialogResult.OK != sfd.ShowDialog())
             {
@@ -422,70 +423,70 @@ namespace YMS_Schedule
             contents += (pInfo.toCSVString());
             contents += (Env.separatorSchedule() + Environment.NewLine);
             contents += (sch.toCSVString());
-            //R—¯ƒ{ƒ‹ƒgƒf[ƒ^
+            //å±±ç•™ãƒœãƒ«ãƒˆãƒ‡ãƒ¼ã‚¿
             contents += "yamadomeBolt" + Environment.NewLine;
             contents += ruleEstimation.GetYamadomeBoltData();
             contents += "yamadomeBoltWithElementId" + Environment.NewLine;
             contents += ruleEstimation.GetYamadomeBoltDataWithElementID();
-            //\‘äƒ{ƒ‹ƒgƒf[ƒ^
+            //æ§‹å°ãƒœãƒ«ãƒˆãƒ‡ãƒ¼ã‚¿
             contents += "koudaiBolt" + Environment.NewLine;
             contents += ruleEstimation.GetKoudaiBoltData();
             contents += "koudaiBoltWithElementId" + Environment.NewLine;
             contents += ruleEstimation.GetKoudaiBoltDataWithElementID();
-            //\‘äƒ{ƒ‹ƒg‚É•t‚·‚éƒXƒvƒŠƒ“ƒOƒƒbƒVƒƒƒf[ƒ^
+            //æ§‹å°ãƒœãƒ«ãƒˆã«ä»˜éšã™ã‚‹ã‚¹ãƒ—ãƒªãƒ³ã‚°ãƒ¯ãƒƒã‚·ãƒ£ãƒ‡ãƒ¼ã‚¿
             contents += "washerWithBN" + Environment.NewLine;
             contents += ruleEstimation.GetWasherWithBNData();
-            //— ‚ß— ‚ßƒf[ƒ^
+            //è£è¾¼ã‚è£è¾¼ã‚ãƒ‡ãƒ¼ã‚¿
             contents += "uragome" + Environment.NewLine;
             contents += ruleEstimation.GetUragomeData();
             contents += "uragomeForCP" + Environment.NewLine;
             contents += ruleEstimation.GetUragomeDataForCornerPiece();
-            //ŒŠ–¾ƒ‰ƒCƒi[ƒf[ƒ^
+            //ç©´æ˜ãƒ©ã‚¤ãƒŠãƒ¼ãƒ‡ãƒ¼ã‚¿
             contents += "holeliner" + Environment.NewLine;
             contents += ruleEstimation.GetHolelinerData();
-            //‰¼|Ş¨åŞƒf[ƒ^
+            //ä»®é‹¼æâ†’ä¸»æãƒ‡ãƒ¼ã‚¿
             contents += "karikouzaiToShuzai" + Environment.NewLine;
             contents += ruleEstimation.GetKarikouzaiToShuzaiData();
-            //\‘ä‘¤ ‰¼|Ş¨åŞƒf[ƒ^
+            //æ§‹å°å´ ä»®é‹¼æâ†’ä¸»æãƒ‡ãƒ¼ã‚¿
             contents += "koudaikarikouzaiToShuzai" + Environment.NewLine;
             contents += ruleEstimation.GetkoudaiKarikouzaiToShuzaiData();
-            //‰¼|Ş¨åŞƒf[ƒ^‚©‚çƒ‹[ƒ‹E‚¢‚µ‚½ƒJƒo[ƒvƒŒ[ƒg‚ÌƒŠƒXƒg
+            //ä»®é‹¼æâ†’ä¸»æãƒ‡ãƒ¼ã‚¿ã‹ã‚‰ãƒ«ãƒ¼ãƒ«æ‹¾ã„ã—ãŸã‚«ãƒãƒ¼ãƒ—ãƒ¬ãƒ¼ãƒˆã®ãƒªã‚¹ãƒˆ
             contents += "CoverPlate" + Environment.NewLine;
             contents += ruleEstimation.GetCoverPlateData();
-            //À‹àƒf[ƒ^
+            //åº§é‡‘ãƒ‡ãƒ¼ã‚¿
             contents += "Zagane" + Environment.NewLine;
             contents += ruleEstimation.GetZaganeData();
-            //ƒuƒ‰ƒPƒbƒgƒf[ƒ^
+            //ãƒ–ãƒ©ã‚±ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿
             contents += "Bracket" + Environment.NewLine;
             contents += ruleEstimation.GetBracketData();
-            //ƒWƒƒƒbƒLƒf[ƒ^
+            //ã‚¸ãƒ£ãƒƒã‚­ãƒ‡ãƒ¼ã‚¿
             contents += "JackKouzai" + Environment.NewLine;
             contents += ruleEstimation.GetJackData(); //GetSyabariChainData
-            //Î—Àƒ`ƒF[ƒ“ƒf[ƒ^ƒf[ƒ^
+            //æ–œæ¢ãƒã‚§ãƒ¼ãƒ³ãƒ‡ãƒ¼ã‚¿ãƒ‡ãƒ¼ã‚¿
             contents += "SyabariChain" + Environment.NewLine;
             contents += ruleEstimation.GetSyabariChainData();
-            //‰ÁH•i(R—¯)ƒf[ƒ^
-            contents += "‰ÁH•i(R—¯)" + Environment.NewLine;
+            //åŠ å·¥å“(å±±ç•™)ãƒ‡ãƒ¼ã‚¿
+            contents += "åŠ å·¥å“(å±±ç•™)" + Environment.NewLine;
             contents += ruleEstimation.GetKaouhinYamadomeData();
-            //‰ÁH•i(R—¯)ƒf[ƒ^
-            contents += "‰ÁH•i(\‘ä)" + Environment.NewLine;
+            //åŠ å·¥å“(å±±ç•™)ãƒ‡ãƒ¼ã‚¿
+            contents += "åŠ å·¥å“(æ§‹å°)" + Environment.NewLine;
             contents += ruleEstimation.GetKaouhinKoudaiData();
-            //R—¯•ÇEYƒV[ƒgƒf[ƒ^
+            //å±±ç•™å£ãƒ»æ­ã‚·ãƒ¼ãƒˆãƒ‡ãƒ¼ã‚¿
             contents += "kabeAndkuiSheet" + Environment.NewLine;
             contents += ruleEstimation.GetKabekuiSheetData(doc);
-            //\‘ä—p xYAŒp‘«‚µYAx’Œƒf[ƒ^
+            //æ§‹å°ç”¨ æ”¯æŒæ­ã€ç¶™è¶³ã—æ­ã€æ”¯æŸ±ãƒ‡ãƒ¼ã‚¿
             contents += "koudaikabeAndkuiSheet" + Environment.NewLine;
             contents += ruleEstimation.GetKoudaiKabekuiSheetData(doc);
-            //ƒŒƒxƒ‹–¼Ì‚Ì—ñ‹“
-            contents += "AllLevelNames" + Environment.NewLine; 
+            //ãƒ¬ãƒ™ãƒ«åç§°ã®åˆ—æŒ™
+            contents += "AllLevelNames" + Environment.NewLine;
             contents += ruleEstimation.GetAllLevelName(doc);
-            ////ƒŒƒxƒ‹–¼‚ª”²‚¯‚Ä‚¢‚é•”Ş‚ÌID‚ÆƒŒƒxƒ‹–¼‚Ì—ñ‹“
+            ////ãƒ¬ãƒ™ãƒ«åãŒæŠœã‘ã¦ã„ã‚‹éƒ¨æã®IDã¨ãƒ¬ãƒ™ãƒ«åã®åˆ—æŒ™
             //contents += "EmptyLevelNameBuzai" + Environment.NewLine;
             //contents += ruleEstimation.WriteLevelNameFamily(doc);
             //EOD
             contents += (Env.separatorEnd() + Environment.NewLine);
 
-            File.WriteAllText(csvPath, contents,Env.encoding);
+            File.WriteAllText(csvPath, contents, Env.encoding);
 #if DEBUG
             Process.Start("notepad.exe", "\"" + csvPath + "\"");
 #endif
@@ -516,14 +517,14 @@ namespace YMS_Schedule
             DefinitionFile sharedFile = defFile(app);
 
             List<string> paramLst = Env.sharedParameters();
-            foreach(var x in paramLst)
+            foreach (var x in paramLst)
             {
                 bool found = false;
                 foreach (DefinitionGroup group in sharedFile.Groups)
                 {
                     foreach (ExternalDefinition def in group.Definitions)
                     {
-                        if(def.Name == x)
+                        if (def.Name == x)
                         {
                             res.Add(def);
                             found = true;
@@ -552,7 +553,7 @@ namespace YMS_Schedule
             {
                 return;
             }
-            if(nest.Count <= 0)
+            if (nest.Count <= 0)
             {
                 return;
             }
@@ -663,7 +664,7 @@ namespace YMS_Schedule
             }
             foreach (var x in nest)
             {
-                nestFillLevel(x, lvlName, index , sch);
+                nestFillLevel(x, lvlName, index, sch);
             }
         }
 
@@ -685,10 +686,10 @@ namespace YMS_Schedule
             Document doc = uidoc.Document;
             UIControlledApplication uicapp = App.uicapp;
 
-            //ˆê“x‚à•Û‘¶‚³‚ê‚Ä‚¢‚È‚©‚Á‚½‚çÀs‚µ‚È‚¢
+            //ä¸€åº¦ã‚‚ä¿å­˜ã•ã‚Œã¦ã„ãªã‹ã£ãŸã‚‰å®Ÿè¡Œã—ãªã„
             if (doc.PathName == "")
             {
-                MessageBox.Show("ƒvƒƒWƒFƒNƒgƒtƒ@ƒCƒ‹‚Æ‚µ‚Ä•Û‘¶‚µ‚Ä‚©‚çÀs‚µ‚Ä‚­‚¾‚³‚¢");
+                MessageBox.Show("ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã¨ã—ã¦ä¿å­˜ã—ã¦ã‹ã‚‰å®Ÿè¡Œã—ã¦ãã ã•ã„");
                 return Result.Cancelled;
             }
 
@@ -696,8 +697,8 @@ namespace YMS_Schedule
             OpenFileDialog sfd = new OpenFileDialog();
             sfd.FileName = Path.GetFileNameWithoutExtension(rvtPath);
             sfd.InitialDirectory = Path.GetDirectoryName(rvtPath);
-            sfd.Filter = "CSVƒtƒ@ƒCƒ‹(*.csv)|*.csv|‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹(*.*)|*.*";
-            sfd.Title = "ƒtƒ@ƒCƒ‹‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢";
+            sfd.Filter = "CSVãƒ•ã‚¡ã‚¤ãƒ«(*.csv)|*.csv|ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«(*.*)|*.*";
+            sfd.Title = "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠã—ã¦ãã ã•ã„";
             sfd.RestoreDirectory = true;
             if (DialogResult.OK != sfd.ShowDialog())
             {
@@ -739,9 +740,9 @@ namespace YMS_Schedule
 
                 try
                 {
-                    Dictionary<string,Level> lvlDict = Misc.levelLevel(doc);
+                    Dictionary<string, Level> lvlDict = Misc.levelLevel(doc);
                     XYZ location = null;
-                    string lvlParam = "ƒŒƒxƒ‹";
+                    string lvlParam = "ãƒ¬ãƒ™ãƒ«";
                     foreach (var x in lists)
                     {
                         Level lvl = null;
@@ -768,7 +769,7 @@ namespace YMS_Schedule
                         }
                         else
                         {
-                            fi = doc.Create.NewFamilyInstance(location == null? XYZ.Zero : location
+                            fi = doc.Create.NewFamilyInstance(location == null ? XYZ.Zero : location
                                                              , df.symbol
                                                              , StructuralType.NonStructural
                                                              );
@@ -792,14 +793,14 @@ namespace YMS_Schedule
             return Result.Succeeded;
         }
 
-        public static Dictionary<string,string> parametersFromString(string[] strs)
+        public static Dictionary<string, string> parametersFromString(string[] strs)
         {
             Dictionary<string, string> res = new Dictionary<string, string>();
 
-            for(int i = 0; i < strs.Length; i++)
+            for (int i = 0; i < strs.Length; i++)
             {
                 string[] parts = strs[i].Split('=');
-                if(parts.Length >= 2)
+                if (parts.Length >= 2)
                 {
                     if (!res.ContainsKey(parts[0]))
                     {
@@ -812,10 +813,10 @@ namespace YMS_Schedule
         }
 
         /// <summary>
-        /// ƒpƒ‰ƒ[ƒ^ˆê——ì¬
+        /// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ä¸€è¦§ä½œæˆ
         /// </summary>
-        /// <returns>‚È‚µ</returns>
-        /// <param name="commandData">ƒRƒ}ƒ“ƒhƒf[ƒ^</param>
+        /// <returns>ãªã—</returns>
+        /// <param name="commandData">ã‚³ãƒãƒ³ãƒ‰ãƒ‡ãƒ¼ã‚¿</param>
         public Result chkRfas(ExternalCommandData commandData)
         {
             UIApplication uiapp = commandData.Application;
@@ -824,7 +825,7 @@ namespace YMS_Schedule
             Document doc = uidoc.Document;
 
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.Description = "ƒtƒHƒ‹ƒ_‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B";
+            fbd.Description = "ãƒ•ã‚©ãƒ«ãƒ€ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚";
             fbd.RootFolder = Environment.SpecialFolder.Desktop;
             fbd.SelectedPath = @"C:";
             fbd.ShowNewFolderButton = false;
@@ -852,15 +853,15 @@ namespace YMS_Schedule
             string[] files = System.IO.Directory.GetFiles(root, ext, System.IO.SearchOption.AllDirectories);
 
             List<string> keys = new List<string>
-                                { "‘å•ª—Ş"
-                                , "’†•ª—Ş"
-                                , "¬•ª—Ş"
-                                , "•ií"
-                                , "–¼Ì"
-                                , "‹L†"
-                                , "ƒTƒCƒY"
-                                , "ƒŠ[ƒX/”„Ø"
-                                , "•i–¼ƒR[ƒh"
+                                { "å¤§åˆ†é¡"
+                                , "ä¸­åˆ†é¡"
+                                , "å°åˆ†é¡"
+                                , "å“ç¨®"
+                                , "åç§°"
+                                , "è¨˜å·"
+                                , "ã‚µã‚¤ã‚º"
+                                , "ãƒªãƒ¼ã‚¹/å£²åˆ‡"
+                                , "å“åã‚³ãƒ¼ãƒ‰"
                                 };
 
             //shared parameter
@@ -868,7 +869,7 @@ namespace YMS_Schedule
             DefinitionFile sharedFile = app.OpenSharedParameterFile();
             if (sharedFile == null)
             {
-                MessageBox.Show("‹¤—Lƒpƒ‰ƒ[ƒ^ƒtƒ@ƒCƒ‹‚Ìæ“¾‚É¸”s‚µ‚Ü‚µ‚½");
+                MessageBox.Show("å…±æœ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã®å–å¾—ã«å¤±æ•—ã—ã¾ã—ãŸ");
                 return Result.Failed;
             }
 
@@ -956,7 +957,7 @@ namespace YMS_Schedule
                 File.AppendAllText(listPath, ExtractFamilyInfo(app, x, root, keys), Env.encoding);
             }
 
-            MessageBox.Show("I—¹" + Environment.NewLine + listPath);
+            MessageBox.Show("çµ‚äº†" + Environment.NewLine + listPath);
             return Result.Succeeded;
         }
         private string ExtractFamilyInfo(Autodesk.Revit.ApplicationServices.Application app
@@ -979,7 +980,7 @@ namespace YMS_Schedule
                 string name = fp.Definition.Name;
                 if (fps.ContainsKey(name))
                 {
-                    string msg = string.Format("ƒpƒ‰ƒ[ƒ^d•¡[{0}],{1}{2}", name, FamilyPath, Environment.NewLine);
+                    string msg = string.Format("ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿é‡è¤‡[{0}],{1}{2}", name, FamilyPath, Environment.NewLine);
                     File.AppendAllText(errPath, msg, Env.encoding);
 
                     continue;
@@ -1055,8 +1056,8 @@ namespace YMS_Schedule
             DummyFamily df = new DummyFamily(doc);
             FamilyInstance fi = df.install();
             Dictionary<string, string> parameters = DummyFamily.parameters(Schedule.view(doc));
-            parameters["‘å•ª—Ş"] = "abcdefg";
-            parameters["’†•ª—Ş"] = "’†•ª—Ş‚İ‚Ù‚ñ";
+            parameters["å¤§åˆ†é¡"] = "abcdefg";
+            parameters["ä¸­åˆ†é¡"] = "ä¸­åˆ†é¡ã¿ã»ã‚“";
 
             using (Transaction t = new Transaction(doc, "set parameters"))
             {

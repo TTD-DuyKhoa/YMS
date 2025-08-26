@@ -1,4 +1,4 @@
-#region Namespaces
+ï»¿#region Namespaces
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System;
@@ -46,7 +46,7 @@ namespace YMS
             //UpdaterRegistry.AddTrigger(updater.GetUpdaterId(), wallFilter, Element.GetChangeTypeElementAddition());
             //UpdaterRegistry.AddTrigger(updaterL.GetUpdaterId(), cLineFilter, Element.GetChangeTypeElementAddition());
             //UpdaterRegistry.AddTrigger(updaterL.GetUpdaterId(), cLineFilter, Element.GetChangeTypeGeometry());
-            UpdaterRegistry.AddTrigger(updaterL.GetUpdaterId(), cLineFilter, Element.GetChangeTypeAny());//‚±‚ê‚ÅModelLine‚ğ“®‚©‚·‚Æ”­“®‚·‚é
+            UpdaterRegistry.AddTrigger(updaterL.GetUpdaterId(), cLineFilter, Element.GetChangeTypeAny());//ã“ã‚Œã§ModelLineã‚’å‹•ã‹ã™ã¨ç™ºå‹•ã™ã‚‹
 
 #if DEBUG
             AddRibbonMenu_test2(a);
@@ -123,14 +123,14 @@ namespace YMS
             string dllPath = ClsSystemData.GetDLLPath();
 
             string symbolFolpath = ClsYMSUtil.GetExecutingAssemblyYMSPath();
-            //string ibPath = System.IO.Path.Combine(symbolFolpath, "icon\\ƒAƒCƒRƒ“32");
-            //string isPath = System.IO.Path.Combine(symbolFolpath, "icon\\ƒAƒCƒRƒ“16");
+            //string ibPath = System.IO.Path.Combine(symbolFolpath, "icon\\ã‚¢ã‚¤ã‚³ãƒ³32");
+            //string isPath = System.IO.Path.Combine(symbolFolpath, "icon\\ã‚¢ã‚¤ã‚³ãƒ³16");
             app.CreateRibbonTab("TEST");
-            app.CreateRibbonTab("TEST—pƒRƒ}ƒ“ƒh");
+            app.CreateRibbonTab("TESTç”¨ã‚³ãƒãƒ³ãƒ‰");
             RibbonPanel panel =
               app.CreateRibbonPanel("TEST", "TEST");
             RibbonPanel panel2 =
-              app.CreateRibbonPanel("TEST—pƒRƒ}ƒ“ƒh", "TEST—pƒRƒ}ƒ“ƒh");
+              app.CreateRibbonPanel("TESTç”¨ã‚³ãƒãƒ³ãƒ‰", "TESTç”¨ã‚³ãƒãƒ³ãƒ‰");
 
             PushButtonData pushButtonData1 = new PushButtonData("PushButton Command1", "test",
                             dllPath, "YMS.CommandTest");
@@ -145,30 +145,30 @@ namespace YMS
 
             ///////////////////////////////////////////////////////////////////////////
             //ReplaceModelLineToShin
-            PushButtonData pushButtonData2 = new PushButtonData("PushButton Command2", " ƒ‚ƒfƒ‹ü•ª‚©‚çc‚Ö’uŠ· ",
+            PushButtonData pushButtonData2 = new PushButtonData("PushButton Command2", " ãƒ¢ãƒ‡ãƒ«ç·šåˆ†ã‹ã‚‰èŠ¯ã¸ç½®æ› ",
                           dllPath, "YMS.ReplaceModelLineToShin");
 
 
             PushButton pushButton2 = panel.AddItem(pushButtonData2) as PushButton;
 
-            pushButton2.ToolTip = "ƒ‚ƒfƒ‹ü•ª‚©‚çc‚Ö’uŠ·";
+            pushButton2.ToolTip = "ãƒ¢ãƒ‡ãƒ«ç·šåˆ†ã‹ã‚‰èŠ¯ã¸ç½®æ›";
             /////////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData3 = new PushButtonData("PushButton Command3", " ‹¤’Êc‚É‰¼”z’u ",
+            PushButtonData pushButtonData3 = new PushButtonData("PushButton Command3", " å…±é€šèŠ¯ã«ä»®é…ç½® ",
                          dllPath, "YMS.CreateKariKiribari");
 
 
             PushButton pushButton3 = panel.AddItem(pushButtonData3) as PushButton;
 
-            pushButton3.ToolTip = "‹¤’Êc‚É‰¼”z’u";
+            pushButton3.ToolTip = "å…±é€šèŠ¯ã«ä»®é…ç½®";
 
             /////////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData4 = new PushButtonData("PushButton Command4", "ƒ‹[ƒ‰[Š„•tƒeƒXƒg",
+            PushButtonData pushButtonData4 = new PushButtonData("PushButton Command4", "ãƒ«ãƒ¼ãƒ©ãƒ¼å‰²ä»˜ãƒ†ã‚¹ãƒˆ",
                          dllPath, "YMS.testtest");
 
 
             PushButton pushButton4 = panel.AddItem(pushButtonData4) as PushButton;
 
-            pushButton4.ToolTip = "ƒsƒbƒN“_‚©‚çX•ûŒü‚Öƒ‹[ƒ‰[‚ª”­¶‚·‚é‚Ì‚ÅˆÊ’uw’è‚ğ‚µ‚Ä‚­‚¾‚³‚¢BŠ„•t‚ªs‚í‚ê‚Ü‚·B";
+            pushButton4.ToolTip = "ãƒ”ãƒƒã‚¯ç‚¹ã‹ã‚‰Xæ–¹å‘ã¸ãƒ«ãƒ¼ãƒ©ãƒ¼ãŒç™ºç”Ÿã™ã‚‹ã®ã§ä½ç½®æŒ‡å®šã‚’ã—ã¦ãã ã•ã„ã€‚å‰²ä»˜ãŒè¡Œã‚ã‚Œã¾ã™ã€‚";
 
             /////////////////////////////////////////////////////////////////////////////
             PushButtonData pushButtonData5 = new PushButtonData("PushButton Command5", " FormTest ",
@@ -180,40 +180,40 @@ namespace YMS
             pushButton5.ToolTip = "FormTest";
 
             /////////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData6 = new PushButtonData("PushButton Command6", "Œ@í—pƒ{ƒCƒhƒtƒ@ƒ~ƒŠ‚Ì”z’u  ",
+            PushButtonData pushButtonData6 = new PushButtonData("PushButton Command6", "æ˜å‰Šç”¨ãƒœã‚¤ãƒ‰ãƒ•ã‚¡ãƒŸãƒªã®é…ç½®  ",
                           dllPath, "YMS.FormDlgCreateVoidFamily");
 
 
             PushButton pushButton6 = panel.AddItem(pushButtonData6) as PushButton;
 
-            pushButton6.ToolTip = "ƒ{ƒCƒh‚ğ”z’u‚µw’è‚Ìƒtƒ@ƒ~ƒŠ‚ğŒ@í‚µ‚Ü‚·B";
+            pushButton6.ToolTip = "ãƒœã‚¤ãƒ‰ã‚’é…ç½®ã—æŒ‡å®šã®ãƒ•ã‚¡ãƒŸãƒªã‚’æ˜å‰Šã—ã¾ã™ã€‚";
 
             /////////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData7 = new PushButtonData("PushButton Command7", "Œğ“_‚Éƒtƒ@ƒ~ƒŠ‚ğ”z’u  ",
+            PushButtonData pushButtonData7 = new PushButtonData("PushButton Command7", "äº¤ç‚¹ã«ãƒ•ã‚¡ãƒŸãƒªã‚’é…ç½®  ",
                           dllPath, "YMS.CreateIntersectionFamilyCommand");
 
 
             PushButton pushButton7 = panel.AddItem(pushButtonData7) as PushButton;
 
-            pushButton7.ToolTip = "ü‚ğ2–{w’è‚µ‚»‚ÌŒğ“_‚Éƒtƒ@ƒ~ƒŠ‚ğ”z’u‚µ‚Ü‚·B";
+            pushButton7.ToolTip = "ç·šã‚’2æœ¬æŒ‡å®šã—ãã®äº¤ç‚¹ã«ãƒ•ã‚¡ãƒŸãƒªã‚’é…ç½®ã—ã¾ã™ã€‚";
 
             /////////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData8 = new PushButtonData("PushButton Command8", "ƒx[ƒXA‰¼|Şæ“¾  ",
+            PushButtonData pushButtonData8 = new PushButtonData("PushButton Command8", "ãƒ™ãƒ¼ã‚¹ã€ä»®é‹¼æå–å¾—  ",
                           dllPath, "YMS.CreateSymbolCommand");
 
 
             PushButton pushButton8 = panel.AddItem(pushButtonData8) as PushButton;
 
-            pushButton8.ToolTip = "ƒx[ƒXA‰¼|Ş‚ğæ“¾B";
+            pushButton8.ToolTip = "ãƒ™ãƒ¼ã‚¹ã€ä»®é‹¼æã‚’å–å¾—ã€‚";
 
             /////////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData9 = new PushButtonData("PushButton Command9", "w’èc‚É•Ç‚ğ”z’u  ",
+            PushButtonData pushButtonData9 = new PushButtonData("PushButton Command9", "æŒ‡å®šèŠ¯ã«å£ã‚’é…ç½®  ",
                           dllPath, "YMS.CmdElevationWatcher");
 
 
             PushButton pushButton9 = panel.AddItem(pushButtonData9) as PushButton;
 
-            pushButton9.ToolTip = "w’è‚µ‚½c‚É•Ç‚ğ”z’u‚µ‚Ü‚·B";
+            pushButton9.ToolTip = "æŒ‡å®šã—ãŸèŠ¯ã«å£ã‚’é…ç½®ã—ã¾ã™ã€‚";
 
             /////////////////////////////////////////////////////////////////////////////
             PushButtonData pushButtonData10 = new PushButtonData("PushButton Command10", "testteat  ",
@@ -222,7 +222,7 @@ namespace YMS
 
             PushButton pushButton10 = panel.AddItem(pushButtonData10) as PushButton;
 
-            pushButton10.ToolTip = "}–Êî•ñ‚ğİ’è‚µ‚Ü‚·B";
+            pushButton10.ToolTip = "å›³é¢æƒ…å ±ã‚’è¨­å®šã—ã¾ã™ã€‚";
             /////////////////////////////////////////////////////////////////////////////
             PushButtonData pushButtonData11 = new PushButtonData("PushButton Command11", "CASETEST  ",
                           dllPath, "YMS.FormDlgCreateCASETest");
@@ -230,15 +230,15 @@ namespace YMS
 
             PushButton pushButton11 = panel.AddItem(pushButtonData11) as PushButton;
 
-            pushButton11.ToolTip = "CASEî•ñ‚ğİ’è‚µ‚Ü‚·B";
+            pushButton11.ToolTip = "CASEæƒ…å ±ã‚’è¨­å®šã—ã¾ã™ã€‚";
             /////////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData12 = new PushButtonData("PushButton Command12", "ƒ‰ƒo[ƒoƒ“ƒh  ",
+            PushButtonData pushButtonData12 = new PushButtonData("PushButton Command12", "ãƒ©ãƒãƒ¼ãƒãƒ³ãƒ‰  ",
                           dllPath, "YMS.Rubberband");
 
 
             PushButton pushButton12 = panel.AddItem(pushButtonData12) as PushButton;
 
-            pushButton12.ToolTip = "ƒ‰ƒo[ƒoƒ“ƒhB";
+            pushButton12.ToolTip = "ãƒ©ãƒãƒ¼ãƒãƒ³ãƒ‰ã€‚";
             //#if DEBUG
             //            RibbonPanel panelTest =
             //              app.CreateRibbonPanel("Revit PHS TOOL", "Test");
@@ -253,7 +253,7 @@ namespace YMS
             //#endif
 
 
-            ////ƒAƒCƒRƒ“‚Ìİ’è
+            ////ã‚¢ã‚¤ã‚³ãƒ³ã®è¨­å®š
             //string iconPath = System.IO.Path.Combine(dir, "icon", "PHS_Replace.png");
             //if (System.IO.File.Exists(iconPath))
             //{
@@ -263,27 +263,27 @@ namespace YMS
             PulldownButtonData groupTest_Kurane = new PulldownButtonData("TEST_Kurane", "TEST_Kurane");
             PulldownButton groupYamadomeTest_Kurane = panel.AddItem(groupTest_Kurane) as PulldownButton;
 
-            PushButtonData pushButtonData13 = new PushButtonData("PushButton Command13", "ƒRƒ}ƒ“ƒh1", dllPath, "YMS.FormDlgTest_Kurane");
+            PushButtonData pushButtonData13 = new PushButtonData("PushButton Command13", "ã‚³ãƒãƒ³ãƒ‰1", dllPath, "YMS.FormDlgTest_Kurane");
             PushButton pushButton13 = groupYamadomeTest_Kurane.AddPushButton(pushButtonData13) as PushButton;
-            pushButton13.ToolTip = "ƒeƒXƒgƒRƒ}ƒ“ƒh";
+            pushButton13.ToolTip = "ãƒ†ã‚¹ãƒˆã‚³ãƒãƒ³ãƒ‰";
 
-            PushButtonData pushButtonData14 = new PushButtonData("PushButton Command14", "ƒRƒ}ƒ“ƒh2", dllPath, "YMS.FormDlgTest_Kurane2");
+            PushButtonData pushButtonData14 = new PushButtonData("PushButton Command14", "ã‚³ãƒãƒ³ãƒ‰2", dllPath, "YMS.FormDlgTest_Kurane2");
             PushButton pushButton14 = groupYamadomeTest_Kurane.AddPushButton(pushButtonData14) as PushButton;
-            pushButton13.ToolTip = "ƒeƒXƒgƒRƒ}ƒ“ƒh";
+            pushButton13.ToolTip = "ãƒ†ã‚¹ãƒˆã‚³ãƒãƒ³ãƒ‰";
 
 
 
             /////////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData15 = new PushButtonData("PushButton Command15", "“ü‹÷Eo‹÷ƒ`ƒFƒbƒN",
+            PushButtonData pushButtonData15 = new PushButtonData("PushButton Command15", "å…¥éš…ãƒ»å‡ºéš…ãƒã‚§ãƒƒã‚¯",
                           dllPath, "YMS.CheckHaraokoshiIrizumi");
 
 
             PushButton pushButton15 = panel.AddItem(pushButtonData15) as PushButton;
 
-            pushButton15.ToolTip = "“ü‹÷Eo‹÷ƒ`ƒFƒbƒN‚µ‚Ü‚·B";
+            pushButton15.ToolTip = "å…¥éš…ãƒ»å‡ºéš…ãƒã‚§ãƒƒã‚¯ã—ã¾ã™ã€‚";
             /////////////////////////////////////////////////////////////////////////////
 
-            //‹ó‚ÌTESTcommand
+            //ç©ºã®TESTcommand
             /////////////////////////////////////////////////////////////////////////////
             PushButtonData pushButtonData16 = new PushButtonData("PushButton Command16", "TEST1",
                           dllPath, "YMS.TEST1");
@@ -330,7 +330,7 @@ namespace YMS
             pushButton20.ToolTip = "TEST5";
             /////////////////////////////////////////////////////////////////////////////
 
-            //ƒAƒCƒRƒ“‚Ìİ’è
+            //ã‚¢ã‚¤ã‚³ãƒ³ã®è¨­å®š
 
             //if (System.IO.File.Exists(ibPath) && System.IO.File.Exists(isPath))
             //{
@@ -389,11 +389,11 @@ namespace YMS
             string dllPath = ClsSystemData.GetDLLPath();
 
             string symbolFolpath = ClsYMSUtil.GetExecutingAssemblyYMSPath();
-            app.CreateRibbonTab("TEST—pƒRƒ}ƒ“ƒh");
+            app.CreateRibbonTab("TESTç”¨ã‚³ãƒãƒ³ãƒ‰");
             RibbonPanel panel =
-              app.CreateRibbonPanel("TEST—pƒRƒ}ƒ“ƒh", "TEST—pƒRƒ}ƒ“ƒh");
+              app.CreateRibbonPanel("TESTç”¨ã‚³ãƒãƒ³ãƒ‰", "TESTç”¨ã‚³ãƒãƒ³ãƒ‰");
 
-            //‹ó‚ÌTESTcommand
+            //ç©ºã®TESTcommand
             /////////////////////////////////////////////////////////////////////////////
             PushButtonData pushButtonData1 = new PushButtonData("PushButton Command1", "TEST1",
                           dllPath, "YMS.TEST1");
@@ -489,7 +489,7 @@ namespace YMS
                           dllPath, "YMS.TEST11");
 
 
-            PushButton pushButton11= panel.AddItem(pushButtonData11) as PushButton;
+            PushButton pushButton11 = panel.AddItem(pushButtonData11) as PushButton;
 
             pushButton11.ToolTip = "TEST11";
             /////////////////////////////////////////////////////////////////////////////
@@ -522,18 +522,18 @@ namespace YMS
             /////////////////////////////////////////////////////////////////////////////
             ///
             {
-                var buttonData = new PushButtonData("Î—ÀB", "Î—ÀB", dllPath, typeof(YMS.TestShabariBase).FullName);
+                var buttonData = new PushButtonData("æ–œæ¢B", "æ–œæ¢B", dllPath, typeof(YMS.TestShabariBase).FullName);
                 var button = panel.AddItem(buttonData) as PushButton;
                 button.ToolTip = nameof(YMS.TestShabariBase);
             }
             {
-                var buttonData = new PushButtonData("Î—À‰Î‘Å", "Î—À‰Î‘Å", dllPath, typeof(YMS.TestShabariHiuchi).FullName);
+                var buttonData = new PushButtonData("æ–œæ¢ç«æ‰“", "æ–œæ¢ç«æ‰“", dllPath, typeof(YMS.TestShabariHiuchi).FullName);
                 var button = panel.AddItem(buttonData) as PushButton;
                 button.ToolTip = nameof(YMS.TestShabariHiuchi);
             }
             /////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData15 = new PushButtonData("ŒÂ•Ê”z’uTEST", "ŒÂ•Ê”z’uTEST",
+            PushButtonData pushButtonData15 = new PushButtonData("å€‹åˆ¥é…ç½®TEST", "å€‹åˆ¥é…ç½®TEST",
                           dllPath, "YMS.TEST15");
 
 
@@ -547,34 +547,34 @@ namespace YMS
         {
             string dllPath = ClsSystemData.GetDLLPath();
 
-            // ƒ^ƒu‚Ì’Ç‰Á
-            app.CreateRibbonTab("YMSİ’è");
+            // ã‚¿ãƒ–ã®è¿½åŠ 
+            app.CreateRibbonTab("YMSè¨­å®š");
 
-            // ƒpƒlƒ‹‚Ì’Ç‰Á
-            RibbonPanel panelSyokisettei = app.CreateRibbonPanel("YMSİ’è", "‰Šúİ’èEî•ñŠm”F");
+            // ãƒ‘ãƒãƒ«ã®è¿½åŠ 
+            RibbonPanel panelSyokisettei = app.CreateRibbonPanel("YMSè¨­å®š", "åˆæœŸè¨­å®šãƒ»æƒ…å ±ç¢ºèª");
 
-            // ƒ{ƒ^ƒ“‚Ì’Ç‰Á
-            PushButtonData pushButtonData1 = new PushButtonData("PushButton Command1", "}–Ê\nî•ñ", dllPath, "YMS.CommandZumenInfo");
+            // ãƒœã‚¿ãƒ³ã®è¿½åŠ 
+            PushButtonData pushButtonData1 = new PushButtonData("PushButton Command1", "å›³é¢\næƒ…å ±", dllPath, "YMS.CommandZumenInfo");
             PushButton pushButton1 = panelSyokisettei.AddItem(pushButtonData1) as PushButton;
-            pushButton1.LongDescription = "}–Êî•ñ‚ğİ’è‚µ‚Ü‚·";
+            pushButton1.LongDescription = "å›³é¢æƒ…å ±ã‚’è¨­å®šã—ã¾ã™";
 
-            if (System.IO.File.Exists(GetIconPath(dllPath, "1 }–Êî•ñ")))
+            if (System.IO.File.Exists(GetIconPath(dllPath, "1 å›³é¢æƒ…å ±")))
             {
-                pushButton1.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "1 }–Êî•ñ")));
-                pushButton1.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "1 }–Êî•ñ")));
-                pushButton1.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "1 }–Êî•ñ")));
+                pushButton1.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "1 å›³é¢æƒ…å ±")));
+                pushButton1.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "1 å›³é¢æƒ…å ±")));
+                pushButton1.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "1 å›³é¢æƒ…å ±")));
             }
 
             //#33548
-            PushButtonData pushButtonData2 = new PushButtonData("PushButton Command200", "Light\n˜AŒg", dllPath, "YMS.CommandReadJson");
+            PushButtonData pushButtonData2 = new PushButtonData("PushButton Command200", "Light\né€£æº", dllPath, "YMS.CommandReadJson");
             PushButton pushButton2 = panelSyokisettei.AddItem(pushButtonData2) as PushButton;
-            pushButton2.LongDescription = "YMS Light‚©‚ço—Í‚³‚ê‚½JSONƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İ‚Ü‚·";
+            pushButton2.LongDescription = "YMS Lightã‹ã‚‰å‡ºåŠ›ã•ã‚ŒãŸJSONãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã¾ã™";
 
-            if (System.IO.File.Exists(GetIconPath(dllPath, "Light˜AŒg")))
+            if (System.IO.File.Exists(GetIconPath(dllPath, "Lighté€£æº")))
             {
-                pushButton2.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "Light˜AŒg")));
-                pushButton2.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "Light˜AŒg")));
-                pushButton2.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "Light˜AŒg")));
+                pushButton2.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "Lighté€£æº")));
+                pushButton2.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "Lighté€£æº")));
+                pushButton2.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "Lighté€£æº")));
             }
 
         }
@@ -583,95 +583,95 @@ namespace YMS
         {
             string dllPath = ClsSystemData.GetDLLPath();
 
-            app.CreateRibbonTab("YMSR—¯");
+            app.CreateRibbonTab("YMSå±±ç•™");
 
-            //RibbonPanel panelworkset = app.CreateRibbonPanel("YMS", "ƒ[ƒNƒZƒbƒg");
-            RibbonPanel panelKabeShin = app.CreateRibbonPanel("YMSR—¯", "•Çc");
-            RibbonPanel panelYamdomeKabe = app.CreateRibbonPanel("YMSR—¯", "R—¯•Ç");
-            RibbonPanel panelKui = app.CreateRibbonPanel("YMSR—¯", "Y");
-            RibbonPanel panelBase = app.CreateRibbonPanel("YMSR—¯", "ƒx[ƒX");
-            //RibbonPanel panelJack = app.CreateRibbonPanel("YMSR—¯", "ƒWƒƒƒbƒL");
-            //RibbonPanel panelAtamaTsunagi = app.CreateRibbonPanel("YMSR—¯", "“ªƒcƒiƒM");
-            //RibbonPanel panelDesumibuHokyouzai = app.CreateRibbonPanel("YMSR—¯", "o‹÷•”•â‹­Ş");
-            //RibbonPanel panelKariKouzai = app.CreateRibbonPanel("YMSR—¯", "‰¼|Ş");
-            //RibbonPanel panelSumibuPiace = app.CreateRibbonPanel("YMSR—¯", "‹÷•”ƒs[ƒX");
-            //RibbonPanel panelBracket = app.CreateRibbonPanel("YMSR—¯", "ƒuƒ‰ƒPƒbƒg");
-            //RibbonPanel panelSendanBoltHokyouzai = app.CreateRibbonPanel("YMSR—¯", "‚¹‚ñ’fƒ{ƒ‹ƒg•â‹­Ş");
-            //RibbonPanel panelHaraokoshiSuberidome = app.CreateRibbonPanel("YMSR—¯", "• ‹NƒXƒxƒŠ~‚ß");
-            //RibbonPanel panelKousyabuMawari = app.CreateRibbonPanel("YMSR—¯", "Œğ³•”ü‚è");
-            //RibbonPanel panelStiffener = app.CreateRibbonPanel("YMSR—¯", "ƒXƒ`ƒtƒi[");
-            //RibbonPanel panelWaritukeSyudou = app.CreateRibbonPanel("YMSR—¯", "è“®Š„•t");
-            //RibbonPanel panelLengthKouzai = app.CreateRibbonPanel("YMSR—¯", "|Ş’·‚³");
-            //RibbonPanel panelHaraokoshiBracket = app.CreateRibbonPanel("YMSR—¯", "• ‹Nƒuƒ‰ƒPƒbƒg");
-            RibbonPanel panelBuhinHaici = app.CreateRibbonPanel("YMSR—¯", "Še•”•i”z’u");
+            //RibbonPanel panelworkset = app.CreateRibbonPanel("YMS", "ãƒ¯ãƒ¼ã‚¯ã‚»ãƒƒãƒˆ");
+            RibbonPanel panelKabeShin = app.CreateRibbonPanel("YMSå±±ç•™", "å£èŠ¯");
+            RibbonPanel panelYamdomeKabe = app.CreateRibbonPanel("YMSå±±ç•™", "å±±ç•™å£");
+            RibbonPanel panelKui = app.CreateRibbonPanel("YMSå±±ç•™", "æ­");
+            RibbonPanel panelBase = app.CreateRibbonPanel("YMSå±±ç•™", "ãƒ™ãƒ¼ã‚¹");
+            //RibbonPanel panelJack = app.CreateRibbonPanel("YMSå±±ç•™", "ã‚¸ãƒ£ãƒƒã‚­");
+            //RibbonPanel panelAtamaTsunagi = app.CreateRibbonPanel("YMSå±±ç•™", "é ­ãƒ„ãƒŠã‚®");
+            //RibbonPanel panelDesumibuHokyouzai = app.CreateRibbonPanel("YMSå±±ç•™", "å‡ºéš…éƒ¨è£œå¼·æ");
+            //RibbonPanel panelKariKouzai = app.CreateRibbonPanel("YMSå±±ç•™", "ä»®é‹¼æ");
+            //RibbonPanel panelSumibuPiace = app.CreateRibbonPanel("YMSå±±ç•™", "éš…éƒ¨ãƒ”ãƒ¼ã‚¹");
+            //RibbonPanel panelBracket = app.CreateRibbonPanel("YMSå±±ç•™", "ãƒ–ãƒ©ã‚±ãƒƒãƒˆ");
+            //RibbonPanel panelSendanBoltHokyouzai = app.CreateRibbonPanel("YMSå±±ç•™", "ã›ã‚“æ–­ãƒœãƒ«ãƒˆè£œå¼·æ");
+            //RibbonPanel panelHaraokoshiSuberidome = app.CreateRibbonPanel("YMSå±±ç•™", "è…¹èµ·ã‚¹ãƒ™ãƒªæ­¢ã‚");
+            //RibbonPanel panelKousyabuMawari = app.CreateRibbonPanel("YMSå±±ç•™", "äº¤å‰éƒ¨å‘¨ã‚Š");
+            //RibbonPanel panelStiffener = app.CreateRibbonPanel("YMSå±±ç•™", "ã‚¹ãƒãƒ•ãƒŠãƒ¼");
+            //RibbonPanel panelWaritukeSyudou = app.CreateRibbonPanel("YMSå±±ç•™", "æ‰‹å‹•å‰²ä»˜");
+            //RibbonPanel panelLengthKouzai = app.CreateRibbonPanel("YMSå±±ç•™", "é‹¼æé•·ã•");
+            //RibbonPanel panelHaraokoshiBracket = app.CreateRibbonPanel("YMSå±±ç•™", "è…¹èµ·ãƒ–ãƒ©ã‚±ãƒƒãƒˆ");
+            RibbonPanel panelBuhinHaici = app.CreateRibbonPanel("YMSå±±ç•™", "å„éƒ¨å“é…ç½®");
 
 
-            PulldownButtonData groupKouyaitaData = new PulldownButtonData("|–î”Â", "|–î”Â");
-            PulldownButtonData groupOyakuiData = new PulldownButtonData("eY", "eY");
-            PulldownButtonData groupYokoyaitaData = new PulldownButtonData("‰¡–î”Â", "‰¡–î”Â");
-            PulldownButtonData groupRenzokuKabeData = new PulldownButtonData("˜A‘±•Ç", "˜A‘±•Ç");
+            PulldownButtonData groupKouyaitaData = new PulldownButtonData("é‹¼çŸ¢æ¿", "é‹¼çŸ¢æ¿");
+            PulldownButtonData groupOyakuiData = new PulldownButtonData("è¦ªæ­", "è¦ªæ­");
+            PulldownButtonData groupYokoyaitaData = new PulldownButtonData("æ¨ªçŸ¢æ¿", "æ¨ªçŸ¢æ¿");
+            PulldownButtonData groupRenzokuKabeData = new PulldownButtonData("é€£ç¶šå£", "é€£ç¶šå£");
             PulldownButtonData groupSMWData = new PulldownButtonData("SMW", "SMW");
 
-            PulldownButtonData groupKuiData = new PulldownButtonData("TCYE\‘äYEŒ“—pYE’f–Ê•Ï‰»Y", "TCYE\n\‘äYE\nŒ“—pYE\n’f–Ê•Ï‰»Y");
-            PulldownButtonData groupTanakuiData = new PulldownButtonData("’IYE’†ŠÔY", "’IYE\n’†ŠÔY\n\n");
+            PulldownButtonData groupKuiData = new PulldownButtonData("TCæ­ãƒ»æ§‹å°æ­ãƒ»å…¼ç”¨æ­ãƒ»æ–­é¢å¤‰åŒ–æ­", "TCæ­ãƒ»\næ§‹å°æ­ãƒ»\nå…¼ç”¨æ­ãƒ»\næ–­é¢å¤‰åŒ–æ­");
+            PulldownButtonData groupTanakuiData = new PulldownButtonData("æ£šæ­ãƒ»ä¸­é–“æ­", "æ£šæ­ãƒ»\nä¸­é–“æ­\n\n");
 
-            PulldownButtonData groupHaraokoshiBaseData = new PulldownButtonData("• ‹Nƒx[ƒX", "• ‹N");
-            PulldownButtonData groupKiribariBaseData = new PulldownButtonData("Ø—Àƒx[ƒX", "Ø—À");
-            PulldownButtonData groupSanjikuBaseData = new PulldownButtonData("O²ƒs[ƒX", "O²");
-            PulldownButtonData groupSumibuBaseData = new PulldownButtonData("‹÷‰Î‘Åƒx[ƒX", "‹÷‰Î‘Å");
-            PulldownButtonData groupKiribariHiuchiBaseData = new PulldownButtonData("Ø—À‰Î‘Åƒx[ƒX", "Ø—À‰Î‘Å");
-            PulldownButtonData groupKiribariUkeBaseData = new PulldownButtonData("Ø—Àó‚¯ƒx[ƒX", "Ø—Àó‚¯");
-            PulldownButtonData groupKiribariTsunagizaiBaseData = new PulldownButtonData("Ø—ÀƒcƒiƒMŞƒx[ƒX", "Ø—ÀƒcƒiƒMŞ");
-            PulldownButtonData groupHiuchiTsunagizaiBaseData = new PulldownButtonData("‰Î‘ÅƒcƒiƒMŞƒx[ƒX", "‰Î‘ÅƒcƒiƒMŞ");
-            PulldownButtonData groupKiribariTsunagiBaseData = new PulldownButtonData("Ø—ÀŒp‚¬ƒx[ƒX", "Ø—ÀŒp‚¬");
-            PulldownButtonData groupSyabariBaseData = new PulldownButtonData("Î—Àƒx[ƒX", "Î—À");
-            PulldownButtonData groupSyabariTsunagizaiBaseData = new PulldownButtonData("Î—ÀƒcƒiƒMŞƒx[ƒX", "Î—ÀƒcƒiƒM");
-            PulldownButtonData groupSyabariUkeBaseData = new PulldownButtonData("Î—Àó‚¯ƒx[ƒX", "Î—Àó‚¯");
-            PulldownButtonData groupSyabariHiuchiBaseData = new PulldownButtonData("Î—À‰Î‘Åƒx[ƒX", "Î—À‰Î‘Å");
+            PulldownButtonData groupHaraokoshiBaseData = new PulldownButtonData("è…¹èµ·ãƒ™ãƒ¼ã‚¹", "è…¹èµ·");
+            PulldownButtonData groupKiribariBaseData = new PulldownButtonData("åˆ‡æ¢ãƒ™ãƒ¼ã‚¹", "åˆ‡æ¢");
+            PulldownButtonData groupSanjikuBaseData = new PulldownButtonData("ä¸‰è»¸ãƒ”ãƒ¼ã‚¹", "ä¸‰è»¸");
+            PulldownButtonData groupSumibuBaseData = new PulldownButtonData("éš…ç«æ‰“ãƒ™ãƒ¼ã‚¹", "éš…ç«æ‰“");
+            PulldownButtonData groupKiribariHiuchiBaseData = new PulldownButtonData("åˆ‡æ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹", "åˆ‡æ¢ç«æ‰“");
+            PulldownButtonData groupKiribariUkeBaseData = new PulldownButtonData("åˆ‡æ¢å—ã‘ãƒ™ãƒ¼ã‚¹", "åˆ‡æ¢å—ã‘");
+            PulldownButtonData groupKiribariTsunagizaiBaseData = new PulldownButtonData("åˆ‡æ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹", "åˆ‡æ¢ãƒ„ãƒŠã‚®æ");
+            PulldownButtonData groupHiuchiTsunagizaiBaseData = new PulldownButtonData("ç«æ‰“ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹", "ç«æ‰“ãƒ„ãƒŠã‚®æ");
+            PulldownButtonData groupKiribariTsunagiBaseData = new PulldownButtonData("åˆ‡æ¢ç¶™ããƒ™ãƒ¼ã‚¹", "åˆ‡æ¢ç¶™ã");
+            PulldownButtonData groupSyabariBaseData = new PulldownButtonData("æ–œæ¢ãƒ™ãƒ¼ã‚¹", "æ–œæ¢");
+            PulldownButtonData groupSyabariTsunagizaiBaseData = new PulldownButtonData("æ–œæ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹", "æ–œæ¢ãƒ„ãƒŠã‚®");
+            PulldownButtonData groupSyabariUkeBaseData = new PulldownButtonData("æ–œæ¢å—ã‘ãƒ™ãƒ¼ã‚¹", "æ–œæ¢å—ã‘");
+            PulldownButtonData groupSyabariHiuchiBaseData = new PulldownButtonData("æ–œæ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹", "æ–œæ¢ç«æ‰“");
 
 
 
-            PulldownButtonData groupJackData = new PulldownButtonData("ƒWƒƒƒbƒL", "ƒWƒƒƒbƒL");
-            if (System.IO.File.Exists(GetIconPath(dllPath, "16 ƒWƒƒƒbƒL-ì¬")))
+            PulldownButtonData groupJackData = new PulldownButtonData("ã‚¸ãƒ£ãƒƒã‚­", "ã‚¸ãƒ£ãƒƒã‚­");
+            if (System.IO.File.Exists(GetIconPath(dllPath, "16 ã‚¸ãƒ£ãƒƒã‚­-ä½œæˆ")))
             {
-                groupJackData.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ƒWƒƒƒbƒL-ì¬")));
-                groupJackData.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ƒWƒƒƒbƒL-ì¬")));
-                groupJackData.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ƒWƒƒƒbƒL-ì¬")));
+                groupJackData.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ã‚¸ãƒ£ãƒƒã‚­-ä½œæˆ")));
+                groupJackData.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ã‚¸ãƒ£ãƒƒã‚­-ä½œæˆ")));
+                groupJackData.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ã‚¸ãƒ£ãƒƒã‚­-ä½œæˆ")));
             }
-            PulldownButtonData groupAtamaTsunagiData = new PulldownButtonData("“ªƒcƒiƒM", "“ªƒcƒiƒM");
-            if (System.IO.File.Exists(GetIconPath(dllPath, "17 “ªƒcƒiƒM-ì¬")))
+            PulldownButtonData groupAtamaTsunagiData = new PulldownButtonData("é ­ãƒ„ãƒŠã‚®", "é ­ãƒ„ãƒŠã‚®");
+            if (System.IO.File.Exists(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-ä½œæˆ")))
             {
-                groupAtamaTsunagiData.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 “ªƒcƒiƒM-ì¬")));
-                groupAtamaTsunagiData.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "17 “ªƒcƒiƒM-ì¬")));
-                groupAtamaTsunagiData.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 “ªƒcƒiƒM-ì¬")));
+                groupAtamaTsunagiData.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-ä½œæˆ")));
+                groupAtamaTsunagiData.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-ä½œæˆ")));
+                groupAtamaTsunagiData.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-ä½œæˆ")));
             }
-            PulldownButtonData groupDesumibuHokyouzaiData = new PulldownButtonData("o‹÷•”•â‹­Ş", "o‹÷•”•â‹­Ş");
-            if (System.IO.File.Exists(GetIconPath(dllPath, "17 o‹÷-ì¬")))
+            PulldownButtonData groupDesumibuHokyouzaiData = new PulldownButtonData("å‡ºéš…éƒ¨è£œå¼·æ", "å‡ºéš…éƒ¨è£œå¼·æ");
+            if (System.IO.File.Exists(GetIconPath(dllPath, "17 å‡ºéš…-ä½œæˆ")))
             {
-                groupDesumibuHokyouzaiData.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 o‹÷-ì¬")));
-                groupDesumibuHokyouzaiData.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "17 o‹÷-ì¬")));
-                groupDesumibuHokyouzaiData.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 o‹÷-ì¬")));
+                groupDesumibuHokyouzaiData.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 å‡ºéš…-ä½œæˆ")));
+                groupDesumibuHokyouzaiData.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "17 å‡ºéš…-ä½œæˆ")));
+                groupDesumibuHokyouzaiData.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 å‡ºéš…-ä½œæˆ")));
             }
-            PulldownButtonData groupSumibuPiaceData = new PulldownButtonData("‹÷•”ƒs[ƒX", "‹÷•”ƒs[ƒX");
-            if (System.IO.File.Exists(GetIconPath(dllPath, "19 ‹÷•”-ì¬")))
+            PulldownButtonData groupSumibuPiaceData = new PulldownButtonData("éš…éƒ¨ãƒ”ãƒ¼ã‚¹", "éš…éƒ¨ãƒ”ãƒ¼ã‚¹");
+            if (System.IO.File.Exists(GetIconPath(dllPath, "19 éš…éƒ¨-ä½œæˆ")))
             {
-                groupSumibuPiaceData.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "19 ‹÷•”-ì¬")));
-                groupSumibuPiaceData.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "19 ‹÷•”-ì¬")));
-                groupSumibuPiaceData.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "19 ‹÷•”-ì¬")));
+                groupSumibuPiaceData.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "19 éš…éƒ¨-ä½œæˆ")));
+                groupSumibuPiaceData.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "19 éš…éƒ¨-ä½œæˆ")));
+                groupSumibuPiaceData.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "19 éš…éƒ¨-ä½œæˆ")));
             }
-            PulldownButtonData groupSendanBoltHokyouzaiData = new PulldownButtonData("‚¹‚ñ’fƒ{ƒ‹ƒg•â‹­Ş", "‚¹‚ñ’fƒ{ƒ‹ƒg•â‹­Ş");
-            if (System.IO.File.Exists(GetIconPath(dllPath, "21 ƒ{ƒ‹ƒg-ì¬")))
+            PulldownButtonData groupSendanBoltHokyouzaiData = new PulldownButtonData("ã›ã‚“æ–­ãƒœãƒ«ãƒˆè£œå¼·æ", "ã›ã‚“æ–­ãƒœãƒ«ãƒˆè£œå¼·æ");
+            if (System.IO.File.Exists(GetIconPath(dllPath, "21 ãƒœãƒ«ãƒˆ-ä½œæˆ")))
             {
-                groupSendanBoltHokyouzaiData.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ƒ{ƒ‹ƒg-ì¬")));
-                groupSendanBoltHokyouzaiData.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ƒ{ƒ‹ƒg-ì¬")));
-                groupSendanBoltHokyouzaiData.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ƒ{ƒ‹ƒg-ì¬")));
+                groupSendanBoltHokyouzaiData.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ãƒœãƒ«ãƒˆ-ä½œæˆ")));
+                groupSendanBoltHokyouzaiData.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ãƒœãƒ«ãƒˆ-ä½œæˆ")));
+                groupSendanBoltHokyouzaiData.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ãƒœãƒ«ãƒˆ-ä½œæˆ")));
             }
-            PulldownButtonData groupHaraokoshiSuberidomeData = new PulldownButtonData("• ‹NƒXƒxƒŠ~‚ß", "• ‹NƒXƒxƒŠ~‚ß");
-            if (System.IO.File.Exists(GetIconPath(dllPath, "23@• ‹NƒXƒxƒŠ-ì¬")))
+            PulldownButtonData groupHaraokoshiSuberidomeData = new PulldownButtonData("è…¹èµ·ã‚¹ãƒ™ãƒªæ­¢ã‚", "è…¹èµ·ã‚¹ãƒ™ãƒªæ­¢ã‚");
+            if (System.IO.File.Exists(GetIconPath(dllPath, "23ã€€è…¹èµ·ã‚¹ãƒ™ãƒª-ä½œæˆ")))
             {
-                groupHaraokoshiSuberidomeData.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "23@• ‹NƒXƒxƒŠ-ì¬")));
-                groupHaraokoshiSuberidomeData.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "23@• ‹NƒXƒxƒŠ-ì¬")));
-                groupHaraokoshiSuberidomeData.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "23@• ‹NƒXƒxƒŠ-ì¬")));
+                groupHaraokoshiSuberidomeData.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "23ã€€è…¹èµ·ã‚¹ãƒ™ãƒª-ä½œæˆ")));
+                groupHaraokoshiSuberidomeData.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "23ã€€è…¹èµ·ã‚¹ãƒ™ãƒª-ä½œæˆ")));
+                groupHaraokoshiSuberidomeData.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "23ã€€è…¹èµ·ã‚¹ãƒ™ãƒª-ä½œæˆ")));
             }
             IList<RibbonItem> addedButtons = panelYamdomeKabe.AddStackedItems(groupKouyaitaData, groupOyakuiData, groupYokoyaitaData);
             List<PulldownButton> pullBtnList = new List<PulldownButton>();
@@ -680,29 +680,29 @@ namespace YMS
                 pullBtnList.Add(item as PulldownButton);
             }
             PulldownButton groupYamadomeKouyaita = pullBtnList[0];
-            groupYamadomeKouyaita.ToolTip = "|–î”Â";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "5 |–î”Â-ì¬ - 16")))
+            groupYamadomeKouyaita.ToolTip = "é‹¼çŸ¢æ¿";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-ä½œæˆ - 16")))
             {
-                groupYamadomeKouyaita.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 |–î”Â-ì¬ - 16")));
-                groupYamadomeKouyaita.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "5 |–î”Â-ì¬ - 16")));
-                groupYamadomeKouyaita.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 |–î”Â-ì¬ - 16")));
+                groupYamadomeKouyaita.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-ä½œæˆ - 16")));
+                groupYamadomeKouyaita.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-ä½œæˆ - 16")));
+                groupYamadomeKouyaita.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-ä½œæˆ - 16")));
             }
 
             PulldownButton groupYamadomeOyakui = pullBtnList[1];
-            groupYamadomeOyakui.ToolTip = "eY";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "6 eY-ì¬ - 16")))
+            groupYamadomeOyakui.ToolTip = "è¦ªæ­";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "6 è¦ªæ­-ä½œæˆ - 16")))
             {
-                groupYamadomeOyakui.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "6 eY-ì¬ - 16")));
-                groupYamadomeOyakui.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "6 eY-ì¬ - 16")));
-                groupYamadomeOyakui.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "6 eY-ì¬ - 16")));
+                groupYamadomeOyakui.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "6 è¦ªæ­-ä½œæˆ - 16")));
+                groupYamadomeOyakui.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "6 è¦ªæ­-ä½œæˆ - 16")));
+                groupYamadomeOyakui.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "6 è¦ªæ­-ä½œæˆ - 16")));
             }
             PulldownButton groupYamadomeYokoyaita = pullBtnList[2];
-            groupYamadomeYokoyaita.ToolTip = "‰¡–î”Â";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "7 ‰¡–î”Â-ì¬ - 16")))
+            groupYamadomeYokoyaita.ToolTip = "æ¨ªçŸ¢æ¿";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "7 æ¨ªçŸ¢æ¿-ä½œæˆ - 16")))
             {
-                groupYamadomeYokoyaita.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "7 ‰¡–î”Â-ì¬ - 16")));
-                groupYamadomeYokoyaita.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "7 ‰¡–î”Â-ì¬ - 16")));
-                groupYamadomeYokoyaita.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "7 ‰¡–î”Â-ì¬ - 16")));
+                groupYamadomeYokoyaita.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "7 æ¨ªçŸ¢æ¿-ä½œæˆ - 16")));
+                groupYamadomeYokoyaita.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "7 æ¨ªçŸ¢æ¿-ä½œæˆ - 16")));
+                groupYamadomeYokoyaita.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "7 æ¨ªçŸ¢æ¿-ä½œæˆ - 16")));
             }
             addedButtons = panelYamdomeKabe.AddStackedItems(groupRenzokuKabeData, groupSMWData);
             pullBtnList = new List<PulldownButton>();
@@ -711,20 +711,20 @@ namespace YMS
                 pullBtnList.Add(item as PulldownButton);
             }
             PulldownButton groupYamadomeRenzokuKabe = pullBtnList[0];
-            groupYamadomeRenzokuKabe.ToolTip = "˜A‘±•Ç";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "8 ˜A‘±•Ç-ì¬ - 16")))
+            groupYamadomeRenzokuKabe.ToolTip = "é€£ç¶šå£";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "8 é€£ç¶šå£-ä½œæˆ - 16")))
             {
-                groupYamadomeRenzokuKabe.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "8 ˜A‘±•Ç-ì¬ - 16")));
-                groupYamadomeRenzokuKabe.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "8 ˜A‘±•Ç-ì¬ - 16")));
-                groupYamadomeRenzokuKabe.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "8 ˜A‘±•Ç-ì¬ - 16")));
+                groupYamadomeRenzokuKabe.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "8 é€£ç¶šå£-ä½œæˆ - 16")));
+                groupYamadomeRenzokuKabe.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "8 é€£ç¶šå£-ä½œæˆ - 16")));
+                groupYamadomeRenzokuKabe.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "8 é€£ç¶šå£-ä½œæˆ - 16")));
             }
             PulldownButton groupYamadomeSMW = pullBtnList[1];
             groupYamadomeSMW.ToolTip = "SMW";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "9 SMW-ì¬ - 16")))
+            if (System.IO.File.Exists(GetIconPath(dllPath, "9 SMW-ä½œæˆ - 16")))
             {
-                groupYamadomeSMW.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-ì¬ - 16")));
-                groupYamadomeSMW.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-ì¬ - 16")));
-                groupYamadomeSMW.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-ì¬ - 16")));
+                groupYamadomeSMW.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-ä½œæˆ - 16")));
+                groupYamadomeSMW.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-ä½œæˆ - 16")));
+                groupYamadomeSMW.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-ä½œæˆ - 16")));
             }
 
             PulldownButton groupKui = panelKui.AddItem(groupKuiData) as PulldownButton;
@@ -737,28 +737,28 @@ namespace YMS
                 pullBtnList.Add(item as PulldownButton);
             }
             PulldownButton groupBaseHaraokoshi = pullBtnList[0];
-            groupBaseHaraokoshi.ToolTip = "• ‹Nƒx[ƒX";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 • ‹N")))
+            groupBaseHaraokoshi.ToolTip = "è…¹èµ·ãƒ™ãƒ¼ã‚¹";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 è…¹èµ·")))
             {
-                groupBaseHaraokoshi.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 • ‹N")));
-                groupBaseHaraokoshi.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 • ‹N")));
-                groupBaseHaraokoshi.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 • ‹N")));
+                groupBaseHaraokoshi.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 è…¹èµ·")));
+                groupBaseHaraokoshi.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 è…¹èµ·")));
+                groupBaseHaraokoshi.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 è…¹èµ·")));
             }
             PulldownButton groupBaseKiribari = pullBtnList[1];
-            groupBaseKiribari.ToolTip = "Ø—Àƒx[ƒX";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—À")))
+            groupBaseKiribari.ToolTip = "åˆ‡æ¢ãƒ™ãƒ¼ã‚¹";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢")))
             {
-                groupBaseKiribari.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À")));
-                groupBaseKiribari.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À")));
-                groupBaseKiribari.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À")));
+                groupBaseKiribari.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢")));
+                groupBaseKiribari.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢")));
+                groupBaseKiribari.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢")));
             }
             PulldownButton groupBaseSanjiku = pullBtnList[2];
-            groupBaseSanjiku.ToolTip = "O²ƒs[ƒX";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 O²")))
+            groupBaseSanjiku.ToolTip = "ä¸‰è»¸ãƒ”ãƒ¼ã‚¹";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 ä¸‰è»¸")))
             {
-                groupBaseSanjiku.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 O²")));
-                groupBaseSanjiku.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 O²")));
-                groupBaseSanjiku.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 O²")));
+                groupBaseSanjiku.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ä¸‰è»¸")));
+                groupBaseSanjiku.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ä¸‰è»¸")));
+                groupBaseSanjiku.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ä¸‰è»¸")));
             }
             addedButtons = panelBase.AddStackedItems(groupSumibuBaseData, groupKiribariHiuchiBaseData, groupKiribariUkeBaseData);
             pullBtnList = new List<PulldownButton>();
@@ -767,28 +767,28 @@ namespace YMS
                 pullBtnList.Add(item as PulldownButton);
             }
             PulldownButton groupBasesumibu = pullBtnList[0];
-            groupBasesumibu.ToolTip = "‹÷‰Î‘Åƒx[ƒX";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 ‹÷‰Î‘Å")))
+            groupBasesumibu.ToolTip = "éš…ç«æ‰“ãƒ™ãƒ¼ã‚¹";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 éš…ç«æ‰“")))
             {
-                groupBasesumibu.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‹÷‰Î‘Å")));
-                groupBasesumibu.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‹÷‰Î‘Å")));
-                groupBasesumibu.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‹÷‰Î‘Å")));
+                groupBasesumibu.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 éš…ç«æ‰“")));
+                groupBasesumibu.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 éš…ç«æ‰“")));
+                groupBasesumibu.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 éš…ç«æ‰“")));
             }
             PulldownButton groupBaseKiribarHiuchi = pullBtnList[1];
-            groupBaseKiribarHiuchi.ToolTip = "Ø—À‰Î‘Åƒx[ƒX";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—À‰Î‘Å")))
+            groupBaseKiribarHiuchi.ToolTip = "åˆ‡æ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢ç«æ‰“")))
             {
-                groupBaseKiribarHiuchi.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À‰Î‘Å")));
-                groupBaseKiribarHiuchi.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À‰Î‘Å")));
-                groupBaseKiribarHiuchi.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À‰Î‘Å")));
+                groupBaseKiribarHiuchi.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç«æ‰“")));
+                groupBaseKiribarHiuchi.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç«æ‰“")));
+                groupBaseKiribarHiuchi.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç«æ‰“")));
             }
             PulldownButton groupBaseKiribariUke = pullBtnList[2];
-            groupBaseKiribariUke.ToolTip = "Ø—Àó‚¯ƒx[ƒX";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—Àó‚¯")))
+            groupBaseKiribariUke.ToolTip = "åˆ‡æ¢å—ã‘ãƒ™ãƒ¼ã‚¹";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢å—ã‘")))
             {
-                groupBaseKiribariUke.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—Àó‚¯")));
-                groupBaseKiribariUke.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—Àó‚¯")));
-                groupBaseKiribariUke.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—Àó‚¯")));
+                groupBaseKiribariUke.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢å—ã‘")));
+                groupBaseKiribariUke.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢å—ã‘")));
+                groupBaseKiribariUke.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢å—ã‘")));
             }
             addedButtons = panelBase.AddStackedItems(groupKiribariTsunagizaiBaseData, groupHiuchiTsunagizaiBaseData, groupKiribariTsunagiBaseData);
             pullBtnList = new List<PulldownButton>();
@@ -797,28 +797,28 @@ namespace YMS
                 pullBtnList.Add(item as PulldownButton);
             }
             PulldownButton groupBaseKiribariTsunagizai = pullBtnList[0];
-            groupBaseKiribariTsunagizai.ToolTip = "Ø—ÀƒcƒiƒMŞƒx[ƒX";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—ÀƒcƒiƒM")))
+            groupBaseKiribariTsunagizai.ToolTip = "åˆ‡æ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢ãƒ„ãƒŠã‚®")))
             {
-                groupBaseKiribariTsunagizai.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀƒcƒiƒM")));
-                groupBaseKiribariTsunagizai.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀƒcƒiƒM")));
-                groupBaseKiribariTsunagizai.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀƒcƒiƒM")));
+                groupBaseKiribariTsunagizai.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ãƒ„ãƒŠã‚®")));
+                groupBaseKiribariTsunagizai.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ãƒ„ãƒŠã‚®")));
+                groupBaseKiribariTsunagizai.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ãƒ„ãƒŠã‚®")));
             }
             PulldownButton groupBaseHiuchiTsunagizai = pullBtnList[1];
-            groupBaseHiuchiTsunagizai.ToolTip = "‰Î‘ÅƒcƒiƒMŞƒx[ƒX";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 ‰Î‘ÅƒcƒiƒM")))
+            groupBaseHiuchiTsunagizai.ToolTip = "ç«æ‰“ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 ç«æ‰“ãƒ„ãƒŠã‚®")))
             {
-                groupBaseHiuchiTsunagizai.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‰Î‘ÅƒcƒiƒM")));
-                groupBaseHiuchiTsunagizai.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‰Î‘ÅƒcƒiƒM")));
-                groupBaseHiuchiTsunagizai.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‰Î‘ÅƒcƒiƒM")));
+                groupBaseHiuchiTsunagizai.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ç«æ‰“ãƒ„ãƒŠã‚®")));
+                groupBaseHiuchiTsunagizai.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ç«æ‰“ãƒ„ãƒŠã‚®")));
+                groupBaseHiuchiTsunagizai.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ç«æ‰“ãƒ„ãƒŠã‚®")));
             }
             PulldownButton groupBaseKiribariTsunagi = pullBtnList[2];
-            groupBaseKiribariTsunagi.ToolTip = "Ø—ÀŒp‚¬ƒx[ƒX";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—ÀŒp‚¬")))
+            groupBaseKiribariTsunagi.ToolTip = "åˆ‡æ¢ç¶™ããƒ™ãƒ¼ã‚¹";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢ç¶™ã")))
             {
-                groupBaseKiribariTsunagi.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀŒp‚¬")));
-                groupBaseKiribariTsunagi.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀŒp‚¬")));
-                groupBaseKiribariTsunagi.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀŒp‚¬")));
+                groupBaseKiribariTsunagi.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç¶™ã")));
+                groupBaseKiribariTsunagi.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç¶™ã")));
+                groupBaseKiribariTsunagi.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç¶™ã")));
             }
 
             addedButtons = panelBase.AddStackedItems(groupSyabariBaseData, groupSyabariTsunagizaiBaseData, groupSyabariUkeBaseData);
@@ -828,43 +828,43 @@ namespace YMS
                 pullBtnList.Add(item as PulldownButton);
             }
             PulldownButton groupBaseSyabari = pullBtnList[0];
-            groupBaseSyabari.ToolTip = "Î—Àƒx[ƒX";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—À")))
+            groupBaseSyabari.ToolTip = "æ–œæ¢ãƒ™ãƒ¼ã‚¹";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢")))
             {
-                groupBaseSyabari.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
-                groupBaseSyabari.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
-                groupBaseSyabari.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
+                groupBaseSyabari.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
+                groupBaseSyabari.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
+                groupBaseSyabari.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
             }
             PulldownButton groupBaseSyabariTsunagizai = pullBtnList[1];
-            groupBaseSyabariTsunagizai.ToolTip = "Î—ÀƒcƒiƒMŞƒx[ƒX";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—ÀƒcƒiƒMŞ")))
+            groupBaseSyabariTsunagizai.ToolTip = "æ–œæ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢ãƒ„ãƒŠã‚®æ")))
             {
-                groupBaseSyabariTsunagizai.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—ÀƒcƒiƒMŞ")));
-                groupBaseSyabariTsunagizai.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—ÀƒcƒiƒMŞ")));
-                groupBaseSyabariTsunagizai.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—ÀƒcƒiƒMŞ")));
+                groupBaseSyabariTsunagizai.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ãƒ„ãƒŠã‚®æ")));
+                groupBaseSyabariTsunagizai.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ãƒ„ãƒŠã‚®æ")));
+                groupBaseSyabariTsunagizai.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ãƒ„ãƒŠã‚®æ")));
             }
             PulldownButton groupBaseSyabariUke = pullBtnList[2];
-            groupBaseSyabariUke.ToolTip = "Î—Àó‚¯ƒx[ƒX";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—Àó‚¯")))
+            groupBaseSyabariUke.ToolTip = "æ–œæ¢å—ã‘ãƒ™ãƒ¼ã‚¹";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢å—ã‘")))
             {
-                groupBaseSyabariUke.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—Àó‚¯")));
-                groupBaseSyabariUke.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—Àó‚¯")));
-                groupBaseSyabariUke.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—Àó‚¯")));
+                groupBaseSyabariUke.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢å—ã‘")));
+                groupBaseSyabariUke.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢å—ã‘")));
+                groupBaseSyabariUke.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢å—ã‘")));
             }
 
-			//RibbonItem addedButton = panelBase.AddItem(groupSyabariHiuchiBaseData);
-   //         pullBtnList = new List<PulldownButton>();
-   //         pullBtnList.Add(addedButton as PulldownButton);
-   //         PulldownButton groupBaseSyabariHiuchi = pullBtnList[0];
-   //         groupBaseSyabariHiuchi.ToolTip = "Î—À‰Î‘Åƒx[ƒX";
-   //         if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—À‰Î‘Å")))
-   //         {
-   //             groupBaseSyabariHiuchi.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-   //             groupBaseSyabariHiuchi.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-   //             groupBaseSyabariHiuchi.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-   //         }
+            //RibbonItem addedButton = panelBase.AddItem(groupSyabariHiuchiBaseData);
+            //         pullBtnList = new List<PulldownButton>();
+            //         pullBtnList.Add(addedButton as PulldownButton);
+            //         PulldownButton groupBaseSyabariHiuchi = pullBtnList[0];
+            //         groupBaseSyabariHiuchi.ToolTip = "æ–œæ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹";
+            //         if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")))
+            //         {
+            //             groupBaseSyabariHiuchi.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+            //             groupBaseSyabariHiuchi.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+            //             groupBaseSyabariHiuchi.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+            //         }
 
-            //ƒpƒlƒ‹‚ğ“‡‚µ‚È‚¢ê‡
+            //ãƒ‘ãƒãƒ«ã‚’çµ±åˆã—ãªã„å ´åˆ
             //PulldownButton groupJack = panelJack.AddItem(groupJackData) as PulldownButton;
             //PulldownButton groupAtamaTsunagi = panelAtamaTsunagi.AddItem(groupAtamaTsunagiData) as PulldownButton;
             //PulldownButton groupDesumibuHokyouzai = panelDesumibuHokyouzai.AddItem(groupDesumibuHokyouzaiData) as PulldownButton;
@@ -872,7 +872,7 @@ namespace YMS
             //PulldownButton groupSendanBoltHokyouzai = panelSendanBoltHokyouzai.AddItem(groupSendanBoltHokyouzaiData) as PulldownButton;
             //PulldownButton groupHaraokoshiSuberidome = panelHaraokoshiSuberidome.AddItem(groupHaraokoshiSuberidomeData) as PulldownButton;
 
-            //ƒpƒlƒ‹‚ğ“‡‚·‚éê‡
+            //ãƒ‘ãƒãƒ«ã‚’çµ±åˆã™ã‚‹å ´åˆ
             PulldownButton groupJack = panelBuhinHaici.AddItem(groupJackData) as PulldownButton;
             PulldownButton groupAtamaTsunagi = panelBuhinHaici.AddItem(groupAtamaTsunagiData) as PulldownButton;
             PulldownButton groupDesumibuHokyouzai = panelBuhinHaici.AddItem(groupDesumibuHokyouzaiData) as PulldownButton;
@@ -886,781 +886,781 @@ namespace YMS
 
 
             ///////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData2 = new PushButtonData("PushButton Command2", "¯•Ê\n‹L†",
+            //PushButtonData pushButtonData2 = new PushButtonData("PushButton Command2", "è­˜åˆ¥\nè¨˜å·",
             //                dllPath, "YMS.ChangeShikibetuSym");
 
             //PushButton pushButton2 = panelSyokisettei.AddItem(pushButtonData2) as PushButton;
 
-            //pushButton2.ToolTip = "¯•Ê‹L†‚ğ•ÏX‚µ‚Ü‚·B";
-            //if (System.IO.File.Exists(GetIconPath(dllPath, "2 ¯•Ê‹L†")))
+            //pushButton2.ToolTip = "è­˜åˆ¥è¨˜å·ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            //if (System.IO.File.Exists(GetIconPath(dllPath, "2 è­˜åˆ¥è¨˜å·")))
             //{
-            //    pushButton2.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "2 ¯•Ê‹L†")));
-            //    pushButton2.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "2 ¯•Ê‹L†")));
-            //    pushButton2.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "2 ¯•Ê‹L†")));
+            //    pushButton2.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "2 è­˜åˆ¥è¨˜å·")));
+            //    pushButton2.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "2 è­˜åˆ¥è¨˜å·")));
+            //    pushButton2.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "2 è­˜åˆ¥è¨˜å·")));
             //}
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData3 = new PushButtonData("PushButton Command3", "•Çc\n",
+            PushButtonData pushButtonData3 = new PushButtonData("PushButton Command3", "å£èŠ¯\n",
                             dllPath, "YMS.CreateKabeshin");
 
             PushButton pushButton3 = panelKabeShin.AddItem(pushButtonData3) as PushButton;
 
-            pushButton3.ToolTip = "•Çc‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "4 •Çc")))
+            pushButton3.ToolTip = "å£èŠ¯ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "4 å£èŠ¯")))
             {
-                pushButton3.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "4 •Çc")));
-                pushButton3.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "4 •Çc")));
-                pushButton3.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "4 •Çc")));
+                pushButton3.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "4 å£èŠ¯")));
+                pushButton3.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "4 å£èŠ¯")));
+                pushButton3.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "4 å£èŠ¯")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData4 = new PushButtonData("PushButton Command4", "ì¬",
+            PushButtonData pushButtonData4 = new PushButtonData("PushButton Command4", "ä½œæˆ",
                             dllPath, "YMS.CreateKouyaita");
 
             PushButton pushButton4 = groupYamadomeKouyaita.AddPushButton(pushButtonData4) as PushButton;
 
-            pushButton4.ToolTip = "|–î”Â‚ğì¬‚µ‚Ü‚·B";
+            pushButton4.ToolTip = "é‹¼çŸ¢æ¿ã‚’ä½œæˆã—ã¾ã™ã€‚";
 
-            if (System.IO.File.Exists(GetIconPath(dllPath, "5 |–î”Â-ì¬")))
+            if (System.IO.File.Exists(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-ä½œæˆ")))
             {
-                pushButton4.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 |–î”Â-ì¬")));
-                pushButton4.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "5 |–î”Â-ì¬")));
-                pushButton4.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 |–î”Â-ì¬")));
+                pushButton4.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-ä½œæˆ")));
+                pushButton4.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-ä½œæˆ")));
+                pushButton4.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData5 = new PushButtonData("PushButton Command5", "•ÏX",
+            //PushButtonData pushButtonData5 = new PushButtonData("PushButton Command5", "å¤‰æ›´",
             //                dllPath, "YMS.ChangeKouyaita");
 
             //PushButton pushButton5 = groupYamadomeKouyaita.AddPushButton(pushButtonData5) as PushButton;
 
-            //pushButton5.ToolTip = "|–î”Â‚ğ•ÏX‚µ‚Ü‚·B";
+            //pushButton5.ToolTip = "é‹¼çŸ¢æ¿ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
 
-            //if (System.IO.File.Exists(GetIconPath(dllPath, "5 |–î”Â-•ÏX")))
+            //if (System.IO.File.Exists(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-å¤‰æ›´")))
             //{
-            //    pushButton5.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 |–î”Â-•ÏX")));
-            //    pushButton5.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "5 |–î”Â-•ÏX")));
-            //    pushButton5.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 |–î”Â-•ÏX")));
+            //    pushButton5.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-å¤‰æ›´")));
+            //    pushButton5.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-å¤‰æ›´")));
+            //    pushButton5.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-å¤‰æ›´")));
             //}
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData6 = new PushButtonData("PushButton Command6", "”½“]",
+            PushButtonData pushButtonData6 = new PushButtonData("PushButton Command6", "åè»¢",
                             dllPath, "YMS.ReverseKouyaita");
 
             PushButton pushButton6 = groupYamadomeKouyaita.AddPushButton(pushButtonData6) as PushButton;
 
-            pushButton6.ToolTip = "|–î”Â‚ğ”½“]‚µ‚Ü‚·B";
+            pushButton6.ToolTip = "é‹¼çŸ¢æ¿ã‚’åè»¢ã—ã¾ã™ã€‚";
 
-            if (System.IO.File.Exists(GetIconPath(dllPath, "5 |–î”Â-”½“]")))
+            if (System.IO.File.Exists(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-åè»¢")))
             {
-                pushButton6.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 |–î”Â-”½“]")));
-                pushButton6.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "5 |–î”Â-”½“]")));
-                pushButton6.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 |–î”Â-”½“]")));
+                pushButton6.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-åè»¢")));
+                pushButton6.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-åè»¢")));
+                pushButton6.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "5 é‹¼çŸ¢æ¿-åè»¢")));
             }
 
             /////////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData7 = new PushButtonData("PushButton Command7", "“ÁêTƒR[ƒi[•ÏŠ·",
+            //PushButtonData pushButtonData7 = new PushButtonData("PushButton Command7", "ç‰¹æ®ŠTã‚³ãƒ¼ãƒŠãƒ¼å¤‰æ›",
             //                dllPath, "YMS.MergeKoyaita");
 
             //PushButton pushButton7 = groupYamadomeKouyaita.AddPushButton(pushButtonData7) as PushButton;
 
-            //pushButton7.ToolTip = "“ÁêTƒR[ƒi[•ÏŠ·‚ğs‚¢‚Ü‚·B";
+            //pushButton7.ToolTip = "ç‰¹æ®ŠTã‚³ãƒ¼ãƒŠãƒ¼å¤‰æ›ã‚’è¡Œã„ã¾ã™ã€‚";
 
             /////////////////////////////////////////////////////////////////////////////
-            //groupYamadome.AddSeparator();//‹æØ‚è‚ğ•t‚¯‚é
+            //groupYamadome.AddSeparator();//åŒºåˆ‡ã‚Šã‚’ä»˜ã‘ã‚‹
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData8 = new PushButtonData("PushButton Command8", "ì¬",
+            PushButtonData pushButtonData8 = new PushButtonData("PushButton Command8", "ä½œæˆ",
                             dllPath, "YMS.CreateOyakui");
 
             PushButton pushButton8 = groupYamadomeOyakui.AddPushButton(pushButtonData8) as PushButton;
 
-            pushButton8.ToolTip = "eY‚ğì¬‚µ‚Ü‚·B";
+            pushButton8.ToolTip = "è¦ªæ­ã‚’ä½œæˆã—ã¾ã™ã€‚";
 
-            if (System.IO.File.Exists(GetIconPath(dllPath, "6 eY-ì¬")))
+            if (System.IO.File.Exists(GetIconPath(dllPath, "6 è¦ªæ­-ä½œæˆ")))
             {
-                pushButton8.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "6 eY-ì¬")));
-                pushButton8.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "6 eY-ì¬")));
-                pushButton8.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "6 eY-ì¬")));
+                pushButton8.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "6 è¦ªæ­-ä½œæˆ")));
+                pushButton8.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "6 è¦ªæ­-ä½œæˆ")));
+                pushButton8.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "6 è¦ªæ­-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData9 = new PushButtonData("PushButton Command9", "•ÏX",
+            //PushButtonData pushButtonData9 = new PushButtonData("PushButton Command9", "å¤‰æ›´",
             //                dllPath, "YMS.ChangeOyakui");
 
             //PushButton pushButton9 = groupYamadomeOyakui.AddPushButton(pushButtonData9) as PushButton;
 
-            //pushButton9.ToolTip = "eY‚ğ•ÏX‚µ‚Ü‚·B";
+            //pushButton9.ToolTip = "è¦ªæ­ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
 
-            //if (System.IO.File.Exists(GetIconPath(dllPath, "6 eY-•ÏX")))
+            //if (System.IO.File.Exists(GetIconPath(dllPath, "6 è¦ªæ­-å¤‰æ›´")))
             //{
-            //    pushButton9.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "6 eY-•ÏX")));
-            //    pushButton9.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "6 eY-•ÏX")));
-            //    pushButton9.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "6 eY-•ÏX")));
+            //    pushButton9.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "6 è¦ªæ­-å¤‰æ›´")));
+            //    pushButton9.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "6 è¦ªæ­-å¤‰æ›´")));
+            //    pushButton9.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "6 è¦ªæ­-å¤‰æ›´")));
             //}
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData10 = new PushButtonData("PushButton Command10", "ì¬",
+            PushButtonData pushButtonData10 = new PushButtonData("PushButton Command10", "ä½œæˆ",
                             dllPath, "YMS.CreateYokoyaita");
 
             PushButton pushButton10 = groupYamadomeYokoyaita.AddPushButton(pushButtonData10) as PushButton;
 
-            pushButton10.ToolTip = "‰¡–î”Â‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "7 ‰¡–î”Â-ì¬")))
+            pushButton10.ToolTip = "æ¨ªçŸ¢æ¿ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "7 æ¨ªçŸ¢æ¿-ä½œæˆ")))
             {
-                pushButton10.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "7 ‰¡–î”Â-ì¬")));
-                pushButton10.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "7 ‰¡–î”Â-ì¬")));
-                pushButton10.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "7 ‰¡–î”Â-ì¬")));
+                pushButton10.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "7 æ¨ªçŸ¢æ¿-ä½œæˆ")));
+                pushButton10.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "7 æ¨ªçŸ¢æ¿-ä½œæˆ")));
+                pushButton10.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "7 æ¨ªçŸ¢æ¿-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData11 = new PushButtonData("PushButton Command11", "•ÏX",
+            PushButtonData pushButtonData11 = new PushButtonData("PushButton Command11", "å¤‰æ›´",
                             dllPath, "YMS.ChangeYokoyaita");
 
             PushButton pushButton11 = groupYamadomeYokoyaita.AddPushButton(pushButtonData11) as PushButton;
 
-            pushButton11.ToolTip = "‰¡–î”Â‚ğ•ÏX‚µ‚Ü‚·B";
+            pushButton11.ToolTip = "æ¨ªçŸ¢æ¿ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
 
-            if (System.IO.File.Exists(GetIconPath(dllPath, "7 ‰¡–î”Â-•ÏX")))
+            if (System.IO.File.Exists(GetIconPath(dllPath, "7 æ¨ªçŸ¢æ¿-å¤‰æ›´")))
             {
-                pushButton11.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "7 ‰¡–î”Â-•ÏX")));
-                pushButton11.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "7 ‰¡–î”Â-•ÏX")));
-                pushButton11.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "7 ‰¡–î”Â-•ÏX")));
+                pushButton11.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "7 æ¨ªçŸ¢æ¿-å¤‰æ›´")));
+                pushButton11.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "7 æ¨ªçŸ¢æ¿-å¤‰æ›´")));
+                pushButton11.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "7 æ¨ªçŸ¢æ¿-å¤‰æ›´")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData12 = new PushButtonData("PushButton Command12", "ì¬",
+            PushButtonData pushButtonData12 = new PushButtonData("PushButton Command12", "ä½œæˆ",
                             dllPath, "YMS.CreateRenzokuKabe");
 
             PushButton pushButton12 = groupYamadomeRenzokuKabe.AddPushButton(pushButtonData12) as PushButton;
 
-            pushButton12.ToolTip = "˜A‘±•Ç‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "8 ˜A‘±•Ç-ì¬")))
+            pushButton12.ToolTip = "é€£ç¶šå£ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "8 é€£ç¶šå£-ä½œæˆ")))
             {
-                pushButton12.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "8 ˜A‘±•Ç-ì¬")));
-                pushButton12.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "8 ˜A‘±•Ç-ì¬")));
-                pushButton12.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "8 ˜A‘±•Ç-ì¬")));
+                pushButton12.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "8 é€£ç¶šå£-ä½œæˆ")));
+                pushButton12.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "8 é€£ç¶šå£-ä½œæˆ")));
+                pushButton12.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "8 é€£ç¶šå£-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData13 = new PushButtonData("PushButton Command13", "•ÏX",
+            //PushButtonData pushButtonData13 = new PushButtonData("PushButton Command13", "å¤‰æ›´",
             //                dllPath, "YMS.ChangeRenzokuKabe");
 
             //PushButton pushButton13 = groupYamadomeRenzokuKabe.AddPushButton(pushButtonData13) as PushButton;
 
-            //pushButton13.ToolTip = "˜A‘±•Ç‚ğ•ÏX‚µ‚Ü‚·B";
-            //if (System.IO.File.Exists(GetIconPath(dllPath, "8 ˜A‘±•Ç-•ÏX")))
+            //pushButton13.ToolTip = "é€£ç¶šå£ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            //if (System.IO.File.Exists(GetIconPath(dllPath, "8 é€£ç¶šå£-å¤‰æ›´")))
             //{
-            //    pushButton13.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "8 ˜A‘±•Ç-•ÏX")));
-            //    pushButton13.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "8 ˜A‘±•Ç-•ÏX")));
-            //    pushButton13.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "8 ˜A‘±•Ç-•ÏX")));
+            //    pushButton13.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "8 é€£ç¶šå£-å¤‰æ›´")));
+            //    pushButton13.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "8 é€£ç¶šå£-å¤‰æ›´")));
+            //    pushButton13.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "8 é€£ç¶šå£-å¤‰æ›´")));
             //}
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData14 = new PushButtonData("PushButton Command14", "ì¬",
+            PushButtonData pushButtonData14 = new PushButtonData("PushButton Command14", "ä½œæˆ",
                             dllPath, "YMS.CreateSMW");
 
             PushButton pushButton14 = groupYamadomeSMW.AddPushButton(pushButtonData14) as PushButton;
 
-            pushButton14.ToolTip = "SMW‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "9 SMW-ì¬")))
+            pushButton14.ToolTip = "SMWã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "9 SMW-ä½œæˆ")))
             {
-                pushButton14.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-ì¬")));
-                pushButton14.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-ì¬")));
-                pushButton14.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-ì¬")));
+                pushButton14.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-ä½œæˆ")));
+                pushButton14.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-ä½œæˆ")));
+                pushButton14.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData15 = new PushButtonData("PushButton Command15", "•ÏX",
+            //PushButtonData pushButtonData15 = new PushButtonData("PushButton Command15", "å¤‰æ›´",
             //                dllPath, "YMS.ChangeSMW");
 
             //PushButton pushButton15 = groupYamadomeSMW.AddPushButton(pushButtonData15) as PushButton;
 
-            //pushButton15.ToolTip = "SMW‚ğ•ÏX‚µ‚Ü‚·B";
-            //if (System.IO.File.Exists(GetIconPath(dllPath, "9 SMW-•ÏX")))
+            //pushButton15.ToolTip = "SMWã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            //if (System.IO.File.Exists(GetIconPath(dllPath, "9 SMW-å¤‰æ›´")))
             //{
-            //    pushButton15.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-•ÏX")));
-            //    pushButton15.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-•ÏX")));
-            //    pushButton15.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-•ÏX")));
+            //    pushButton15.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-å¤‰æ›´")));
+            //    pushButton15.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-å¤‰æ›´")));
+            //    pushButton15.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "9 SMW-å¤‰æ›´")));
             //}
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData16 = new PushButtonData("PushButton Command16", "ƒ{ƒCƒh\n",
+            PushButtonData pushButtonData16 = new PushButtonData("PushButton Command16", "ãƒœã‚¤ãƒ‰\n",
                             dllPath, "YMS.CreateVoidFamily");
 
             PushButton pushButton16 = panelYamdomeKabe.AddItem(pushButtonData16) as PushButton;
 
-            pushButton16.ToolTip = "•Ç‚ğ‚­‚è‚Ê‚«‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "10 ƒ{ƒCƒh-ì¬")))
+            pushButton16.ToolTip = "å£ã‚’ãã‚Šã¬ãã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "10 ãƒœã‚¤ãƒ‰-ä½œæˆ")))
             {
-                pushButton16.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "10 ƒ{ƒCƒh-ì¬")));
-                pushButton16.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "10 ƒ{ƒCƒh-ì¬")));
-                pushButton16.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "10 ƒ{ƒCƒh-ì¬")));
+                pushButton16.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "10 ãƒœã‚¤ãƒ‰-ä½œæˆ")));
+                pushButton16.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "10 ãƒœã‚¤ãƒ‰-ä½œæˆ")));
+                pushButton16.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "10 ãƒœã‚¤ãƒ‰-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData17 = new PushButtonData("PushButton Command17", "CASE\nŠÇ—",
+            PushButtonData pushButtonData17 = new PushButtonData("PushButton Command17", "CASE\nç®¡ç†",
                             dllPath, "YMS.ManegeCASE");
 
             PushButton pushButton17 = panelYamdomeKabe.AddItem(pushButtonData17) as PushButton;
-            pushButton17.ToolTip = "CASEŠÇ—B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "11 CASE-ŠÇ—")))
+            pushButton17.ToolTip = "CASEç®¡ç†ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "11 CASE-ç®¡ç†")))
             {
-                pushButton17.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "11 CASE-ŠÇ—")));
-                pushButton17.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "11 CASE-ŠÇ—")));
-                pushButton17.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "11 CASE-ŠÇ—")));
+                pushButton17.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "11 CASE-ç®¡ç†")));
+                pushButton17.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "11 CASE-ç®¡ç†")));
+                pushButton17.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "11 CASE-ç®¡ç†")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData18 = new PushButtonData("PushButton Command18", "ì¬",
+            PushButtonData pushButtonData18 = new PushButtonData("PushButton Command18", "ä½œæˆ",
                             dllPath, "YMS.CreateSanbashiKui");
 
             PushButton pushButton18 = groupKui.AddPushButton(pushButtonData18) as PushButton;
 
-            pushButton18.ToolTip = "TCYE\‘äYEŒ“—pYE’f–Ê•Ï‰»Y‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "12 Y-ì¬")))
+            pushButton18.ToolTip = "TCæ­ãƒ»æ§‹å°æ­ãƒ»å…¼ç”¨æ­ãƒ»æ–­é¢å¤‰åŒ–æ­ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "12 æ­-ä½œæˆ")))
             {
-                pushButton18.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "12 Y-ì¬")));
-                pushButton18.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "12 Y-ì¬")));
-                pushButton18.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "12 Y-ì¬")));
+                pushButton18.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "12 æ­-ä½œæˆ")));
+                pushButton18.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "12 æ­-ä½œæˆ")));
+                pushButton18.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "12 æ­-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData19 = new PushButtonData("PushButton Command19", "•ÏX",
+            PushButtonData pushButtonData19 = new PushButtonData("PushButton Command19", "å¤‰æ›´",
                             dllPath, "YMS.ChangeKui");
 
             PushButton pushButton19 = groupKui.AddPushButton(pushButtonData19) as PushButton;
 
-            pushButton19.ToolTip = "TCYE\‘äYEŒ“—pYE’f–Ê•Ï‰»Y‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "12 Y-•ÏX")))
+            pushButton19.ToolTip = "TCæ­ãƒ»æ§‹å°æ­ãƒ»å…¼ç”¨æ­ãƒ»æ–­é¢å¤‰åŒ–æ­ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "12 æ­-å¤‰æ›´")))
             {
-                pushButton19.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "12 Y-•ÏX")));
-                pushButton19.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "12 Y-•ÏX")));
-                pushButton19.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "12 Y-•ÏX")));
+                pushButton19.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "12 æ­-å¤‰æ›´")));
+                pushButton19.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "12 æ­-å¤‰æ›´")));
+                pushButton19.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "12 æ­-å¤‰æ›´")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData20 = new PushButtonData("PushButton Command20", "ì¬",
+            PushButtonData pushButtonData20 = new PushButtonData("PushButton Command20", "ä½œæˆ",
                             dllPath, "YMS.CreateTanakui");
 
             PushButton pushButton20 = groupTanaKui.AddPushButton(pushButtonData20) as PushButton;
 
-            pushButton20.ToolTip = "’IYE’†ŠÔY‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "13 ’†Y-ì¬")))
+            pushButton20.ToolTip = "æ£šæ­ãƒ»ä¸­é–“æ­ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "13 ä¸­æ­-ä½œæˆ")))
             {
-                pushButton20.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "13 ’†Y-ì¬")));
-                pushButton20.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "13 ’†Y-ì¬")));
-                pushButton20.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "13 ’†Y-ì¬")));
+                pushButton20.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "13 ä¸­æ­-ä½œæˆ")));
+                pushButton20.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "13 ä¸­æ­-ä½œæˆ")));
+                pushButton20.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "13 ä¸­æ­-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData21 = new PushButtonData("PushButton Command21", "•ÏX",
+            PushButtonData pushButtonData21 = new PushButtonData("PushButton Command21", "å¤‰æ›´",
                             dllPath, "YMS.ChangeTanakui");
 
             PushButton pushButton21 = groupTanaKui.AddPushButton(pushButtonData21) as PushButton;
 
-            pushButton21.ToolTip = "’IYE’†ŠÔY‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "13 ’†Y-•ÏX")))
+            pushButton21.ToolTip = "æ£šæ­ãƒ»ä¸­é–“æ­ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "13 ä¸­æ­-å¤‰æ›´")))
             {
-                pushButton21.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "13 ’†Y-•ÏX")));
-                pushButton21.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "13 ’†Y-•ÏX")));
-                pushButton21.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "13 ’†Y-•ÏX")));
+                pushButton21.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "13 ä¸­æ­-å¤‰æ›´")));
+                pushButton21.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "13 ä¸­æ­-å¤‰æ›´")));
+                pushButton21.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "13 ä¸­æ­-å¤‰æ›´")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData22 = new PushButtonData("PushButton Command22", "ì¬",
+            PushButtonData pushButtonData22 = new PushButtonData("PushButton Command22", "ä½œæˆ",
                             dllPath, "YMS.CreateHaraokoshiBase");
 
             PushButton pushButton22 = groupBaseHaraokoshi.AddPushButton(pushButtonData22) as PushButton;
 
-            pushButton22.ToolTip = "• ‹Nƒx[ƒX‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 • ‹N")))
+            pushButton22.ToolTip = "è…¹èµ·ãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 è…¹èµ·")))
             {
-                pushButton22.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 • ‹N")));
-                pushButton22.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 • ‹N")));
-                pushButton22.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 • ‹N")));
+                pushButton22.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 è…¹èµ·")));
+                pushButton22.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 è…¹èµ·")));
+                pushButton22.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 è…¹èµ·")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData23 = new PushButtonData("PushButton Command23", "•ÏX",
+            PushButtonData pushButtonData23 = new PushButtonData("PushButton Command23", "å¤‰æ›´",
                             dllPath, "YMS.ChangeHaraokoshiBase");
 
             PushButton pushButton23 = groupBaseHaraokoshi.AddPushButton(pushButtonData23) as PushButton;
 
-            pushButton23.ToolTip = "• ‹Nƒx[ƒX‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 • ‹N")))
+            pushButton23.ToolTip = "è…¹èµ·ãƒ™ãƒ¼ã‚¹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 è…¹èµ·")))
             {
-                pushButton23.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 • ‹N")));
-                pushButton23.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 • ‹N")));
-                pushButton23.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 • ‹N")));
+                pushButton23.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 è…¹èµ·")));
+                pushButton23.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 è…¹èµ·")));
+                pushButton23.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 è…¹èµ·")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData24 = new PushButtonData("PushButton Command24", "ì¬",
+            PushButtonData pushButtonData24 = new PushButtonData("PushButton Command24", "ä½œæˆ",
                             dllPath, "YMS.CreateKiribariBase");
 
             PushButton pushButton24 = groupBaseKiribari.AddPushButton(pushButtonData24) as PushButton;
 
-            pushButton24.ToolTip = "Ø—Àƒx[ƒX‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—À")))
+            pushButton24.ToolTip = "åˆ‡æ¢ãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢")))
             {
-                pushButton24.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À")));
-                pushButton24.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À")));
-                pushButton24.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À")));
+                pushButton24.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢")));
+                pushButton24.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢")));
+                pushButton24.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData25 = new PushButtonData("PushButton Command25", "•ÏX",
+            PushButtonData pushButtonData25 = new PushButtonData("PushButton Command25", "å¤‰æ›´",
                             dllPath, "YMS.ChangeKiribariBase");
 
             PushButton pushButton25 = groupBaseKiribari.AddPushButton(pushButtonData25) as PushButton;
 
-            pushButton25.ToolTip = "Ø—Àƒx[ƒX‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—À")))
+            pushButton25.ToolTip = "åˆ‡æ¢ãƒ™ãƒ¼ã‚¹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢")))
             {
-                pushButton25.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À")));
-                pushButton25.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À")));
-                pushButton25.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À")));
+                pushButton25.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢")));
+                pushButton25.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢")));
+                pushButton25.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData26 = new PushButtonData("PushButton Command26", "”z’u",
+            PushButtonData pushButtonData26 = new PushButtonData("PushButton Command26", "é…ç½®",
                             dllPath, "YMS.PutSanjikuPiece");
 
             PushButton pushButton26 = groupBaseSanjiku.AddPushButton(pushButtonData26) as PushButton;
 
-            pushButton26.ToolTip = "O²ƒs[ƒX‚ğ”z’u‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 O²")))
+            pushButton26.ToolTip = "ä¸‰è»¸ãƒ”ãƒ¼ã‚¹ã‚’é…ç½®ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 ä¸‰è»¸")))
             {
-                pushButton26.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 O²")));
-                pushButton26.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 O²")));
-                pushButton26.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 O²")));
+                pushButton26.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ä¸‰è»¸")));
+                pushButton26.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ä¸‰è»¸")));
+                pushButton26.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ä¸‰è»¸")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData27 = new PushButtonData("PushButton Command27", "ˆÊ’u’²®",
+            PushButtonData pushButtonData27 = new PushButtonData("PushButton Command27", "ä½ç½®èª¿æ•´",
                             dllPath, "YMS.PositionSanjikuPiece");
 
             PushButton pushButton27 = groupBaseSanjiku.AddPushButton(pushButtonData27) as PushButton;
 
-            pushButton27.ToolTip = "O²ƒs[ƒX‚ÌˆÊ’u‚ğ’²®‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 O²")))
+            pushButton27.ToolTip = "ä¸‰è»¸ãƒ”ãƒ¼ã‚¹ã®ä½ç½®ã‚’èª¿æ•´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 ä¸‰è»¸")))
             {
-                pushButton27.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 O²")));
-                pushButton27.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 O²")));
-                pushButton27.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 O²")));
+                pushButton27.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ä¸‰è»¸")));
+                pushButton27.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ä¸‰è»¸")));
+                pushButton27.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ä¸‰è»¸")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData28 = new PushButtonData("PushButton Command28", "ì¬",
+            PushButtonData pushButtonData28 = new PushButtonData("PushButton Command28", "ä½œæˆ",
                             dllPath, "YMS.CreateCornerHiuchiBase");
 
             PushButton pushButton28 = groupBasesumibu.AddPushButton(pushButtonData28) as PushButton;
 
-            pushButton28.ToolTip = "‹÷‰Î‘Åƒx[ƒX‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 ‹÷‰Î‘Å")))
+            pushButton28.ToolTip = "éš…ç«æ‰“ãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 éš…ç«æ‰“")))
             {
-                pushButton28.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‹÷‰Î‘Å")));
-                pushButton28.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‹÷‰Î‘Å")));
-                pushButton28.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‹÷‰Î‘Å")));
+                pushButton28.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 éš…ç«æ‰“")));
+                pushButton28.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 éš…ç«æ‰“")));
+                pushButton28.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 éš…ç«æ‰“")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData29 = new PushButtonData("PushButton Command29", "•ÏX",
+            PushButtonData pushButtonData29 = new PushButtonData("PushButton Command29", "å¤‰æ›´",
                             dllPath, "YMS.ChangeCornerHiuchiBase");
 
             PushButton pushButton29 = groupBasesumibu.AddPushButton(pushButtonData29) as PushButton;
 
-            pushButton29.ToolTip = "‹÷‰Î‘Åƒx[ƒX‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 ‹÷‰Î‘Å")))
+            pushButton29.ToolTip = "éš…ç«æ‰“ãƒ™ãƒ¼ã‚¹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 éš…ç«æ‰“")))
             {
-                pushButton29.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‹÷‰Î‘Å")));
-                pushButton29.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‹÷‰Î‘Å")));
-                pushButton29.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‹÷‰Î‘Å")));
+                pushButton29.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 éš…ç«æ‰“")));
+                pushButton29.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 éš…ç«æ‰“")));
+                pushButton29.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 éš…ç«æ‰“")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData30 = new PushButtonData("PushButton Command30", "ì¬",
+            PushButtonData pushButtonData30 = new PushButtonData("PushButton Command30", "ä½œæˆ",
                             dllPath, "YMS.CreateKiribariHiuchiBase");
 
             PushButton pushButton30 = groupBaseKiribarHiuchi.AddPushButton(pushButtonData30) as PushButton;
 
-            pushButton30.ToolTip = "Ø—À‰Î‘Åƒx[ƒX‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—À‰Î‘Å")))
+            pushButton30.ToolTip = "åˆ‡æ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢ç«æ‰“")))
             {
-                pushButton30.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À‰Î‘Å")));
-                pushButton30.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À‰Î‘Å")));
-                pushButton30.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À‰Î‘Å")));
+                pushButton30.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç«æ‰“")));
+                pushButton30.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç«æ‰“")));
+                pushButton30.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç«æ‰“")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData31 = new PushButtonData("PushButton Command31", "•ÏX",
+            PushButtonData pushButtonData31 = new PushButtonData("PushButton Command31", "å¤‰æ›´",
                             dllPath, "YMS.ChangeKiribariHiuchiBase");
 
             PushButton pushButton31 = groupBaseKiribarHiuchi.AddPushButton(pushButtonData31) as PushButton;
 
-            pushButton31.ToolTip = "Ø—À‰Î‘Åƒx[ƒX‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—À‰Î‘Å")))
+            pushButton31.ToolTip = "åˆ‡æ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢ç«æ‰“")))
             {
-                pushButton31.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À‰Î‘Å")));
-                pushButton31.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À‰Î‘Å")));
-                pushButton31.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—À‰Î‘Å")));
+                pushButton31.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç«æ‰“")));
+                pushButton31.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç«æ‰“")));
+                pushButton31.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç«æ‰“")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData32 = new PushButtonData("PushButton Command32", "ì¬",
+            PushButtonData pushButtonData32 = new PushButtonData("PushButton Command32", "ä½œæˆ",
                             dllPath, "YMS.CreateKiribariUkeBase");
 
             PushButton pushButton32 = groupBaseKiribariUke.AddPushButton(pushButtonData32) as PushButton;
 
-            pushButton32.ToolTip = "Ø—Àó‚¯ƒx[ƒX‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—Àó‚¯")))
+            pushButton32.ToolTip = "åˆ‡æ¢å—ã‘ãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢å—ã‘")))
             {
-                pushButton32.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—Àó‚¯")));
-                pushButton32.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—Àó‚¯")));
-                pushButton32.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—Àó‚¯")));
+                pushButton32.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢å—ã‘")));
+                pushButton32.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢å—ã‘")));
+                pushButton32.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢å—ã‘")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData33 = new PushButtonData("PushButton Command33", "•ÏX",
+            PushButtonData pushButtonData33 = new PushButtonData("PushButton Command33", "å¤‰æ›´",
                             dllPath, "YMS.ChangeKiribariUkeBase");
 
             PushButton pushButton33 = groupBaseKiribariUke.AddPushButton(pushButtonData33) as PushButton;
 
-            pushButton33.ToolTip = "Ø—Àó‚¯ƒx[ƒX‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—Àó‚¯")))
+            pushButton33.ToolTip = "åˆ‡æ¢å—ã‘ãƒ™ãƒ¼ã‚¹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢å—ã‘")))
             {
-                pushButton33.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—Àó‚¯")));
-                pushButton33.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—Àó‚¯")));
-                pushButton33.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—Àó‚¯")));
+                pushButton33.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢å—ã‘")));
+                pushButton33.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢å—ã‘")));
+                pushButton33.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢å—ã‘")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData34 = new PushButtonData("PushButton Command34", "ì¬",
+            PushButtonData pushButtonData34 = new PushButtonData("PushButton Command34", "ä½œæˆ",
                             dllPath, "YMS.CreateKiribariTsunagizaiBase");
 
             PushButton pushButton34 = groupBaseKiribariTsunagizai.AddPushButton(pushButtonData34) as PushButton;
 
-            pushButton34.ToolTip = "Ø—ÀƒcƒiƒMŞƒx[ƒX‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—ÀƒcƒiƒM")))
+            pushButton34.ToolTip = "åˆ‡æ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢ãƒ„ãƒŠã‚®")))
             {
-                pushButton34.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀƒcƒiƒM")));
-                pushButton34.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀƒcƒiƒM")));
-                pushButton34.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀƒcƒiƒM")));
+                pushButton34.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ãƒ„ãƒŠã‚®")));
+                pushButton34.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ãƒ„ãƒŠã‚®")));
+                pushButton34.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ãƒ„ãƒŠã‚®")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData35 = new PushButtonData("PushButton Command35", "•ÏX",
+            PushButtonData pushButtonData35 = new PushButtonData("PushButton Command35", "å¤‰æ›´",
                             dllPath, "YMS.ChangeKiribariTsunagizaiBase");
 
             PushButton pushButton35 = groupBaseKiribariTsunagizai.AddPushButton(pushButtonData35) as PushButton;
 
-            pushButton35.ToolTip = "Ø—ÀƒcƒiƒMŞƒx[ƒX‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—ÀƒcƒiƒM")))
+            pushButton35.ToolTip = "åˆ‡æ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢ãƒ„ãƒŠã‚®")))
             {
-                pushButton35.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀƒcƒiƒM")));
-                pushButton35.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀƒcƒiƒM")));
-                pushButton35.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀƒcƒiƒM")));
+                pushButton35.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ãƒ„ãƒŠã‚®")));
+                pushButton35.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ãƒ„ãƒŠã‚®")));
+                pushButton35.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ãƒ„ãƒŠã‚®")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData36 = new PushButtonData("PushButton Command36", "ì¬",
+            PushButtonData pushButtonData36 = new PushButtonData("PushButton Command36", "ä½œæˆ",
                             dllPath, "YMS.CreateHiuchiTsunagizaiBase");
 
             PushButton pushButton36 = groupBaseHiuchiTsunagizai.AddPushButton(pushButtonData36) as PushButton;
 
-            pushButton36.ToolTip = "‰Î‘ÅƒcƒiƒMŞƒx[ƒX‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 ‰Î‘ÅƒcƒiƒM")))
+            pushButton36.ToolTip = "ç«æ‰“ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 ç«æ‰“ãƒ„ãƒŠã‚®")))
             {
-                pushButton36.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‰Î‘ÅƒcƒiƒM")));
-                pushButton36.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‰Î‘ÅƒcƒiƒM")));
-                pushButton36.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‰Î‘ÅƒcƒiƒM")));
+                pushButton36.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ç«æ‰“ãƒ„ãƒŠã‚®")));
+                pushButton36.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ç«æ‰“ãƒ„ãƒŠã‚®")));
+                pushButton36.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ç«æ‰“ãƒ„ãƒŠã‚®")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData37 = new PushButtonData("PushButton Command37", "•ÏX",
+            PushButtonData pushButtonData37 = new PushButtonData("PushButton Command37", "å¤‰æ›´",
                             dllPath, "YMS.ChangeHIuchiTsunagizaiBase");
 
             PushButton pushButton37 = groupBaseHiuchiTsunagizai.AddPushButton(pushButtonData37) as PushButton;
 
-            pushButton37.ToolTip = "‰Î‘ÅƒcƒiƒMŞƒx[ƒX‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 ‰Î‘ÅƒcƒiƒM")))
+            pushButton37.ToolTip = "ç«æ‰“ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 ç«æ‰“ãƒ„ãƒŠã‚®")))
             {
-                pushButton37.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‰Î‘ÅƒcƒiƒM")));
-                pushButton37.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‰Î‘ÅƒcƒiƒM")));
-                pushButton37.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ‰Î‘ÅƒcƒiƒM")));
+                pushButton37.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ç«æ‰“ãƒ„ãƒŠã‚®")));
+                pushButton37.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ç«æ‰“ãƒ„ãƒŠã‚®")));
+                pushButton37.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 ç«æ‰“ãƒ„ãƒŠã‚®")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData38 = new PushButtonData("PushButton Command38", "ì¬",
+            PushButtonData pushButtonData38 = new PushButtonData("PushButton Command38", "ä½œæˆ",
                             dllPath, "YMS.CreateKiribariTsunagiBase");
 
             PushButton pushButton38 = groupBaseKiribariTsunagi.AddPushButton(pushButtonData38) as PushButton;
 
-            pushButton38.ToolTip = "Ø—ÀŒp‚¬ƒx[ƒX‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—ÀŒp‚¬")))
+            pushButton38.ToolTip = "åˆ‡æ¢ç¶™ããƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢ç¶™ã")))
             {
-                pushButton38.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀŒp‚¬")));
-                pushButton38.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀŒp‚¬")));
-                pushButton38.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀŒp‚¬")));
+                pushButton38.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç¶™ã")));
+                pushButton38.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç¶™ã")));
+                pushButton38.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç¶™ã")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData39 = new PushButtonData("PushButton Command39", "•ÏX",
+            PushButtonData pushButtonData39 = new PushButtonData("PushButton Command39", "å¤‰æ›´",
                             dllPath, "YMS.ChangeKiribariTsunagiBase");
 
             PushButton pushButton39 = groupBaseKiribariTsunagi.AddPushButton(pushButtonData39) as PushButton;
 
-            pushButton39.ToolTip = "Ø—ÀŒp‚¬ƒx[ƒX‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Ø—ÀŒp‚¬")))
+            pushButton39.ToolTip = "åˆ‡æ¢ç¶™ããƒ™ãƒ¼ã‚¹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 åˆ‡æ¢ç¶™ã")))
             {
-                pushButton39.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀŒp‚¬")));
-                pushButton39.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀŒp‚¬")));
-                pushButton39.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Ø—ÀŒp‚¬")));
+                pushButton39.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç¶™ã")));
+                pushButton39.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç¶™ã")));
+                pushButton39.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 åˆ‡æ¢ç¶™ã")));
             }
 
             /////////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData82 = new PushButtonData("PushButton Command82", "‹ë‘Ì—pü•ª”z’u",
+            //PushButtonData pushButtonData82 = new PushButtonData("PushButton Command82", "èº¯ä½“ç”¨ç·šåˆ†é…ç½®",
             //                dllPath, "YMS.PutSyabariStructureLine");
 
             //PushButton pushButton82 = groupBaseSyabari.AddPushButton(pushButtonData82) as PushButton;
 
-            //pushButton82.ToolTip = "Î—À‚Ì‹ë‘Ì—pü•ª‚ğ”z’u‚µ‚Ü‚·B";
-            //if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—À")))
+            //pushButton82.ToolTip = "æ–œæ¢ã®èº¯ä½“ç”¨ç·šåˆ†ã‚’é…ç½®ã—ã¾ã™ã€‚";
+            //if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢")))
             //{
-            //    pushButton82.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
-            //    pushButton82.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
-            //    pushButton82.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
+            //    pushButton82.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
+            //    pushButton82.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
+            //    pushButton82.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
             //}
 
             /////////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData71 = new PushButtonData("PushButton Command71", "’[•”•”•i”z’uiŒÂ•Êj",
+            //PushButtonData pushButtonData71 = new PushButtonData("PushButton Command71", "ç«¯éƒ¨éƒ¨å“é…ç½®ï¼ˆå€‹åˆ¥ï¼‰",
             //                dllPath, "YMS.PutSyabariPieceIndividual");
 
             //PushButton pushButton71 = groupBaseSyabari.AddPushButton(pushButtonData71) as PushButton;
 
-            //pushButton71.ToolTip = "Î—À‚Ì’[•”•”•i‚ğŒÂ•Ê”z’u‚µ‚Ü‚·B";
-            //if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—À")))
+            //pushButton71.ToolTip = "æ–œæ¢ã®ç«¯éƒ¨éƒ¨å“ã‚’å€‹åˆ¥é…ç½®ã—ã¾ã™ã€‚";
+            //if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢")))
             //{
-            //    pushButton71.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
-            //    pushButton71.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
-            //    pushButton71.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
+            //    pushButton71.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
+            //    pushButton71.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
+            //    pushButton71.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
             //}
 
             /////////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData81 = new PushButtonData("PushButton Command81", "’[•”•”•i”z’uiŒğ“_j",
+            //PushButtonData pushButtonData81 = new PushButtonData("PushButton Command81", "ç«¯éƒ¨éƒ¨å“é…ç½®ï¼ˆäº¤ç‚¹ï¼‰",
             //                dllPath, "YMS.PutSyabariPieceIntersectionPoint");
 
             //PushButton pushButton81 = groupBaseSyabari.AddPushButton(pushButtonData81) as PushButton;
 
-            //pushButton81.ToolTip = "• ‹Nƒx[ƒX‚Æƒ‚ƒfƒ‹ü•ª‚ÌŒğ“_‚ÉÎ—À‚Ì’[•”•”•i‚ğ”z’u‚µ‚Ü‚·B";
-            //if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—À")))
+            //pushButton81.ToolTip = "è…¹èµ·ãƒ™ãƒ¼ã‚¹ã¨ãƒ¢ãƒ‡ãƒ«ç·šåˆ†ã®äº¤ç‚¹ã«æ–œæ¢ã®ç«¯éƒ¨éƒ¨å“ã‚’é…ç½®ã—ã¾ã™ã€‚";
+            //if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢")))
             //{
-            //    pushButton81.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
-            //    pushButton81.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
-            //    pushButton81.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
+            //    pushButton81.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
+            //    pushButton81.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
+            //    pushButton81.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
             //}
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData72 = new PushButtonData("PushButton Command72", "Î—Àì¬",
+            PushButtonData pushButtonData72 = new PushButtonData("PushButton Command72", "æ–œæ¢ä½œæˆ",
                             dllPath, "YMS.CreateSyabariBase");
 
             PushButton pushButton72 = groupBaseSyabari.AddPushButton(pushButtonData72) as PushButton;
 
-            pushButton72.ToolTip = "Î—Àƒx[ƒX‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—À")))
+            pushButton72.ToolTip = "æ–œæ¢ãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢")))
             {
-                pushButton72.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
-                pushButton72.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
-                pushButton72.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
+                pushButton72.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
+                pushButton72.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
+                pushButton72.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData73 = new PushButtonData("PushButton Command73", "Î—À•ÏX",
+            PushButtonData pushButtonData73 = new PushButtonData("PushButton Command73", "æ–œæ¢å¤‰æ›´",
                             dllPath, "YMS.ChangeSyabariBase");
 
             PushButton pushButton73 = groupBaseSyabari.AddPushButton(pushButtonData73) as PushButton;
 
-            pushButton73.ToolTip = "Î—Àƒx[ƒX‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—À")))
+            pushButton73.ToolTip = "æ–œæ¢ãƒ™ãƒ¼ã‚¹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢")))
             {
-                pushButton73.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
-                pushButton73.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
-                pushButton73.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À")));
+                pushButton73.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
+                pushButton73.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
+                pushButton73.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData79 = new PushButtonData("PushButton Command79", "Î—À‰Î‘Åì¬",
+            PushButtonData pushButtonData79 = new PushButtonData("PushButton Command79", "æ–œæ¢ç«æ‰“ä½œæˆ",
                             dllPath, "YMS.CreateSyabariHiuchiBase");
 
             PushButton pushButton79 = groupBaseSyabari.AddPushButton(pushButtonData79) as PushButton;
             //PushButton pushButton79 = groupBaseSyabariHiuchi.AddPushButton(pushButtonData79) as PushButton;
 
-            pushButton79.ToolTip = "Î—À‰Î‘Åƒx[ƒX‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—À‰Î‘Å")))
+            pushButton79.ToolTip = "æ–œæ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")))
             {
-                pushButton79.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-                pushButton79.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-                pushButton79.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-                //pushButton79.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-                //pushButton79.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-                //pushButton79.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
+                pushButton79.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+                pushButton79.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+                pushButton79.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+                //pushButton79.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+                //pushButton79.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+                //pushButton79.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData80 = new PushButtonData("PushButton Command80", "Î—À‰Î‘Å•ÏX",
+            PushButtonData pushButtonData80 = new PushButtonData("PushButton Command80", "æ–œæ¢ç«æ‰“å¤‰æ›´",
                             dllPath, "YMS.ChangeSyabariHiuchiBase");
 
             PushButton pushButton80 = groupBaseSyabari.AddPushButton(pushButtonData80) as PushButton;
             //PushButton pushButton80 = groupBaseSyabariHiuchi.AddPushButton(pushButtonData80) as PushButton;
 
-            pushButton80.ToolTip = "Î—À‰Î‘Åƒx[ƒX‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—À‰Î‘Å")))
+            pushButton80.ToolTip = "æ–œæ¢ç«æ‰“ãƒ™ãƒ¼ã‚¹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")))
             {
-                pushButton80.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-                pushButton80.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-                pushButton80.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-                //pushButton80.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-                //pushButton80.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-                //pushButton80.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
+                pushButton80.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+                pushButton80.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+                pushButton80.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+                //pushButton80.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+                //pushButton80.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+                //pushButton80.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData74 = new PushButtonData("PushButton Command74", "ì¬",
+            PushButtonData pushButtonData74 = new PushButtonData("PushButton Command74", "ä½œæˆ",
                             dllPath, "YMS.CreateSyabariTsunagizaiBase");
 
             PushButton pushButton74 = groupBaseSyabariTsunagizai.AddPushButton(pushButtonData74) as PushButton;
 
-            pushButton74.ToolTip = "Î—ÀƒcƒiƒMŞƒx[ƒX‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—ÀƒcƒiƒMŞ")))
+            pushButton74.ToolTip = "æ–œæ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢ãƒ„ãƒŠã‚®æ")))
             {
-                pushButton74.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—ÀƒcƒiƒMŞ")));
-                pushButton74.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—ÀƒcƒiƒMŞ")));
-                pushButton74.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—ÀƒcƒiƒMŞ")));
+                pushButton74.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ãƒ„ãƒŠã‚®æ")));
+                pushButton74.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ãƒ„ãƒŠã‚®æ")));
+                pushButton74.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ãƒ„ãƒŠã‚®æ")));
             }
 
-			///////////////////////////////////////////////////////////////////////////
-			PushButtonData pushButtonData75 = new PushButtonData("PushButton Command75", "•ÏX",
-							dllPath, "YMS.ChangeSyabariTsunagizaiBase");
+            ///////////////////////////////////////////////////////////////////////////
+            PushButtonData pushButtonData75 = new PushButtonData("PushButton Command75", "å¤‰æ›´",
+                            dllPath, "YMS.ChangeSyabariTsunagizaiBase");
 
-			PushButton pushButton75 = groupBaseSyabariTsunagizai.AddPushButton(pushButtonData75) as PushButton;
+            PushButton pushButton75 = groupBaseSyabariTsunagizai.AddPushButton(pushButtonData75) as PushButton;
 
-            pushButton75.ToolTip = "Î—ÀƒcƒiƒMŞƒx[ƒX‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—ÀƒcƒiƒMŞ")))
+            pushButton75.ToolTip = "æ–œæ¢ãƒ„ãƒŠã‚®æãƒ™ãƒ¼ã‚¹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢ãƒ„ãƒŠã‚®æ")))
             {
-                pushButton75.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—ÀƒcƒiƒMŞ")));
-                pushButton75.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—ÀƒcƒiƒMŞ")));
-                pushButton75.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—ÀƒcƒiƒMŞ")));
+                pushButton75.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ãƒ„ãƒŠã‚®æ")));
+                pushButton75.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ãƒ„ãƒŠã‚®æ")));
+                pushButton75.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ãƒ„ãƒŠã‚®æ")));
             }
 
-			///////////////////////////////////////////////////////////////////////////
-			PushButtonData pushButtonData76 = new PushButtonData("PushButton Command76", "ì¬",
+            ///////////////////////////////////////////////////////////////////////////
+            PushButtonData pushButtonData76 = new PushButtonData("PushButton Command76", "ä½œæˆ",
                             dllPath, "YMS.CreateSyabariUkeBase");
 
             PushButton pushButton76 = groupBaseSyabariUke.AddPushButton(pushButtonData76) as PushButton;
 
-            pushButton76.ToolTip = "Î—Àó‚¯ƒx[ƒX‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—Àó‚¯")))
+            pushButton76.ToolTip = "æ–œæ¢å—ã‘ãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢å—ã‘")))
             {
-                pushButton76.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—Àó‚¯")));
-                pushButton76.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—Àó‚¯")));
-                pushButton76.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—Àó‚¯")));
+                pushButton76.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢å—ã‘")));
+                pushButton76.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢å—ã‘")));
+                pushButton76.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢å—ã‘")));
             }
 
-			///////////////////////////////////////////////////////////////////////////
-			PushButtonData pushButtonData77 = new PushButtonData("PushButton Command77", "•ÏX",
-							dllPath, "YMS.ChangeSyabariUkeBase");
+            ///////////////////////////////////////////////////////////////////////////
+            PushButtonData pushButtonData77 = new PushButtonData("PushButton Command77", "å¤‰æ›´",
+                            dllPath, "YMS.ChangeSyabariUkeBase");
 
-			PushButton pushButton77 = groupBaseSyabariUke.AddPushButton(pushButtonData77) as PushButton;
+            PushButton pushButton77 = groupBaseSyabariUke.AddPushButton(pushButtonData77) as PushButton;
 
-            pushButton77.ToolTip = "Î—Àó‚¯ƒx[ƒX‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—Àó‚¯")))
+            pushButton77.ToolTip = "æ–œæ¢å—ã‘ãƒ™ãƒ¼ã‚¹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢å—ã‘")))
             {
-                pushButton77.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—Àó‚¯")));
-                pushButton77.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—Àó‚¯")));
-                pushButton77.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—Àó‚¯")));
+                pushButton77.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢å—ã‘")));
+                pushButton77.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢å—ã‘")));
+                pushButton77.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢å—ã‘")));
             }
 
             /////////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData78 = new PushButtonData("PushButton Command78", "’[•”•”•i”z’u",
+            //PushButtonData pushButtonData78 = new PushButtonData("PushButton Command78", "ç«¯éƒ¨éƒ¨å“é…ç½®",
             //                         dllPath, "YMS.PutSyabariHiuchiPiece");
 
             //         PushButton pushButton78 = groupBaseSyabari.AddPushButton(pushButtonData78) as PushButton;
             ////         PushButton pushButton78 = groupBaseSyabariHiuchi.AddPushButton(pushButtonData78) as PushButton;
 
-            //         pushButton78.ToolTip = "Î—À‰Î‘Å‚Ì’[•”•”•i‚ğ”z’u‚µ‚Ü‚·B";
-            //         if (System.IO.File.Exists(GetIconPath(dllPath, "14 Î—À‰Î‘Å")))
+            //         pushButton78.ToolTip = "æ–œæ¢ç«æ‰“ã®ç«¯éƒ¨éƒ¨å“ã‚’é…ç½®ã—ã¾ã™ã€‚";
+            //         if (System.IO.File.Exists(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")))
             //         {
-            //             pushButton78.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-            //             pushButton78.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
-            //             pushButton78.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 Î—À‰Î‘Å")));
+            //             pushButton78.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+            //             pushButton78.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
+            //             pushButton78.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "14 æ–œæ¢ç«æ‰“")));
             //         }
 
             ///////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData40 = new PushButtonData("PushButton Command40", "‰¼ƒx[ƒXì¬",
+            //PushButtonData pushButtonData40 = new PushButtonData("PushButton Command40", "ä»®ãƒ™ãƒ¼ã‚¹ä½œæˆ",
             //                dllPath, "YMS.CreateKariBase");
 
             //PushButton pushButton40 = panelBase.AddItem(pushButtonData40) as PushButton;
 
-            //pushButton40.ToolTip = "‰¼ƒx[ƒX‚ğì¬‚µ‚Ü‚·B";
+            //pushButton40.ToolTip = "ä»®ãƒ™ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData101 = new PushButtonData("PushButton Command101", "ƒx[ƒXƒRƒs[",
+            PushButtonData pushButtonData101 = new PushButtonData("PushButton Command101", "ãƒ™ãƒ¼ã‚¹ã‚³ãƒ”ãƒ¼",
                             dllPath, "YMS.CopyBase");
 
             PushButton pushButton101 = panelBase.AddItem(pushButtonData101) as PushButton;
 
-            pushButton101.ToolTip = "ƒx[ƒX‚ÌƒRƒs[‚ğs‚¢‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "ƒx[ƒXƒRƒs[")))
+            pushButton101.ToolTip = "ãƒ™ãƒ¼ã‚¹ã®ã‚³ãƒ”ãƒ¼ã‚’è¡Œã„ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "ãƒ™ãƒ¼ã‚¹ã‚³ãƒ”ãƒ¼")))
             {
-                pushButton101.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "ƒx[ƒXƒRƒs[")));
-                pushButton101.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "ƒx[ƒXƒRƒs[")));
-                pushButton101.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "ƒx[ƒXƒRƒs[")));
+                pushButton101.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "ãƒ™ãƒ¼ã‚¹ã‚³ãƒ”ãƒ¼")));
+                pushButton101.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "ãƒ™ãƒ¼ã‚¹ã‚³ãƒ”ãƒ¼")));
+                pushButton101.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "ãƒ™ãƒ¼ã‚¹ã‚³ãƒ”ãƒ¼")));
             }
 
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData41 = new PushButtonData("PushButton Command41", "ƒx[ƒX\nˆê——E•ÒW",
+            PushButtonData pushButtonData41 = new PushButtonData("PushButton Command41", "ãƒ™ãƒ¼ã‚¹\nä¸€è¦§ãƒ»ç·¨é›†",
                             dllPath, "YMS.EditBaseList");
 
             PushButton pushButton41 = panelBase.AddItem(pushButtonData41) as PushButton;
 
-            pushButton41.ToolTip = "ƒx[ƒXˆê——E•ÒW‚ğs‚¢‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "15 ƒx[ƒXˆê——")))
+            pushButton41.ToolTip = "ãƒ™ãƒ¼ã‚¹ä¸€è¦§ãƒ»ç·¨é›†ã‚’è¡Œã„ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "15 ãƒ™ãƒ¼ã‚¹ä¸€è¦§")))
             {
-                pushButton41.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "15 ƒx[ƒXˆê——")));
-                pushButton41.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "15 ƒx[ƒXˆê——")));
-                pushButton41.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "15 ƒx[ƒXˆê——")));
+                pushButton41.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "15 ãƒ™ãƒ¼ã‚¹ä¸€è¦§")));
+                pushButton41.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "15 ãƒ™ãƒ¼ã‚¹ä¸€è¦§")));
+                pushButton41.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "15 ãƒ™ãƒ¼ã‚¹ä¸€è¦§")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData42 = new PushButtonData("PushButton Command42", "ì¬",
+            PushButtonData pushButtonData42 = new PushButtonData("PushButton Command42", "ä½œæˆ",
                             dllPath, "YMS.CreateJack");
 
             PushButton pushButton42 = groupJack.AddPushButton(pushButtonData42) as PushButton;
 
-            pushButton42.ToolTip = "ƒWƒƒƒbƒL‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "16 ƒWƒƒƒbƒL-ì¬")))
+            pushButton42.ToolTip = "ã‚¸ãƒ£ãƒƒã‚­ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "16 ã‚¸ãƒ£ãƒƒã‚­-ä½œæˆ")))
             {
-                pushButton42.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ƒWƒƒƒbƒL-ì¬")));
-                pushButton42.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ƒWƒƒƒbƒL-ì¬")));
-                pushButton42.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ƒWƒƒƒbƒL-ì¬")));
+                pushButton42.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ã‚¸ãƒ£ãƒƒã‚­-ä½œæˆ")));
+                pushButton42.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ã‚¸ãƒ£ãƒƒã‚­-ä½œæˆ")));
+                pushButton42.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ã‚¸ãƒ£ãƒƒã‚­-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData43 = new PushButtonData("PushButton Command43", "•ÏX",
+            PushButtonData pushButtonData43 = new PushButtonData("PushButton Command43", "å¤‰æ›´",
                             dllPath, "YMS.Changejack");
 
             PushButton pushButton43 = groupJack.AddPushButton(pushButtonData43) as PushButton;
 
-            pushButton43.ToolTip = "ƒWƒƒƒbƒL‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "16 ƒWƒƒƒbƒL-•ÏX")))
+            pushButton43.ToolTip = "ã‚¸ãƒ£ãƒƒã‚­ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "16 ã‚¸ãƒ£ãƒƒã‚­-å¤‰æ›´")))
             {
-                pushButton43.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ƒWƒƒƒbƒL-•ÏX")));
-                pushButton43.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ƒWƒƒƒbƒL-•ÏX")));
-                pushButton43.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ƒWƒƒƒbƒL-•ÏX")));
+                pushButton43.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ã‚¸ãƒ£ãƒƒã‚­-å¤‰æ›´")));
+                pushButton43.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ã‚¸ãƒ£ãƒƒã‚­-å¤‰æ›´")));
+                pushButton43.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "16 ã‚¸ãƒ£ãƒƒã‚­-å¤‰æ›´")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData44 = new PushButtonData("PushButton Command44", "“ªƒcƒiƒMŞì¬",
+            PushButtonData pushButtonData44 = new PushButtonData("PushButton Command44", "é ­ãƒ„ãƒŠã‚®æä½œæˆ",
                             dllPath, "YMS.CreateAtamaTsunagiZai");
 
             //SplitButtonData sb1 = new SplitButtonData("atamaTsunagi", "atamaTsunagi");
@@ -1668,391 +1668,391 @@ namespace YMS
             //PushButton pushButton44 = sb.AddPushButton(pushButtonData44) as PushButton;
             PushButton pushButton44 = groupAtamaTsunagi.AddPushButton(pushButtonData44) as PushButton;
 
-            pushButton44.ToolTip = "“ªƒcƒiƒMŞ‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "17 “ªƒcƒiƒM-ì¬")))
+            pushButton44.ToolTip = "é ­ãƒ„ãƒŠã‚®æã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-ä½œæˆ")))
             {
-                pushButton44.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 “ªƒcƒiƒM-ì¬")));
-                pushButton44.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "17 “ªƒcƒiƒM-ì¬")));
-                pushButton44.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 “ªƒcƒiƒM-ì¬")));
+                pushButton44.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-ä½œæˆ")));
+                pushButton44.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-ä½œæˆ")));
+                pushButton44.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData70 = new PushButtonData("PushButton Command70", "“ªƒcƒiƒM•â•Şì¬",
+            PushButtonData pushButtonData70 = new PushButtonData("PushButton Command70", "é ­ãƒ„ãƒŠã‚®è£œåŠ©æä½œæˆ",
                             dllPath, "YMS.CreateAtamaTsunagiHojoZai");
 
             PushButton pushButton70 = groupAtamaTsunagi.AddPushButton(pushButtonData70) as PushButton;
 
-            pushButton70.ToolTip = "“ªƒcƒiƒM•â•Ş‚ğİ’è‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "17 “ªƒcƒiƒM-ì¬")))
+            pushButton70.ToolTip = "é ­ãƒ„ãƒŠã‚®è£œåŠ©æã‚’è¨­å®šã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-ä½œæˆ")))
             {
-                pushButton70.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 “ªƒcƒiƒM-ì¬")));
-                pushButton70.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "17 “ªƒcƒiƒM-ì¬")));
-                pushButton70.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 “ªƒcƒiƒM-ì¬")));
+                pushButton70.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-ä½œæˆ")));
+                pushButton70.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-ä½œæˆ")));
+                pushButton70.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData45 = new PushButtonData("PushButton Command45", "“ªƒcƒiƒMŞíœ",
+            PushButtonData pushButtonData45 = new PushButtonData("PushButton Command45", "é ­ãƒ„ãƒŠã‚®æå‰Šé™¤",
                             dllPath, "YMS.DeleteAtamaTsunagi");
 
             PushButton pushButton45 = groupAtamaTsunagi.AddPushButton(pushButtonData45) as PushButton;
 
-            pushButton45.ToolTip = "“ªƒcƒiƒMŞ‚ğíœ‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "17 “ªƒcƒiƒM-•ÏX"))) 
+            pushButton45.ToolTip = "é ­ãƒ„ãƒŠã‚®æã‚’å‰Šé™¤ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-å¤‰æ›´")))
             {
-                pushButton45.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 “ªƒcƒiƒM-•ÏX")));
-                pushButton45.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "17 “ªƒcƒiƒM-•ÏX")));
-                pushButton45.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 “ªƒcƒiƒM-•ÏX")));
+                pushButton45.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-å¤‰æ›´")));
+                pushButton45.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-å¤‰æ›´")));
+                pushButton45.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 é ­ãƒ„ãƒŠã‚®-å¤‰æ›´")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData46 = new PushButtonData("PushButton Command46", "ì¬",
+            PushButtonData pushButtonData46 = new PushButtonData("PushButton Command46", "ä½œæˆ",
                             dllPath, "YMS.CreateDesumibuHokyouzai");
 
             PushButton pushButton46 = groupDesumibuHokyouzai.AddPushButton(pushButtonData46) as PushButton;
 
-            pushButton46.ToolTip = "o‹÷•”•â‹­Ş‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "17 o‹÷-ì¬")))
+            pushButton46.ToolTip = "å‡ºéš…éƒ¨è£œå¼·æã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "17 å‡ºéš…-ä½œæˆ")))
             {
-                pushButton46.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 o‹÷-ì¬")));
-                pushButton46.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "17 o‹÷-ì¬")));
-                pushButton46.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 o‹÷-ì¬")));
+                pushButton46.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 å‡ºéš…-ä½œæˆ")));
+                pushButton46.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "17 å‡ºéš…-ä½œæˆ")));
+                pushButton46.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 å‡ºéš…-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData47 = new PushButtonData("PushButton Command47", "•ÏX",
+            //PushButtonData pushButtonData47 = new PushButtonData("PushButton Command47", "å¤‰æ›´",
             //                dllPath, "YMS.ChangeDesumibuHokyouzai");
 
             //PushButton pushButton47 = groupDesumibuHokyouzai.AddPushButton(pushButtonData47) as PushButton;
 
-            //pushButton47.ToolTip = "o‹÷•”•â‹­Ş‚ğ•ÏX‚µ‚Ü‚·B";
-            //if (System.IO.File.Exists(GetIconPath(dllPath, "17 o‹÷-•ÏX")))
+            //pushButton47.ToolTip = "å‡ºéš…éƒ¨è£œå¼·æã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            //if (System.IO.File.Exists(GetIconPath(dllPath, "17 å‡ºéš…-å¤‰æ›´")))
             //{
-            //    pushButton47.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 o‹÷-•ÏX")));
-            //    pushButton47.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "17 o‹÷-•ÏX")));
-            //    pushButton47.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 o‹÷-•ÏX")));
+            //    pushButton47.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 å‡ºéš…-å¤‰æ›´")));
+            //    pushButton47.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "17 å‡ºéš…-å¤‰æ›´")));
+            //    pushButton47.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "17 å‡ºéš…-å¤‰æ›´")));
             //}
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData48 = new PushButtonData("PushButton Command48", "‰¼|Ş\n”z’u",
+            PushButtonData pushButtonData48 = new PushButtonData("PushButton Command48", "ä»®é‹¼æ\né…ç½®",
                             dllPath, "YMS.PutKariKouzai");
 
             //PushButton pushButton48 = panelKariKouzai.AddItem(pushButtonData48) as PushButton;
-            //ƒpƒlƒ‹‚ğ“‡‚·‚éê‡
+            //ãƒ‘ãƒãƒ«ã‚’çµ±åˆã™ã‚‹å ´åˆ
             PushButton pushButton48 = panelBuhinHaici.AddItem(pushButtonData48) as PushButton;
 
-            pushButton48.ToolTip = "‰¼|Ş‚ğ”z’u‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "29‰¼|Ş”z’u")))
+            pushButton48.ToolTip = "ä»®é‹¼æã‚’é…ç½®ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "29ä»®é‹¼æé…ç½®")))
             {
-                pushButton48.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "29‰¼|Ş”z’u")));
-                pushButton48.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "29‰¼|Ş”z’u")));
-                pushButton48.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "29‰¼|Ş”z’u")));
+                pushButton48.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "29ä»®é‹¼æé…ç½®")));
+                pushButton48.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "29ä»®é‹¼æé…ç½®")));
+                pushButton48.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "29ä»®é‹¼æé…ç½®")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData49 = new PushButtonData("PushButton Command49", "ì¬",
+            PushButtonData pushButtonData49 = new PushButtonData("PushButton Command49", "ä½œæˆ",
                             dllPath, "YMS.CreateSumibuPiace");
 
             PushButton pushButton49 = groupSumibuPiace.AddPushButton(pushButtonData49) as PushButton;
 
-            pushButton49.ToolTip = "‹÷•”ƒs[ƒX‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "19 ‹÷•”-ì¬")))
+            pushButton49.ToolTip = "éš…éƒ¨ãƒ”ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "19 éš…éƒ¨-ä½œæˆ")))
             {
-                pushButton49.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "19 ‹÷•”-ì¬")));
-                pushButton49.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "19 ‹÷•”-ì¬")));
-                pushButton49.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "19 ‹÷•”-ì¬")));
+                pushButton49.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "19 éš…éƒ¨-ä½œæˆ")));
+                pushButton49.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "19 éš…éƒ¨-ä½œæˆ")));
+                pushButton49.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "19 éš…éƒ¨-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData50 = new PushButtonData("PushButton Command50", "•ÏX",
+            PushButtonData pushButtonData50 = new PushButtonData("PushButton Command50", "å¤‰æ›´",
                             dllPath, "YMS.ChangeSumibuPiace");
 
             PushButton pushButton50 = groupSumibuPiace.AddPushButton(pushButtonData50) as PushButton;
 
-            pushButton50.ToolTip = "‹÷•”ƒs[ƒX‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "19 ‹÷•”-•ÏX")))
+            pushButton50.ToolTip = "éš…éƒ¨ãƒ”ãƒ¼ã‚¹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "19 éš…éƒ¨-å¤‰æ›´")))
             {
-                pushButton50.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "19 ‹÷•”-•ÏX")));
-                pushButton50.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "19 ‹÷•”-•ÏX")));
-                pushButton50.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "19 ‹÷•”-•ÏX")));
+                pushButton50.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "19 éš…éƒ¨-å¤‰æ›´")));
+                pushButton50.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "19 éš…éƒ¨-å¤‰æ›´")));
+                pushButton50.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "19 éš…éƒ¨-å¤‰æ›´")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData51 = new PushButtonData("PushButton Command51", "ƒuƒ‰ƒPƒbƒg\nì¬",
+            PushButtonData pushButtonData51 = new PushButtonData("PushButton Command51", "ãƒ–ãƒ©ã‚±ãƒƒãƒˆ\nä½œæˆ",
                             dllPath, "YMS.CreateBracket");
 
             //PushButton pushButton51 = panelBracket.AddItem(pushButtonData51) as PushButton;
-            //ƒpƒlƒ‹‚ğ“‡‚·‚éê‡
+            //ãƒ‘ãƒãƒ«ã‚’çµ±åˆã™ã‚‹å ´åˆ
             PushButton pushButton51 = panelBuhinHaici.AddItem(pushButtonData51) as PushButton;
 
-            pushButton51.ToolTip = "ƒuƒ‰ƒPƒbƒg‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "20 ƒuƒ‰ƒPƒbƒg-ì¬")))
+            pushButton51.ToolTip = "ãƒ–ãƒ©ã‚±ãƒƒãƒˆã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "20 ãƒ–ãƒ©ã‚±ãƒƒãƒˆ-ä½œæˆ")))
             {
-                pushButton51.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "20 ƒuƒ‰ƒPƒbƒg-ì¬")));
-                pushButton51.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "20 ƒuƒ‰ƒPƒbƒg-ì¬")));
-                pushButton51.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "20 ƒuƒ‰ƒPƒbƒg-ì¬")));
+                pushButton51.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "20 ãƒ–ãƒ©ã‚±ãƒƒãƒˆ-ä½œæˆ")));
+                pushButton51.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "20 ãƒ–ãƒ©ã‚±ãƒƒãƒˆ-ä½œæˆ")));
+                pushButton51.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "20 ãƒ–ãƒ©ã‚±ãƒƒãƒˆ-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData52 = new PushButtonData("PushButton Command52", "ì¬",
+            PushButtonData pushButtonData52 = new PushButtonData("PushButton Command52", "ä½œæˆ",
                             dllPath, "YMS.CreateSendanBoltHokyouzai");
 
             PushButton pushButton52 = groupSendanBoltHokyouzai.AddPushButton(pushButtonData52) as PushButton;
 
-            pushButton52.ToolTip = "‚¹‚ñ’fƒ{ƒ‹ƒg•â‹­Ş‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "21 ƒ{ƒ‹ƒg-ì¬")))
+            pushButton52.ToolTip = "ã›ã‚“æ–­ãƒœãƒ«ãƒˆè£œå¼·æã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "21 ãƒœãƒ«ãƒˆ-ä½œæˆ")))
             {
-                pushButton52.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ƒ{ƒ‹ƒg-ì¬")));
-                pushButton52.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ƒ{ƒ‹ƒg-ì¬")));
-                pushButton52.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ƒ{ƒ‹ƒg-ì¬")));
+                pushButton52.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ãƒœãƒ«ãƒˆ-ä½œæˆ")));
+                pushButton52.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ãƒœãƒ«ãƒˆ-ä½œæˆ")));
+                pushButton52.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ãƒœãƒ«ãƒˆ-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData53 = new PushButtonData("PushButton Command53", "•ÏX",
+            //PushButtonData pushButtonData53 = new PushButtonData("PushButton Command53", "å¤‰æ›´",
             //                dllPath, "YMS.ChangeSendanBoltHokyouzai");
 
             //PushButton pushButton53 = groupSendanBoltHokyouzai.AddPushButton(pushButtonData53) as PushButton;
 
-            //pushButton53.ToolTip = "‚¹‚ñ’fƒ{ƒ‹ƒg•â‹­Ş‚ğ•ÏX‚µ‚Ü‚·B";
-            //if (System.IO.File.Exists(GetIconPath(dllPath, "21 ƒ{ƒ‹ƒg-•ÏX")))
+            //pushButton53.ToolTip = "ã›ã‚“æ–­ãƒœãƒ«ãƒˆè£œå¼·æã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            //if (System.IO.File.Exists(GetIconPath(dllPath, "21 ãƒœãƒ«ãƒˆ-å¤‰æ›´")))
             //{
-            //    pushButton53.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ƒ{ƒ‹ƒg-•ÏX")));
-            //    pushButton53.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ƒ{ƒ‹ƒg-•ÏX")));
-            //    pushButton53.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ƒ{ƒ‹ƒg-•ÏX")));
+            //    pushButton53.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ãƒœãƒ«ãƒˆ-å¤‰æ›´")));
+            //    pushButton53.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ãƒœãƒ«ãƒˆ-å¤‰æ›´")));
+            //    pushButton53.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "21 ãƒœãƒ«ãƒˆ-å¤‰æ›´")));
             //}
 
             /////////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData54 = new PushButtonData("PushButton Command54", "ì¬",
+            //PushButtonData pushButtonData54 = new PushButtonData("PushButton Command54", "ä½œæˆ",
             //                dllPath, "YMS.CreateJyougeHaraokoshiTsunagi");
 
             //PushButton pushButton54 = groupJyougeHaraokoshiTsunagi.AddPushButton(pushButtonData54) as PushButton;
 
-            //pushButton54.ToolTip = "ã‰º• ‹NƒcƒiƒMŞ‚ğì¬‚µ‚Ü‚·B";
+            //pushButton54.ToolTip = "ä¸Šä¸‹è…¹èµ·ãƒ„ãƒŠã‚®æã‚’ä½œæˆã—ã¾ã™ã€‚";
 
             /////////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData55 = new PushButtonData("PushButton Command55", "•ÏX",
+            //PushButtonData pushButtonData55 = new PushButtonData("PushButton Command55", "å¤‰æ›´",
             //                dllPath, "YMS.ChangeJyougeHaraokoshiTsunagi");
 
             //PushButton pushButton55 = groupJyougeHaraokoshiTsunagi.AddPushButton(pushButtonData55) as PushButton;
 
-            //pushButton55.ToolTip = "ã‰º• ‹NƒcƒiƒMŞ‚ğ•ÏX‚µ‚Ü‚·B";
+            //pushButton55.ToolTip = "ä¸Šä¸‹è…¹èµ·ãƒ„ãƒŠã‚®æã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
 
             /////////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData56 = new PushButtonData("PushButton Command56", "ì¬",
+            PushButtonData pushButtonData56 = new PushButtonData("PushButton Command56", "ä½œæˆ",
                             dllPath, "YMS.CreateHaraokoshiSuberidome");
 
             PushButton pushButton56 = groupHaraokoshiSuberidome.AddPushButton(pushButtonData56) as PushButton;
 
-            pushButton56.ToolTip = "• ‹NƒXƒxƒŠ~‚ß‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "23@• ‹NƒXƒxƒŠ-ì¬")))
+            pushButton56.ToolTip = "è…¹èµ·ã‚¹ãƒ™ãƒªæ­¢ã‚ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "23ã€€è…¹èµ·ã‚¹ãƒ™ãƒª-ä½œæˆ")))
             {
-                pushButton56.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "23@• ‹NƒXƒxƒŠ-ì¬")));
-                pushButton56.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "23@• ‹NƒXƒxƒŠ-ì¬")));
-                pushButton56.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "23@• ‹NƒXƒxƒŠ-ì¬")));
+                pushButton56.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "23ã€€è…¹èµ·ã‚¹ãƒ™ãƒª-ä½œæˆ")));
+                pushButton56.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "23ã€€è…¹èµ·ã‚¹ãƒ™ãƒª-ä½œæˆ")));
+                pushButton56.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "23ã€€è…¹èµ·ã‚¹ãƒ™ãƒª-ä½œæˆ")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData57 = new PushButtonData("PushButton Command57", "•ÏX",
+            PushButtonData pushButtonData57 = new PushButtonData("PushButton Command57", "å¤‰æ›´",
                             dllPath, "YMS.ChangeHaraokoshiSuberidome");
 
             PushButton pushButton57 = groupHaraokoshiSuberidome.AddPushButton(pushButtonData57) as PushButton;
 
-            pushButton57.ToolTip = "• ‹NƒXƒxƒŠ~‚ß‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "23@• ‹NƒXƒxƒŠ-•ÏX")))
+            pushButton57.ToolTip = "è…¹èµ·ã‚¹ãƒ™ãƒªæ­¢ã‚ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "23ã€€è…¹èµ·ã‚¹ãƒ™ãƒª-å¤‰æ›´")))
             {
-                pushButton57.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "23@• ‹NƒXƒxƒŠ-•ÏX")));
-                pushButton57.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "23@• ‹NƒXƒxƒŠ-•ÏX")));
-                pushButton57.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "23@• ‹NƒXƒxƒŠ-•ÏX")));
+                pushButton57.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "23ã€€è…¹èµ·ã‚¹ãƒ™ãƒª-å¤‰æ›´")));
+                pushButton57.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "23ã€€è…¹èµ·ã‚¹ãƒ™ãƒª-å¤‰æ›´")));
+                pushButton57.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "23ã€€è…¹èµ·ã‚¹ãƒ™ãƒª-å¤‰æ›´")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData58 = new PushButtonData("PushButton Command58", "Œğ³•”\nü‚è\n©“®\nì¬",
+            //PushButtonData pushButtonData58 = new PushButtonData("PushButton Command58", "äº¤å‰éƒ¨\nå‘¨ã‚Š\nè‡ªå‹•\nä½œæˆ",
             //                dllPath, "YMS.CreateKousyabuMawari");
-            PushButtonData pushButtonData58 = new PushButtonData("PushButton Command58", "Œğ³•”ü‚è\n©“®ì¬",
+            PushButtonData pushButtonData58 = new PushButtonData("PushButton Command58", "äº¤å‰éƒ¨å‘¨ã‚Š\nè‡ªå‹•ä½œæˆ",
                             dllPath, "YMS.CreateKousyabuMawari");
 
             //PushButton pushButton58 = panelKousyabuMawari.AddItem(pushButtonData58) as PushButton;
-            //ƒpƒlƒ‹‚ğ“‡‚·‚éê‡
+            //ãƒ‘ãƒãƒ«ã‚’çµ±åˆã™ã‚‹å ´åˆ
             PushButton pushButton58 = panelBuhinHaici.AddItem(pushButtonData58) as PushButton;
 
-            pushButton58.ToolTip = "Œğ³•”ü‚è‚ğ©“®ì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "24 Œğ·")))
+            pushButton58.ToolTip = "äº¤å‰éƒ¨å‘¨ã‚Šã‚’è‡ªå‹•ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "24 äº¤å·®")))
             {
-                pushButton58.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "24 Œğ·")));
-                pushButton58.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "24 Œğ·")));
-                pushButton58.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "24 Œğ·")));
+                pushButton58.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "24 äº¤å·®")));
+                pushButton58.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "24 äº¤å·®")));
+                pushButton58.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "24 äº¤å·®")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData65 = new PushButtonData("PushButton Command65", "’÷•t—pƒs[ƒX\nì¬",
+            PushButtonData pushButtonData65 = new PushButtonData("PushButton Command65", "ç· ä»˜ç”¨ãƒ”ãƒ¼ã‚¹\nä½œæˆ",
                             dllPath, "YMS.CreateShimetukePiece");
 
             PushButton pushButton65 = panelBuhinHaici.AddItem(pushButtonData65) as PushButton;
 
-            pushButton65.ToolTip = "’÷•t—pƒs[ƒX‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "30 ’÷•t—pƒs[ƒXì¬")))
+            pushButton65.ToolTip = "ç· ä»˜ç”¨ãƒ”ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "30 ç· ä»˜ç”¨ãƒ”ãƒ¼ã‚¹ä½œæˆ")))
             {
-                pushButton65.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "30 ’÷•t—pƒs[ƒXì¬")));
-                pushButton65.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "30 ’÷•t—pƒs[ƒXì¬")));
-                pushButton65.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "30 ’÷•t—pƒs[ƒXì¬")));
+                pushButton65.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "30 ç· ä»˜ç”¨ãƒ”ãƒ¼ã‚¹ä½œæˆ")));
+                pushButton65.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "30 ç· ä»˜ç”¨ãƒ”ãƒ¼ã‚¹ä½œæˆ")));
+                pushButton65.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "30 ç· ä»˜ç”¨ãƒ”ãƒ¼ã‚¹ä½œæˆ")));
             }
 
             /////////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData59 = new PushButtonData("PushButton Command59", "ƒXƒ`ƒtƒi[\nì¬",
+            PushButtonData pushButtonData59 = new PushButtonData("PushButton Command59", "ã‚¹ãƒãƒ•ãƒŠãƒ¼\nä½œæˆ",
                             dllPath, "YMS.CreateStiffener");
 
             //PushButton pushButton59 = panelStiffener.AddItem(pushButtonData59) as PushButton;
-            //ƒpƒlƒ‹‚ğ“‡‚·‚éê‡
+            //ãƒ‘ãƒãƒ«ã‚’çµ±åˆã™ã‚‹å ´åˆ
             PushButton pushButton59 = panelBuhinHaici.AddItem(pushButtonData59) as PushButton;
 
-            pushButton59.ToolTip = "ƒXƒ`ƒtƒi[‚ğì¬‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "25 ƒXƒ`ƒtƒi[")))
+            pushButton59.ToolTip = "ã‚¹ãƒãƒ•ãƒŠãƒ¼ã‚’ä½œæˆã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "25 ã‚¹ãƒãƒ•ãƒŠãƒ¼")))
             {
-                pushButton59.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "25 ƒXƒ`ƒtƒi[")));
-                pushButton59.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "25 ƒXƒ`ƒtƒi[")));
-                pushButton59.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "25 ƒXƒ`ƒtƒi[")));
+                pushButton59.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "25 ã‚¹ãƒãƒ•ãƒŠãƒ¼")));
+                pushButton59.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "25 ã‚¹ãƒãƒ•ãƒŠãƒ¼")));
+                pushButton59.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "25 ã‚¹ãƒãƒ•ãƒŠãƒ¼")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            PushButtonData pushButtonData66 = new PushButtonData("PushButton Command66", "©“®\nŠ„•t",
+            PushButtonData pushButtonData66 = new PushButtonData("PushButton Command66", "è‡ªå‹•\nå‰²ä»˜",
                            dllPath, "YMS.WaritukeJidou");
 
             //PushButton pushButton60 = panelWaritukeSyudou.AddItem(pushButtonData60) as PushButton;
-            //ƒpƒlƒ‹‚ğ“‡‚·‚éê‡
+            //ãƒ‘ãƒãƒ«ã‚’çµ±åˆã™ã‚‹å ´åˆ
             PushButton pushButton66 = panelBuhinHaici.AddItem(pushButtonData66) as PushButton;
 
-            pushButton66.ToolTip = "‰¼|Ş‚ÌŠ„•t•”Ş‚Ö‚Ì©“®’uŠ·‚ğs‚¢‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "31©“®Š„•t")))
+            pushButton66.ToolTip = "ä»®é‹¼æã®å‰²ä»˜éƒ¨æã¸ã®è‡ªå‹•ç½®æ›ã‚’è¡Œã„ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "31è‡ªå‹•å‰²ä»˜")))
             {
-                pushButton66.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "31©“®Š„•t")));
-                pushButton66.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "31©“®Š„•t")));
-                pushButton66.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "31©“®Š„•t")));
+                pushButton66.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "31è‡ªå‹•å‰²ä»˜")));
+                pushButton66.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "31è‡ªå‹•å‰²ä»˜")));
+                pushButton66.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "31è‡ªå‹•å‰²ä»˜")));
             }
 
 
 
-            PushButtonData pushButtonData60 = new PushButtonData("PushButton Command60", "•”Ş\nŠ„•t",
+            PushButtonData pushButtonData60 = new PushButtonData("PushButton Command60", "éƒ¨æ\nå‰²ä»˜",
                             dllPath, "YMS.WaritukeSyudou");
 
             //PushButton pushButton60 = panelWaritukeSyudou.AddItem(pushButtonData60) as PushButton;
-            //ƒpƒlƒ‹‚ğ“‡‚·‚éê‡
+            //ãƒ‘ãƒãƒ«ã‚’çµ±åˆã™ã‚‹å ´åˆ
             PushButton pushButton60 = panelBuhinHaici.AddItem(pushButtonData60) as PushButton;
 
-            pushButton60.ToolTip = "•”ŞŠ„•t‚ğs‚¢‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "26 è“®Š„•t")))
+            pushButton60.ToolTip = "éƒ¨æå‰²ä»˜ã‚’è¡Œã„ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "26 æ‰‹å‹•å‰²ä»˜")))
             {
-                pushButton60.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "26 è“®Š„•t")));
-                pushButton60.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "26 è“®Š„•t")));
-                pushButton60.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "26 è“®Š„•t")));
+                pushButton60.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "26 æ‰‹å‹•å‰²ä»˜")));
+                pushButton60.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "26 æ‰‹å‹•å‰²ä»˜")));
+                pushButton60.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "26 æ‰‹å‹•å‰²ä»˜")));
             }
 
-            PushButtonData pushButtonData67 = new PushButtonData("PushButton Command67", "åŞíœ",
+            PushButtonData pushButtonData67 = new PushButtonData("PushButton Command67", "ä¸»æå‰Šé™¤",
                           dllPath, "YMS.DeleteWarituke");
 
             //PushButton pushButton60 = panelWaritukeSyudou.AddItem(pushButtonData60) as PushButton;
-            //ƒpƒlƒ‹‚ğ“‡‚·‚éê‡
+            //ãƒ‘ãƒãƒ«ã‚’çµ±åˆã™ã‚‹å ´åˆ
             PushButton pushButton67 = panelBuhinHaici.AddItem(pushButtonData67) as PushButton;
 
-            pushButton67.ToolTip = "åŞ‚Ì‘I‘ğíœ‚ğs‚¢‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "32@Š„•tíœ")))
+            pushButton67.ToolTip = "ä¸»æã®é¸æŠå‰Šé™¤ã‚’è¡Œã„ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "32ã€€å‰²ä»˜å‰Šé™¤")))
             {
-                pushButton67.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "32@Š„•tíœ")));
-                pushButton67.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "32@Š„•tíœ")));
-                pushButton67.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "32@Š„•tíœ")));
+                pushButton67.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "32ã€€å‰²ä»˜å‰Šé™¤")));
+                pushButton67.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "32ã€€å‰²ä»˜å‰Šé™¤")));
+                pushButton67.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "32ã€€å‰²ä»˜å‰Šé™¤")));
             }
 
             ///////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData61 = new PushButtonData("PushButton Command61", "|Ş\n’·‚³\n•ÏX",
+            //PushButtonData pushButtonData61 = new PushButtonData("PushButton Command61", "é‹¼æ\né•·ã•\nå¤‰æ›´",
             //                dllPath, "YMS.ChangeLengthKouzai");
-            PushButtonData pushButtonData61 = new PushButtonData("PushButton Command61", "|Ş’·‚³\n•ÏX",
+            PushButtonData pushButtonData61 = new PushButtonData("PushButton Command61", "é‹¼æé•·ã•\nå¤‰æ›´",
                             dllPath, "YMS.ChangeLengthKouzai");
 
             //PushButton pushButton61 = panelLengthKouzai.AddItem(pushButtonData61) as PushButton;
-            //ƒpƒlƒ‹‚ğ“‡‚·‚éê‡
+            //ãƒ‘ãƒãƒ«ã‚’çµ±åˆã™ã‚‹å ´åˆ
             PushButton pushButton61 = panelBuhinHaici.AddItem(pushButtonData61) as PushButton;
 
-            pushButton61.ToolTip = "|Ş’·‚³‚ğ•ÏX‚µ‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "27 |Ş’·‚³")))
+            pushButton61.ToolTip = "é‹¼æé•·ã•ã‚’å¤‰æ›´ã—ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "27 é‹¼æé•·ã•")))
             {
-                pushButton61.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "27 |Ş’·‚³")));
-                pushButton61.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "27 |Ş’·‚³")));
-                pushButton61.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "27 |Ş’·‚³")));
+                pushButton61.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "27 é‹¼æé•·ã•")));
+                pushButton61.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "27 é‹¼æé•·ã•")));
+                pushButton61.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "27 é‹¼æé•·ã•")));
             }
 
             /////////////////////////////////////////////////////////////////////////////
-            ////PushButtonData pushButtonData62 = new PushButtonData("PushButton Command62", "• ‹N\nƒuƒ‰ƒPƒbƒg\nì¬",
+            ////PushButtonData pushButtonData62 = new PushButtonData("PushButton Command62", "è…¹èµ·\nãƒ–ãƒ©ã‚±ãƒƒãƒˆ\nä½œæˆ",
             ////                dllPath, "YMS.CreateHaraokoshiBracket");
-            //PushButtonData pushButtonData62 = new PushButtonData("PushButton Command62", "• ‹Nƒuƒ‰ƒPƒbƒg\nì¬",
+            //PushButtonData pushButtonData62 = new PushButtonData("PushButton Command62", "è…¹èµ·ãƒ–ãƒ©ã‚±ãƒƒãƒˆ\nä½œæˆ",
             //                dllPath, "YMS.CreateHaraokoshiBracket");
 
             ////PushButton pushButton62 = panelHaraokoshiBracket.AddItem(pushButtonData62) as PushButton;
-            ////ƒpƒlƒ‹‚ğ“‡‚·‚éê‡
+            ////ãƒ‘ãƒãƒ«ã‚’çµ±åˆã™ã‚‹å ´åˆ
             //PushButton pushButton62 = panelBuhinHaici.AddItem(pushButtonData62) as PushButton;
 
-            //pushButton62.ToolTip = "• ‹Nƒuƒ‰ƒPƒbƒg‚ğì¬‚µ‚Ü‚·B";
-            //if (System.IO.File.Exists(GetIconPath(dllPath, "28 • ‹N‚µƒuƒ‰ƒPƒbƒg")))
+            //pushButton62.ToolTip = "è…¹èµ·ãƒ–ãƒ©ã‚±ãƒƒãƒˆã‚’ä½œæˆã—ã¾ã™ã€‚";
+            //if (System.IO.File.Exists(GetIconPath(dllPath, "28 è…¹èµ·ã—ãƒ–ãƒ©ã‚±ãƒƒãƒˆ")))
             //{
-            //    pushButton62.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "28 • ‹N‚µƒuƒ‰ƒPƒbƒg")));
-            //    pushButton62.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "28 • ‹N‚µƒuƒ‰ƒPƒbƒg")));
-            //    pushButton62.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "28 • ‹N‚µƒuƒ‰ƒPƒbƒg")));
+            //    pushButton62.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "28 è…¹èµ·ã—ãƒ–ãƒ©ã‚±ãƒƒãƒˆ")));
+            //    pushButton62.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "28 è…¹èµ·ã—ãƒ–ãƒ©ã‚±ãƒƒãƒˆ")));
+            //    pushButton62.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "28 è…¹èµ·ã—ãƒ–ãƒ©ã‚±ãƒƒãƒˆ")));
             //}
 
             ///////////////////////////////////////////////////////////////////////////
-            //PushButtonData pushButtonData63 = new PushButtonData("PushButton Command63", "ƒ[ƒNƒZƒbƒg\nì¬",
+            //PushButtonData pushButtonData63 = new PushButtonData("PushButton Command63", "ãƒ¯ãƒ¼ã‚¯ã‚»ãƒƒãƒˆ\nä½œæˆ",
             //                dllPath, "YMS.CreateWorkset");
 
             //PushButton pushButton63 = panelworkset.AddItem(pushButtonData63) as PushButton;
 
-            //pushButton63.ToolTip = "ƒ[ƒNƒZƒbƒg‚ğì¬‚µ‚Ü‚·B";
-            //if (System.IO.File.Exists(GetIconPath(dllPath, "3 ƒ[ƒNƒZƒbƒg")))
+            //pushButton63.ToolTip = "ãƒ¯ãƒ¼ã‚¯ã‚»ãƒƒãƒˆã‚’ä½œæˆã—ã¾ã™ã€‚";
+            //if (System.IO.File.Exists(GetIconPath(dllPath, "3 ãƒ¯ãƒ¼ã‚¯ã‚»ãƒƒãƒˆ")))
             //{
-            //    pushButton63.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "3 ƒ[ƒNƒZƒbƒg")));
-            //    pushButton63.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "3 ƒ[ƒNƒZƒbƒg")));
-            //    pushButton63.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "3 ƒ[ƒNƒZƒbƒg")));
+            //    pushButton63.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "3 ãƒ¯ãƒ¼ã‚¯ã‚»ãƒƒãƒˆ")));
+            //    pushButton63.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "3 ãƒ¯ãƒ¼ã‚¯ã‚»ãƒƒãƒˆ")));
+            //    pushButton63.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "3 ãƒ¯ãƒ¼ã‚¯ã‚»ãƒƒãƒˆ")));
             //}
 
 
             ///////////////////////////////////////////////////////////////////////////
 
-            PushButtonData pushButtonData64 = new PushButtonData("PushButton Command64", "ŒÂ•Ê”z’u",
+            PushButtonData pushButtonData64 = new PushButtonData("PushButton Command64", "å€‹åˆ¥é…ç½®",
                            dllPath, "YMS.KobetsuHaichi");
 
             //PushButton pushButton62 = panelHaraokoshiBracket.AddItem(pushButtonData62) as PushButton;
-            //ƒpƒlƒ‹‚ğ“‡‚·‚éê‡
+            //ãƒ‘ãƒãƒ«ã‚’çµ±åˆã™ã‚‹å ´åˆ
             PushButton pushButton64 = panelBuhinHaici.AddItem(pushButtonData64) as PushButton;
 
-            pushButton64.ToolTip = "Še•”Ş‚ÌŒÂ•Ê”z’u‚ğs‚¢‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "33 ŒÂ•Ê”z’u")))
+            pushButton64.ToolTip = "å„éƒ¨æã®å€‹åˆ¥é…ç½®ã‚’è¡Œã„ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "33 å€‹åˆ¥é…ç½®")))
             {
-                pushButton64.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "33 ŒÂ•Ê”z’u")));
-                pushButton64.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "33 ŒÂ•Ê”z’u")));
-                pushButton64.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "33 ŒÂ•Ê”z’u")));
+                pushButton64.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "33 å€‹åˆ¥é…ç½®")));
+                pushButton64.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "33 å€‹åˆ¥é…ç½®")));
+                pushButton64.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "33 å€‹åˆ¥é…ç½®")));
             }
 
 
 
 
-            PushButtonData pushButtonData100 = new PushButtonData("PushButton Command100", "Ø—ÀŠ„•tƒRƒs[",
+            PushButtonData pushButtonData100 = new PushButtonData("PushButton Command100", "åˆ‡æ¢å‰²ä»˜ã‚³ãƒ”ãƒ¼",
                           dllPath, "YMS.KiribariCopy");
 
             PushButton pushButton100 = panelBuhinHaici.AddItem(pushButtonData100) as PushButton;
 
-            pushButton100.ToolTip = "Š„‚è•t‚¯‚½Ø—À•”Ş‚ÌƒRƒs[‚ğs‚¢‚Ü‚·B";
-            if (System.IO.File.Exists(GetIconPath(dllPath, "34 Ø—ÀŠ„•tƒRƒs[")))
+            pushButton100.ToolTip = "å‰²ã‚Šä»˜ã‘ãŸåˆ‡æ¢éƒ¨æã®ã‚³ãƒ”ãƒ¼ã‚’è¡Œã„ã¾ã™ã€‚";
+            if (System.IO.File.Exists(GetIconPath(dllPath, "34 åˆ‡æ¢å‰²ä»˜ã‚³ãƒ”ãƒ¼")))
             {
-                pushButton100.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "34 Ø—ÀŠ„•tƒRƒs[")));
-                pushButton100.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "34 Ø—ÀŠ„•tƒRƒs[")));
-                pushButton100.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "34 Ø—ÀŠ„•tƒRƒs[")));
+                pushButton100.LargeImage = new BitmapImage(new Uri(GetIconPath(dllPath, "34 åˆ‡æ¢å‰²ä»˜ã‚³ãƒ”ãƒ¼")));
+                pushButton100.Image = new BitmapImage(new Uri(GetIconPath(dllPath, "34 åˆ‡æ¢å‰²ä»˜ã‚³ãƒ”ãƒ¼")));
+                pushButton100.ToolTipImage = new BitmapImage(new Uri(GetIconPath(dllPath, "34 åˆ‡æ¢å‰²ä»˜ã‚³ãƒ”ãƒ¼")));
             }
 
         }
 
         /// <summary>
-        /// ƒAƒCƒRƒ“‚Ìƒtƒ‹ƒpƒXæ“¾
+        /// ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒ•ãƒ«ãƒ‘ã‚¹å–å¾—
         /// </summary>
-        /// <param name="dllPath">ƒAƒhƒCƒ“‚ÌêŠ</param>
-        /// <param name="name">ƒAƒCƒRƒ“–¼iŠg’£q‚È‚µj</param>
+        /// <param name="dllPath">ã‚¢ãƒ‰ã‚¤ãƒ³ã®å ´æ‰€</param>
+        /// <param name="name">ã‚¢ã‚¤ã‚³ãƒ³åï¼ˆæ‹¡å¼µå­ãªã—ï¼‰</param>
         /// <param name="jpg">true = png  false = jpg</param>
         /// <returns></returns>
         private string GetIconPath(string dllPath, string name, bool png = true)

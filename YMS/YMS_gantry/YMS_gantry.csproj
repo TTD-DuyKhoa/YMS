@@ -40,6 +40,9 @@
     <StartProgram>$(ProgramW6432)\Autodesk\Revit 2022\Revit.exe</StartProgram>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Geometory">
+      <HintPath>..\..\UtilDLL\Geometory.dll</HintPath>
+    </Reference>
     <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.5.4.0\lib\net46\NLog.dll</HintPath>
     </Reference>
@@ -51,6 +54,9 @@
     <Reference Include="RevitAPIUI">
       <HintPath>C:\Program Files\Autodesk\Revit 2023\RevitAPIUI.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitUtil">
+      <HintPath>..\..\UtilDLL\RevitUtil.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -533,16 +539,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GeometoryUtil\Geometory.csproj">
-      <Project>{3986d4e6-1f1f-4a0b-9a65-334593ca501a}</Project>
-      <Name>Geometory</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\RevitUtil\RevitUtil.csproj">
-      <Project>{6a3736f4-9ae1-4b60-a112-eed65911698d}</Project>
-      <Name>RevitUtil</Name>
-      <Private>False</Private>
-    </ProjectReference>
     <ProjectReference Include="..\YMS\YMS.csproj">
       <Project>{1015e180-7c62-41c6-b55c-7633c2e4fcb9}</Project>
       <Name>YMS</Name>

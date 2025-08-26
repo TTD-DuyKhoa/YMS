@@ -3,8 +3,52 @@
   "WorkspaceRootPath": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|d:\\ndk\\05.yms\u7A4D\u307F\u6B8B\u3057\\yms\\yms\\yms\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule.csproj|d:\\ndk\\05.yms\u7A4D\u307F\u6B8B\u3057\\yms\\yms\\yms_schedule\\command.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule.csproj|solutionrelative:yms_schedule\\command.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AEA52F0-69DB-40EC-BAFA-4B1788681CBE}|YMS_gantry\\YMS_Gantry.csproj|D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\yms_gantry\\command\\cmdputhorizontalbrace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AEA52F0-69DB-40EC-BAFA-4B1788681CBE}|YMS_gantry\\YMS_Gantry.csproj|solutionrelative:yms_gantry\\command\\cmdputhorizontalbrace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AEA52F0-69DB-40EC-BAFA-4B1788681CBE}|YMS_gantry\\YMS_Gantry.csproj|D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\yms_gantry\\command\\cmdallputbracetsunagi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AEA52F0-69DB-40EC-BAFA-4B1788681CBE}|YMS_gantry\\YMS_Gantry.csproj|solutionrelative:yms_gantry\\command\\cmdallputbracetsunagi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\yms\\clscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|solutionrelative:yms\\clscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\yms\\clscommand2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|solutionrelative:yms\\clscommand2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\yms\\clscinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|solutionrelative:yms\\clscinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\yms\\clscase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|solutionrelative:yms\\clscase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\yms\\applicationevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|solutionrelative:yms\\applicationevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\yms\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|solutionrelative:yms\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\yms\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS.csproj|solutionrelative:yms\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule.csproj|D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\yms_schedule\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule.csproj|solutionrelative:yms_schedule\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AEA52F0-69DB-40EC-BAFA-4B1788681CBE}|YMS_gantry\\YMS_Gantry.csproj|D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\yms_gantry\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AEA52F0-69DB-40EC-BAFA-4B1788681CBE}|YMS_gantry\\YMS_Gantry.csproj|solutionrelative:yms_gantry\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,15 +75,147 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Command.cs",
+              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\Command.cs",
+              "RelativeDocumentMoniker": "YMS_Schedule\\Command.cs",
+              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\Command.cs",
+              "RelativeToolTip": "YMS_Schedule\\Command.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T03:59:01.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CmdPutHorizontalBrace.cs",
+              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_gantry\\Command\\CmdPutHorizontalBrace.cs",
+              "RelativeDocumentMoniker": "YMS_gantry\\Command\\CmdPutHorizontalBrace.cs",
+              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_gantry\\Command\\CmdPutHorizontalBrace.cs",
+              "RelativeToolTip": "YMS_gantry\\Command\\CmdPutHorizontalBrace.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T03:51:00.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CmdAllPutBraceTsunagi.cs",
+              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_gantry\\Command\\CmdAllPutBraceTsunagi.cs",
+              "RelativeDocumentMoniker": "YMS_gantry\\Command\\CmdAllPutBraceTsunagi.cs",
+              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_gantry\\Command\\CmdAllPutBraceTsunagi.cs",
+              "RelativeToolTip": "YMS_gantry\\Command\\CmdAllPutBraceTsunagi.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T03:49:55.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ClsCommand2.cs",
+              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\ClsCommand2.cs",
+              "RelativeDocumentMoniker": "YMS\\ClsCommand2.cs",
+              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\ClsCommand2.cs",
+              "RelativeToolTip": "YMS\\ClsCommand2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T03:46:17.963Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClsCommand.cs",
+              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\ClsCommand.cs",
+              "RelativeDocumentMoniker": "YMS\\ClsCommand.cs",
+              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\ClsCommand.cs",
+              "RelativeToolTip": "YMS\\ClsCommand.cs",
+              "ViewState": "AgIAAOAOAAAAAAAAAAAmwPkOAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T03:41:21.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ClsCInput.cs",
+              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\ClsCInput.cs",
+              "RelativeDocumentMoniker": "YMS\\ClsCInput.cs",
+              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\ClsCInput.cs",
+              "RelativeToolTip": "YMS\\ClsCInput.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T03:40:43.455Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ClsCASE.cs",
+              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\ClsCASE.cs",
+              "RelativeDocumentMoniker": "YMS\\ClsCASE.cs",
+              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\ClsCASE.cs",
+              "RelativeToolTip": "YMS\\ClsCASE.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T03:40:42.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApplicationEvents.cs",
+              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\ApplicationEvents.cs",
+              "RelativeDocumentMoniker": "YMS\\ApplicationEvents.cs",
+              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\ApplicationEvents.cs",
+              "RelativeToolTip": "YMS\\ApplicationEvents.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T03:40:41.959Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Application.cs",
+              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\Application.cs",
+              "RelativeDocumentMoniker": "YMS\\Application.cs",
+              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\Application.cs",
+              "RelativeToolTip": "YMS\\Application.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T03:39:25.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "App.cs",
+              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\App.cs",
+              "RelativeDocumentMoniker": "YMS_Schedule\\App.cs",
+              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\App.cs",
+              "RelativeToolTip": "YMS_Schedule\\App.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T03:27:16.032Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "App.cs",
+              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_gantry\\App.cs",
+              "RelativeDocumentMoniker": "YMS_gantry\\App.cs",
+              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_gantry\\App.cs",
+              "RelativeToolTip": "YMS_gantry\\App.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T03:26:15.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "App.cs",
               "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\App.cs",
               "RelativeDocumentMoniker": "YMS\\App.cs",
               "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\App.cs",
               "RelativeToolTip": "YMS\\App.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T08:17:53.598Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-25T08:17:53.598Z"
             }
           ]
         }

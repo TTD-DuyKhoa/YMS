@@ -1,4 +1,4 @@
-#region Namespaces
+ï»¿#region Namespaces
 using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
@@ -32,7 +32,7 @@ namespace YMS_gantry
         }
 
         /// <summary>
-        /// NLog ‚Ì‰Šú‰»ˆ—(NLog.config “Ç)
+        /// NLog ã®åˆæœŸåŒ–å‡¦ç†(NLog.config èª­è¾¼)
         /// </summary>
         private void InitNLog()
         {
@@ -47,107 +47,107 @@ namespace YMS_gantry
         public void AddRibbonMenu(UIControlledApplication app)
         {
             string dllPath = SystemData.GetDLLPath();
-            app.CreateRibbonTab("YMS\‘ä");
+            app.CreateRibbonTab("YMSæ§‹å°");
 
-            RibbonPanel panelAllPut = app.CreateRibbonPanel("YMS\‘ä", "ˆêŠ‡”z’u");
+            RibbonPanel panelAllPut = app.CreateRibbonPanel("YMSæ§‹å°", "ä¸€æ‹¬é…ç½®");
 
-            // [ˆêŠ‡”z’u] \‘ä(ƒtƒ‰ƒbƒg)
-            CreatePushButton(panelAllPut, "CmdAllPut1", "ƒtƒ‰ƒbƒg", "AllPutKoudaiFlat", "\‘ä(ƒtƒ‰ƒbƒg)‚ğˆêŠ‡”z’u‚µ‚Ü‚·B", "1_ƒtƒ‰ƒbƒg");
+            // [ä¸€æ‹¬é…ç½®] æ§‹å°(ãƒ•ãƒ©ãƒƒãƒˆ)
+            CreatePushButton(panelAllPut, "CmdAllPut1", "ãƒ•ãƒ©ãƒƒãƒˆ", "AllPutKoudaiFlat", "æ§‹å°(ãƒ•ãƒ©ãƒƒãƒˆ)ã‚’ä¸€æ‹¬é…ç½®ã—ã¾ã™ã€‚", "1_ãƒ•ãƒ©ãƒƒãƒˆ");
 
-            //// [ˆêŠ‡”z’u] \‘ä(“ÁêŒ`ó)
-            //CreatePushButton(panelAllPut, "CmdAllPut2", "\‘ä(“ÁêŒ`ó)", "AllPutKoudaiUnique", "\‘ä(“ÁêŒ`ó)‚ğˆêŠ‡”z’u‚µ‚Ü‚·B");
+            //// [ä¸€æ‹¬é…ç½®] æ§‹å°(ç‰¹æ®Šå½¢çŠ¶)
+            //CreatePushButton(panelAllPut, "CmdAllPut2", "æ§‹å°(ç‰¹æ®Šå½¢çŠ¶)", "AllPutKoudaiUnique", "æ§‹å°(ç‰¹æ®Šå½¢çŠ¶)ã‚’ä¸€æ‹¬é…ç½®ã—ã¾ã™ã€‚");
 
-            // [ˆêŠ‡”z’u] ƒXƒ[ƒvì¬
-            CreatePushButton(panelAllPut, "CmdAllPut3", "ƒXƒ[ƒv", "CreateSlope", "ƒXƒ[ƒv‚ğì¬‚µ‚Ü‚·B", "2_ƒXƒ[ƒv");
+            // [ä¸€æ‹¬é…ç½®] ã‚¹ãƒ­ãƒ¼ãƒ—ä½œæˆ
+            CreatePushButton(panelAllPut, "CmdAllPut3", "ã‚¹ãƒ­ãƒ¼ãƒ—", "CreateSlope", "ã‚¹ãƒ­ãƒ¼ãƒ—ã‚’ä½œæˆã—ã¾ã™ã€‚", "2_ã‚¹ãƒ­ãƒ¼ãƒ—");
 
-            // [ˆêŠ‡”z’u] ƒuƒŒ[ƒXEƒcƒiƒM”z’u
-            CreatePushButton(panelAllPut, "CmdAllPut4", "ƒuƒŒ[ƒXEƒcƒiƒM", "AllPutBraceTsunagi", "ƒuƒŒ[ƒXEƒcƒiƒMŞ‚ğˆêŠ‡”z’u‚µ‚Ü‚·B", "3_ƒuƒŒ[ƒXEƒcƒiƒM");
+            // [ä¸€æ‹¬é…ç½®] ãƒ–ãƒ¬ãƒ¼ã‚¹ãƒ»ãƒ„ãƒŠã‚®é…ç½®
+            CreatePushButton(panelAllPut, "CmdAllPut4", "ãƒ–ãƒ¬ãƒ¼ã‚¹ãƒ»ãƒ„ãƒŠã‚®", "AllPutBraceTsunagi", "ãƒ–ãƒ¬ãƒ¼ã‚¹ãƒ»ãƒ„ãƒŠã‚®æã‚’ä¸€æ‹¬é…ç½®ã—ã¾ã™ã€‚", "3_ãƒ–ãƒ¬ãƒ¼ã‚¹ãƒ»ãƒ„ãƒŠã‚®");
 
-            // [ˆêŠ‡”z’u] ƒOƒ‹[ƒsƒ“ƒO
-            CreatePushButton(panelAllPut, "CmdAllPut5", "ƒOƒ‹[ƒsƒ“ƒO", "Grouping", "\‘ä‚ğƒOƒ‹[ƒsƒ“ƒO‚µ‚Ü‚·B", "4_ƒOƒ‹[ƒsƒ“ƒO");
+            // [ä¸€æ‹¬é…ç½®] ã‚°ãƒ«ãƒ¼ãƒ”ãƒ³ã‚°
+            CreatePushButton(panelAllPut, "CmdAllPut5", "ã‚°ãƒ«ãƒ¼ãƒ”ãƒ³ã‚°", "Grouping", "æ§‹å°ã‚’ã‚°ãƒ«ãƒ¼ãƒ”ãƒ³ã‚°ã—ã¾ã™ã€‚", "4_ã‚°ãƒ«ãƒ¼ãƒ”ãƒ³ã‚°");
 
-            RibbonPanel panelPut = app.CreateRibbonPanel("YMS\‘ä", "ŒÂ•Ê”z’u");
+            RibbonPanel panelPut = app.CreateRibbonPanel("YMSæ§‹å°", "å€‹åˆ¥é…ç½®");
 
-            //// [ŒÂ•Ê”z’u] ƒeƒXƒg—p ¦ÅI“I‚É‚Ííœ
-            //CreatePushButton(panelPut, "CmdPutTest", "ƒeƒXƒg—p", "PutTest", "ƒeƒXƒg—p‚ÌƒRƒ}ƒ“ƒh‚Å‚·B", "0_Large_dummy");
+            //// [å€‹åˆ¥é…ç½®] ãƒ†ã‚¹ãƒˆç”¨ â€»æœ€çµ‚çš„ã«ã¯å‰Šé™¤
+            //CreatePushButton(panelPut, "CmdPutTest", "ãƒ†ã‚¹ãƒˆç”¨", "PutTest", "ãƒ†ã‚¹ãƒˆç”¨ã®ã‚³ãƒãƒ³ãƒ‰ã§ã™ã€‚", "0_Large_dummy");
 
-            // [ŒÂ•Ê”z’u] •¢H”Â
-            CreatePushButton(panelPut, "CmdPut1", "•¢H”Â", "PutFukkouban", "•¢H”Â‚ğ”z’u‚µ‚Ü‚·B", "5_•¢H”Â");
+            // [å€‹åˆ¥é…ç½®] è¦†å·¥æ¿
+            CreatePushButton(panelPut, "CmdPut1", "è¦†å·¥æ¿", "PutFukkouban", "è¦†å·¥æ¿ã‚’é…ç½®ã—ã¾ã™ã€‚", "5_è¦†å·¥æ¿");
 
-            // [ŒÂ•Ê”z’u] ‘åˆø(Œ…ó)
-            // [ŒÂ•Ê”z’u] ª‘¾(åŒ…)
-            PushButtonDef pushButtonDef1 = new PushButtonDef("CmdPut2", "‘åˆø(Œ…ó)", "PutOobikiKetauke", "‘åˆø(Œ…ó)‚ğ”z’u‚µ‚Ü‚·B", "6_‘åˆø");
-            PushButtonDef pushButtonDef2 = new PushButtonDef("CmdPut3", "ª‘¾(åŒ…)", "PutNedaShugeta", "ª‘¾(åŒ…)‚ğ”z’u‚µ‚Ü‚·B", "7_ª‘¾");
+            // [å€‹åˆ¥é…ç½®] å¤§å¼•(æ¡å—)
+            // [å€‹åˆ¥é…ç½®] æ ¹å¤ª(ä¸»æ¡)
+            PushButtonDef pushButtonDef1 = new PushButtonDef("CmdPut2", "å¤§å¼•(æ¡å—)", "PutOobikiKetauke", "å¤§å¼•(æ¡å—)ã‚’é…ç½®ã—ã¾ã™ã€‚", "6_å¤§å¼•");
+            PushButtonDef pushButtonDef2 = new PushButtonDef("CmdPut3", "æ ¹å¤ª(ä¸»æ¡)", "PutNedaShugeta", "æ ¹å¤ª(ä¸»æ¡)ã‚’é…ç½®ã—ã¾ã™ã€‚", "7_æ ¹å¤ª");
             CreateStackedPushButton(panelPut, new List<PushButtonDef> { pushButtonDef1, pushButtonDef2 });
 
-            // [ŒÂ•Ê”z’u] •¢HŒ…”z’u
-            // [ŒÂ•Ê”z’u] •~Œ…”z’u
-            PushButtonDef pushButtonDef3 = new PushButtonDef("CmdPut4", "•¢HŒ…", "PutFukkougeta", "•¢HŒ…‚ğ”z’u‚µ‚Ü‚·B", "8_•¢HŒ…");
-            PushButtonDef pushButtonDef4 = new PushButtonDef("CmdPut5", "•~Œ…", "PutShikigeta", "•~Œ…‚ğ”z’u‚µ‚Ü‚·B", "9_•~Œ…");
+            // [å€‹åˆ¥é…ç½®] è¦†å·¥æ¡é…ç½®
+            // [å€‹åˆ¥é…ç½®] æ•·æ¡é…ç½®
+            PushButtonDef pushButtonDef3 = new PushButtonDef("CmdPut4", "è¦†å·¥æ¡", "PutFukkougeta", "è¦†å·¥æ¡ã‚’é…ç½®ã—ã¾ã™ã€‚", "8_è¦†å·¥æ¡");
+            PushButtonDef pushButtonDef4 = new PushButtonDef("CmdPut5", "æ•·æ¡", "PutShikigeta", "æ•·æ¡ã‚’é…ç½®ã—ã¾ã™ã€‚", "9_æ•·æ¡");
             CreateStackedPushButton(panelPut, new List<PushButtonDef> { pushButtonDef3, pushButtonDef4 });
 
-            // [ŒÂ•Ê”z’u] ‘ÎŒX\E‘ÎŒX\æ•tƒvƒŒ[ƒg”z’u
-            CreatePushButton(panelPut, "CmdPut6", "‘ÎŒX\", "PutTaikeikou", "‘ÎŒX\E‘ÎŒX\æ•tƒvƒŒ[ƒg‚ğ”z’u‚µ‚Ü‚·B", "10_‘ÎŒX\");
+            // [å€‹åˆ¥é…ç½®] å¯¾å‚¾æ§‹ãƒ»å¯¾å‚¾æ§‹å–ä»˜ãƒ—ãƒ¬ãƒ¼ãƒˆé…ç½®
+            CreatePushButton(panelPut, "CmdPut6", "å¯¾å‚¾æ§‹", "PutTaikeikou", "å¯¾å‚¾æ§‹ãƒ»å¯¾å‚¾æ§‹å–ä»˜ãƒ—ãƒ¬ãƒ¼ãƒˆã‚’é…ç½®ã—ã¾ã™ã€‚", "10_å¯¾å‚¾æ§‹");
 
-            // [ŒÂ•Ê”z’u] ƒXƒ`ƒtƒi[ƒvƒŒ[ƒgEƒXƒ`ƒtƒi[ƒWƒƒƒbƒL”z’u
-            CreatePushButton(panelPut, "CmdPut7", "ƒXƒ`ƒtƒi[", "PutSuchifuna", "ƒXƒ`ƒtƒi[ƒvƒŒ[ƒgEƒXƒ`ƒtƒi[ƒWƒƒƒbƒL‚ğ”z’u‚µ‚Ü‚·B", "11_ƒXƒ`ƒtƒi[");
+            // [å€‹åˆ¥é…ç½®] ã‚¹ãƒãƒ•ãƒŠãƒ¼ãƒ—ãƒ¬ãƒ¼ãƒˆãƒ»ã‚¹ãƒãƒ•ãƒŠãƒ¼ã‚¸ãƒ£ãƒƒã‚­é…ç½®
+            CreatePushButton(panelPut, "CmdPut7", "ã‚¹ãƒãƒ•ãƒŠãƒ¼", "PutSuchifuna", "ã‚¹ãƒãƒ•ãƒŠãƒ¼ãƒ—ãƒ¬ãƒ¼ãƒˆãƒ»ã‚¹ãƒãƒ•ãƒŠãƒ¼ã‚¸ãƒ£ãƒƒã‚­ã‚’é…ç½®ã—ã¾ã™ã€‚", "11_ã‚¹ãƒãƒ•ãƒŠãƒ¼");
 
-            // [ŒÂ•Ê”z’u] ‚‚³’²®ƒvƒŒ[ƒgE’²®Ş”z’u
-            CreatePushButton(panelPut, "CmdPut8", " ’²®Ş", "PutTakasaChouseiPlate", " ‚‚³’²®ƒvƒŒ[ƒgE’²®Ş‚ğ”z’u‚µ‚Ü‚·B", "12_’²®Ş");
+            // [å€‹åˆ¥é…ç½®] é«˜ã•èª¿æ•´ãƒ—ãƒ¬ãƒ¼ãƒˆãƒ»èª¿æ•´æé…ç½®
+            CreatePushButton(panelPut, "CmdPut8", " èª¿æ•´æ", "PutTakasaChouseiPlate", " é«˜ã•èª¿æ•´ãƒ—ãƒ¬ãƒ¼ãƒˆãƒ»èª¿æ•´æã‚’é…ç½®ã—ã¾ã™ã€‚", "12_èª¿æ•´æ");
 
-            // [ŒÂ•Ê”z’u] •~“S”Â”z’u
-            CreatePushButton(panelPut, "CmdPut9", "•~“S”Â", "PutKoubanzai", "•~“S”Â‚ğ”z’u‚µ‚Ü‚·B", "13_•~“S”Â");
+            // [å€‹åˆ¥é…ç½®] æ•·é‰„æ¿é…ç½®
+            CreatePushButton(panelPut, "CmdPut9", "æ•·é‰„æ¿", "PutKoubanzai", "æ•·é‰„æ¿ã‚’é…ç½®ã—ã¾ã™ã€‚", "13_æ•·é‰„æ¿");
 
-            // [ŒÂ•Ê”z’u] ’n•¢E•¢H”ÂƒYƒŒ~‚ßŞ”z’u
-            CreatePushButton(panelPut, "CmdPut10", "•¢H”ÂƒYƒŒ~‚ß", "PutJifukuFukkoubanZuredome", "’n•¢E•¢H”ÂƒYƒŒ~‚ßŞ‚ğ”z’u‚µ‚Ü‚·B", "14_•¢H”ÂƒYƒŒ~‚ß");
+            // [å€‹åˆ¥é…ç½®] åœ°è¦†ãƒ»è¦†å·¥æ¿ã‚ºãƒ¬æ­¢ã‚æé…ç½®
+            CreatePushButton(panelPut, "CmdPut10", "è¦†å·¥æ¿ã‚ºãƒ¬æ­¢ã‚", "PutJifukuFukkoubanZuredome", "åœ°è¦†ãƒ»è¦†å·¥æ¿ã‚ºãƒ¬æ­¢ã‚æã‚’é…ç½®ã—ã¾ã™ã€‚", "14_è¦†å·¥æ¿ã‚ºãƒ¬æ­¢ã‚");
 
-            // [ŒÂ•Ê”z’u] è Eè x’Œ”z’u
-            CreatePushButton(panelPut, "CmdPut11", "è ", "PutTesuriTesurishichu", "è Eè x’Œ‚ğ”z’u‚µ‚Ü‚·B", "15_è ");
+            // [å€‹åˆ¥é…ç½®] æ‰‹æ‘ºãƒ»æ‰‹æ‘ºæ”¯æŸ±é…ç½®
+            CreatePushButton(panelPut, "CmdPut11", "æ‰‹æ‘º", "PutTesuriTesurishichu", "æ‰‹æ‘ºãƒ»æ‰‹æ‘ºæ”¯æŸ±ã‚’é…ç½®ã—ã¾ã™ã€‚", "15_æ‰‹æ‘º");
 
-            // [ŒÂ•Ê”z’u] …•½ƒuƒŒ[ƒX”z’u
-            // [ŒÂ•Ê”z’u] ‚’¼ƒuƒŒ[ƒX”z’u
-            // [ŒÂ•Ê”z’u] …•½ƒcƒiƒM”z’u
-            PushButtonDef pushButtonDef5 = new PushButtonDef("CmdPut12", "…•½ƒuƒŒ[ƒX", "PutHorizontalBrace", "…•½ƒuƒŒ[ƒX‚ğ”z’u‚µ‚Ü‚·B", "16_…•½ƒuƒŒ[ƒX");
-            PushButtonDef pushButtonDef6 = new PushButtonDef("CmdPut13", "‚’¼ƒuƒŒ[ƒX", "PutVerticalBrace", "‚’¼ƒuƒŒ[ƒX‚ğ”z’u‚µ‚Ü‚·B", "17_‚’¼ƒuƒŒ[ƒX");
-            PushButtonDef pushButtonDef7 = new PushButtonDef("CmdPut14", "…•½ƒcƒiƒM", "PutHorizontalTsunagi", "…•½ƒcƒiƒM‚ğ”z’u‚µ‚Ü‚·B", "18_…•½ƒcƒiƒM");
+            // [å€‹åˆ¥é…ç½®] æ°´å¹³ãƒ–ãƒ¬ãƒ¼ã‚¹é…ç½®
+            // [å€‹åˆ¥é…ç½®] å‚ç›´ãƒ–ãƒ¬ãƒ¼ã‚¹é…ç½®
+            // [å€‹åˆ¥é…ç½®] æ°´å¹³ãƒ„ãƒŠã‚®é…ç½®
+            PushButtonDef pushButtonDef5 = new PushButtonDef("CmdPut12", "æ°´å¹³ãƒ–ãƒ¬ãƒ¼ã‚¹", "PutHorizontalBrace", "æ°´å¹³ãƒ–ãƒ¬ãƒ¼ã‚¹ã‚’é…ç½®ã—ã¾ã™ã€‚", "16_æ°´å¹³ãƒ–ãƒ¬ãƒ¼ã‚¹");
+            PushButtonDef pushButtonDef6 = new PushButtonDef("CmdPut13", "å‚ç›´ãƒ–ãƒ¬ãƒ¼ã‚¹", "PutVerticalBrace", "å‚ç›´ãƒ–ãƒ¬ãƒ¼ã‚¹ã‚’é…ç½®ã—ã¾ã™ã€‚", "17_å‚ç›´ãƒ–ãƒ¬ãƒ¼ã‚¹");
+            PushButtonDef pushButtonDef7 = new PushButtonDef("CmdPut14", "æ°´å¹³ãƒ„ãƒŠã‚®", "PutHorizontalTsunagi", "æ°´å¹³ãƒ„ãƒŠã‚®ã‚’é…ç½®ã—ã¾ã™ã€‚", "18_æ°´å¹³ãƒ„ãƒŠã‚®");
             CreateStackedPushButton(panelPut, new List<PushButtonDef> { pushButtonDef5, pushButtonDef6, pushButtonDef7 });
 
-            // [ŒÂ•Ê”z’u] æ•t•â•Ş”z’u
-            CreatePushButton(panelPut, "CmdPut15", "æ•t•â•Ş", "PutTeiketsuHojyozai", "’÷Œ‹•â•Ş‚ğ”z’u‚µ‚Ü‚·B", "19_æ•t•â•Ş");
+            // [å€‹åˆ¥é…ç½®] å–ä»˜è£œåŠ©æé…ç½®
+            CreatePushButton(panelPut, "CmdPut15", "å–ä»˜è£œåŠ©æ", "PutTeiketsuHojyozai", "ç· çµè£œåŠ©æã‚’é…ç½®ã—ã¾ã™ã€‚", "19_å–ä»˜è£œåŠ©æ");
 
-            // [ŒÂ•Ê”z’u] •ûñ”z’u
-            CreatePushButton(panelPut, "CmdPut16", "•ûñ", "PutHoudue", "•ûñ‚ğ”z’u‚µ‚Ü‚·B", "20_•ûñ");
+            // [å€‹åˆ¥é…ç½®] æ–¹æ–é…ç½®
+            CreatePushButton(panelPut, "CmdPut16", "æ–¹æ–", "PutHoudue", "æ–¹æ–ã‚’é…ç½®ã—ã¾ã™ã€‚", "20_æ–¹æ–");
 
-            // [ŒÂ•Ê”z’u] x’Œ”z’u
-            CreatePushButton(panelPut, "CmdPut17", "x’Œ", "PutShichu", "x’Œ‚ğ”z’u‚µ‚Ü‚·B", "21_x’Œ");
+            // [å€‹åˆ¥é…ç½®] æ”¯æŸ±é…ç½®
+            CreatePushButton(panelPut, "CmdPut17", "æ”¯æŸ±", "PutShichu", "æ”¯æŸ±ã‚’é…ç½®ã—ã¾ã™ã€‚", "21_æ”¯æŸ±");
 
-            // [ŒÂ•Ê”z’u] \‘äY(xY)
-            CreatePushButton(panelPut, "CmdPut18", "\‘äY(xY)", "PutKui", "\‘äY(xY)‚ğ”z’u‚µ‚Ü‚·B", "22_\‘äY");
+            // [å€‹åˆ¥é…ç½®] æ§‹å°æ­(æ”¯æŒæ­)
+            CreatePushButton(panelPut, "CmdPut18", "æ§‹å°æ­(æ”¯æŒæ­)", "PutKui", "æ§‹å°æ­(æ”¯æŒæ­)ã‚’é…ç½®ã—ã¾ã™ã€‚", "22_æ§‹å°æ­");
 
-            RibbonPanel panelEdit = app.CreateRibbonPanel("YMS\‘ä", "•”ŞC³");
+            RibbonPanel panelEdit = app.CreateRibbonPanel("YMSæ§‹å°", "éƒ¨æä¿®æ­£");
 
-            // [•”ŞC³] ƒTƒCƒYˆê——
-            CreatePushButton(panelEdit, "CmdEdit1", "ƒTƒCƒYˆê——", "EditSizeList", "Šeí•”Ş‚ÌƒTƒCƒY‚ğ•ÏX‚µ‚Ü‚·B", "23_ƒTƒCƒYˆê——");
+            // [éƒ¨æä¿®æ­£] ã‚µã‚¤ã‚ºä¸€è¦§
+            CreatePushButton(panelEdit, "CmdEdit1", "ã‚µã‚¤ã‚ºä¸€è¦§", "EditSizeList", "å„ç¨®éƒ¨æã®ã‚µã‚¤ã‚ºã‚’å¤‰æ›´ã—ã¾ã™ã€‚", "23_ã‚µã‚¤ã‚ºä¸€è¦§");
 
-            // [•”ŞC³] ˆÊ’u•ÏX
-            CreatePushButton(panelEdit, "CmdEdit2", "ˆÊ’u•ÏX", "EditLocationChange", "Šeí•”Ş‚ÌˆÊ’u‚ğ•ÏX‚µ‚Ü‚·B", "24_ˆÊ’u•ÏX");
+            // [éƒ¨æä¿®æ­£] ä½ç½®å¤‰æ›´
+            CreatePushButton(panelEdit, "CmdEdit2", "ä½ç½®å¤‰æ›´", "EditLocationChange", "å„ç¨®éƒ¨æã®ä½ç½®ã‚’å¤‰æ›´ã—ã¾ã™ã€‚", "24_ä½ç½®å¤‰æ›´");
 
-            // [•”ŞC³] ’·‚³•ÏX
-            CreatePushButton(panelEdit, "CmdEdit3", "’·‚³•ÏX", "EditLengthChange", "Šeí•”Ş‚Ì’·‚³‚ğ•ÏX‚µ‚Ü‚·B", "25_’·‚³•ÏX");
+            // [éƒ¨æä¿®æ­£] é•·ã•å¤‰æ›´
+            CreatePushButton(panelEdit, "CmdEdit3", "é•·ã•å¤‰æ›´", "EditLengthChange", "å„ç¨®éƒ¨æã®é•·ã•ã‚’å¤‰æ›´ã—ã¾ã™ã€‚", "25_é•·ã•å¤‰æ›´");
 
-            RibbonPanel panelWaritsuke = app.CreateRibbonPanel("YMS\‘ä", "Š„•t");
+            RibbonPanel panelWaritsuke = app.CreateRibbonPanel("YMSæ§‹å°", "å‰²ä»˜");
 
-            // [Š„•t] •”ŞŠ„•t
-            CreatePushButton(panelWaritsuke, "CmdWaritsuke1", "•”ŞŠ„•t", "WaritsukeElement", "Šeí•”Ş‚ÌŠ„•t‚ğ‚µ‚Ü‚·B", "26_•”ŞŠ„•t");
+            // [å‰²ä»˜] éƒ¨æå‰²ä»˜
+            CreatePushButton(panelWaritsuke, "CmdWaritsuke1", "éƒ¨æå‰²ä»˜", "WaritsukeElement", "å„ç¨®éƒ¨æã®å‰²ä»˜ã‚’ã—ã¾ã™ã€‚", "26_éƒ¨æå‰²ä»˜");
 
-            RibbonPanel panelSonota = app.CreateRibbonPanel("YMS\‘ä", "‚»‚Ì‘¼");
+            RibbonPanel panelSonota = app.CreateRibbonPanel("YMSæ§‹å°", "ãã®ä»–");
 
-            // [‚»‚Ì‘¼] Š±Âƒ`ƒFƒbƒN
-            CreatePushButton(panelSonota, "CmdSonota1", "Š±Âƒ`ƒFƒbƒN", "SonotaKanshouCheck", "Š±Âƒ`ƒFƒbƒN‚ğŠm”F‚µ‚Ü‚·B", "27_Š±Âƒ`ƒFƒbƒN");
+            // [ãã®ä»–] å¹²æ¸‰ãƒã‚§ãƒƒã‚¯
+            CreatePushButton(panelSonota, "CmdSonota1", "å¹²æ¸‰ãƒã‚§ãƒƒã‚¯", "SonotaKanshouCheck", "å¹²æ¸‰ãƒã‚§ãƒƒã‚¯ã‚’ç¢ºèªã—ã¾ã™ã€‚", "27_å¹²æ¸‰ãƒã‚§ãƒƒã‚¯");
 
-            // [‚»‚Ì‘¼] ŒÂ•Ê”z’u
-            CreatePushButton(panelSonota, "PushButton Command64", "ŒÂ•Ê”z’u", "KobetsuHaichi", "Še•”Ş‚ÌŒÂ•Ê”z’u‚ğs‚¢‚Ü‚·B", "33 ŒÂ•Ê”z’u");
-            
+            // [ãã®ä»–] å€‹åˆ¥é…ç½®
+            CreatePushButton(panelSonota, "PushButton Command64", "å€‹åˆ¥é…ç½®", "KobetsuHaichi", "å„éƒ¨æã®å€‹åˆ¥é…ç½®ã‚’è¡Œã„ã¾ã™ã€‚", "33 å€‹åˆ¥é…ç½®");
+
         }
 
         private void CreatePushButton(RibbonPanel panel, string name, string text, string className, string toolTipText, string iconName)
@@ -210,9 +210,9 @@ namespace YMS_gantry
         }
 
         /// <summary>
-        /// ƒAƒCƒRƒ“‚Ìƒtƒ‹ƒpƒXæ“¾
+        /// ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒ•ãƒ«ãƒ‘ã‚¹å–å¾—
         /// </summary>
-        /// <param name="name">ƒAƒCƒRƒ“–¼iŠg’£q‚È‚µj</param>
+        /// <param name="name">ã‚¢ã‚¤ã‚³ãƒ³åï¼ˆæ‹¡å¼µå­ãªã—ï¼‰</param>
         /// <param name="jpg">true = png  false = jpg</param>
         /// <returns></returns>
         private string GetIconPath(string name, bool png = true)
