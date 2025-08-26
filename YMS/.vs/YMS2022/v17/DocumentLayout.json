@@ -1,0 +1,66 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS2022.csproj|d:\\ndk\\05.yms\u7A4D\u307F\u6B8B\u3057\\yms\\yms\\yms\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1015E180-7C62-41C6-B55C-7633C2E4FCB9}|YMS\\YMS2022.csproj|solutionrelative:yms\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AEA52F0-69DB-40EC-BAFA-4B1788681CBE}|YMS_gantry\\YMS_Gantry2022.csproj|d:\\ndk\\05.yms\u7A4D\u307F\u6B8B\u3057\\yms\\yms\\yms_gantry\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AEA52F0-69DB-40EC-BAFA-4B1788681CBE}|YMS_gantry\\YMS_Gantry2022.csproj|solutionrelative:yms_gantry\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App.cs",
+              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\App.cs",
+              "RelativeDocumentMoniker": "YMS\\App.cs",
+              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS\\App.cs",
+              "RelativeToolTip": "YMS\\App.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T10:06:11.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.cs",
+              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_gantry\\App.cs",
+              "RelativeDocumentMoniker": "YMS_gantry\\App.cs",
+              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_gantry\\App.cs",
+              "RelativeToolTip": "YMS_gantry\\App.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T10:05:27.673Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

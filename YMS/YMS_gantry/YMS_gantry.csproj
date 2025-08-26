@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+      None
+    </ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7AEA52F0-69DB-40EC-BAFA-4B1788681CBE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YMS_gantry</RootNamespace>
+    <AssemblyName>YMS_gantry</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(ProgramW6432)\Autodesk\Revit 2022\Revit.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(ProgramW6432)\Autodesk\Revit 2022\Revit.exe</StartProgram>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.5.4.0\lib\net46\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="RevitAPI">
+      <HintPath>C:\Program Files\Autodesk\Revit 2023\RevitAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>C:\Program Files\Autodesk\Revit 2023\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="Applications.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="Command\CmdAllPutBraceTsunagi.cs" />
+    <Compile Include="Command\CmdCreateFukkouban.cs" />
+    <Compile Include="Command\CmdCreateFukkougeta.cs" />
+    <Compile Include="Command\CmdCreateGrouping.cs" />
+    <Compile Include="Command\CmdCreateHoudue.cs" />
+    <Compile Include="Command\CmdCreateJifukuZuredome.cs" />
+    <Compile Include="Command\CmdCreateKoudaiFlat.cs" />
+    <Compile Include="Command\CmdCreateKouhan.cs" />
+    <Compile Include="Command\CmdCreateNeda.cs" />
+    <Compile Include="Command\CmdCreateOhbiki.cs" />
+    <Compile Include="Command\CmdCreatePile.cs" />
+    <Compile Include="Command\CmdCreatePiller.cs" />
+    <Compile Include="Command\CmdCreateShikigeta.cs" />
+    <Compile Include="Command\CmdCreateSlope.cs" />
+    <Compile Include="Command\CmdCreateStiffener.cs" />
+    <Compile Include="Command\CmdCreateTaikeikou.cs" />
+    <Compile Include="Command\CmdCreateTakasaChousei.cs" />
+    <Compile Include="Command\CmdCreateTeiketsuHojo.cs" />
+    <Compile Include="Command\CmdCreateTesuri.cs" />
+    <Compile Include="Command\CmdKanshouCheck.cs" />
+    <Compile Include="Command\CmdLengthChange.cs" />
+    <Compile Include="Command\CmdMoveElement.cs" />
+    <Compile Include="Command\CmdPutHorizontalBrace.cs" />
+    <Compile Include="Command\CmdPutHorizontalTsunagi.cs" />
+    <Compile Include="Command\CmdPutVerticalBrace.cs" />
+    <Compile Include="Command\CmdSizeChange.cs" />
+    <Compile Include="Command\CmdWaritsuke.cs" />
+    <Compile Include="Data\BraceTsunagiData.cs" />
+    <Compile Include="Data\CalcFileData.cs" />
+    <Compile Include="Data\GantryData.cs" />
+    <Compile Include="Data\GroupData.cs" />
+    <Compile Include="Data\KoudaiData.cs" />
+    <Compile Include="Data\ModelData.cs" />
+    <Compile Include="ExStrageIO.cs" />
+    <Compile Include="GantryUtils\AttributeUtil.cs" />
+    <Compile Include="GantryUtils\ClsIni.cs" />
+    <Compile Include="GantryUtils\ControlUtils.cs" />
+    <Compile Include="GantryUtils\DefineUtil.cs" />
+    <Compile Include="GantryUtils\ExStrageUtils.cs" />
+    <Compile Include="GantryUtils\FieldData.cs" />
+    <Compile Include="GantryUtils\GatryUtils.cs" />
+    <Compile Include="GantryUtils\MessageUtil.cs" />
+    <Compile Include="GantryUtils\PathUtil.cs" />
+    <Compile Include="GantryUtils\RubberLine.cs" />
+    <Compile Include="GantryUtils\SchemaDataWrapper.cs" />
+    <Compile Include="GantryUtils\SchemaWrapper.cs" />
+    <Compile Include="GantryUtils\SelectionFilterUtil.cs" />
+    <Compile Include="GantryUtils\UtilAlgebra.cs" />
+    <Compile Include="GantryUtils\ZumenInfo.cs" />
+    <Compile Include="IniIO.cs" />
+    <Compile Include="Master\ClsAngleCsv.cs" />
+    <Compile Include="Master\ClsBoltCsv.cs" />
+    <Compile Include="Master\ClsChannelCsv.cs" />
+    <Compile Include="Master\ClsFukkoubanCsv.cs" />
+    <Compile Include="Master\ClsFukkouGetaCsv.cs" />
+    <Compile Include="Master\ClsHBeamCsv.cs" />
+    <Compile Include="Master\ClsHoudueCsv.cs" />
+    <Compile Include="Master\ClsJifukuZuredomeCsv.cs" />
+    <Compile Include="Master\ClsKoubanzaiCsv.cs" />
+    <Compile Include="Master\ClsKouzaiSpecify.cs" />
+    <Compile Include="Master\ClsMasterCsv.cs" />
+    <Compile Include="Master\ClsPieacePLSizeCsv.cs" />
+    <Compile Include="Master\ClsPileTsugiteCsv.cs" />
+    <Compile Include="Master\ClsSichuCsv.cs" />
+    <Compile Include="Master\ClsStiffenerCsv.cs" />
+    <Compile Include="Master\ClsTaikeikouCsv.cs" />
+    <Compile Include="Master\ClsTakasaChouseiCsv.cs" />
+    <Compile Include="Master\ClsTeiketsuHojoCsv.cs" />
+    <Compile Include="Master\ClsTesuriCsv.cs" />
+    <Compile Include="Master\ClsTopPlateCsv.cs" />
+    <Compile Include="Master\ClsTurnBuckle.cs" />
+    <Compile Include="Master\ClsWaritsukeCsv.cs" />
+    <Compile Include="Master\ClsYamadomeCsv.cs" />
+    <Compile Include="Master\YmsMasterLoadAttribute.cs" />
+    <Compile Include="Material\CoverPL.cs" />
+    <Compile Include="Material\ExtensionPile.cs" />
+    <Compile Include="Material\Fukkouban.cs" />
+    <Compile Include="Material\FukkouGeta.cs" />
+    <Compile Include="Material\HaunchDeck.cs" />
+    <Compile Include="Material\HojoPieace.cs" />
+    <Compile Include="Material\HorizontalBrace.cs" />
+    <Compile Include="Material\HorizontalJoint.cs" />
+    <Compile Include="Material\Houdue.cs" />
+    <Compile Include="Material\Jack.cs" />
+    <Compile Include="Material\JifukuZuredomezai.cs" />
+    <Compile Include="Material\JointAndBrace.cs" />
+    <Compile Include="Material\KoubanzaiSuper.cs" />
+    <Compile Include="Material\KoudaiReference.cs" />
+    <Compile Include="Material\Madumezai.cs" />
+    <Compile Include="Material\MaterialCategoryAttribute.cs" />
+    <Compile Include="Material\MaterialSuper.cs" />
+    <Compile Include="Material\Neda.cs" />
+    <Compile Include="Material\Ohbiki.cs" />
+    <Compile Include="Material\OhbikiSuper.cs" />
+    <Compile Include="Material\OutLine.cs" />
+    <Compile Include="Material\PilePiller.cs" />
+    <Compile Include="Material\PilePillerSuper.cs" />
+    <Compile Include="Material\Shikigeta.cs" />
+    <Compile Include="Material\Shikiteppan.cs" />
+    <Compile Include="Material\Shimakouhan.cs" />
+    <Compile Include="Material\SlopeSupport.cs" />
+    <Compile Include="Material\Soekui.cs" />
+    <Compile Include="Material\Stiffener.cs" />
+    <Compile Include="Material\StiffenerJack.cs" />
+    <Compile Include="Material\StiffenerPlate.cs" />
+    <Compile Include="Material\Taikeikou.cs" />
+    <Compile Include="Material\TakasaChouseizai.cs" />
+    <Compile Include="Material\TeiketsuHojo.cs" />
+    <Compile Include="Material\Tensetsuban.cs" />
+    <Compile Include="Material\Tesuri.cs" />
+    <Compile Include="Material\TesuriShichu.cs" />
+    <Compile Include="Material\VerticalBrace.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources1.Designer.cs" />
+    <Compile Include="Request.cs" />
+    <Compile Include="RequestHandler.cs" />
+    <Compile Include="SystemData.cs" />
+    <Compile Include="UI\CustomControls\YmsColumnDanNumber.cs" />
+    <Compile Include="UI\CustomControls\YmsComboInteger.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\CustomControls\YmsComboInteger.designer.cs">
+      <DependentUpon>YmsComboInteger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomControls\YmsComboTsunagiSize.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\CustomControls\YmsGridDan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\CustomControls\YmsGridDan.designer.cs">
+      <DependentUpon>YmsGridDan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomControls\YmsKodaiNameCombo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\CustomControls\YmsNumericInteger.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\CustomControls\YmsNumericInteger.designer.cs">
+      <DependentUpon>YmsNumericInteger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomControls\YmsRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\CustomControls\YmsRadioButton.Designer.cs">
+      <DependentUpon>YmsRadioButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmAllPutKoudaiFlat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmAllPutKoudaiFlat.designer.cs">
+      <DependentUpon>FrmAllPutKoudaiFlat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmCreateBraceAndJoint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmCreateBraceAndJoint.designer.cs">
+      <DependentUpon>FrmCreateBraceAndJoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmCreateBraceAndJointViewModel.cs" />
+    <Compile Include="UI\FrmCreateSlope.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmCreateSlope.designer.cs">
+      <DependentUpon>FrmCreateSlope.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmCreateSlopeControls.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\FrmCreateSlopeViewModel.cs" />
+    <Compile Include="UI\FrmEditLengthChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmEditLengthChange.designer.cs">
+      <DependentUpon>FrmEditLengthChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmEditLocationChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmEditLocationChange.designer.cs">
+      <DependentUpon>FrmEditLocationChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmEditSizeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmEditSizeList.designer.cs">
+      <DependentUpon>FrmEditSizeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmErrorInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmErrorInformation.designer.cs">
+      <DependentUpon>FrmErrorInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmGrouping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmGrouping.designer.cs">
+      <DependentUpon>FrmGrouping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPreviews.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPreviews.designer.cs">
+      <DependentUpon>FrmPreviews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPreviewSlope.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPreviewSlope.designer.cs">
+      <DependentUpon>FrmPreviewSlope.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutFukkouban.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutFukkouban.designer.cs">
+      <DependentUpon>FrmPutFukkouban.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutFukkougeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutFukkougeta.designer.cs">
+      <DependentUpon>FrmPutFukkougeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutHorizontalBrace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutHorizontalBrace.designer.cs">
+      <DependentUpon>FrmPutHorizontalBrace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutHorizontalTsunagi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutHorizontalTsunagi.designer.cs">
+      <DependentUpon>FrmPutHorizontalTsunagi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutHoudue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutHoudue.designer.cs">
+      <DependentUpon>FrmPutHoudue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutJifukuFukkoubanZuredomezai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutJifukuFukkoubanZuredomezai.designer.cs">
+      <DependentUpon>FrmPutJifukuFukkoubanZuredomezai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutKoubanzai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutKoubanzai.designer.cs">
+      <DependentUpon>FrmPutKoubanzai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutKui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutKui.designer.cs">
+      <DependentUpon>FrmPutKui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutNedaShugeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutNedaShugeta.designer.cs">
+      <DependentUpon>FrmPutNedaShugeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutOhbikiKetauke.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutOhbikiKetauke.designer.cs">
+      <DependentUpon>FrmPutOhbikiKetauke.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutShichu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutShichu.designer.cs">
+      <DependentUpon>FrmPutShichu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutShikigeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutShikigeta.designer.cs">
+      <DependentUpon>FrmPutShikigeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutSuchifuna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutSuchifuna.designer.cs">
+      <DependentUpon>FrmPutSuchifuna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutTaikeikou.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutTaikeikou.designer.cs">
+      <DependentUpon>FrmPutTaikeikou.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutTakasaChouseiPlateChouseizai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutTakasaChouseiPlateChouseizai.designer.cs">
+      <DependentUpon>FrmPutTakasaChouseiPlateChouseizai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutTeiketsuHojyozai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutTeiketsuHojyozai.designer.cs">
+      <DependentUpon>FrmPutTeiketsuHojyozai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutTesuriTesuriShichu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutTesuriTesuriShichu.designer.cs">
+      <DependentUpon>FrmPutTesuriTesuriShichu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmPutVerticalBrace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmPutVerticalBrace.designer.cs">
+      <DependentUpon>FrmPutVerticalBrace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmSonotaKanshouCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmSonotaKanshouCheck.designer.cs">
+      <DependentUpon>FrmSonotaKanshouCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmWaritsukeElement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmWaritsukeElement.designer.cs">
+      <DependentUpon>FrmWaritsukeElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmWaritsukeYesNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmWaritsukeYesNo.designer.cs">
+      <DependentUpon>FrmWaritsukeYesNo.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Image20230907141619.png" />
+    <Content Include="Resources\チャンネル材向き1.jpg" />
+    <Content Include="Resources\チャンネル材向き2.jpg" />
+    <Content Include="Resources\チャンネル材向き3.jpg" />
+    <Content Include="Resources\チャンネル材向き4.jpg" />
+    <Content Include="Resources\凡例図_スロープ.jpg" />
+    <Content Include="Resources\凡例図_垂直ブレース.jpg" />
+    <Content Include="Resources\凡例図_手摺手摺支柱.jpg" />
+    <Content Include="Resources\凡例図_水平ブレース.jpg" />
+    <Content Include="Resources\杭凡例1.jpg" />
+    <Content Include="Resources\杭凡例2.jpg" />
+    <Content Include="Resources\杭凡例_土_覆天_切有.jpg" />
+    <Content Include="Resources\杭凡例_土_覆天_切無.jpg" />
+    <Content Include="Resources\杭凡例_大下_切有_継有.jpg" />
+    <Content Include="Resources\杭凡例_大下_切有_継無.jpg" />
+    <Content Include="Resources\杭凡例_大下_切無_継無.jpg" />
+    <Content Include="Resources\杭凡例_覆天_切有.jpg" />
+    <Content Include="Resources\杭凡例_覆天_切無.jpg" />
+    <Content Include="YMS_gantry.addin" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NLog.config" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx" />
+    <EmbeddedResource Include="UI\FrmAllPutKoudaiFlat.resx">
+      <DependentUpon>FrmAllPutKoudaiFlat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmCreateBraceAndJoint.resx">
+      <DependentUpon>FrmCreateBraceAndJoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmCreateSlope.resx">
+      <DependentUpon>FrmCreateSlope.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmEditLengthChange.resx">
+      <DependentUpon>FrmEditLengthChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmEditLocationChange.resx">
+      <DependentUpon>FrmEditLocationChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmEditSizeList.resx">
+      <DependentUpon>FrmEditSizeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmErrorInformation.resx">
+      <DependentUpon>FrmErrorInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmGrouping.resx">
+      <DependentUpon>FrmGrouping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPreviews.resx">
+      <DependentUpon>FrmPreviews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPreviewSlope.resx">
+      <DependentUpon>FrmPreviewSlope.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutFukkouban.resx">
+      <DependentUpon>FrmPutFukkouban.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutFukkougeta.resx">
+      <DependentUpon>FrmPutFukkougeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutHorizontalBrace.resx">
+      <DependentUpon>FrmPutHorizontalBrace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutHorizontalTsunagi.resx">
+      <DependentUpon>FrmPutHorizontalTsunagi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutHoudue.resx">
+      <DependentUpon>FrmPutHoudue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutJifukuFukkoubanZuredomezai.resx">
+      <DependentUpon>FrmPutJifukuFukkoubanZuredomezai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutKoubanzai.resx">
+      <DependentUpon>FrmPutKoubanzai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutKui.resx">
+      <DependentUpon>FrmPutKui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutNedaShugeta.resx">
+      <DependentUpon>FrmPutNedaShugeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutOhbikiKetauke.resx">
+      <DependentUpon>FrmPutOhbikiKetauke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutShichu.resx">
+      <DependentUpon>FrmPutShichu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutShikigeta.resx">
+      <DependentUpon>FrmPutShikigeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutSuchifuna.resx">
+      <DependentUpon>FrmPutSuchifuna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutTaikeikou.resx">
+      <DependentUpon>FrmPutTaikeikou.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutTakasaChouseiPlateChouseizai.resx">
+      <DependentUpon>FrmPutTakasaChouseiPlateChouseizai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutTeiketsuHojyozai.resx">
+      <DependentUpon>FrmPutTeiketsuHojyozai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutTesuriTesuriShichu.resx">
+      <DependentUpon>FrmPutTesuriTesuriShichu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmPutVerticalBrace.resx">
+      <DependentUpon>FrmPutVerticalBrace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmSonotaKanshouCheck.resx">
+      <DependentUpon>FrmSonotaKanshouCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmWaritsukeElement.resx">
+      <DependentUpon>FrmWaritsukeElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmWaritsukeYesNo.resx">
+      <DependentUpon>FrmWaritsukeYesNo.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GeometoryUtil\Geometory.csproj">
+      <Project>{3986d4e6-1f1f-4a0b-9a65-334593ca501a}</Project>
+      <Name>Geometory</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\RevitUtil\RevitUtil.csproj">
+      <Project>{6a3736f4-9ae1-4b60-a112-eed65911698d}</Project>
+      <Name>RevitUtil</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\YMS\YMS.csproj">
+      <Project>{1015e180-7c62-41c6-b55c-7633c2e4fcb9}</Project>
+      <Name>YMS</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if exist "$(AppData)\Autodesk\REVIT\Addins\2023" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2023"
+if exist "$(AppData)\Autodesk\REVIT\Addins\2023" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2023"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="AfterClean">
+    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\2022\YMS_gantry.addin" />
+    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\2022\YMS_gantry.dll" />
+  </Target>
+</Project>

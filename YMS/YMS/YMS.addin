@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Application YMS</Name>
+    <Assembly>YMS.dll</Assembly>
+    <FullClassName>YMS.App</FullClassName>
+    <ClientId>5e4a36e3-a0c3-4256-ada0-7f4c1f1dc714</ClientId>
+    <VendorId>Fresco</VendorId>
+    <VendorDescription></VendorDescription>
+  </AddIn>
+</RevitAddIns>

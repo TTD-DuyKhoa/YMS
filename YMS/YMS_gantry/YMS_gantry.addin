@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Application YMS_gantry</Name>
+    <Assembly>YMS_gantry.dll</Assembly>
+    <FullClassName>YMS_gantry.App</FullClassName>
+    <ClientId>ffe69960-618e-434e-bc81-938b606e7205</ClientId>
+    <VendorId>Fresco</VendorId>
+    <VendorDescription></VendorDescription>
+  </AddIn>
+</RevitAddIns>
