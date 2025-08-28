@@ -5,10 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule2022.csproj|d:\\ndk\\05.yms\u7A4D\u307F\u6B8B\u3057\\yms\\yms\\yms_schedule\\boltestimation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule2022.csproj|solutionrelative:yms_schedule\\boltestimation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7AEA52F0-69DB-40EC-BAFA-4B1788681CBE}|YMS_gantry\\YMS_Gantry2022.csproj|d:\\ndk\\05.yms\u7A4D\u307F\u6B8B\u3057\\yms\\yms\\yms_gantry\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7AEA52F0-69DB-40EC-BAFA-4B1788681CBE}|YMS_gantry\\YMS_Gantry2022.csproj|solutionrelative:yms_gantry\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -40,22 +36,9 @@
               "RelativeDocumentMoniker": "YMS_Schedule\\BoltEstimation.cs",
               "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\BoltEstimation.cs",
               "RelativeToolTip": "YMS_Schedule\\BoltEstimation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABkAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-26T04:17:08.436Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "App.cs",
-              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_gantry\\App.cs",
-              "RelativeDocumentMoniker": "YMS_gantry\\App.cs",
-              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_gantry\\App.cs",
-              "RelativeToolTip": "YMS_gantry\\App.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T10:05:27.673Z",
               "EditorCaption": ""
             }
           ]
