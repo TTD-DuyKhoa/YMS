@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <Import Project="$(ProjectDir)..\env.prop"/>
+  <Import Project="$(ProjectDir)..\env.prop" />
   <PropertyGroup>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
       None
@@ -19,6 +19,22 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug 2024|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug 2024\</OutputPath>
+    <DefineConstants>;TRACE;DEBUG;REVIT2023</DefineConstants>
+    <DebugType>portable</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug 2024|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug 2024\</OutputPath>
+    <DefineConstants>;TRACE;DEBUG;REVIT2023</DefineConstants>
+    <DebugType>portable</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="RevitAPI">
       <HintPath>$(RevitAPI)</HintPath>
@@ -32,51 +48,13 @@
       <HintPath>$(AdWindows)</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="YMS">
+      <HintPath>..\YMS\bin\Debug\$(RevitVersion)\YMS.dll</HintPath>
+    </Reference>
+    <Reference Include="YMS_gantry">
+      <HintPath>..\YMS_gantry\bin\Debug\$(RevitVersion)\YMS_gantry.dll</HintPath>
+    </Reference>
   </ItemGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug 2022|x64' ">
-    <OutputPath>bin\x64\Debug 2022\</OutputPath>
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug 2023|AnyCPU' ">
-    <OutputPath>bin\Debug 203\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug 2023|x64' ">
-    <OutputPath>bin\x64\Debug 203\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug 2024|AnyCPU' ">
-    <OutputPath>bin\Debug 204\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug 2024|x64' ">
-    <OutputPath>bin\x64\Debug 204\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 2022|AnyCPU'">
-    <OutputPath>bin\Release 2022\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 2022|x64'">
-    <OutputPath>bin\x64\Release 2022\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 2023|AnyCPU'">
-    <OutputPath>bin\Release 2023\</OutputPath>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 2023|x64'">
-    <OutputPath>bin\x64\Release 2023\</OutputPath>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 2024|AnyCPU'">
-    <OutputPath>bin\Release 2024\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 2024|x64'">
-    <OutputPath>bin\x64\Release 2024\</OutputPath>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
@@ -88,16 +66,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="YMS, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\YMS\bin\Debug\YMS.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="YMS_gantry, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\YMS_gantry\bin\Debug\YMS_gantry.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
@@ -139,8 +107,13 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)"
-if exist "$(AppData)\Autodesk\REVIT\Addins\2023" $(RevitVersion) "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)"</PostBuildEvent>
+    <PostBuildEvent>
+		SET pathAddin=$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\
+		if not exist "%pathAddin%" mkdir "%pathAddin%"
+		echo "****************************************** DEBUG ******************************************"
+		if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)" copy "$(SolutionDir)$(AssemblyName)\*.addin" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)"
+		if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\" copy "$(SolutionDir)$(AssemblyName)\$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\"
+	</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -150,7 +123,7 @@ if exist "$(AppData)\Autodesk\REVIT\Addins\2023" $(RevitVersion) "$(ProjectDir)$
   </Target>
   -->
   <Target Name="AfterClean">
-    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS_Schedule.addin" />
-    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS_Schedule.dll" />
+    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\$(AssemblyName).addin" />
+    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\*.dll" />
   </Target>
 </Project>

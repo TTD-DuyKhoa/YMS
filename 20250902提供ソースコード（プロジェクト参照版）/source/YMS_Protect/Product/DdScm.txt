@@ -1,0 +1,29 @@
+===============
+DdScm.exeの解説
+===============
+●目的
+  「DdScm.exe」は、Windows 2000/XP/Server 2003/Vista/Server 2008/7 の環境でProtectKit3を使用可能な状態に設定します。
+
+●インストール
+  Windows 2000/XP/Server 2003/Vista/Server 2008/7 にProtectKit3を組み込んだアプリケーションを
+  インストールする場合、
+      DdScm.exe /i もしくは DdScm.exe /a
+  と実行してください。
+
+●アンインストール
+      DdScm.exe /r
+  と実行してください。
+
+●64ビットWindows(x64) 版について
+  アプリケーションプログラムは32ビット/64ビットに関係なく
+  32ビットWindowsの場合はDdScm32.exeを使用し、64ビットWindowsの場合は
+  DdScm64.exeを使用します。
+
+  DdScm.exe を実行すると、
+    32ビットWindows の場合：DdScm32.exe
+    64ビットWindows の場合：DdScm64.exe
+      が実行されます。
+  作成したアプリケーションプログラムを配布する場合は、
+  配布先を意識しなくてもよいように、DdScm.exe、DdScm32.exe、
+  DdScm64.exe の3つのファイルを配布するとよいでしょう。
+  （64ビットアプリケーションの場合はDdScm64.exeだけでOKです）

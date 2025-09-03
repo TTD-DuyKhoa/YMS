@@ -310,7 +310,8 @@ namespace YMS_Schedule
 
             string apppath = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string appFol = System.IO.Path.GetDirectoryName(apppath);
-            string folpath = System.IO.Path.Combine(appFol, "YMS_Schedule");
+            //string folpath = System.IO.Path.Combine(appFol, "YMS_Schedule");
+            string folpath = System.IO.Path.Combine(appFol, "数量data");
 
             return folpath;
         }

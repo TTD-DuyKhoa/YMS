@@ -2059,7 +2059,7 @@ namespace YMS
         {
             string res = string.Empty;
             string ymsFolpath = ClsYMSUtil.GetExecutingAssemblyYMSPath();
-            string iconFolderPath = System.IO.Path.Combine(ymsFolpath, "icon");
+            string iconFolderPath = System.IO.Path.Combine(ymsFolpath, "山留data", "icon");
 
             res = System.IO.Path.Combine(iconFolderPath, name);
 

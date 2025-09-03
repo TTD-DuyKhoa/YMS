@@ -24,7 +24,7 @@ namespace YMS_gantry
         {
             string apppath = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string appFol = System.IO.Path.GetDirectoryName(apppath);
-            string symbolFolpath = System.IO.Path.Combine(appFol, "YMS_gantry");
+            string symbolFolpath = System.IO.Path.Combine(appFol, "");
 
             return symbolFolpath;
         }

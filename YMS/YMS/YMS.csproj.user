@@ -4,4 +4,11 @@
     <StartProgram>C:\Program Files\Autodesk\Revit 2018\Revit.exe</StartProgram>
     <StartAction>Program</StartAction>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 2024|x64'">
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug 2023|x64'">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files\Autodesk\Revit 2023\Revit.exe</StartProgram>
+  </PropertyGroup>
 </Project>

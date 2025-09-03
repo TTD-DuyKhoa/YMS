@@ -2,7 +2,7 @@
 <RevitAddIns>
   <AddIn Type="Application">
     <Name>Application YMS_Schedule</Name>
-    <Assembly>YMS_Schedule.dll</Assembly>
+    <Assembly>YMS/YMS_Schedule.dll</Assembly>
     <FullClassName>YMS_Schedule.App</FullClassName>
     <ClientId>d055bc76-d631-4f54-9c7f-813f8856f1a5</ClientId>
     <VendorId>jp.co.fresco</VendorId>

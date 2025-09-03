@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <Import Project="$(ProjectDir)..\env.prop"/>
+  <Import Project="$(ProjectDir)..\env.prop" />
   <PropertyGroup>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
-      None
-    </ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+			None
+		</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
     <TargetFrameworkProfile />
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -16,7 +17,6 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>YMS</RootNamespace>
     <AssemblyName>YMS</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <LangVersion>preview</LangVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,35 +37,11 @@
       <Private>false</Private>
     </Reference>
   </ItemGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug 2022|x64' ">
-    <OutputPath>bin\x64\Debug 2022\</OutputPath>
-    <PlatformTarget>x64</PlatformTarget>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug 2023|x64' ">
-    <OutputPath>bin\x64\Debug 2023\</OutputPath>
-    <PlatformTarget>x64</PlatformTarget>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug 2024|x64' ">
-    <OutputPath>bin\x64\Debug 2024\</OutputPath>
-    <PlatformTarget>x64</PlatformTarget>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release 2022|x64' ">
-    <OutputPath>bin\x64\Debug 2022\</OutputPath>
-    <PlatformTarget>x64</PlatformTarget>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release 2023|x64' ">
-    <OutputPath>bin\x64\Debug 2023\</OutputPath>
-    <PlatformTarget>x64</PlatformTarget>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release 2024|x64' ">
-    <OutputPath>bin\x64\Debug 2024\</OutputPath>
-    <PlatformTarget>x64</PlatformTarget>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  <!-- DebugRevitVersion -->
+  <PropertyGroup>
+    <DebugRevitVersion>$(RevitVersion)</DebugRevitVersion>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(ProgramW6432)\Autodesk\Revit $(RevitVersion)\Revit.exe</StartProgram>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -75,18 +51,21 @@
     <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.5.4.0\lib\net46\NLog.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationCore" />
+    <!--Link library-->
+    <Reference Include="PresentationCore" Condition="!$(Configuration.Contains('2025'))" />
+    <Reference Include="PresentationFramework" Condition="!$(Configuration.Contains('2025'))" />
+    <Reference Include="System" Condition="!$(Configuration.Contains('2025'))" />
+    <Reference Include="System.Windows.Forms" Condition="!$(Configuration.Contains('2025'))" />
+    <Reference Include="System.Xaml" Condition="!$(Configuration.Contains('2025'))" />
+    <Reference Include="WindowsBase" Condition="!$(Configuration.Contains('2025'))" />
     <Reference Include="RevitUtil">
       <HintPath>..\..\UtilDLL\RevitUtil.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
@@ -821,10 +800,15 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\Revit\Addins\$(RevitVersion)"
-copy "$(ProjectDir)bin\debug\*.dll" "$(AppData)\Autodesk\Revit\Addins\$(RevitVersion)"
-copy "$(ProjectDir)bin\debug\RevitUtil.dll" "$(AppData)\Autodesk\Revit\Addins\$(RevitVersion)"</PostBuildEvent>
+  <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
+    <PostBuildEvent>
+			SET pathAddin=$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\
+			if not exist "%pathAddin%" mkdir "%pathAddin%"
+			echo "****************************************** DEBUG ******************************************"
+			if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)" copy "$(SolutionDir)$(AssemblyName)\*.addin" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)"
+			if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\$(AssemblyName)\" copy "$(SolutionDir)$(AssemblyName)\$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\"
+			<!--copy "$(ProjectDir)bin\debug\RevitUtil.dll" "$(AppData)\Autodesk\Revit\Addins\$(RevitVersion)"-->
+		</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -834,7 +818,7 @@ copy "$(ProjectDir)bin\debug\RevitUtil.dll" "$(AppData)\Autodesk\Revit\Addins\$(
   </Target>
   -->
   <Target Name="AfterClean">
-    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS.addin" />
-    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS.dll" />
+    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\$(AssemblyName).addin" />
+    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\$(AssemblyName)\*.dll" />
   </Target>
 </Project>

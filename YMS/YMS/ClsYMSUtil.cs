@@ -35,7 +35,7 @@ namespace YMS
         {
             string apppath = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string appFol = System.IO.Path.GetDirectoryName(apppath);
-            string symbolFolpath = System.IO.Path.Combine(appFol, "YMS");
+            string symbolFolpath = System.IO.Path.Combine(appFol, "");
 
             return symbolFolpath;
         }

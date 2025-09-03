@@ -217,9 +217,10 @@ namespace YMS_gantry
         /// <returns></returns>
         private string GetIconPath(string name, bool png = true)
         {
+            
             string res = string.Empty;
             string ymsGantryDir = PathUtil.GetExecutingAssemblyYMSGantryPath();
-            string iconFolderPath = Path.Combine(ymsGantryDir, "icon");
+            string iconFolderPath = Path.Combine(ymsGantryDir, "構台data", "icon");
 
             res = Path.Combine(iconFolderPath, name);
 

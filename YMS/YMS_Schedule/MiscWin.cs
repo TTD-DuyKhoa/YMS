@@ -10,7 +10,7 @@ namespace YMS_Schedule
 {
     public static class MiscWin
     {
-        [DllImport("kernel32.dll")]
+        [DllImport("kernel32.dll", CharSet = CharSet.Ansi)]
         private static extern int GetPrivateProfileString(string lpApplicationName, string lpKeyName, string lpDefault, StringBuilder lpReturnedstring, int nSize, string lpFileName);
         [DllImport("kernel32.dll")]
         static extern int GetPrivateProfileSectionNames(IntPtr lpszReturnBuffer, uint nSize, string lpFileName);

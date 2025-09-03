@@ -1,0 +1,831 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+      None
+    </ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1015E180-7C62-41C6-B55C-7633C2E4FCB9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YMS</RootNamespace>
+    <AssemblyName>YMS</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin2022\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;BUILD_REVIT2022</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(ProgramW6432)\Autodesk\Revit 2018\Revit.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin2022\Release\</OutputPath>
+    <DefineConstants>TRACE;BUILD_REVIT2022</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(ProgramW6432)\Autodesk\Revit 2018\Revit.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdWindows">
+      <HintPath>C:\Program Files\Autodesk\Revit 2022\AdWindows.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="RevitAPI">
+      <HintPath>C:\Program Files\Autodesk\Revit 2022\RevitAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>C:\Program Files\Autodesk\Revit 2022\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitUtil">
+      <HintPath>..\RevitUtil\bin2022\Release\RevitUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="Application.cs" />
+    <Compile Include="ApplicationEvents.cs" />
+    <Compile Include="ClsCASE.cs" />
+    <Compile Include="ClsCInput.cs" />
+    <Compile Include="ClsCommand2.cs" />
+    <Compile Include="ClsDeclaration.cs" />
+    <Compile Include="ClsGlobal.cs" />
+    <Compile Include="ClsIni.cs" />
+    <Compile Include="ClsJson.cs" />
+    <Compile Include="ClsMiscWin.cs" />
+    <Compile Include="ClsProtect.cs" />
+    <Compile Include="ClsYMSUtil.cs" />
+    <Compile Include="Command\ClsCommandAtamaTsunagi.cs" />
+    <Compile Include="Command\ClsCommandBaseList.cs" />
+    <Compile Include="Command\ClsCommandBracket.cs" />
+    <Compile Include="Command\clsCommandCASESetting.cs" />
+    <Compile Include="Command\ClsCommandChangeKouzaiLength.cs" />
+    <Compile Include="Command\ClsCommandCopyBase.cs" />
+    <Compile Include="Command\ClsCommandCopyKiribari.cs" />
+    <Compile Include="Command\ClsCommandDesumibuHokyouzai.cs" />
+    <Compile Include="Command\ClsCommandHaraokoshiSuberidome.cs" />
+    <Compile Include="Command\ClsCommandJack.cs" />
+    <Compile Include="Command\ClsCommandKiribariTsugiBase.cs" />
+    <Compile Include="Command\ClsCommandHiuchiTsunagizaiBase.cs" />
+    <Compile Include="Command\ClsCommandKiribariTsunagizaiBase.cs" />
+    <Compile Include="Command\ClsCommandKobetsuHaichi.cs" />
+    <Compile Include="Command\ClsCommandKousyabuMawari.cs" />
+    <Compile Include="Command\ClsCommandKouyaita.cs" />
+    <Compile Include="Command\ClsCommandSanbashiKui.cs" />
+    <Compile Include="Command\ClsCommandRenzokukabe.cs" />
+    <Compile Include="Command\ClsCommandSendanBoltHokyouzai.cs" />
+    <Compile Include="Command\ClsCommandStiffener.cs" />
+    <Compile Include="Command\ClsCommandSumibuPiece.cs" />
+    <Compile Include="Command\ClsCommandKiribariUkeBase.cs" />
+    <Compile Include="Command\ClsCommandKiribariHiuchiBase.cs" />
+    <Compile Include="Command\ClsCommandCornerHiuchiBase.cs" />
+    <Compile Include="Command\ClsCommandKariKozai.cs" />
+    <Compile Include="Command\ClsCommandOyakui.cs" />
+    <Compile Include="Command\ClsCommandSanjikuPiece.cs" />
+    <Compile Include="Command\ClsCommandPositionSanjikuPiece.cs" />
+    <Compile Include="Command\ClsCommandSyabariBase.cs" />
+    <Compile Include="Command\ClsCommandSyabariHiuchiBase.cs" />
+    <Compile Include="Command\ClsCommandSyabariUkeBase.cs" />
+    <Compile Include="Command\ClsCommandTanakui.cs" />
+    <Compile Include="Command\ClsCommandVoid.cs" />
+    <Compile Include="Command\ClsCommandWarituke.cs" />
+    <Compile Include="Command\ClsCommandYokoyaita.cs" />
+    <Compile Include="Command\ClsCommandZumenInfo.cs" />
+    <Compile Include="Command\ClsCommandShimetukePiece.cs" />
+    <Compile Include="Command\ClsCommandSyabariTsunagizaiBase.cs" />
+    <Compile Include="DLG\DlgCaseSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCaseSelect.Designer.cs">
+      <DependentUpon>DlgCaseSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSyabariBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSyabariBase.Designer.cs">
+      <DependentUpon>DlgCreateSyabariBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSyabariHiuchiBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSyabariHiuchiBase.Designer.cs">
+      <DependentUpon>DlgCreateSyabariHiuchiBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSyabariPiece.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSyabariPiece.Designer.cs">
+      <DependentUpon>DlgCreateSyabariPiece.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSyabariTsunagizaiBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSyabariTsunagizaiBase.Designer.cs">
+      <DependentUpon>DlgCreateSyabariTsunagizaiBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSyabariUkeBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSyabariUkeBase.Designer.cs">
+      <DependentUpon>DlgCreateSyabariUkeBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateShimetukePiece.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateShimetukePiece.Designer.cs">
+      <DependentUpon>DlgCreateShimetukePiece.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgChangeSanbashikuiKenyoukui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgChangeSanbashikuiKenyoukui.Designer.cs">
+      <DependentUpon>DlgChangeSanbashikuiKenyoukui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateAtamatsunagiHojo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateAtamatsunagiHojo.Designer.cs">
+      <DependentUpon>DlgCreateAtamatsunagiHojo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateAtamatsunagiSyuzai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateAtamatsunagiSyuzai.Designer.cs">
+      <DependentUpon>DlgCreateAtamatsunagiSyuzai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateCornerHiuchiBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateCornerHiuchiBase.Designer.cs">
+      <DependentUpon>DlgCreateCornerHiuchiBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgBaseList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgBaseList.Designer.cs">
+      <DependentUpon>DlgBaseList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKobetsuHaichi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKobetsuHaichi.Designer.cs">
+      <DependentUpon>DlgCreateKobetsuHaichi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSendanBoltHokyozai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSendanBoltHokyozai.Designer.cs">
+      <DependentUpon>DlgCreateSendanBoltHokyozai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgGL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgGL.Designer.cs">
+      <DependentUpon>DlgGL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgJougenNum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgJougenNum.Designer.cs">
+      <DependentUpon>DlgJougenNum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgKobetsuHaichi_Jizai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgKobetsuHaichi_Jizai.Designer.cs">
+      <DependentUpon>DlgKobetsuHaichi_Jizai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgOppKouyaita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgOppKouyaita.Designer.cs">
+      <DependentUpon>DlgOppKouyaita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgTEST.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgTEST.Designer.cs">
+      <DependentUpon>DlgTEST.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgWaritsuke.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgWaritsuke.Designer.cs">
+      <DependentUpon>DlgWaritsuke.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgWaritsukeMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgWaritsukeMode.Designer.cs">
+      <DependentUpon>DlgWaritsukeMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgBaseCopy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgBaseCopy.Designer.cs">
+      <DependentUpon>DlgBaseCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\KarikouzaiSuryo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\KarikouzaiSuryo.Designer.cs">
+      <DependentUpon>KarikouzaiSuryo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\Test_Form 2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\Test_Form 2.Designer.cs">
+      <DependentUpon>Test_Form 2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\Test_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\Test_Form.Designer.cs">
+      <DependentUpon>Test_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JizaiUpdater.cs" />
+    <Compile Include="Master\ClsBracketSizeCsv.cs" />
+    <Compile Include="Master\ClsCoverPlateCSV.cs" />
+    <Compile Include="Master\ClsDanmenHenkaKuiCsv.cs" />
+    <Compile Include="Master\ClsEndPlateCSV.cs" />
+    <Compile Include="Master\ClsHaraokoshiSuberidomeCsv.cs" />
+    <Compile Include="Master\ClsHiuchiCsv.cs" />
+    <Compile Include="Master\ClsKousyabuUnit.cs" />
+    <Compile Include="Master\ClsKouyaitaCsv.cs" />
+    <Compile Include="Master\ClsHBeamCsv.cs" />
+    <Compile Include="Master\ClsNekozai.cs" />
+    <Compile Include="Master\ClsPileTsugiteCsv.cs" />
+    <Compile Include="Master\ClsRailCsv.cs" />
+    <Compile Include="Master\ClsChannelCsv.cs" />
+    <Compile Include="Master\ClsJackCsv.cs" />
+    <Compile Include="Master\ClsAngleCsv.cs" />
+    <Compile Include="Master\ClsBracketCsv.cs" />
+    <Compile Include="Master\ClsRikimanCSV.cs" />
+    <Compile Include="Master\ClsSanjikuPieceCSV.cs" />
+    <Compile Include="Master\ClsSendanBoltHokyouzaiCsv.cs" />
+    <Compile Include="Master\ClsShimetukePieceCsv.cs" />
+    <Compile Include="Master\ClsStiffenerCSV.cs" />
+    <Compile Include="Master\ClsSumibuPieceCsv.cs" />
+    <Compile Include="Master\ClsSupportPieceCsv.cs" />
+    <Compile Include="Master\ClsBoltCsv.cs" />
+    <Compile Include="Master\ClsKouyaitaTsugiteCsv.cs" />
+    <Compile Include="Master\ClsSyabariKouzaiCSV.cs" />
+    <Compile Include="Master\ClsSyabariPieceCSV.cs" />
+    <Compile Include="Master\ClsTopPlateCSV.cs" />
+    <Compile Include="Master\ClsYamadomeCsv.cs" />
+    <Compile Include="Master\ClsBurumanCsv.cs" />
+    <Compile Include="Master\ClsYokoyaitaCSV.cs" />
+    <Compile Include="Parts\ClsAtamaTsunagi.cs" />
+    <Compile Include="Parts\ClsBaseList.cs" />
+    <Compile Include="Parts\ClsBracket.cs" />
+    <Compile Include="Parts\ClsCornerHiuchiBase.cs" />
+    <Compile Include="Parts\ClsCoverPlate.cs" />
+    <Compile Include="Parts\ClsDesumibuHokyouzai.cs" />
+    <Compile Include="Parts\ClsHaraokoshiSuberidome.cs" />
+    <Compile Include="Parts\ClsHojoPiece.cs" />
+    <Compile Include="Parts\ClsJack.cs" />
+    <Compile Include="Parts\ClsJosn.cs" />
+    <Compile Include="Parts\ClsKiribariTsugiBase.cs" />
+    <Compile Include="Parts\ClsKariKouzai.cs" />
+    <Compile Include="Parts\ClsKabeShin.cs" />
+    <Compile Include="Parts\ClsHiuchiTsunagizaiBase.cs" />
+    <Compile Include="Parts\ClsKiribariTsunagizaiBase.cs" />
+    <Compile Include="Parts\ClsKirikaePiece.cs" />
+    <Compile Include="Parts\ClsKousyabuMawari.cs" />
+    <Compile Include="Parts\ClsKouyaita.cs" />
+    <Compile Include="Parts\ClsMegaBeam.cs" />
+    <Compile Include="Parts\ClsSanbashiKui.cs" />
+    <Compile Include="Parts\ClsRenzokukabe.cs" />
+    <Compile Include="Parts\ClsSendanBoltHokyouzai.cs" />
+    <Compile Include="Parts\ClsShimetukePiece.cs" />
+    <Compile Include="Parts\ClsStiffener.cs" />
+    <Compile Include="Parts\ClsSumibuPiece.cs" />
+    <Compile Include="Parts\ClsKiribariUkeBase.cs" />
+    <Compile Include="Parts\ClsKiribariHiuchiBase.cs" />
+    <Compile Include="Parts\ClsOyakui.cs" />
+    <Compile Include="Parts\ClsSanjikuPeace.cs" />
+    <Compile Include="ClsSystemData.cs" />
+    <Compile Include="ClsTest.cs" />
+    <Compile Include="Parts\ClsSyabariBase.cs" />
+    <Compile Include="Parts\ClsSyabariHiuchiBase.cs" />
+    <Compile Include="Parts\ClsSyabariTsunagizaiBase.cs" />
+    <Compile Include="Parts\ClsSyabariUkeBase.cs" />
+    <Compile Include="Parts\ClsTanakui.cs" />
+    <Compile Include="Parts\ClsVoid.cs" />
+    <Compile Include="ClsWaritsuke.cs" />
+    <Compile Include="ClsWorkset.cs" />
+    <Compile Include="Parts\ClsWarituke.cs" />
+    <Compile Include="Parts\ClsYokoyaita.cs" />
+    <Compile Include="Parts\ClsZumenInfo.cs" />
+    <Compile Include="ClsCommand.cs" />
+    <Compile Include="Command\ClsCommandHaraokoshiBase.cs" />
+    <Compile Include="Command\ClsCommandKiribariBase.cs" />
+    <Compile Include="Command\ClsCommandSMW.cs" />
+    <Compile Include="DLG\DlgCASE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCASE.Designer.cs">
+      <DependentUpon>DlgCASE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCASETest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCASETest.Designer.cs">
+      <DependentUpon>DlgCASETest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgChangeLength.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgChangeLength.Designer.cs">
+      <DependentUpon>DlgChangeLength.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateAtamatsunagi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateAtamatsunagi.Designer.cs">
+      <DependentUpon>DlgCreateAtamatsunagi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateBracket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateBracket.Designer.cs">
+      <DependentUpon>DlgCreateBracket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateDesumibuHokyouzai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateDesumibuHokyouzai.Designer.cs">
+      <DependentUpon>DlgCreateDesumibuHokyouzai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateDesumibuHokyozai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateDesumibuHokyozai.Designer.cs">
+      <DependentUpon>DlgCreateDesumibuHokyozai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateHaraokoshisuberidome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateHaraokoshisuberidome.Designer.cs">
+      <DependentUpon>DlgCreateHaraokoshisuberidome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateJack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateJack.Designer.cs">
+      <DependentUpon>DlgCreateJack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKabeShin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKabeShin.Designer.cs">
+      <DependentUpon>DlgCreateKabeShin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKiribariTsugiBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKiribariTsugiBase.Designer.cs">
+      <DependentUpon>DlgCreateKiribariTsugiBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKiribariHiuchiBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKiribariHiuchiBase.Designer.cs">
+      <DependentUpon>DlgCreateKiribariHiuchiBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKiribariShin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKiribariShin.Designer.cs">
+      <DependentUpon>DlgCreateKiribariShin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateHiuchiTsunagizaiBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateHiuchiTsunagizaiBase.Designer.cs">
+      <DependentUpon>DlgCreateHiuchiTsunagizaiBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKiribariUkeBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKiribariUkeBase.Designer.cs">
+      <DependentUpon>DlgCreateKiribariUkeBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKiribariTsunagizaiBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKiribariTsunagizaiBase.Designer.cs">
+      <DependentUpon>DlgCreateKiribariTsunagizaiBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSanbashikuiKenyoukui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSanbashikuiKenyoukui.Designer.cs">
+      <DependentUpon>DlgCreateSanbashikuiKenyoukui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSanjiku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSanjiku.Designer.cs">
+      <DependentUpon>DlgCreateSanjiku.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateStiffener.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateStiffener.Designer.cs">
+      <DependentUpon>DlgCreateStiffener.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSumibuPiece.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSumibuPiece.Designer.cs">
+      <DependentUpon>DlgCreateSumibuPiece.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateYokoyaita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateYokoyaita.Designer.cs">
+      <DependentUpon>DlgCreateYokoyaita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateJyougeHaraokoshiTsunagizai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateJyougeHaraokoshiTsunagizai.Designer.cs">
+      <DependentUpon>DlgCreateJyougeHaraokoshiTsunagizai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateTanakui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateTanakui.Designer.cs">
+      <DependentUpon>DlgCreateTanakui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateHaraokoshiBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateHaraokoshiBase.Designer.cs">
+      <DependentUpon>DlgCreateHaraokoshiBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKiribariBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKiribariBase.Designer.cs">
+      <DependentUpon>DlgCreateKiribariBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSMW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateSMW.Designer.cs">
+      <DependentUpon>DlgCreateSMW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateOyakui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateOyakui.Designer.cs">
+      <DependentUpon>DlgCreateOyakui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateRenzokukabe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateRenzokukabe.Designer.cs">
+      <DependentUpon>DlgCreateRenzokukabe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKouyaita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateKouyaita.Designer.cs">
+      <DependentUpon>DlgCreateKouyaita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\dlgKariHaichi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\dlgKariHaichi.Designer.cs">
+      <DependentUpon>dlgKariHaichi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgWorkSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgWorkSet.Designer.cs">
+      <DependentUpon>DlgWorkSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgZumenInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgZumenInfo.Designer.cs">
+      <DependentUpon>DlgZumenInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DlgCreateVoidFamily.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DlgCreateVoidFamily.Designer.cs">
+      <DependentUpon>DlgCreateVoidFamily.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\ModelessFormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\ModelessFormTest.Designer.cs">
+      <DependentUpon>ModelessFormTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\spForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\spForm.Designer.cs">
+      <DependentUpon>spForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventFactory.cs" />
+    <Compile Include="LineUpdater.cs" />
+    <Compile Include="MonitorFairCommand.cs" />
+    <Compile Include="MonitorFairCommandEnabler.cs" />
+    <Compile Include="Parts\ClsHaraokoshiBase.cs" />
+    <Compile Include="Parts\ClsKiribariBase.cs" />
+    <Compile Include="Parts\ClsSMW.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PutHandlers.cs" />
+    <Compile Include="Request.cs" />
+    <Compile Include="RequestHandler.cs" />
+    <Compile Include="SMatrix3d.cs" />
+    <Compile Include="suryo\ClsSuryo.cs" />
+    <Compile Include="UI\Ribbon.cs" />
+    <Compile Include="UI\Utilities.cs" />
+    <Compile Include="UtilAlgebra.cs" />
+    <Compile Include="WallUpdater.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="shinzai_.bmp" />
+    <None Include="ShinzaiSan1OnChuretsukuiSakusei.bmp" />
+    <None Include="ShinzaiSan2OnChuretsukuiSakusei.bmp" />
+    <None Include="ShinzaiSan3OnChuretsukuiSakusei.bmp" />
+    <None Include="soil_w1.bmp" />
+    <None Include="Resources\kui_Vec.jpg" />
+    <None Include="Resources\kui_Vec.png" />
+    <None Include="Resources\Suberi_R.jpg" />
+    <None Include="Resources\Suberi_L.jpg" />
+    <None Include="Resources\Suberi_R1.jpg" />
+    <None Include="Resources\Suberi_L1.jpg" />
+    <Content Include="YMS.addin" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DLG\DlgCASE.resx">
+      <DependentUpon>DlgCASE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCaseSelect.resx">
+      <DependentUpon>DlgCaseSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCASETest.resx">
+      <DependentUpon>DlgCASETest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgChangeLength.resx">
+      <DependentUpon>DlgChangeLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgChangeSanbashikuiKenyoukui.resx">
+      <DependentUpon>DlgChangeSanbashikuiKenyoukui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateAtamatsunagi.resx">
+      <DependentUpon>DlgCreateAtamatsunagi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateAtamatsunagiHojo.resx">
+      <DependentUpon>DlgCreateAtamatsunagiHojo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateAtamatsunagiSyuzai.resx">
+      <DependentUpon>DlgCreateAtamatsunagiSyuzai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateBracket.resx">
+      <DependentUpon>DlgCreateBracket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateCornerHiuchiBase.resx">
+      <DependentUpon>DlgCreateCornerHiuchiBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateDesumibuHokyouzai.resx">
+      <DependentUpon>DlgCreateDesumibuHokyouzai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateDesumibuHokyozai.resx">
+      <DependentUpon>DlgCreateDesumibuHokyozai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateHaraokoshisuberidome.resx">
+      <DependentUpon>DlgCreateHaraokoshisuberidome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateJack.resx">
+      <DependentUpon>DlgCreateJack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateKabeShin.resx">
+      <DependentUpon>DlgCreateKabeShin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateKiribariTsugiBase.resx">
+      <DependentUpon>DlgCreateKiribariTsugiBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateKiribariHiuchiBase.resx">
+      <DependentUpon>DlgCreateKiribariHiuchiBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateKiribariShin.resx">
+      <DependentUpon>DlgCreateKiribariShin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateHiuchiTsunagizaiBase.resx">
+      <DependentUpon>DlgCreateHiuchiTsunagizaiBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateSyabariBase.resx">
+      <DependentUpon>DlgCreateSyabariBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateSyabariHiuchiBase.resx">
+      <DependentUpon>DlgCreateSyabariHiuchiBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateSyabariPiece.resx">
+      <DependentUpon>DlgCreateSyabariPiece.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateSyabariTsunagizaiBase.resx">
+      <DependentUpon>DlgCreateSyabariTsunagizaiBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateSyabariUkeBase.resx">
+      <DependentUpon>DlgCreateSyabariUkeBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateKiribariUkeBase.resx">
+      <DependentUpon>DlgCreateKiribariUkeBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateKiribariTsunagizaiBase.resx">
+      <DependentUpon>DlgCreateKiribariTsunagizaiBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateKobetsuHaichi.resx">
+      <DependentUpon>DlgCreateKobetsuHaichi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateSanbashikuiKenyoukui.resx">
+      <DependentUpon>DlgCreateSanbashikuiKenyoukui.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateSanjiku.resx">
+      <DependentUpon>DlgCreateSanjiku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateSendanBoltHokyozai.resx">
+      <DependentUpon>DlgCreateSendanBoltHokyozai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateShimetukePiece.resx">
+      <DependentUpon>DlgCreateShimetukePiece.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateStiffener.resx">
+      <DependentUpon>DlgCreateStiffener.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateSumibuPiece.resx">
+      <DependentUpon>DlgCreateSumibuPiece.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateYokoyaita.resx">
+      <DependentUpon>DlgCreateYokoyaita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateJyougeHaraokoshiTsunagizai.resx">
+      <DependentUpon>DlgCreateJyougeHaraokoshiTsunagizai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgGL.resx">
+      <DependentUpon>DlgGL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgJougenNum.resx">
+      <DependentUpon>DlgJougenNum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgKobetsuHaichi_Jizai.resx">
+      <DependentUpon>DlgKobetsuHaichi_Jizai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgOppKouyaita.resx">
+      <DependentUpon>DlgOppKouyaita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateTanakui.resx">
+      <DependentUpon>DlgCreateTanakui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateHaraokoshiBase.resx">
+      <DependentUpon>DlgCreateHaraokoshiBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateKiribariBase.resx">
+      <DependentUpon>DlgCreateKiribariBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateSMW.resx">
+      <DependentUpon>DlgCreateSMW.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateOyakui.resx">
+      <DependentUpon>DlgCreateOyakui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateRenzokukabe.resx">
+      <DependentUpon>DlgCreateRenzokukabe.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateKouyaita.resx">
+      <DependentUpon>DlgCreateKouyaita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\dlgKariHaichi.resx">
+      <DependentUpon>dlgKariHaichi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgTEST.resx">
+      <DependentUpon>DlgTEST.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgWaritsuke.resx">
+      <DependentUpon>DlgWaritsuke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgWaritsukeMode.resx">
+      <DependentUpon>DlgWaritsukeMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgBaseCopy.resx">
+      <DependentUpon>DlgBaseCopy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgWorkSet.resx">
+      <DependentUpon>DlgWorkSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgZumenInfo.resx">
+      <DependentUpon>DlgZumenInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgCreateVoidFamily.resx">
+      <DependentUpon>DlgCreateVoidFamily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\DlgBaseList.resx">
+      <DependentUpon>DlgBaseList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\KarikouzaiSuryo.resx">
+      <DependentUpon>KarikouzaiSuryo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\ModelessFormTest.resx">
+      <DependentUpon>ModelessFormTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\spForm.resx">
+      <DependentUpon>spForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\Test_Form 2.resx">
+      <DependentUpon>Test_Form 2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DLG\Test_Form.resx">
+      <DependentUpon>Test_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RevitUtil\RevitUtil2022.csproj">
+      <Project>{6a3736f4-9ae1-4b60-a112-eed65911698d}</Project>
+      <Name>RevitUtil2022</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\Revit\Addins\2022"
+copy "$(ProjectDir)bin2022\debug\*.dll" "$(AppData)\Autodesk\Revit\Addins\2022"
+copy "$(ProjectDir)bin2022\debug\RevitUtil.dll" "$(AppData)\Autodesk\Revit\Addins\2022"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="AfterClean">
+    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\2018\YMS.addin" />
+    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\2018\YMS.dll" />
+  </Target>
+</Project>
