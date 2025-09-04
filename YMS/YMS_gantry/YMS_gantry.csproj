@@ -425,6 +425,34 @@
     <Content Include="Resources\杭凡例_大下_切無_継無.jpg" />
     <Content Include="Resources\杭凡例_覆天_切有.jpg" />
     <Content Include="Resources\杭凡例_覆天_切無.jpg" />
+    <Content Include="Resources\構台data\icon\10_対傾構.png" />
+    <Content Include="Resources\構台data\icon\11_スチフナー.png" />
+    <Content Include="Resources\構台data\icon\12_調整材.png" />
+    <Content Include="Resources\構台data\icon\13_敷鉄板.png" />
+    <Content Include="Resources\構台data\icon\14_覆工板ズレ止め.png" />
+    <Content Include="Resources\構台data\icon\15_手摺.png" />
+    <Content Include="Resources\構台data\icon\16_水平ブレース.png" />
+    <Content Include="Resources\構台data\icon\17_垂直ブレース.png" />
+    <Content Include="Resources\構台data\icon\18_水平ツナギ.png" />
+    <Content Include="Resources\構台data\icon\19_取付補助材.png" />
+    <Content Include="Resources\構台data\icon\1_フラット.png" />
+    <Content Include="Resources\構台data\icon\20_方杖.png" />
+    <Content Include="Resources\構台data\icon\21_支柱.png" />
+    <Content Include="Resources\構台data\icon\22_構台杭.png" />
+    <Content Include="Resources\構台data\icon\23_サイズ一覧.png" />
+    <Content Include="Resources\構台data\icon\24_位置変更.png" />
+    <Content Include="Resources\構台data\icon\25_長さ変更.png" />
+    <Content Include="Resources\構台data\icon\26_部材割付.png" />
+    <Content Include="Resources\構台data\icon\27_干渉チェック.png" />
+    <Content Include="Resources\構台data\icon\2_スロープ.png" />
+    <Content Include="Resources\構台data\icon\33 個別配置.png" />
+    <Content Include="Resources\構台data\icon\3_ブレース・ツナギ.png" />
+    <Content Include="Resources\構台data\icon\4_グルーピング.png" />
+    <Content Include="Resources\構台data\icon\5_覆工板.png" />
+    <Content Include="Resources\構台data\icon\6_大引.png" />
+    <Content Include="Resources\構台data\icon\7_根太.png" />
+    <Content Include="Resources\構台data\icon\8_覆工桁.png" />
+    <Content Include="Resources\構台data\icon\9_敷桁.png" />
     <Content Include="YMS_gantry.addin" />
   </ItemGroup>
   <ItemGroup>
@@ -536,12 +564,12 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
-			SET pathAddin=$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\
-			if not exist "%pathAddin%" mkdir "%pathAddin%"
-			echo "****************************************** DEBUG ******************************************"
-			if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)" copy "$(SolutionDir)$(AssemblyName)\*.addin" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)"
-			if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\" copy "$(SolutionDir)$(AssemblyName)\$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\"
-		</PostBuildEvent>
+		SET pathAddin=$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\
+		if not exist "%pathAddin%" mkdir "%pathAddin%"
+		echo ****************************************** DEBUG ******************************************
+		if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)" copy "$(SolutionDir)$(AssemblyName)\*.addin" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)"
+		if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\" copy "$(SolutionDir)$(AssemblyName)\$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\"
+	</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -95,6 +95,14 @@
     <Compile Include="YamadomeKoudaiBoltSekisan.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\数量data\0809品名マスタ.csv" />
+    <Content Include="Resources\数量data\icon\Export16.png" />
+    <Content Include="Resources\数量data\icon\Export32.png" />
+    <Content Include="Resources\数量data\icon\Import16.png" />
+    <Content Include="Resources\数量data\icon\Import32.png" />
+    <Content Include="Resources\数量data\YMS_Schedule.ini" />
+    <Content Include="Resources\数量data\YMSダミーファミリi.rfa" />
+    <Content Include="Resources\数量data\共有パラメータサンプル.txt" />
     <Content Include="YMS_Schedule.addin" />
   </ItemGroup>
   <ItemGroup>
@@ -110,7 +118,7 @@
     <PostBuildEvent>
 		SET pathAddin=$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\
 		if not exist "%pathAddin%" mkdir "%pathAddin%"
-		echo "****************************************** DEBUG ******************************************"
+		echo ****************************************** DEBUG ******************************************
 		if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)" copy "$(SolutionDir)$(AssemblyName)\*.addin" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)"
 		if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\" copy "$(SolutionDir)$(AssemblyName)\$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\"
 	</PostBuildEvent>

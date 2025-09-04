@@ -1,78 +1,15 @@
 {
   "version": 3,
   "targets": {
-    ".NETFramework,Version=v4.8": {
-      "YMS/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.8",
-        "compile": {
-          "bin/placeholder/YMS.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/YMS.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.8/win": {
-      "YMS/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.8",
-        "compile": {
-          "bin/placeholder/YMS.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/YMS.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.8/win-arm64": {
-      "YMS/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.8",
-        "compile": {
-          "bin/placeholder/YMS.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/YMS.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.8/win-x64": {
-      "YMS/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.8",
-        "compile": {
-          "bin/placeholder/YMS.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/YMS.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.8/win-x86": {
-      "YMS/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.8",
-        "compile": {
-          "bin/placeholder/YMS.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/YMS.dll": {}
-        }
-      }
-    }
+    ".NETFramework,Version=v4.8": {},
+    ".NETFramework,Version=v4.8/win": {},
+    ".NETFramework,Version=v4.8/win-arm64": {},
+    ".NETFramework,Version=v4.8/win-x64": {},
+    ".NETFramework,Version=v4.8/win-x86": {}
   },
-  "libraries": {
-    "YMS/1.0.0": {
-      "type": "project",
-      "path": "../YMS/YMS.csproj",
-      "msbuildProject": "../YMS/YMS.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETFramework,Version=v4.8": [
-      "YMS >= 1.0.0"
-    ]
+    ".NETFramework,Version=v4.8": []
   },
   "packageFolders": {
     "C:\\Users\\admin\\.nuget\\packages\\": {},
@@ -106,11 +43,7 @@
       "frameworks": {
         "net48": {
           "targetAlias": "net48",
-          "projectReferences": {
-            "D:\\NDK\\05.YMS積み残し\\YMS\\YMS\\YMS\\YMS.csproj": {
-              "projectPath": "D:\\NDK\\05.YMS積み残し\\YMS\\YMS\\YMS\\YMS.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "restoreAuditProperties": {

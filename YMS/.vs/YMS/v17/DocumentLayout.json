@@ -3,26 +3,6 @@
   "WorkspaceRootPath": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule.csproj|d:\\ndk\\05.yms\u7A4D\u307F\u6B8B\u3057\\yms\\yms\\yms_schedule\\miscwin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule.csproj|solutionrelative:yms_schedule\\miscwin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule.csproj|d:\\ndk\\05.yms\u7A4D\u307F\u6B8B\u3057\\yms\\yms\\yms_schedule\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule.csproj|solutionrelative:yms_schedule\\app.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule.csproj|d:\\ndk\\05.yms\u7A4D\u307F\u6B8B\u3057\\yms\\yms\\yms_schedule\\env.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule.csproj|solutionrelative:yms_schedule\\env.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule.csproj|d:\\ndk\\05.yms\u7A4D\u307F\u6B8B\u3057\\yms\\yms\\yms_schedule\\readfromgantryproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule.csproj|solutionrelative:yms_schedule\\readfromgantryproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule.csproj|d:\\ndk\\05.yms\u7A4D\u307F\u6B8B\u3057\\yms\\yms\\yms_schedule\\boltestimation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{077B852D-554C-475B-A87E-0FE36B14F9F9}|YMS_Schedule\\YMS_Schedule.csproj|solutionrelative:yms_schedule\\boltestimation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7AEA52F0-69DB-40EC-BAFA-4B1788681CBE}|YMS_gantry\\YMS_Gantry.csproj|d:\\ndk\\05.yms\u7A4D\u307F\u6B8B\u3057\\yms\\yms\\yms_gantry\\command.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7AEA52F0-69DB-40EC-BAFA-4B1788681CBE}|YMS_gantry\\YMS_Gantry.csproj|solutionrelative:yms_gantry\\command.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -34,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,80 +26,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ReadFromGantryProducts.cs",
-              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\ReadFromGantryProducts.cs",
-              "RelativeDocumentMoniker": "YMS_Schedule\\ReadFromGantryProducts.cs",
-              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\ReadFromGantryProducts.cs",
-              "RelativeToolTip": "YMS_Schedule\\ReadFromGantryProducts.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T10:48:48.764Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BoltEstimation.cs",
-              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\BoltEstimation.cs",
-              "RelativeDocumentMoniker": "YMS_Schedule\\BoltEstimation.cs",
-              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\BoltEstimation.cs",
-              "RelativeToolTip": "YMS_Schedule\\BoltEstimation.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAmwBMAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T10:48:46.302Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Command.cs",
               "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_gantry\\Command.cs",
               "RelativeDocumentMoniker": "YMS_gantry\\Command.cs",
               "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_gantry\\Command.cs",
               "RelativeToolTip": "YMS_gantry\\Command.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAmwBwAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAEwBwAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T10:48:43.451Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Env.cs",
-              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\Env.cs",
-              "RelativeDocumentMoniker": "YMS_Schedule\\Env.cs",
-              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\Env.cs",
-              "RelativeToolTip": "YMS_Schedule\\Env.cs",
-              "ViewState": "AgIAAEQBAAAAAAAAAADwv1QBAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T10:41:54.949Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MiscWin.cs",
-              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\MiscWin.cs",
-              "RelativeDocumentMoniker": "YMS_Schedule\\MiscWin.cs",
-              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\MiscWin.cs",
-              "RelativeToolTip": "YMS_Schedule\\MiscWin.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB8AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T09:57:02.238Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "App.cs",
-              "DocumentMoniker": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\App.cs",
-              "RelativeDocumentMoniker": "YMS_Schedule\\App.cs",
-              "ToolTip": "D:\\NDK\\05.YMS\u7A4D\u307F\u6B8B\u3057\\YMS\\YMS\\YMS_Schedule\\App.cs",
-              "RelativeToolTip": "YMS_Schedule\\App.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T09:08:43.132Z",
+              "WhenOpened": "2025-09-04T01:58:39.617Z",
               "EditorCaption": ""
             }
           ]
