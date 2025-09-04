@@ -10,7 +10,7 @@ namespace YMS_Schedule
 {
   public static class MiscWin
   {
-    #region MyRegion
+    #region Convert JPN
 
     private static Encoding DetectEncoding( string path )
     {
@@ -30,7 +30,7 @@ namespace YMS_Schedule
     private static extern int GetPrivateProfileString( string lpApplicationName, string lpKeyName, string lpDefault,
       StringBuilder lpReturnedstring, int nSize, string lpFileName ) ;
 
-    [DllImport( "kernel32.dll" )]
+    [DllImport( "kernel32.dll",  CharSet = CharSet.Unicode, SetLastError = true )]
     static extern int GetPrivateProfileSectionNames( IntPtr lpszReturnBuffer, uint nSize, string lpFileName ) ;
 
     [DllImport( "KERNEL32.DLL", EntryPoint = "GetPrivateProfileStringA" )]
@@ -39,12 +39,16 @@ namespace YMS_Schedule
 
     public static string GetIniValue( string path, string section, string key, string dflt = "" )
     {
+      #region convert Uni
+
       var enc = DetectEncoding( path ) ;
       var text = File.ReadAllText( path, enc ) ;
       var tmp = Path.Combine( Path.GetTempPath(), $"ini_utf16_{Path.GetFileName( path )}_{Guid.NewGuid():N}.ini" ) ;
       File.WriteAllText( tmp, text, Encoding.Unicode ) ;
+
+      #endregion
       StringBuilder sb = new StringBuilder( 4096 ) ;
-      GetPrivateProfileString( section, key, dflt, sb, sb.Capacity, path ) ;
+      GetPrivateProfileString( section, key, dflt, sb, sb.Capacity, tmp ) ;
       string res = sb.ToString() ;
       return string.IsNullOrEmpty( res ) ? dflt : res ;
     }
@@ -54,13 +58,23 @@ namespace YMS_Schedule
       List<string> res = new List<string>() ;
 
       if ( File.Exists( path ) ) {
+        
+        #region ConvertUni
+
+        var enc = DetectEncoding( path ) ;
+        var text = File.ReadAllText( path, enc ) ;
+        var tmp = Path.Combine( Path.GetTempPath(), $"ini_utf16_{Path.GetFileName( path )}_{Guid.NewGuid():N}.ini" ) ;
+        File.WriteAllText( tmp, text, Encoding.Unicode ) ;
+
+        #endregion
         IntPtr ptr = Marshal.StringToHGlobalAnsi( new String( '\0', 1024 ) ) ;
-        int length = GetPrivateProfileSectionNames( ptr, 1024, path ) ;
+        int length = GetPrivateProfileSectionNames( ptr, 1024, tmp ) ;
 
         if ( 0 < length ) {
-          String result = Marshal.PtrToStringAnsi( ptr, length ) ;
-
-          Array.ForEach<String>( result.Split( '\0' ), s => res.Add( s ) ) ;
+          // string result = Marshal.PtrToStringAnsi( ptr, length ) ;
+          string result = Marshal.PtrToStringUni( ptr, length ) ;
+          string[] sections = result.Split( '\0') ;
+          Array.ForEach<String>( result.Split( '\0'), s => res.Add( s ) ) ;
         }
 
         Marshal.FreeHGlobal( ptr ) ;
