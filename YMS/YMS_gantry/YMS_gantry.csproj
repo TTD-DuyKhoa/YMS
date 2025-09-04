@@ -562,15 +562,20 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-		SET pathAddin=$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\
-		if not exist "%pathAddin%" mkdir "%pathAddin%"
-		echo ****************************************** DEBUG ******************************************
-		if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)" copy "$(SolutionDir)$(AssemblyName)\*.addin" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)"
-		if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\" copy "$(SolutionDir)$(AssemblyName)\$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\"
-	</PostBuildEvent>
-  </PropertyGroup>
+<!--  <PropertyGroup>-->
+<!--    <PostBuildEvent>-->
+<!--		SET pathAddin=$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\-->
+<!--		if not exist "%pathAddin%" mkdir "%pathAddin%"-->
+<!--		echo ****************************************** DEBUG ******************************************-->
+<!--		if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)" copy "$(SolutionDir)$(AssemblyName)\*.addin" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)"-->
+<!--		if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\" copy "$(SolutionDir)$(AssemblyName)\$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\"-->
+<!--	</PostBuildEvent>-->
+<!--  </PropertyGroup>-->
+  <Target Name="AfterBuild" AfterTargets="PostBuilEvent" Condition="$(Configuration.Contains('Debug'))" >
+    <Exec Command="xcopy &quot;$(SolutionDir)$(AssemblyName)\*.addin&quot; &quot;$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)&quot; /s /i /y" />
+    <Exec Command="xcopy &quot;$(SolutionDir)$(AssemblyName)\$(OutputPath)*.dll&quot; &quot;$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS&quot; /s /i /y" />
+    <Exec Command="xcopy &quot;$(ProjectDir)\Resources&quot; &quot;$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS&quot; /s /e /h" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

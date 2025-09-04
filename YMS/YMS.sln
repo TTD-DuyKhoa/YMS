@@ -12,6 +12,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YMS_Schedule", "YMS_Schedul
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YMS_Gantry", "YMS_gantry\YMS_Gantry.csproj", "{7AEA52F0-69DB-40EC-BAFA-4B1788681CBE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1015E180-7C62-41C6-B55C-7633C2E4FCB9} = {1015E180-7C62-41C6-B55C-7633C2E4FCB9}
+	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "2023_Setup", "Hi-YMS_Setup\Hi-YMS_Setup.vdproj", "{06277F51-879F-4814-A851-FC5F859674DA}"
 EndProject
