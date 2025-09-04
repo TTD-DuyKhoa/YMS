@@ -10,17 +10,17 @@ namespace YMS_Schedule
 {
     public static class MiscWin
     {
-        [DllImport("kernel32.dll", CharSet = CharSet.Ansi)]
+        [DllImport("kernel32.dll",  CharSet = CharSet.Unicode)]
         private static extern int GetPrivateProfileString(string lpApplicationName, string lpKeyName, string lpDefault, StringBuilder lpReturnedstring, int nSize, string lpFileName);
         [DllImport("kernel32.dll")]
         static extern int GetPrivateProfileSectionNames(IntPtr lpszReturnBuffer, uint nSize, string lpFileName);
         [DllImport("KERNEL32.DLL", EntryPoint = "GetPrivateProfileStringA")]
         public static extern uint GetPrivateProfileStringByByteArray(string lpAppName, string lpKeyName, string lpDefault, byte[] lpReturnedString, uint nSize, string lpFileName);
 
-        static public string GetIniValue(string path, string section, string key, string dflt = null)
+        public static string GetIniValue(string path, string section, string key, string dflt = "")
         {
             StringBuilder sb = new StringBuilder(4096);
-            GetPrivateProfileString(section, key, string.Empty, sb, sb.Capacity, path);
+            GetPrivateProfileString(section, key, dflt, sb, sb.Capacity, path);
             string res = sb.ToString();
             return string.IsNullOrEmpty(res) ? dflt : res;
         }

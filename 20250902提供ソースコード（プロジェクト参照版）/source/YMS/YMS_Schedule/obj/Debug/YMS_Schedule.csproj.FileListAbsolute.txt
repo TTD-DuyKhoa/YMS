@@ -1,5 +1,0 @@
-D:\NDK\05.YMS積み残し\YMS\20250902提供ソースコード（プロジェクト参照版）\source\YMS\YMS_Schedule\obj\Debug\YMS_Schedule.csproj.AssemblyReference.cache
-D:\NDK\05.YMS積み残し\YMS\20250902提供ソースコード（プロジェクト参照版）\source\YMS\YMS_Schedule\obj\Debug\YMS_Schedule.FormScheduleFilter.resources
-D:\NDK\05.YMS積み残し\YMS\20250902提供ソースコード（プロジェクト参照版）\source\YMS\YMS_Schedule\obj\Debug\YMS_Schedule.FormSekisanSetting.resources
-D:\NDK\05.YMS積み残し\YMS\20250902提供ソースコード（プロジェクト参照版）\source\YMS\YMS_Schedule\obj\Debug\YMS_Schedule.csproj.GenerateResource.cache
-D:\NDK\05.YMS積み残し\YMS\20250902提供ソースコード（プロジェクト参照版）\source\YMS\YMS_Schedule\obj\Debug\YMS_Schedule.csproj.CoreCompileInputs.cache

@@ -1,0 +1,44 @@
+.git/*
+.vs/*
+.idea/*
+YMS/.idea/*
+load.scr
+.editorconfig
+bin/*
+obj/*
+*.dll
+*.user
+[Bb]in/
+[Oo]bj/
+
+!.lib/*
+
+YMS/bin/*
+YMS/obj/*
+
+YMS_gantry/bin/*
+YMS_gantry/obj/*
+
+YMS_Schedule/bin/*
+YMS_Schedule/obj/*
+
+License/bin/*
+License/obj/*
+
+RenderLicense/bin/*
+RenderLicense/obj/*
+
+# NuGet Packages
+*.nupkg
+# NuGet Symbol Packages
+*.snupkg
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
+/YMS/.vs

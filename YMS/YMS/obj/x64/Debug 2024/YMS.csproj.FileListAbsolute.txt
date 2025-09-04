@@ -4,6 +4,12 @@ D:\NDK\05.YMS積み残し\YMS\YMS\YMS\bin\x64\Debug 2024\Geometory.dll
 D:\NDK\05.YMS積み残し\YMS\YMS\YMS\bin\x64\Debug 2024\NLog.dll
 D:\NDK\05.YMS積み残し\YMS\YMS\YMS\bin\x64\Debug 2024\RevitUtil.dll
 D:\NDK\05.YMS積み残し\YMS\YMS\YMS\bin\x64\Debug 2024\NLog.xml
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS\bin\Debug\2024\YMS.dll
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS\bin\Debug\2024\YMS.pdb
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS\bin\Debug\2024\Geometory.dll
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS\bin\Debug\2024\NLog.dll
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS\bin\Debug\2024\RevitUtil.dll
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS\bin\Debug\2024\NLog.xml
 D:\NDK\05.YMS積み残し\YMS\YMS\YMS\obj\x64\Debug 2024\YMS.csproj.AssemblyReference.cache
 D:\NDK\05.YMS積み残し\YMS\YMS\YMS\obj\x64\Debug 2024\YMS.DLG.DlgCASE.resources
 D:\NDK\05.YMS積み残し\YMS\YMS\YMS\obj\x64\Debug 2024\YMS.DLG.DlgCaseSelect.resources

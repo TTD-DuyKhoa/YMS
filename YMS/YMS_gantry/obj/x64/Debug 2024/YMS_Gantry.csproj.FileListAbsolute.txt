@@ -4,6 +4,15 @@ D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\bin\x64\Debug 204\Geometory.dll
 D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\bin\x64\Debug 204\NLog.dll
 D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\bin\x64\Debug 204\RevitUtil.dll
 D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\bin\x64\Debug 204\NLog.xml
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\bin\Debug\2024\YMS_gantry.dll
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\bin\Debug\2024\YMS_gantry.pdb
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\bin\Debug\2024\Geometory.dll
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\bin\Debug\2024\NLog.dll
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\bin\Debug\2024\RevitUtil.dll
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\bin\Debug\2024\YMS.dll
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\bin\Debug\2024\Newtonsoft.Json.dll
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\bin\Debug\2024\YMS.pdb
+D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\bin\Debug\2024\NLog.xml
 D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\obj\x64\Debug 2024\YMS_Gantry.csproj.AssemblyReference.cache
 D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\obj\x64\Debug 2024\YMS_gantry.Properties.Resources.resources
 D:\NDK\05.YMS積み残し\YMS\YMS\YMS_gantry\obj\x64\Debug 2024\YMS_gantry.UI.FrmAllPutKoudaiFlat.resources
