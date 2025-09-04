@@ -1,44 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System ;
+using System.Collections.Generic ;
+using System.Linq ;
+using System.Text ;
+using System.Threading.Tasks ;
 
 namespace YMS_gantry
 {
-    class SystemData
+  class SystemData
+  {
+    public const string DLL_NAME = "YMS_gantry.dll" ;
+    //public const string FILE_FOLDER_NAME = "YMS_gantry";
+    //public const string CSV_FILE_NAME = "YMS_gantry.csv";
+
+    /// <summary>
+    /// システムが使用するiniファイル等の各ファイルの置き場所を取得
+    /// </summary>
+    /// <returns></returns>
+    /// <remarks>レジストリにiniファイルが書かれている前提</remarks>
+    public static string GetSystemFileFolder()
     {
-        public const string DLL_NAME = "YMS_gantry.dll";
-        //public const string FILE_FOLDER_NAME = "YMS_gantry";
-        //public const string CSV_FILE_NAME = "YMS_gantry.csv";
+      string path = string.Empty ;
+      #if DEBUG
 
-        /// <summary>
-        /// システムが使用するiniファイル等の各ファイルの置き場所を取得
-        /// </summary>
-        /// <returns></returns>
-        /// <remarks>レジストリにiniファイルが書かれている前提</remarks>
-        public static string GetSystemFileFolder()
-        {
-            string path = string.Empty;
-#if DEBUG
-
-            path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-#else
+      path = System.IO.Path.GetDirectoryName( System.Reflection.Assembly.GetExecutingAssembly().Location ) ;
+      #else
            // path = ClsRegistry.GetInstallPath();
-#endif
-            return path;
-
-        }
-
-        /// <summary>
-        /// 実行ファイルのパスを取得
-        /// </summary>
-        /// <returns></returns>
-        public static string GetDLLPath()
-        {
-            string fol = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            return System.IO.Path.Combine(fol, DLL_NAME);
-        }
-
+      #endif
+      return path ;
     }
+
+    /// <summary>
+    /// 実行ファイルのパスを取得
+    /// </summary>
+    /// <returns></returns>
+    public static string GetDLLPath()
+    {
+      string fol = System.IO.Path.GetDirectoryName( System.Reflection.Assembly.GetExecutingAssembly().Location ) ;
+      return System.IO.Path.Combine( fol, DLL_NAME ) ;
+    }
+  }
 }

@@ -1,143 +1,143 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <Import Project="$(ProjectDir)..\env.prop" />
-  <PropertyGroup>
-    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
-      None
-    </ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{077B852D-554C-475B-A87E-0FE36B14F9F9}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YMS_Schedule</RootNamespace>
-    <AssemblyName>YMS_Schedule</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug 2024|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug 2024\</OutputPath>
-    <DefineConstants>;TRACE;DEBUG;REVIT2023</DefineConstants>
-    <DebugType>portable</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug 2024|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug 2024\</OutputPath>
-    <DefineConstants>;TRACE;DEBUG;REVIT2023</DefineConstants>
-    <DebugType>portable</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="RevitAPI">
-      <HintPath>$(RevitAPI)</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="RevitAPIUI">
-      <HintPath>$(RevitAPIUI)</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="AdWindows">
-      <HintPath>$(AdWindows)</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="YMS">
-      <HintPath>..\YMS\bin\Debug\$(RevitVersion)\YMS.dll</HintPath>
-    </Reference>
-    <Reference Include="YMS_gantry">
-      <HintPath>..\YMS_gantry\bin\Debug\$(RevitVersion)\YMS_gantry.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="RevitUtil">
-      <HintPath>..\..\UtilDLL\RevitUtil.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="App.cs" />
-    <Compile Include="BoltEstimation.cs" />
-    <Compile Include="Command.cs" />
-    <Compile Include="DummyFamily.cs" />
-    <Compile Include="Enum.cs" />
-    <Compile Include="Env.cs" />
-    <Compile Include="FormScheduleFilter.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormScheduleFilter.Designer.cs">
-      <DependentUpon>FormScheduleFilter.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSekisanSetting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSekisanSetting.Designer.cs">
-      <DependentUpon>FormSekisanSetting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Misc.cs" />
-    <Compile Include="MiscWin.cs" />
-    <Compile Include="ProductnameMaster.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReadFromGantryProducts.cs" />
-    <Compile Include="Schedule.cs" />
-    <Compile Include="YamadomeKoudaiBoltSekisan.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\数量data\0809品名マスタ.csv" />
-    <Content Include="Resources\数量data\icon\Export16.png" />
-    <Content Include="Resources\数量data\icon\Export32.png" />
-    <Content Include="Resources\数量data\icon\Import16.png" />
-    <Content Include="Resources\数量data\icon\Import32.png" />
-    <Content Include="Resources\数量data\YMS_Schedule.ini" />
-    <Content Include="Resources\数量data\YMSダミーファミリi.rfa" />
-    <Content Include="Resources\数量data\共有パラメータサンプル.txt" />
-    <Content Include="YMS_Schedule.addin" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="FormScheduleFilter.resx">
-      <DependentUpon>FormScheduleFilter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSekisanSetting.resx">
-      <DependentUpon>FormSekisanSetting.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-<!--  <PropertyGroup>-->
-<!--    <PostBuildEvent>-->
-<!--		SET pathAddin=$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\-->
-<!--		if not exist "%pathAddin%" mkdir "%pathAddin%"-->
-<!--		echo ****************************************** DEBUG ******************************************-->
-<!--		if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)" copy "$(SolutionDir)$(AssemblyName)\*.addin" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)"-->
-<!--		if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\" copy "$(SolutionDir)$(AssemblyName)\$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\"-->
-<!--	</PostBuildEvent>-->
-<!--  </PropertyGroup>-->
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+    <Import Project="$(ProjectDir)..\env.prop"/>
+    <PropertyGroup>
+        <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+            None
+        </ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+        <TargetFrameworkProfile/>
+        <LangVersion>preview</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{077B852D-554C-475B-A87E-0FE36B14F9F9}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>YMS_Schedule</RootNamespace>
+        <AssemblyName>YMS_Schedule</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug 2024|AnyCPU'">
+        <DebugSymbols>true</DebugSymbols>
+        <OutputPath>bin\Debug 2024\</OutputPath>
+        <DefineConstants>;TRACE;DEBUG;REVIT2023</DefineConstants>
+        <DebugType>portable</DebugType>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <LangVersion>7.3</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug 2024|x64'">
+        <DebugSymbols>true</DebugSymbols>
+        <OutputPath>bin\x64\Debug 2024\</OutputPath>
+        <DefineConstants>;TRACE;DEBUG;REVIT2023</DefineConstants>
+        <DebugType>portable</DebugType>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="RevitAPI">
+            <HintPath>$(RevitAPI)</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="RevitAPIUI">
+            <HintPath>$(RevitAPIUI)</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="AdWindows">
+            <HintPath>$(AdWindows)</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="YMS">
+            <HintPath>..\YMS\bin\Debug\$(RevitVersion)\YMS.dll</HintPath>
+        </Reference>
+        <Reference Include="YMS_gantry">
+            <HintPath>..\YMS_gantry\bin\Debug\$(RevitVersion)\YMS_gantry.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="Microsoft.VisualBasic"/>
+        <Reference Include="PresentationCore"/>
+        <Reference Include="RevitUtil">
+            <HintPath>..\..\UtilDLL\RevitUtil.dll</HintPath>
+        </Reference>
+        <Reference Include="System"/>
+        <Reference Include="System.Data"/>
+        <Reference Include="System.Drawing"/>
+        <Reference Include="System.Windows.Forms"/>
+        <Reference Include="System.Xml"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="App.cs"/>
+        <Compile Include="BoltEstimation.cs"/>
+        <Compile Include="Command.cs"/>
+        <Compile Include="DummyFamily.cs"/>
+        <Compile Include="Enum.cs"/>
+        <Compile Include="Env.cs"/>
+        <Compile Include="FormScheduleFilter.cs">
+            <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="FormScheduleFilter.Designer.cs">
+            <DependentUpon>FormScheduleFilter.cs</DependentUpon>
+        </Compile>
+        <Compile Include="FormSekisanSetting.cs">
+            <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="FormSekisanSetting.Designer.cs">
+            <DependentUpon>FormSekisanSetting.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Misc.cs"/>
+        <Compile Include="MiscWin.cs"/>
+        <Compile Include="ProductnameMaster.cs"/>
+        <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="ReadFromGantryProducts.cs"/>
+        <Compile Include="Schedule.cs"/>
+        <Compile Include="YamadomeKoudaiBoltSekisan.cs"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="Resources\数量data\0809品名マスタ.csv"/>
+        <Content Include="Resources\数量data\icon\Export16.png"/>
+        <Content Include="Resources\数量data\icon\Export32.png"/>
+        <Content Include="Resources\数量data\icon\Import16.png"/>
+        <Content Include="Resources\数量data\icon\Import32.png"/>
+        <Content Include="Resources\数量data\YMS_Schedule.ini"/>
+        <Content Include="Resources\数量data\YMSダミーファミリi.rfa"/>
+        <Content Include="Resources\数量data\共有パラメータサンプル.txt"/>
+        <Content Include="YMS_Schedule.addin"/>
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="FormScheduleFilter.resx">
+            <DependentUpon>FormScheduleFilter.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="FormSekisanSetting.resx">
+            <DependentUpon>FormSekisanSetting.cs</DependentUpon>
+        </EmbeddedResource>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+    <!--  <PropertyGroup>-->
+    <!--    <PostBuildEvent>-->
+    <!--		SET pathAddin=$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\-->
+    <!--		if not exist "%pathAddin%" mkdir "%pathAddin%"-->
+    <!--		echo ****************************************** DEBUG ******************************************-->
+    <!--		if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)" copy "$(SolutionDir)$(AssemblyName)\*.addin" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)"-->
+    <!--		if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\" copy "$(SolutionDir)$(AssemblyName)\$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\"-->
+    <!--	</PostBuildEvent>-->
+    <!--  </PropertyGroup>-->
 
-  <Target Name="AfterBuild" AfterTargets="PostBuilEvent" Condition="$(Configuration.Contains('Debug'))" >
-    <Exec Command="xcopy &quot;$(SolutionDir)$(AssemblyName)\*.addin&quot; &quot;$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)&quot; /s /i /y" />
-    <Exec Command="xcopy &quot;$(SolutionDir)$(AssemblyName)\$(OutputPath)*.dll&quot; &quot;$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS&quot; /s /i /y" />
-    <Exec Command="xcopy &quot;$(ProjectDir)\Resources&quot; &quot;$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS&quot; /s /e /h" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-  <Target Name="AfterClean">
-    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\$(AssemblyName).addin" />
-    <Delete Files="$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\*.dll" />
-  </Target>
+    <Target Name="AfterBuild" AfterTargets="PostBuilEvent" Condition="$(Configuration.Contains('Debug'))">
+        <Exec Command="xcopy &quot;$(SolutionDir)$(AssemblyName)\*.addin&quot; &quot;$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)&quot; /s /i /y"/>
+        <Exec Command="xcopy &quot;$(SolutionDir)$(AssemblyName)\$(OutputPath)*.dll&quot; &quot;$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS&quot; /s /i /y"/>
+        <Exec Command="xcopy &quot;$(ProjectDir)\Resources&quot; &quot;$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS&quot; /s /e /h"/>
+    </Target>
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+    <Target Name="AfterClean">
+        <Delete Files="$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\$(AssemblyName).addin"/>
+        <Delete Files="$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\*.dll"/>
+    </Target>
 </Project>

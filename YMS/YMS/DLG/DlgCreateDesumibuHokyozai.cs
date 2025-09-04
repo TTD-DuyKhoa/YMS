@@ -1,25 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System ;
+using System.Collections.Generic ;
+using System.ComponentModel ;
+using System.Data ;
+using System.Drawing ;
+using System.Linq ;
+using System.Text ;
+using System.Threading.Tasks ;
+using System.Windows.Forms ;
 
 namespace YMS.DLG
 {
-    public partial class DlgCreateDesumibuHokyozai : Form
+  public partial class DlgCreateDesumibuHokyozai : Form
+  {
+    public DlgCreateDesumibuHokyozai()
     {
-        public DlgCreateDesumibuHokyozai()
-        {
-            InitializeComponent();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+      InitializeComponent() ;
     }
+
+    private void label2_Click( object sender, EventArgs e )
+    {
+    }
+  }
 }

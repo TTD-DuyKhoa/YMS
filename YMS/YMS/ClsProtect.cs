@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System ;
+using System.Collections.Generic ;
+using System.Diagnostics ;
+using System.IO ;
+using System.Linq ;
+using System.Reflection ;
+using System.Text ;
+using System.Threading.Tasks ;
 
 namespace YMS
 {
-    public class ClsProtect
+  public class ClsProtect
+  {
+    public static bool bCheckProtect()
     {
-        public static bool bCheckProtect()
-        {
-#if DEBUG
-            return true;
+      #if DEBUG
+      return true ;
 
-#else
-
+      #else
             try  
               {
                   // 外部の exe ファイルのパスを指定して起動
@@ -52,8 +51,7 @@ namespace YMS
               }
 
             //return true;
-#endif
-
-        }
+      #endif
     }
+  }
 }

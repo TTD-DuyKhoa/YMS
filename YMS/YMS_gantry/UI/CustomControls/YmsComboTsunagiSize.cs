@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System ;
+using System.Collections.Generic ;
+using System.Linq ;
+using System.Text ;
+using System.Threading.Tasks ;
+using System.Windows.Forms ;
 
 namespace YMS_gantry.UI
 {
-    public class YmsComboTsunagiSize : ComboBox
+  public class YmsComboTsunagiSize : ComboBox
+  {
+    public YmsComboTsunagiSize()
     {
-        public YmsComboTsunagiSize()
-        {
-            DropDownStyle = ComboBoxStyle.DropDownList;
-        }
+      DropDownStyle = ComboBoxStyle.DropDownList ;
     }
+  }
 }

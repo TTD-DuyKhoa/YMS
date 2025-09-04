@@ -1,866 +1,828 @@
 #region Namespaces
-using Autodesk.Revit.ApplicationServices;
-using Autodesk.Revit.Attributes;
-using Autodesk.Revit.DB;
-using Autodesk.Revit.DB.Events;
-using Autodesk.Revit.UI;
-using Autodesk.Revit.UI.Selection;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Windows.Forms;
-using YMS_gantry.Command;
-using YMS_gantry.UI;
+
+using Autodesk.Revit.ApplicationServices ;
+using Autodesk.Revit.Attributes ;
+using Autodesk.Revit.DB ;
+using Autodesk.Revit.DB.Events ;
+using Autodesk.Revit.UI ;
+using Autodesk.Revit.UI.Selection ;
+using System ;
+using System.Collections.Generic ;
+using System.Diagnostics ;
+using System.Windows.Forms ;
+using YMS_gantry.Command ;
+using YMS_gantry.UI ;
 
 #endregion
 
 namespace YMS_gantry
 {
-    /// <summary>
-    /// [ˆêŠ‡”z’u] \‘ä(ƒtƒ‰ƒbƒg)”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class AllPutKoudaiFlat : IExternalCommand
+  /// <summary>
+  /// [ï¿½êŠ‡ï¿½zï¿½u] ï¿½\ï¿½ï¿½(ï¿½tï¿½ï¿½ï¿½bï¿½g)ï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class AllPutKoudaiFlat : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
     {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
 
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
 
-            //using (var f = new FrmAllPutKoudaiFlat())
-            //{
-            //    f.ShowDialog();
-            //}
-            CmdCreateKoudaiFlat cmd = new CmdCreateKoudaiFlat(uidoc);
-            cmd.Excute();
+      //using (var f = new FrmAllPutKoudaiFlat())
+      //{
+      //    f.ShowDialog();
+      //}
+      CmdCreateKoudaiFlat cmd = new CmdCreateKoudaiFlat( uidoc ) ;
+      cmd.Excute() ;
 
-            return Result.Succeeded;
+      return Result.Succeeded ;
+    }
+  }
+
+  ///// <summary>
+  ///// [ï¿½êŠ‡ï¿½zï¿½u] ï¿½\ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½)ï¿½zï¿½u
+  ///// </summary>
+  //[Transaction(TransactionMode.Manual)]
+  //public class AllPutKoudaiUnique : IExternalCommand
+  //{
+  //    public Result Execute(ExternalCommandData commandData,
+  //      ref string message, ElementSet elements)
+  //    {
+  //        UIApplication uiapp = commandData.Application;
+  //        UIDocument uidoc = uiapp.ActiveUIDocument;
+
+  //        var result = MessageBox.Show("ï¿½\ï¿½ï¿½ÌVï¿½Kï¿½êŠ‡ï¿½zï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½H", "ï¿½mï¿½F", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+  //        if (result == DialogResult.Yes)
+  //        {
+  //            IList<Element> elementList = uidoc.Selection.PickElementsByRectangle("ï¿½zï¿½uï¿½ÎÛ‚Æ‚È‚ï¿½Oï¿½gï¿½ï¿½ï¿½ï¿½ÍˆÍwï¿½è‚µï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
+  //            if (elementList.Count == 0) return Result.Succeeded;
+
+  //            var basePoint = uidoc.Selection.PickObject(ObjectType.PointOnElement, "ï¿½zï¿½uï¿½ï¿½_ï¿½ï¿½ï¿½wï¿½è‚µï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
+  //            var lengthVector = uidoc.Selection.PickObject(ObjectType.PointOnElement, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒxï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½wï¿½è‚µï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
+  //            var widthVector = uidoc.Selection.PickObject(ObjectType.PointOnElement, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒxï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½wï¿½è‚µï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B");
+  //        }
+
+  //        using (var f = new FrmAllPutKoudaiUnique())
+  //        {
+  //            f.ShowDialog();
+  //        }
+
+  //        return Result.Succeeded;
+  //    }
+  //}
+
+  /// <summary>
+  /// [ï¿½êŠ‡ï¿½zï¿½u] ï¿½Xï¿½ï¿½ï¿½[ï¿½vï¿½ì¬
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class CreateSlope : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      CmdCreateSlope cmd = new CmdCreateSlope( uidoc.Document ) ;
+      cmd.Excute( uidoc ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½êŠ‡ï¿½zï¿½u] ï¿½uï¿½ï¿½ï¿½[ï¿½Xï¿½Eï¿½cï¿½iï¿½Mï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class AllPutBraceTsunagi : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      var cmd = new CmdAllPutBraceTsunagi() ;
+      cmd.Execute( uidoc ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½êŠ‡ï¿½zï¿½u] ï¿½Oï¿½ï¿½ï¿½[ï¿½sï¿½ï¿½ï¿½O
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class Grouping : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      //CmdCreateGrouping cmd = new CmdCreateGrouping(uidoc);
+      //cmd.Excute();
+
+      Application.thisApp.ShowForm_FrmGrouping( uiapp ) ;
+
+      //using (var f = new FrmGrouping(uidoc))
+      //{
+      //    f.ShowDialog();
+      //}
+
+      return Result.Succeeded ;
+    }
+  }
+
+  ///// <summary>
+  ///// [ï¿½Â•Ê”zï¿½u] ï¿½eï¿½Xï¿½gï¿½p ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½Xï¿½gï¿½pï¿½ÌƒRï¿½}ï¿½ï¿½ï¿½h
+  ///// </summary>
+  //[Transaction(TransactionMode.Manual)]
+  //public class PutTest : IExternalCommand
+  //{
+  //    //public Result Execute(ExternalCommandData commandData,
+  //    //  ref string message, ElementSet elements)
+  //    //{
+  //    //    UIApplication uiapp = commandData.Application;
+  //    //    UIDocument uidoc = uiapp.ActiveUIDocument;
+  //    //    MessageBox.Show("ï¿½eï¿½Xï¿½gï¿½zï¿½u");
+  //    //    return Result.Succeeded;
+  //    //}
+  //    public Result Execute(
+  //     ExternalCommandData commandData,
+  //     ref string message,
+  //     ElementSet elements)
+  //    {
+  //        UIApplication uiapp = commandData.Application;
+  //        UIDocument uidoc = uiapp.ActiveUIDocument;
+  //        Autodesk.Revit.ApplicationServices.Application app = uiapp.Application;
+  //        Document doc = uidoc.Document;
+
+  //        return GantryUtil.CreateRubberLine(uidoc);
+  //    }
+  //}
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½ï¿½ï¿½Hï¿½Â”zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutFukkouban : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      ////ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      //if (!YMS.ClsProtect.bCheckProtect())
+      //{
+      //    return Result.Failed;
+      //}
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      ////CmdCreateFukkouban cmd = new CmdCreateFukkouban(uidoc.Document);
+      ////cmd.Excute(uidoc);
+      //////using (var f = new FrmPutFukkouban(uiapp))
+      //////{
+      //////    if(f.ShowDialog()==DialogResult.OK)
+      //////    {
+      //////        Fukkouban.CreateFukkoudan(uiapp, uiapp.ActiveUIDocument.Document,"SS400", DefineUtil.eFukkoubanType.TwoM, true);
+      //////    }
+      //////}
+      /////
+
+      Application.thisApp.ShowForm_FrmPutFukkouban( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutOobikiKetauke : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+      //CmdCreateOhbiki cmd = new CmdCreateOhbiki(uidoc);
+      //cmd.Excute();
+      Application.thisApp.ShowForm_FrmPutOhbikiKetauke( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½ï¿½ï¿½ï¿½(ï¿½åŒ…)ï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutNedaShugeta : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      //CmdCreateNeda cmd = new CmdCreateNeda(uidoc);
+      //cmd.Excute();
+      Application.thisApp.ShowForm_FrmPutNedaShugeta( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½ï¿½ï¿½Hï¿½ï¿½ï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutFukkougeta : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      //CmdCreateFukkougeta cmd = new CmdCreateFukkougeta(uidoc);
+      //if (!cmd.Excute())
+      //{
+      //    return Result.Failed;
+      //}
+      Application.thisApp.ShowForm_FrmPutFukkougeta( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½ÎŒXï¿½\ï¿½Eï¿½ÎŒXï¿½\ï¿½ï¿½tï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutTaikeikou : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      //CmdCreateTaikeikou cmd = new CmdCreateTaikeikou(uidoc);
+      //return cmd.Excute();
+      Application.thisApp.ShowForm_FrmPutTaikeikou( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½~ï¿½ï¿½ï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutShikigeta : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+      //CmdCreateShikigeta cmd = new CmdCreateShikigeta(uidoc);
+      //cmd.Excute();
+      Application.thisApp.ShowForm_FrmPutShikigeta( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½Xï¿½`ï¿½tï¿½iï¿½[ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½Eï¿½Xï¿½`ï¿½tï¿½iï¿½[ï¿½Wï¿½ï¿½ï¿½bï¿½Lï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutSuchifuna : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      //CmdCreateStiffener cmd = new CmdCreateStiffener(uidoc);
+      //if (cmd.Excute() != Result.Succeeded)
+      //{
+      //    return Result.Failed;
+      //}
+      Application.thisApp.ShowForm_FrmPutSuchifuna( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½Ş”zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutTakasaChouseiPlate : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      //CmdCreateTakasaChousei cmd = new CmdCreateTakasaChousei(uidoc);
+      //if (cmd.Excute())
+      //{
+      //    return Result.Succeeded;
+      //}
+      //else
+      //{
+      //    return Result.Failed;
+      //}
+      Application.thisApp.ShowForm_FrmPutTakasaChouseiPlateChouseizai( uiapp ) ;
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½|ï¿½ÂŞ”zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutKoubanzai : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      //CmdCreateKouhan cmd = new CmdCreateKouhan(uidoc);
+      //cmd.Excute();
+
+      Application.thisApp.ShowForm_FrmPutKoubanzai( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½nï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½Hï¿½ÂƒYï¿½ï¿½ï¿½~ï¿½ßŞ”zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutJifukuFukkoubanZuredome : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+      //CmdCreateJifukuZuredome cmd = new CmdCreateJifukuZuredome(uidoc);
+      //cmd.Excute();
+      Application.thisApp.ShowForm_FrmPutJifukuFukkoubanZuredomezai( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½è ï¿½Eï¿½è ï¿½xï¿½ï¿½ï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutTesuriTesurishichu : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+      //CmdCreateTesuri cmd = new CmdCreateTesuri(uidoc);
+      //cmd.Excute();
+      Application.thisApp.ShowForm_FrmPutTesuriTesuriShichu( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Xï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutHorizontalBrace : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      //using (var f = new FrmPutHorizontalBrace())
+      //{
+      //    f.ShowDialog();
+      //}
+      Application.thisApp.ShowForm_FrmPutHorizontalBrace( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½[ï¿½Xï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutVerticalBrace : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      //using (var f = new FrmPutVerticalBrace())
+      //{
+      //    f.ShowDialog();
+      //}
+      Application.thisApp.ShowForm_FrmPutVerticalBrace( uiapp ) ;
+
+      //Reference ref= uidoc.Selection.PickObject(ObjectType.Face, "ï¿½Ê‚ï¿½Iï¿½ï¿½");
+
+      //GantoryUtil.CreateReferencePlaneFromFace();
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½ï¿½ï¿½ï¿½ï¿½â•ï¿½Ş”zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutTeiketsuHojyozai : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      //CmdCreateTeiketsuHojo cmd = new CmdCreateTeiketsuHojo(uidoc);
+      //cmd.Excute();
+      Application.thisApp.ShowForm_FrmPutTeiketsuHojyozai( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½ï¿½ï¿½ï¿½ï¿½Â‚È‚ï¿½ï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutHorizontalTsunagi : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      Application.thisApp.ShowForm_FrmPutHorizontalTsunagi( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½ï¿½ï¿½ï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutHoudue : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      //CmdCreateHoudue cmd = new CmdCreateHoudue(uidoc);
+      //cmd.Excute();
+      Application.thisApp.ShowForm_FrmPutHoudue( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½xï¿½ï¿½ï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutShichu : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      //CmdCreatePiller cmd = new CmdCreatePiller(uidoc);
+      //cmd.Excute();
+      Application.thisApp.ShowForm_FrmPutShichu( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½Â•Ê”zï¿½u] ï¿½\ï¿½ï¿½Y(ï¿½xï¿½ï¿½ï¿½Y)ï¿½zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class PutKui : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      //CmdCreatePile cmd = new CmdCreatePile(uidoc);
+      //cmd.Excute();
+      Application.thisApp.ShowForm_FrmPutKui( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½ï¿½ï¿½ŞCï¿½ï¿½] ï¿½Tï¿½Cï¿½Yï¿½ê——
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class EditSizeList : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      try {
+        IList<Element> getElements = uidoc.Selection.PickElementsByRectangle( "ï¿½ÎÛ•ï¿½ï¿½Ş‚ï¿½ï¿½wï¿½è‚µï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B" ) ;
+        List<ElementId> selectedElementIdList = new List<ElementId>() ;
+        foreach ( var element in getElements ) {
+          selectedElementIdList.Add( element.Id ) ;
         }
+
+        Application.thisApp.ShowForm_FrmEditSizeList( uiapp, selectedElementIdList ) ;
+      }
+      catch ( Autodesk.Revit.Exceptions.OperationCanceledException ex ) {
+        // ESCï¿½Lï¿½[ï¿½ï¿½ï¿½É‚ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½B
+      }
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½ï¿½ï¿½ŞCï¿½ï¿½] ï¿½Ê’uï¿½ÏX
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class EditLocationChange : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      try {
+        var selectedElement = uidoc.Selection.PickObject( ObjectType.Element, "ï¿½ÎÛ•ï¿½ï¿½Ş‚ï¿½ï¿½wï¿½è‚µï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B" ) ;
+        var element = uidoc.Document.GetElement( selectedElement.ElementId ) ;
+        Application.thisApp.ShowForm_FrmEditLocationChange( uiapp, element.Id ) ;
+      }
+      catch ( Autodesk.Revit.Exceptions.OperationCanceledException ex ) {
+        // ESCï¿½Lï¿½[ï¿½ï¿½ï¿½É‚ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½B
+      }
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½ï¿½ï¿½ŞCï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½ï¿½ÏX
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class EditLengthChange : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      try {
+        IList<Element> getElements = uidoc.Selection.PickElementsByRectangle( "ï¿½ÎÛ•ï¿½ï¿½Ş‚ï¿½ï¿½wï¿½è‚µï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B" ) ;
+        List<ElementId> selectedElementIdList = new List<ElementId>() ;
+        foreach ( var element in getElements ) {
+          selectedElementIdList.Add( element.Id ) ;
+        }
+
+        Application.thisApp.ShowForm_FrmEditLengthChange( uiapp, selectedElementIdList ) ;
+      }
+      catch ( Autodesk.Revit.Exceptions.OperationCanceledException ex ) {
+        // ESCï¿½Lï¿½[ï¿½ï¿½ï¿½É‚ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½B
+      }
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½ï¿½ï¿½t] ï¿½ï¿½ï¿½ŞŠï¿½ï¿½t
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class WaritsukeElement : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      CmdWaritsuke cmd = new CmdWaritsuke( uidoc ) ;
+      cmd.Excute() ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½ï¿½ï¿½Ì‘ï¿½] ï¿½ï¿½ï¿½Âƒ`ï¿½Fï¿½bï¿½N
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class SonotaKanshouCheck : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      //ï¿½vï¿½ï¿½ï¿½eï¿½Nï¿½gï¿½Lï¿½bï¿½gï¿½pï¿½ï¿½ï¿½ï¿½
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      UIApplication uiapp = commandData.Application ;
+      Application.thisApp.ShowForm_FrmSonotaKanshouCheck( uiapp ) ;
+
+      return Result.Succeeded ;
+    }
+  }
+
+  /// <summary>
+  /// [ï¿½ï¿½ï¿½Ì‘ï¿½] ï¿½Â•Ê”zï¿½u
+  /// </summary>
+  [Transaction( TransactionMode.Manual )]
+  public class KobetsuHaichi : IExternalCommand
+  {
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+
+      if ( ! YMS.ClsProtect.bCheckProtect() ) {
+        return Result.Failed ;
+      }
+
+      YMS.Command.ClsCommandKobetsuHaichi.CommandKobetsuHaichi( uiapp, false ) ;
+
+
+      return Result.Succeeded ;
+    }
+  }
+
+  [Transaction( TransactionMode.Manual )]
+  [Regeneration( RegenerationOption.Manual )]
+  class CmdPlaceFamilyInstance : IExternalCommand
+  {
+    List<ElementId> _added_element_ids = new List<ElementId>() ;
+
+    public Result Execute( ExternalCommandData commandData, ref string message, ElementSet elements )
+    {
+      UIApplication uiapp = commandData.Application ;
+      UIDocument uidoc = uiapp.ActiveUIDocument ;
+      var app = uiapp.Application ;
+      Document doc = uidoc.Document ;
+      FilteredElementCollector collector = new FilteredElementCollector( doc ) ;
+      collector.OfCategory( BuiltInCategory.OST_Doors ) ;
+      collector.OfClass( typeof( FamilySymbol ) ) ;
+      FamilySymbol symbol = collector.FirstElement() as FamilySymbol ;
+      _added_element_ids.Clear() ;
+      app.DocumentChanged += new EventHandler<DocumentChangedEventArgs>( OnDocumentChanged ) ;
+      uidoc.PromptForFamilyInstancePlacement( symbol ) ;
+      app.DocumentChanged -= new EventHandler<DocumentChangedEventArgs>( OnDocumentChanged ) ;
+      int n = _added_element_ids.Count ;
+      TaskDialog.Show( "Place Family Instance",
+        string.Format( "{0} element{1} added.", n, ( ( 1 == n ) ? "" : "s" ) ) ) ;
+      return Result.Succeeded ;
     }
 
-    ///// <summary>
-    ///// [ˆêŠ‡”z’u] \‘ä(“ÁêŒ`ó)”z’u
-    ///// </summary>
-    //[Transaction(TransactionMode.Manual)]
-    //public class AllPutKoudaiUnique : IExternalCommand
-    //{
-    //    public Result Execute(ExternalCommandData commandData,
-    //      ref string message, ElementSet elements)
-    //    {
-    //        UIApplication uiapp = commandData.Application;
-    //        UIDocument uidoc = uiapp.ActiveUIDocument;
-
-    //        var result = MessageBox.Show("\‘ä‚ÌV‹KˆêŠ‡”z’u‚ğ‚¨‚±‚È‚¢‚Ü‚·‚©H", "Šm”F", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-    //        if (result == DialogResult.Yes)
-    //        {
-    //            IList<Element> elementList = uidoc.Selection.PickElementsByRectangle("”z’u‘ÎÛ‚Æ‚È‚éŠO˜gü‚ğ”ÍˆÍw’è‚µ‚Ä‚­‚¾‚³‚¢B");
-    //            if (elementList.Count == 0) return Result.Succeeded;
-
-    //            var basePoint = uidoc.Selection.PickObject(ObjectType.PointOnElement, "”z’uŠî“_‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B");
-    //            var lengthVector = uidoc.Selection.PickObject(ObjectType.PointOnElement, "‹´²•ûŒü‚ÌƒxƒNƒgƒ‹‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B");
-    //            var widthVector = uidoc.Selection.PickObject(ObjectType.PointOnElement, "•ˆõ•ûŒü‚ÌƒxƒNƒgƒ‹‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B");
-    //        }
-
-    //        using (var f = new FrmAllPutKoudaiUnique())
-    //        {
-    //            f.ShowDialog();
-    //        }
-
-    //        return Result.Succeeded;
-    //    }
-    //}
-
-    /// <summary>
-    /// [ˆêŠ‡”z’u] ƒXƒ[ƒvì¬
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class CreateSlope : IExternalCommand
+    void OnDocumentChanged( object sender, DocumentChangedEventArgs e )
     {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            CmdCreateSlope cmd = new CmdCreateSlope(uidoc.Document);
-            cmd.Excute(uidoc);
-
-            return Result.Succeeded;
-        }
+      _added_element_ids.AddRange( e.GetAddedElementIds() ) ;
     }
-
-    /// <summary>
-    /// [ˆêŠ‡”z’u] ƒuƒŒ[ƒXEƒcƒiƒM”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class AllPutBraceTsunagi : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            var cmd = new CmdAllPutBraceTsunagi();
-            cmd.Execute(uidoc);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ˆêŠ‡”z’u] ƒOƒ‹[ƒsƒ“ƒO
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class Grouping : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            //CmdCreateGrouping cmd = new CmdCreateGrouping(uidoc);
-            //cmd.Excute();
-
-            Application.thisApp.ShowForm_FrmGrouping(uiapp);
-
-            //using (var f = new FrmGrouping(uidoc))
-            //{
-            //    f.ShowDialog();
-            //}
-
-            return Result.Succeeded;
-        }
-    }
-
-    ///// <summary>
-    ///// [ŒÂ•Ê”z’u] ƒeƒXƒg—p ¦À‘•ƒeƒXƒg—p‚ÌƒRƒ}ƒ“ƒh
-    ///// </summary>
-    //[Transaction(TransactionMode.Manual)]
-    //public class PutTest : IExternalCommand
-    //{
-    //    //public Result Execute(ExternalCommandData commandData,
-    //    //  ref string message, ElementSet elements)
-    //    //{
-    //    //    UIApplication uiapp = commandData.Application;
-    //    //    UIDocument uidoc = uiapp.ActiveUIDocument;
-    //    //    MessageBox.Show("ƒeƒXƒg”z’u");
-    //    //    return Result.Succeeded;
-    //    //}
-    //    public Result Execute(
-    //     ExternalCommandData commandData,
-    //     ref string message,
-    //     ElementSet elements)
-    //    {
-    //        UIApplication uiapp = commandData.Application;
-    //        UIDocument uidoc = uiapp.ActiveUIDocument;
-    //        Autodesk.Revit.ApplicationServices.Application app = uiapp.Application;
-    //        Document doc = uidoc.Document;
-
-    //        return GantryUtil.CreateRubberLine(uidoc);
-    //    }
-    //}
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] •¢H”Â”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutFukkouban : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            ////ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            //if (!YMS.ClsProtect.bCheckProtect())
-            //{
-            //    return Result.Failed;
-            //}
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            ////CmdCreateFukkouban cmd = new CmdCreateFukkouban(uidoc.Document);
-            ////cmd.Excute(uidoc);
-            //////using (var f = new FrmPutFukkouban(uiapp))
-            //////{
-            //////    if(f.ShowDialog()==DialogResult.OK)
-            //////    {
-            //////        Fukkouban.CreateFukkoudan(uiapp, uiapp.ActiveUIDocument.Document,"SS400", DefineUtil.eFukkoubanType.TwoM, true);
-            //////    }
-            //////}
-            /////
-
-            Application.thisApp.ShowForm_FrmPutFukkouban(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] ‘åˆø(Œ…ó)”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutOobikiKetauke : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-            //CmdCreateOhbiki cmd = new CmdCreateOhbiki(uidoc);
-            //cmd.Excute();
-            Application.thisApp.ShowForm_FrmPutOhbikiKetauke(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] ª‘¾(åŒ…)”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutNedaShugeta : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            //CmdCreateNeda cmd = new CmdCreateNeda(uidoc);
-            //cmd.Excute();
-            Application.thisApp.ShowForm_FrmPutNedaShugeta(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] •¢HŒ…”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutFukkougeta : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            //CmdCreateFukkougeta cmd = new CmdCreateFukkougeta(uidoc);
-            //if (!cmd.Excute())
-            //{
-            //    return Result.Failed;
-            //}
-            Application.thisApp.ShowForm_FrmPutFukkougeta(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] ‘ÎŒX\E‘ÎŒX\æ•tƒvƒŒ[ƒg”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutTaikeikou : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            //CmdCreateTaikeikou cmd = new CmdCreateTaikeikou(uidoc);
-            //return cmd.Excute();
-            Application.thisApp.ShowForm_FrmPutTaikeikou(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] •~Œ…”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutShikigeta : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-            //CmdCreateShikigeta cmd = new CmdCreateShikigeta(uidoc);
-            //cmd.Excute();
-            Application.thisApp.ShowForm_FrmPutShikigeta(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] ƒXƒ`ƒtƒi[ƒvƒŒ[ƒgEƒXƒ`ƒtƒi[ƒWƒƒƒbƒL”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutSuchifuna : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            //CmdCreateStiffener cmd = new CmdCreateStiffener(uidoc);
-            //if (cmd.Excute() != Result.Succeeded)
-            //{
-            //    return Result.Failed;
-            //}
-            Application.thisApp.ShowForm_FrmPutSuchifuna(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] ‚‚³’²®ƒvƒŒ[ƒgE’²®Ş”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutTakasaChouseiPlate : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            //CmdCreateTakasaChousei cmd = new CmdCreateTakasaChousei(uidoc);
-            //if (cmd.Excute())
-            //{
-            //    return Result.Succeeded;
-            //}
-            //else
-            //{
-            //    return Result.Failed;
-            //}
-            Application.thisApp.ShowForm_FrmPutTakasaChouseiPlateChouseizai(uiapp);
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] |”ÂŞ”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutKoubanzai : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            //CmdCreateKouhan cmd = new CmdCreateKouhan(uidoc);
-            //cmd.Excute();
-
-            Application.thisApp.ShowForm_FrmPutKoubanzai(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] ’n•¢E•¢H”ÂƒYƒŒ~‚ßŞ”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutJifukuFukkoubanZuredome : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-            //CmdCreateJifukuZuredome cmd = new CmdCreateJifukuZuredome(uidoc);
-            //cmd.Excute();
-            Application.thisApp.ShowForm_FrmPutJifukuFukkoubanZuredomezai(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] è Eè x’Œ”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutTesuriTesurishichu : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-            //CmdCreateTesuri cmd = new CmdCreateTesuri(uidoc);
-            //cmd.Excute();
-            Application.thisApp.ShowForm_FrmPutTesuriTesuriShichu(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] …•½ƒuƒŒ[ƒX”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutHorizontalBrace : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            //using (var f = new FrmPutHorizontalBrace())
-            //{
-            //    f.ShowDialog();
-            //}
-            Application.thisApp.ShowForm_FrmPutHorizontalBrace(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] ‚’¼ƒuƒŒ[ƒX”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutVerticalBrace : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            //using (var f = new FrmPutVerticalBrace())
-            //{
-            //    f.ShowDialog();
-            //}
-            Application.thisApp.ShowForm_FrmPutVerticalBrace(uiapp);
-
-            //Reference ref= uidoc.Selection.PickObject(ObjectType.Face, "–Ê‚ğ‘I‘ğ");
-
-            //GantoryUtil.CreateReferencePlaneFromFace();
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] ’÷Œ‹•â•Ş”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutTeiketsuHojyozai : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            //CmdCreateTeiketsuHojo cmd = new CmdCreateTeiketsuHojo(uidoc);
-            //cmd.Excute();
-            Application.thisApp.ShowForm_FrmPutTeiketsuHojyozai(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] …•½‚Â‚È‚¬”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutHorizontalTsunagi : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            Application.thisApp.ShowForm_FrmPutHorizontalTsunagi(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] •ûñ”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutHoudue : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            //CmdCreateHoudue cmd = new CmdCreateHoudue(uidoc);
-            //cmd.Excute();
-            Application.thisApp.ShowForm_FrmPutHoudue(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] x’Œ”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutShichu : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            //CmdCreatePiller cmd = new CmdCreatePiller(uidoc);
-            //cmd.Excute();
-            Application.thisApp.ShowForm_FrmPutShichu(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [ŒÂ•Ê”z’u] \‘äY(xY)”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class PutKui : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            //CmdCreatePile cmd = new CmdCreatePile(uidoc);
-            //cmd.Excute();
-            Application.thisApp.ShowForm_FrmPutKui(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [•”ŞC³] ƒTƒCƒYˆê——
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class EditSizeList : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            try
-            {
-                IList<Element> getElements = uidoc.Selection.PickElementsByRectangle("‘ÎÛ•”Ş‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B");
-                List<ElementId> selectedElementIdList = new List<ElementId>();
-                foreach (var element in getElements)
-                {
-                    selectedElementIdList.Add(element.Id);
-                }
-
-                Application.thisApp.ShowForm_FrmEditSizeList(uiapp, selectedElementIdList);
-            }
-            catch (Autodesk.Revit.Exceptions.OperationCanceledException ex)
-            {
-                // ESCƒL[“™‚É‚æ‚éƒLƒƒƒ“ƒZƒ‹ˆ—‚ª‘–‚Á‚½ê‡‚Í‰½‚à‚¹‚¸‚Éˆ—‚ğI‚¦‚éB
-            }
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [•”ŞC³] ˆÊ’u•ÏX
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class EditLocationChange : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            try
-            {
-                var selectedElement = uidoc.Selection.PickObject(ObjectType.Element, "‘ÎÛ•”Ş‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B");
-                var element = uidoc.Document.GetElement(selectedElement.ElementId);
-                Application.thisApp.ShowForm_FrmEditLocationChange(uiapp, element.Id);
-            }
-            catch (Autodesk.Revit.Exceptions.OperationCanceledException ex)
-            {
-                // ESCƒL[“™‚É‚æ‚éƒLƒƒƒ“ƒZƒ‹ˆ—‚ª‘–‚Á‚½ê‡‚Í‰½‚à‚¹‚¸‚Éˆ—‚ğI‚¦‚éB
-            }
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [•”ŞC³] ’·‚³•ÏX
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class EditLengthChange : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            try
-            {
-                IList<Element> getElements = uidoc.Selection.PickElementsByRectangle("‘ÎÛ•”Ş‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B");
-                List<ElementId> selectedElementIdList = new List<ElementId>();
-                foreach (var element in getElements)
-                {
-                    selectedElementIdList.Add(element.Id);
-                }
-
-                Application.thisApp.ShowForm_FrmEditLengthChange(uiapp, selectedElementIdList);
-            }
-            catch (Autodesk.Revit.Exceptions.OperationCanceledException ex)
-            {
-                // ESCƒL[“™‚É‚æ‚éƒLƒƒƒ“ƒZƒ‹ˆ—‚ª‘–‚Á‚½ê‡‚Í‰½‚à‚¹‚¸‚Éˆ—‚ğI‚¦‚éB
-            }
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [Š„•t] •”ŞŠ„•t
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class WaritsukeElement : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            CmdWaritsuke cmd = new CmdWaritsuke(uidoc);
-            cmd.Excute();
-
-            return Result.Succeeded;
-        }
-    }
-
-    /// <summary>
-    /// [‚»‚Ì‘¼] Š±Âƒ`ƒFƒbƒN
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class SonotaKanshouCheck : IExternalCommand
-    {
-        public Result Execute(ExternalCommandData commandData,
-          ref string message, ElementSet elements)
-        {
-            //ƒvƒƒeƒNƒgƒLƒbƒg—pˆ—
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-            UIApplication uiapp = commandData.Application;
-            Application.thisApp.ShowForm_FrmSonotaKanshouCheck(uiapp);
-
-            return Result.Succeeded;
-        }
-    }
-    /// <summary>
-    /// [‚»‚Ì‘¼] ŒÂ•Ê”z’u
-    /// </summary>
-    [Transaction(TransactionMode.Manual)]
-    public class KobetsuHaichi : IExternalCommand
-    {
-        public Result Execute(
-          ExternalCommandData commandData,
-          ref string message,
-          ElementSet elements)
-        {
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-
-            if (!YMS.ClsProtect.bCheckProtect())
-            {
-                return Result.Failed;
-            }
-
-            YMS.Command.ClsCommandKobetsuHaichi.CommandKobetsuHaichi(uiapp, false);
-
-
-            return Result.Succeeded;
-        }
-    }
-
-    [Transaction(TransactionMode.Manual)]
-    [Regeneration(RegenerationOption.Manual)]
-    class CmdPlaceFamilyInstance : IExternalCommand
-    {
-        List<ElementId> _added_element_ids = new List<ElementId>();
-        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
-        {
-            UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-            var app = uiapp.Application;
-            Document doc = uidoc.Document;
-            FilteredElementCollector collector = new FilteredElementCollector(doc);
-            collector.OfCategory(BuiltInCategory.OST_Doors);
-            collector.OfClass(typeof(FamilySymbol));
-            FamilySymbol symbol = collector.FirstElement() as FamilySymbol;
-            _added_element_ids.Clear();
-            app.DocumentChanged += new EventHandler<DocumentChangedEventArgs>(OnDocumentChanged);
-            uidoc.PromptForFamilyInstancePlacement(symbol);
-            app.DocumentChanged -= new EventHandler<DocumentChangedEventArgs>(OnDocumentChanged);
-            int n = _added_element_ids.Count;
-            TaskDialog.Show("Place Family Instance", string.Format("{0} element{1} added.", n, ((1 == n) ? "" : "s")));
-            return Result.Succeeded;
-        }
-        void OnDocumentChanged(object sender, DocumentChangedEventArgs e)
-        {
-            _added_element_ids.AddRange(e.GetAddedElementIds());
-        }
-    }
-
+  }
 }
