@@ -1,13 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
     <Import Project="$(ProjectDir)..\env.prop"/>
     <PropertyGroup>
         <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
             None
         </ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
-        <TargetFrameworkProfile/>
-        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     </PropertyGroup>
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -935,18 +932,6 @@
     </ItemGroup>
     <ItemGroup/>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
-    <!--  <PropertyGroup Condition="$(Configuration.Contains('Debug'))">-->
-    <!--    <PostBuildEvent>-->
-    <!--			SET pathAddin=$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\-->
-    <!--			if not exist "%pathAddin%" mkdir "%pathAddin%"-->
-    <!--			echo ****************************************** DEBUG ******************************************-->
-    <!--			if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)" copy "$(SolutionDir)$(AssemblyName)\*.addin" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)"-->
-    <!--			if exist "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\$(AssemblyName)\" copy "$(SolutionDir)$(AssemblyName)\$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\YMS\"-->
-    <!--			&lt;!&ndash;copy "$(ProjectDir)bin\debug\RevitUtil.dll" "$(AppData)\Autodesk\Revit\Addins\$(RevitVersion)"&ndash;&gt;-->
-    <!--		</PostBuildEvent>-->
-    <!--  </PropertyGroup>-->
-
-
     <Target Name="AfterBuild" AfterTargets="PostBuilEvent" Condition="$(Configuration.Contains('Debug'))">
         <Exec Command="rmdir /s /q &quot;$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)\&quot;"/>
         <Exec Command="mkdir &quot;$(AppData)\Autodesk\REVIT\Addins\$(RevitVersion)&quot;"/>
