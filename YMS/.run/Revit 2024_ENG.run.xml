@@ -9,6 +9,9 @@
     <option name="RUNTIME_ARGUMENTS" value="" />
     <method v="2">
       <option name="Build Solution" enabled="true" />
+      <option name="Build" default="false" projectName="YMS" projectPath="$PROJECT_DIR$/YMS/YMS.csproj" />
+      <option name="Build" default="false" projectName="YMS_Schedule" projectPath="$PROJECT_DIR$/YMS_Schedule/YMS_Schedule.csproj" />
+      <option name="Build" default="false" projectName="YMS_Gantry" projectPath="$PROJECT_DIR$/YMS_gantry/YMS_Gantry.csproj" />
     </method>
   </configuration>
 </component>
