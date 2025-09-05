@@ -54,8 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtone.ProtectKit.Win.Password">
-      <HintPath>..\protect_Dll\Newtone.ProtectKit.Win.Password.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Users\admin\AppData\Roaming\Autodesk\Revit\Addins\2023\Newtone.ProtectKit.Win.Password.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
